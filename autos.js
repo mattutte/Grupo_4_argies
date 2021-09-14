@@ -4,3 +4,5 @@ let autos = [{marca: 'Ford', modelo: 'Fiesta', precio:150000, km: 200, color: 'A
 module.exports = autos;
 
 console.log("prueba");
+
+console.log("Va queriendo");
