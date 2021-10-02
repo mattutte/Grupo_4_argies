@@ -1,0 +1,19 @@
+{
+  "name": "trab_final",
+  "version": "1.0.0",
+  "description": "Trabajo final de curso",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattutte/Grupo_4_argies.git"
+  },
+  "author": "Leandro Bortoluzzi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mattutte/Grupo_4_argies/issues"
+  },
+  "homepage": "https://github.com/mattutte/Grupo_4_argies#readme"
+}
