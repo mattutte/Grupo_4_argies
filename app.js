@@ -4,10 +4,16 @@ const path = require('path');
 
 app.use(express.static('public'));
 
+app.use(express.urlencoded());
+
 app.get('/', (req, res) => {
     const archivo = path.join(__dirname, './views/home.html')
     res.sendFile(archivo);
 });
+
+app.get('/frame', (req,res) =>{
+    res.sendFile(path.join(__dirname,'/views/frame.html'))
+})
 
 app.get('/signup', (req, res) => {
     const archivo = path.join(__dirname, './views/signup.html')
