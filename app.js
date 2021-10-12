@@ -5,7 +5,7 @@ const path = require('path');
 app.use(express.static('./public'));
 
 app.get('/', (req, res) => {
-    const archivo = path.join(__dirname, './views/home.html')
+    const archivo = path.join(__dirname, './views/product.html')
     res.sendFile(archivo);
 });
 
