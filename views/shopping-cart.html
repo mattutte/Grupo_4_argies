@@ -18,7 +18,68 @@
 
 </head>
 <body>
-    <header>
+    <header class="main-header">
+        
+        <div class="main-header-top-bar">
+            <div class="Covid-Info">
+                <img src="./images/Casaka-small-f-negro.png" class="Covid-19" alt="Covid Info">
+                <p>COVID-19 INFO</p>
+            </div>
+            <form class="search-results" action:"/search" method="POST">   
+                <input class="searchbar" id="searchbar" type="text" placeholder="Busca productos, marcas" > 
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+
+            
+        
+            <div class="dropdown">
+                <button class="dropntn"><img src="./images/bandera-argentina.jpg" class="Bandera-Argentina" alt="Bandera Argentina"></button>
+                <div class="dropdown-content">
+                    <a href="#"><img src="./images/bandera-argentina.jpg" class="Bandera-Argentina" alt="Bandera Argentina"></a>
+                    <a href="#"><img src="./images/bandera-inglaterra.png" class="Bandera-Inglesa" alt="Bandera Inglesa"></a>
+                    <a href="#"><img src="./images/bandera-brasil.png" class="Bandera-Brasil" alt="Bandera Brasilera"></a>
+                    <a href="#"><img src="./images/bandera-china.png" class="Bandera-China" alt="Bandera China"></a>
+                </div>   
+            </div> 
+
+            <nav class="upper-top-menu">
+                <ul>
+                    <li> <a href="#">Sobre nosotros</a></li>
+                    <li> <a href="#">Registrate</a></li>
+                    <li> <a href="#">Sign in</a></li>
+
+                </ul>   
+            </nav> 
+        </div>
+
+        <div class="main-header-bottom-bar">
+            <img src="./images/Logo-horizontal-f-blanco.png" class="logo-horizontal-b" alt="logo horizontal Casaka"> 
+            
+            <div class="burger-menu">
+                <i class="fas fa-bars"> </i>
+            </div>
+
+            <nav class="main-menu">
+                <ul>
+                    <li> <a href="#">Camisetas</a></li>
+                    <li> <a href="#">Clubes</a></li>
+                    <li> <a href="#">Ligas</a></li>
+                    <li> <a href="#">Seleccionados</a></li>
+                    <li> <a href="#">Coleccionables</a></li>
+                    <li> <a href="#">Ofertas</a></li>
+                    <li> <a href="#">Novedades</a></li>
+                </ul>   
+            </nav> 
+
+            <nav class="lower-right-menu">
+                <ul>
+                    <li> <a href="#" alt="Favorites"><i class="fas fa-heart"></i></a></li>
+                    <li> <a href="#" alt="Shopping Cart"><i class="fas fa-shopping-cart"></i></a></li>
+
+                </ul>   
+            </nav>        
+        </div>
+
 
     </header>
 
@@ -33,7 +94,7 @@
             </div>
 
             <div class="Cart-Content">
-                <img src="" alt="item comprado" class="imagen-item">
+                <img src="./images/camiseta1.jpeg" alt="item comprado" class="imagen-item">
                 <div class="detalle-producto">
                     <p class="nombre-producto">Remera ABC</p>
                     <p class="talle">Talla XL</p>
@@ -55,8 +116,8 @@
             </div>
 
             <div class="subtotal">
-                    <p>Subtotal</p>
-                    <p>$1200.00</p>
+                    <p class="subtotal-titulo">Subtotal</p>
+                    <p class="subtotal-precio">$1200.00</p>
             </div>
             
 
@@ -64,24 +125,24 @@
 
         <section class="Summary">
             <h2>Summary</h2>
-            <div class="subtotal">
-                <p>Subtotal</p>
-                <p>$1200.00</p>
+            <div class="subtotal-summary">
+                <h4>Subtotal</h4>
+                <h5>$1200.00</h5>
             </div>
 
             <div class="shipping">
-                <p>Shipping</p>
-                <p>$200.00</p>
+                <h4>Shipping</h4>
+                <h5>$200.00</h5>
             </div>
 
             <div class="taxes">
-                <p>Impuestos</p>
-                <p>$240.70</p>
+                <h4>Impuestos</h4>
+                <h5>$240.70</h5>
             </div>
 
             <div class="total-a-pagar">
-                <p>Total</p>
-                <p>$1440.70</p>
+                <h4>Total</h4>
+                <h5>$1440.70</h5>
             </div>
 
             <form class="submit-purchase" action:"/" method="POST">    
@@ -91,7 +152,73 @@
         </section>
     </main>
 
-    <footer>
+    <footer class="main-footer">
+        
+        
+        
+        <div class="main-footer-top-bar">
+            <img src="./images/Logo-vertical-f-negro.png" class="Logo-vertical-f-negro" alt="Logo Fondo Negro"> 
+            
+            <nav class="Menu-Footer-resumidos">
+                <ul>
+                    <li> <a href="#" class="Titulo-Menu">INFORMACION UTIL</a></li>
+                    <li> <a href="#" class="Titulo-Menu">AYUDA</a></li>
+                    <li> <a href="#" class="Titulo-Menu">CONOCENOS</a></li>
+                </ul>   
+            </nav> 
+            
+            <nav class="Informacion-Util">
+                <ul>
+                    <li> <a href="#" class="Titulo-Menu">INFORMACION UTIL</a></li>
+                    <li> <a href="#">Politicas de Privacidad</a></li>
+                    <li> <a href="#">Medios de Pago</a></li>
+                    <li> <a href="#">Protocolo Covid-19</a></li>
+                    <li> <a href="#">Términos y condiciones</a></li>
+                    <li> <a href="#">Defensa del Consumidor</a></li>
+                </ul>   
+            </nav> 
+    
+            <nav class="Ayuda">
+                <ul>
+                    <li> <a href="#" class="Titulo-Menu">AYUDA</a></li>
+                    <li> <a href="#">Preguntas Frecuentes</a></li>
+                    <li> <a href="#">Sucursales</a></li>
+                    <li> <a href="#">Pagos</a></li>
+                    <li> <a href="#">Entregas</a></li>
+                    <li> <a href="#">Cambios</a></li>
+                </ul>   
+            </nav>
+
+            <nav class="Conocenos">
+                <ul>
+                    <li> <a href="#" class="Titulo-Menu">CONOCENOS</a></li>
+                    <li> <a href="#">Nuestra Historia</a></li>
+                    <li> <a href="#">Trabaja con Nosotros</a></li>
+                    <li> <a href="#">Contáctanos</a></li>
+                    <li> <a href="#"><i class="fab fa-whatsapp"></i>11-5799-0114</a></li>
+                </ul>   
+            </nav>
+
+        </div>
+    
+        <div class="main-footer-bottom-bar">
+            
+            <nav class="redes-sociales">
+                <ul>
+                    <li> <a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li> <a href="#"><i class="fab fa-facebook-square"></i></a></li>
+                    <li> <a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li> <a href="#"><i class="fab fa-youtube"></i></a></li>
+                </ul>   
+            </nav> 
+            <p class="COPYRIGHT">
+                COPYRIGHT © 2021 The Argies INC. ALL RIGHTS RESERVED
+            </p> 
+  
+                    
+        </div>
+
+        
 
     </footer>
 

@@ -6,6 +6,172 @@
     list-style: none;
 }
 
+header {
+    background-color: black;
+    color: #FFFFFF;
+    font-family: Roboto;
+    font-size: 8px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 21px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.main-header-top-bar {
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.Covid-Info{
+    display: flex;
+    flex-direction: row;
+    width: 20%;
+    padding: 2px;
+}
+
+.Covid-Info img{
+    display: flex;
+    flex-direction: row;
+    width: 35%;
+    max-width: 25px;
+    padding: 2px;
+}
+
+.Covid-Info p{
+    font-size: 6px;
+}
+
+.search-results {
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+    font-size: 14px;
+    width: 45%;
+    border: none;
+    border-radius: 3px;
+    color: #666;
+    height: 40px;
+    align-self: center;
+    padding-bottom: 5px;
+    padding-right: 10px;
+    margin: 0px;
+    }
+
+.searchbar {
+    width: 95%;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 10%;
+    align-self: center;
+  }
+
+.dropntn {
+    display: block;
+    width: 24px;
+    height: 20px;
+}
+
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  
+  /* Links inside the dropdown */
+  .dropdown img {
+    width: 20px;
+    display: block;
+    padding-top: 0px;
+    padding-bottom: 2px;
+  }
+  
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {display: block;}
+  
+
+
+.upper-top-menu{
+    display: none;
+    
+}
+
+.main-header-bottom-bar{
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: white;
+    }
+
+.main-header-bottom-bar img {
+    max-width: 90px;
+    max-height: 40px;
+    }
+.burger-menu {
+    width: 10%;
+    background-color: blue;
+}
+
+.main-menu{
+    display: none;
+}
+
+.lower-right-menu{
+    display: flex;
+    flex-direction:row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 40%;
+}
+
+.lower-right-menu ul{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items:flex-end;
+    padding-right: 0px;
+    
+}
+
+.fa-heart {
+    width: 30%;
+    align-content: center;
+    font-size: 15px;
+    padding: 0px 10px;
+}
+
+.fa-shopping-cart {
+    width: 30%;
+    align-content: center;
+    font-size: 15px;
+    padding: 0px 10px;
+}
+
+
 main {
     background-color: white;
     color: black;
@@ -29,10 +195,10 @@ main {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-start;
-    width: 45%;
+    width: 66%;
     padding: 30px 10px;
     padding-left: 30px;
-    border-left: ;
+    border: 40px;
 
 }
 
@@ -47,7 +213,10 @@ main {
     margin-bottom: 2px;
     border-top-color: gray;
     border-bottom-color: gray;
-    width: 100%;
+    width: 95%;
+    margin-top: 2px gray;
+    margin-bottom: 2px gray;
+    
 }
 
 .items-title {
@@ -73,7 +242,7 @@ main {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: 95%;
 }
 
 .Cart-Content img {
@@ -89,18 +258,20 @@ main {
     justify-content: flex-start;
     align-items: center;
     width: 40%;
+    padding: 0px 5px;
 
 }
 
 .precio-producto {
     width: 20%;
-    text-align: center;
     padding: 0px 5px;
+    text-align: center;
 }
 
 .dropdown-unidades {
     width: 20%;
     align-content: center;
+    padding: 0px 5px;
 }
 
 
@@ -109,71 +280,401 @@ main {
     text-align: right;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content:flex-end;
     align-items: center;
+    padding: 10px 0;
+    width: 95%;
+}
+
+.subtotal-titulo{
+    width:80%;
+    padding: 0px 0px;
+    text-align: left;
+}
+
+.subtotal-precio{
+    width: 20%;
+    padding: 0px 5px;
+    text-align: right;
 }
 
 .Summary {
     text-align: right;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    flex-wrap: nowrap;
+    justify-content: space-around;
     align-items: flex-start;
     background-color: gray;
-    width: 45%;
-    padding: 30px 10px;
+    width: 33%;
+    padding: 0px 10px;
+    border: 20px;
 }
 
-.subtotal {
+.subtotal-summary {
     text-align: right;
     display: flex;
     flex-direction:row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-around;
+    
+    width: 95%;
+}
+
+.Summary h4{
+    width:74%;
+    padding: 5px 5px;
+    text-align: left
+}
+
+.Summary h5{
+    width: 26%;
+    font-size: 10px;
+    padding: 5px 5px;
+    text-align: right;
 }
 
 .shipping {
     text-align: right;
     display: flex;
     flex-direction:row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-around;
+    width: 95%;
 }
 
 .taxes {
     text-align: right;
     display: flex;
     flex-direction:row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-around;
+    width: 95%;
 }
 
 .total-a-pagar {
     text-align: right;
     display: flex;
     flex-direction:row;
-    flex-wrap: wrap;
-    justify-content:end;
+    flex-wrap: nowrap;
+    justify-content:space-around;
+    width: 95%;
 }
 
 .submit-purchase {
     display:block;
     text-align: center;
     font-size: 18px;
-    width: 40%;
+    width: 95%;
 
 }
 
-@media (min-width: 481px){
-   
+footer {
+    background-color: black;
+    color: #FFFFFF;
+    font-family: Roboto;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 21px;
+    letter-spacing: 2.25px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    
+    }
+
+footer li a {
+    color: white;
 }
+
+.main-footer-top-bar {
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    align-items: flex-start;
+    border-bottom: 3px;
+    border-bottom-color: white;
+    border-bottom-width: 3px;
+    padding: 5px 20px;
+}
+
+.Logo-vertical-f-negro {
+    width:38%;
+}
+
+.Menu-Footer-resumidos{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items:center;
+    padding: 20px;
+}
+
+.Informacion-Util{
+    display: none;
+}
+
+.Ayuda{
+    display: none;
+}
+
+.Conocenos{
+    display: none;
+}
+
+.Titulo-Menu {
+    font-weight: bold;
+}
+
+.main-footer-bottom-bar {
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-top: white;
+}
+
+.redes-sociales ul{
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    size: 20px;
+}
+
+.redes-sociales ul li{
+    padding: 3px;
+    color: white;
+}
+
+.COPYRIGHT {
+    font-size: 6px;
+    text-align: right;
+    padding-left: 2px;
+
+}
+
+@media (min-width: 501px){
+
+    .Covid-Info{ 
+        width: 20%;
+    }
+
+    .search-results{
+        width: 30%;
+    }
+    
+    .dropdown{
+        width: 5%;
+    }
+
+    .upper-top-menu{
+        display: flex;
+        flex-direction: row;
+        width: 35%;
+        justify-content: space-around;
+        }
+    
+    .upper-top-menu ul{
+        display: flex;
+        flex-direction: row;
+        justify-content:center;
+        align-items: center;
+        color: white;
+    }
+    
+    .upper-top-menu ul li a{
+        text-decoration: none;
+        color: white;
+        justify-content: space-between;
+        padding: 0px 5px;
+    }
+
+    .Logo-vertical-f-negro {
+        width:18%;
+    }
+
+    .Titulo-Menu {
+        text-decoration: underline;
+    }
+
+    .main-header-bottom-bar img {
+        width: 10%;
+        }
+    .burger-menu {
+        display: none;
+    }
+    
+    .main-menu{
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+        align-items: center;
+        width: 65%;
+        padding: 0px 10px;
+    }
+    
+    .lower-right-menu{
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+        align-items: center;
+        width: 15%;
+        padding: 0px 5px;
+    }
+
+    .lower-right-menu ul{
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+        align-items: center;
+    
+    }
+
+
+    .main-header-bottom-bar{
+        size: 12px;
+        background-color: white;
+        display: flex;
+        flex-direction:row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .main-header-bottom-bar img{
+        width: 20%;
+    }
+
+    .main-menu{
+        width: 60%;
+    }
+
+    .main-menu ul{
+        display: flex;
+        flex-direction:row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .lower-right-menu{
+        width: 22%;
+    }
+
+    .lower-right-menu ul{
+        display: flex;
+        flex-direction:row;
+        flex-wrap:nowrap;
+        justify-content: space-between;
+        align-items: center;
+        
+        
+    }
+
+    footer{
+        font-size: 7px;
+    }
+    .Menu-Footer-resumidos {
+        display: none;
+    }
+
+    .Informacion-Util{
+        
+        display: flex;
+        flex-direction:column;
+        justify-content: left;
+        align-items:flex-start;
+    }
+    
+    .Ayuda{
+        
+        display: flex;
+        flex-direction:column;
+        justify-content: left;
+        align-items: flex-start;
+    }
+    
+    .Conocenos{
+        
+        display: flex;
+        flex-direction:column;
+        justify-content: left;
+        align-items: flex-start;
+    }
+
+    .redes-sociales a{
+        font-size: 10px;
+        padding: 5px;
+    }
+
+    .COPYRIGHT{
+        size: 8px;
+        width: 65%;
+        text-align: right;
+        
+    }
+
+    
+}
+
+
 
 @media (min-width: 769px){
 
+    .Logo-vertical-f-negro {
+        width:12%;
+    }
+
+    .main-menu li{
+        font-size: 11px;
+        padding-right: 5px;
+    }
+
+    footer{
+        font-size: 10px;
+    }
+
+    .Informacion-Util a{
+        size: 12px;
+    }
+    
+    .Ayuda a{
+        size: 12px;
+        
+    }
+    
+    .Conocenos a{
+        size: 12px;
+        
+    }
+
+    .redes-sociales a{
+        font-size: 14px;
+        padding: 5px;
+    }
 
 }
 
+
+
 @media (min-width: 1025px){
+
+    .COPYRIGHT{
+        size: 10px;
+    }
+
+}
 
