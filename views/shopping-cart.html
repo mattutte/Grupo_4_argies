@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <title>Cazaka Shopping Cart</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="./css/styles-shopping-cart.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
+    <script src="https://kit.font-awesome.com/e32b1dc814.js" crossorigin="anonymous"></script>
+
+    
+
+</head>
+<body>
+    <header>
+
+    </header>
+
+    <main>
+        <section class="Cart">
+            <h2>Su Carrito:</h2>
+
+            <div class="Titles-Cart">
+                <p class="items-title">Items</p>
+                <p class="precio-title">Precio</p>
+                <p class="cantidad-title">Cantidad</p>
+            </div>
+
+            <div class="Cart-Content">
+                <img src="" alt="item comprado" class="imagen-item">
+                <div class="detalle-producto">
+                    <p class="nombre-producto">Remera ABC</p>
+                    <p class="talle">Talla XL</p>
+                </div>
+                <p class="precio-producto">$120.00</p>
+                <div class="dropdown-unidades">
+                    <label for="unidades"></label>
+                    <select name="unidades" id="unidades">
+
+                    
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>   
+                </div>
+            </div>
+
+            <div class="subtotal">
+                    <p>Subtotal</p>
+                    <p>$1200.00</p>
+            </div>
+            
+
+        </section>
+
+        <section class="Summary">
+            <h2>Summary</h2>
+            <div class="subtotal">
+                <p>Subtotal</p>
+                <p>$1200.00</p>
+            </div>
+
+            <div class="shipping">
+                <p>Shipping</p>
+                <p>$200.00</p>
+            </div>
+
+            <div class="taxes">
+                <p>Impuestos</p>
+                <p>$240.70</p>
+            </div>
+
+            <div class="total-a-pagar">
+                <p>Total</p>
+                <p>$1440.70</p>
+            </div>
+
+            <form class="submit-purchase" action:"/" method="POST">    
+                <button type="submit">Checkout</button>
+            </form>
+
+        </section>
+    </main>
+
+    <footer>
+
+    </footer>
+
+</body>
