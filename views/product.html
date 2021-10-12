@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width">
+            <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+            <title>Cazaka Product Detail</title>
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+            <link href="./css/product.css" rel="stylesheet">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <meta charset="UTF-8">
+
+            <!--Google Fonts-->
+            <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
+            <link href="https://fonts.googleapis.com/css2?family=Hind:wght@300&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+            
+            <script src="https://kit.font-awesome.com/e32b1dc814.js" crossorigin="anonymous"></script>
+        </head>
+
+        <body>
+            <header>
+                <!--Completar con el header que está armando Tomás-->
+            </header>
+
+            <main>
+                <!--Pagina principal: permite configurar el cuerpo central-->
+                <div class="main-container">
+
+                    <!--First row: encabezado del cuerpo principal-->
+                    <div class="row-upper">
+                        <div class="go_back">
+                            <a>
+                                <i class="fas fa-chevron-left"></i>
+                                Volver atrás
+                            </a>
+                        </div>
+                    </div>
+
+                    <!--Middle row: cuerpo principal. Contiene imagen, detalle y canasta del producto-->
+                    <div class="row-middle">
+
+                        <!--Imagen: es un cuadro con todo lo que refiere a imagen del producto-->
+                        <div class="col-imagen">
+                            <div class="product-img-block">
+                                <!--Galeria: imágenes disponibles del producto en formato pequeño-->
+                                <div class="product-img-box">
+                                    <div class="more-views">
+                                        <img id="img-gal-ppal" class="gallery-thumb" src="/images/camiseta3_frente.jpeg">
+                                        <img id="img-gal-back" class="gallery-thumb" src="/images/camiseta3_dorso.jpeg">
+                                        <!--<img id="img-gal-side" class="gallery-thumb" src="/">-->
+                                    </div>
+                                    <div class="product-img">
+                                        <img id="img-ppal" class="mainimg-big" src="/images/camiseta3.jpeg" width="100%">
+                                    </div>
+                                </div>
+
+                                <p class="caption">Pasa el mouse sobre la imagen para ver con más detalle</p>   
+                            </div>
+                        </div>  <!--Col-imagen-->
+                            
+                        <!--Detalle: este cuadro contiene unicamente detalles técnicos del producto-->
+                        <div class="col-detalle">
+
+                            <div class="product-name">
+                                <h1>Nike Youth Soccer Liverpool Home Jersey</h1>
+                                <h3>Camiseta del Liverpool Titular</h3>
+                                <div class="rating-container">
+                                    <div class="rating-box">
+                                        <img src="/images/rating-stars.png" width="100px">
+                                    </div>
+                                    <div class="rating-text">
+                                        <span>25 Calificaciones</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <dl class="product-options">
+                                <dt class="size-name">
+                                    <label>Talle - Medium</label>
+                                </dt>
+                                <dl class="size-option">
+                                    <div class="input-box">
+                                        <select>
+                                            <option title="Small" class="size-options">Small</option>
+                                            <option title="Medium" class="size-options">Medium</option>
+                                            <option title="Large" class="size-options">Large</option>
+                                            <option title="Extra" class="size-options">Extra-Large</option>
+                                        </select>
+                                    </div>
+                                </dl>
+                            </dl>
+
+                            <div class="product-detail">
+                                <p class="availability">Disponibilidad: <span>Solo 1 en stock</span></p>
+                                <p class="brand">Marca: <span>Nike en Argentina</span></p>
+                                <p class="weight">Peso paquete: <span>0.850 kg</span></p>
+                                <p class="return-option">Acepta devolucion: <span>No</span></p>
+                                <p class="time-shipping">Tiempo de entrega: <span>24hs</span></p>
+                            </div>
+
+                            <div class="product-description">
+                                <ul>
+                                    <p class="product-desc"><li>Jersey</li></p>
+                                    <p class="product-desc"><li>La tecnología Dri-FIT te ayuda a mantenerte seco y cómodo...</li></p>
+                                    <p class="product-desc"><li>El diseño auténtico sigue el modelo de lo que usan los profesionales en los partidos en casa...</li></p>
+                                    <p class="product-desc"><li>Ajuste estándar para una sensación relajada y cómoda</li></p>
+                                    <p class="product-desc"><li>100% poliéster reciclado</li></p>
+                                </ul>
+                            </div>
+    
+                        </div>  <!--Col-detalle-->
+                        
+                        <!--Carrito: cuadro con las distintas opciones de compra-->
+                        <div class="col-basket">
+
+                            <div class="price-currency">
+                                <div class="price-original">
+                                    Precio: 
+                                    <span>AR$ 12.000</span>
+                                </div>
+                                <div class="price-saving">
+                                    Ahorras: 
+                                    <span>AR$ 1.500</span>
+                                     (
+                                    <span>AR$ 12.000</span>
+                                     )
+                                </div>
+                            </div>
+
+                            <div class="clear10px"></div>
+
+                            <div class="price-box">
+                                <div class="price-value">
+                                    <span>AR$ 10.500</span>
+                                </div>
+                                <div class="clear10px"></div>
+                                <div class="price-taxes">
+                                    <span>Incluye impuesto PAIS y percepción AFIP. Podés recuperar AR$ 1.125 de esta compra</span>
+                                </div>
+                                <div class="clear10px"></div>
+                                <div class="price-add-to-cart">
+                                    <p>
+                                        <i class="fas fa-shopping-cart"></i>
+                                        <strong>Agregá el producto al carrito </strong>
+                                        para conocer los costos de envío y/o impuestos
+                                    </p>
+                                </div>
+                                <div class="clear10px"></div>
+                                <div class="price-delivery-promise">
+                                    <span>Recibí este producto de 15 y 20 días hábiles según la localidad y método de envío que selecciones al finalizar tu orden</span>
+                                </div>
+                            </div>
+
+                            <div class="payment-detail">
+                                <div class="cuotas-contenedor">
+                                    <div class="cuotas-promo">
+                                        <div class="payment-icon">
+                                            <i class="far fa-credit-card"></i>
+                                        </div>
+                                        <span class="installments">Hasta 3 cuotas sin interés pagando con <strong>Santander Rio</strong></span>
+                                    </div>
+                                    <div class="cuotas12">
+                                        <div class="payment-icon">
+                                            <i class="far fa-credit-card"></i>
+                                        </div>
+                                        <span class="installments">Hasta 12 cuotas fijas con todas las tarjetas</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="add-to-cart">
+                                <div class="payment-parameters">
+                                    <div class="qtty-box">
+                                        <label for="qtty">Cantidad</label>
+                                        <input type="text" name="qtty" id="qtty" value="1" class="input-text">
+                                    </div>
+                                    <img src="/images/tarjetas-gris-ar.webp" class="img-available-cards">
+                                </div>
+                                <button type="button" title="Comprar" class="button-buy">Comprar</button>
+                                <div class="clear10px"></div>
+                                <button type="button" title="Agregar al carrito" class="button-add-to-cart">Agregar al carrito</button>
+                                <div class="clear10px"></div>
+                            </div>            
+                        </div>   <!--Col-basket--> 
+
+
+                    </div>  <!--Middle row-->
+
+                    <div class="product-detail-bottom">
+                        <h3>Más detalles del producto</h3>
+                        <p>Representa a tu equipo con la camiseta de local del Liverpool FC Stadium. La tela altamente transpirable ayuda a mantener el sudor alejado de la piel, para que se mantenga fresco y cómodo en el campo o en las gradas. Este producto está elaborado con tejido de poliéster 100% reciclado.</p>
+                    </div>
+
+                    <!--Bottom row: contiene ofertas relacionadas-->
+                    <div class="row-bottom">
+
+                        <div class="title">
+                            <h2>Productos similares</h2>
+                        </div>
+
+                        <div class="carousel">
+
+                            <!--
+                            <div class="arrows">
+
+                                <a href="#" class="carousel-control-prev">
+                                    <i class="fas fa-angle-left"></i>
+                                </a>
+                                <a href="#" class="carousel-control-next">
+                                    <i class="fas fa-angle-right"></i>
+                                </a>
+                                
+                            </div>
+                            -->
+
+                            <!--Carrusel de productos similares-->
+                            <ul class="products-slider">
+
+                                <!--Primer item del carousel-->
+                                <li id="item_0" class="slider-item">
+                                    <div class="item_image">
+                                        <img src="/images/camiseta1.jpeg" width="160px" height="160px">
+                                    </div>
+                                    <div class="item_description">
+                                        <h4>JUVENTUS 21/22 HOME JERSEY BY ADIDAS</h4>
+                                        <div class="price-discount">
+                                            <span class="price-list">AR$ 2.750</span>
+                                            <span class="discount">50% OFF</span>
+                                        </div>
+                                        <div class="price-box">
+                                            <p>AR$ 1.380</p>
+                                        </div>
+                                        <div class="item_afip">
+                                            <p>Incluye impuesto PAIS y percepción AFIP</p>
+                                        </div>
+                                        <div class="fav-icon">
+                                            <i class="far fa-heart"></i>
+                                        </div>
+                                        <div class="clear20px"></div>
+                                        <div>
+                                            <span class="free-delivery"></span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!--Segundo item del carousel-->
+                                <li id="item_1" class="slider-item">
+                                    <div class="item_image">
+                                        <img src="/images/camiseta2.jpeg" width="160px" height="160px">
+                                    </div>
+                                    <div class="item_description">
+                                        <h4>INTER MILAN 21/22 HOME JERSEY BY NIKE</h4>
+                                        <div class="price-discount">
+                                            <span class="price-list">AR$ 2.750</span>
+                                            <span class="discount">50% OFF</span>
+                                        </div>
+                                        <div class="price-box">
+                                            <p>AR$ 1.380</p>
+                                        </div>
+                                        <div class="item_afip">
+                                            <p>Incluye impuesto PAIS y percepción AFIP</p>
+                                        </div>
+                                        <div class="fav-icon">
+                                            <i class="far fa-heart"></i>
+                                        </div>
+                                        <div class="clear20px"></div>
+                                        <div>
+                                            <span class="free-delivery"></span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!--Tercer item del carousel-->
+                                <li id="item_2" class="slider-item">
+                                    <div class="item_image">
+                                        <img src="/images/camiseta4.jpeg" width="160px" height="160px">
+                                    </div>
+                                    <div class="item_description">
+                                        <h4>JUVENTUS 21/22 HOME JERSEY BY ADIDAS</h4>
+                                        <div class="price-discount">
+                                            <span class="price-list">AR$ 2.750</span>
+                                            <span class="discount">50% OFF</span>
+                                        </div>
+                                        <div class="price-box">
+                                            <p>AR$ 1.380</p>
+                                        </div>
+                                        <div class="item_afip">
+                                            <p>Incluye impuesto PAIS y percepción AFIP</p>
+                                        </div>
+                                        <div class="fav-icon">
+                                            <i class="far fa-heart"></i>
+                                        </div>
+                                        <div class="clear20px"></div>
+                                        <div>
+                                            <span class="free-delivery"></span>
+                                        </div>
+                                    </div>
+                                <!--Cuarto item del carrusel-->
+                                </li>
+                                <li id="item_3" class="slider-item">
+                                    <div class="item_image">
+                                        <img src="/images/camiseta5.jpeg" width="160px" height="160px">
+                                    </div>
+                                    <div class="item_description">
+                                        <h4>ITALY EURO 20/21 HOME JERSEY BY PUMA</h4>
+                                        <div class="price-discount">
+                                            <span class="price-list">AR$ 2.750</span>
+                                            <span class="discount">50% OFF</span>
+                                        </div>
+                                        <div class="price-box">
+                                            <p>AR$ 1.380</p>
+                                        </div>
+                                        <div class="item_afip">
+                                            <p>Incluye impuesto PAIS y percepción AFIP</p>
+                                        </div>
+                                        <div class="fav-icon">
+                                            <i class="far fa-heart"></i>
+                                        </div>
+                                        <div class="clear20px"></div>
+                                        <div>
+                                            <span class="free-delivery"></span>
+                                        </div>
+                                    </div>
+                                <!--Quinto item del carousel-->
+                                </li>
+                                <li id="item_4" class="slider-item">
+                                    <div class="item_image">
+                                        <img src="/images/camiseta6.jpeg" width="160px" height="160px">
+                                    </div>
+                                    <div class="item_description">
+                                        <h4>ADIDAS ARSENAL TRAINING JERSEY 21/22</h4>
+                                        <div class="price-discount">
+                                            <span class="price-list">AR$ 2.750</span>
+                                            <span class="discount">50% OFF</span>
+                                        </div>
+                                        <div class="price-box">
+                                            <p>AR$ 1.380</p>
+                                        </div>
+                                        <div class="item_afip">
+                                            <p>Incluye impuesto PAIS y percepción AFIP</p>
+                                        </div>
+                                        <div class="fav-icon">
+                                            <i class="far fa-heart"></i>
+                                        </div>
+                                        <div class="clear20px"></div>
+                                        <div>
+                                            <span class="free-delivery"></span>
+                                        </div>
+                                    </div>
+                                <!--Sexto item del carrusel-->
+                                </li>
+                            </ul>   <!--Carousel de productos similares-->
+
+                        </div>
+                    </div>  <!--Row bottom-->
+
+                </div>  <!--Main container-->
+
+            </main>
+
+            <footer>
+                <!--Completar con el footer que está armando Tomás-->
+            </footer>
+
+        </body>
+
+    </html>
