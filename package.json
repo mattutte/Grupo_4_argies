@@ -1,5 +1,9 @@
 {
-  "name": "Grupo_4_argies",
+<<<<<<< HEAD
+  "name": "grupo_4_argies",
+=======
+  "name": "proyfinal",
+>>>>>>> 7701829c26e5482873b0f17beb224be1a6baa4cf
   "version": "1.0.0",
   "description": "",
   "main": "app.js",

@@ -7,7 +7,7 @@ app.use(express.static('public'));
 app.use(express.urlencoded());
 
 app.get('/', (req, res) => {
-    const archivo = path.join(__dirname, './views/product.html')
+    const archivo = path.join(__dirname, './views/home.html')
     res.sendFile(archivo);
 });
 
