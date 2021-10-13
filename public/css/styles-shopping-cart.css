@@ -214,8 +214,8 @@ main {
     border-top-color: gray;
     border-bottom-color: gray;
     width: 95%;
-    margin-top: 2px gray;
-    margin-bottom: 2px gray;
+    margin-top: 2px gray solid;
+    margin-bottom: 2px gray solid;
     
 }
 
@@ -285,12 +285,14 @@ main {
     align-items: center;
     padding: 10px 0;
     width: 95%;
+    border-bottom: 3px solid gray;
+    
 }
 
 .subtotal-titulo{
     width:80%;
     padding: 0px 0px;
-    text-align: left;
+    text-align: right;
 }
 
 .subtotal-precio{
@@ -351,6 +353,8 @@ main {
     flex-wrap: nowrap;
     justify-content: space-around;
     width: 95%;
+    padding-bottom: 8px;
+    border-bottom: 3px solid white;
 }
 
 .total-a-pagar {
@@ -399,9 +403,7 @@ footer li a {
     justify-content: space-between;
     width: 100%;
     align-items: flex-start;
-    border-bottom: 3px;
-    border-bottom-color: white;
-    border-bottom-width: 3px;
+    border-bottom: 3px solid white;
     padding: 5px 20px;
 }
 

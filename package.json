@@ -1,20 +1,20 @@
 {
-<<<<<<< HEAD
-  "name": "grupo_4_argies",
-=======
-  "name": "proyfinal",
->>>>>>> 7701829c26e5482873b0f17beb224be1a6baa4cf
-  "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
-  "scripts": {
-    "start": "nodemon app.js",
-    "start:watch": "nodemon app.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.17.1"
+ 
+    "name": "grupo_4_argies",
+
+    "name": "proyfinal",
+ 
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+      "start": "nodemon app.js",
+      "start:watch": "nodemon app.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "express": "^4.17.1"
+    }
   }
-}

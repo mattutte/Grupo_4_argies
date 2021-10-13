@@ -201,9 +201,7 @@ footer li a {
     justify-content: space-between;
     width: 100%;
     align-items: flex-start;
-    border-bottom: 3px;
-    border-bottom-color: white;
-    border-bottom-width: 3px;
+    border-bottom: 3px solid white;
     padding: 5px 20px;
 }
 
