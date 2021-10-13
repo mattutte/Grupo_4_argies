@@ -15,6 +15,10 @@ app.get('/frame', (req,res) =>{
     res.sendFile(path.join(__dirname,'/views/frame.html'))
 })
 
+app.get('/shopping-cart', (req,res) =>{
+    res.sendFile(path.join(__dirname,'/views/shopping-cart.html'))
+})
+
 app.get('/signup', (req, res) => {
     const archivo = path.join(__dirname, './views/signup.html')
     res.sendFile(archivo);
