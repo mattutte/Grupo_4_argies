@@ -29,6 +29,10 @@ body {
     margin-bottom: 10px;
 }
 
+.go_back-button {
+    text-decoration: none;
+}
+
 .row-middle {
     display: flex;
     flex-direction: row;
