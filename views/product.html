@@ -1,27 +1,93 @@
 <!DOCTYPE html>
     <html lang="en">
         <head>
+            <!--Meta Data-->
+            <title>Cazaka Product Detail</title>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width">
-            <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
-            <title>Cazaka Product Detail</title>
+
             <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+            
+            <!--Stylesheets para los HTMLs-->
+            <link href="./css/styles-header.css" rel="stylesheet">
             <link href="./css/product.css" rel="stylesheet">
+
+            <!--Google link to fonts-->
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-            <meta charset="UTF-8">
 
             <!--Google Fonts-->
             <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
             <link href="https://fonts.googleapis.com/css2?family=Hind:wght@300&display=swap" rel="stylesheet">
             <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
             
+            <!--Icons-->
             <script src="https://kit.font-awesome.com/e32b1dc814.js" crossorigin="anonymous"></script>
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
         </head>
 
         <body>
-            <header>
-                <!--Completar con el header que está armando Tomás-->
+            <header class="Header">
+                                
+                <div class="main-header-top-bar">
+                    <div class="Covid-Info">
+                        <img src="./images/Casaka-small-f-negro.png" class="Covid-19" alt="Covid Info">
+                        <p>COVID-19 INFO</p>
+                    </div>
+                    <form class="search-results" action:"/search" method="POST">   
+                        <input class="searchbar" id="searchbar" type="text" placeholder="Busca productos, marcas" > 
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+
+                    
+                
+                    <div class="dropdown">
+                        <button class="dropntn"><img src="./images/bandera-argentina.jpg" class="Bandera-Argentina" alt="Bandera Argentina"></button>
+                        <div class="dropdown-content">
+                            <a href="#"><img src="./images/bandera-argentina.jpg" class="Bandera-Argentina" alt="Bandera Argentina"></a>
+                            <a href="#"><img src="./images/bandera-inglaterra.png" class="Bandera-Inglesa" alt="Bandera Inglesa"></a>
+                            <a href="#"><img src="./images/bandera-brasil.png" class="Bandera-Brasil" alt="Bandera Brasilera"></a>
+                            <a href="#"><img src="./images/bandera-china.png" class="Bandera-China" alt="Bandera China"></a>
+                        </div>   
+                    </div> 
+
+                    <nav class="upper-top-menu">
+                        <ul>
+                            <li> <a href="#">Sobre nosotros</a></li>
+                            <li> <a href="#">Registrate</a></li>
+                            <li> <a href="#">Sign in</a></li>
+
+                        </ul>   
+                    </nav> 
+                </div>
+
+                <div class="main-header-bottom-bar">
+                    <img src="./images/Logo-horizontal-f-blanco.png" class="logo-horizontal-b" alt="logo horizontal Casaka"> 
+                    
+                    <div class="burger-menu">
+                        <i class="fas fa-bars"> </i>
+                    </div>
+
+                    <nav class="main-menu">
+                        <ul>
+                            <li> <a href="#">Camisetas</a></li>
+                            <li> <a href="#">Clubes</a></li>
+                            <li> <a href="#">Ligas</a></li>
+                            <li> <a href="#">Seleccionados</a></li>
+                            <li> <a href="#">Coleccionables</a></li>
+                            <li> <a href="#">Ofertas</a></li>
+                            <li> <a href="#">Novedades</a></li>
+                        </ul>   
+                    </nav> 
+
+                    <nav class="lower-right-menu">
+                        <ul>
+                            <li> <a href="#" alt="Favorites"><i class="fas fa-heart"></i></a></li>
+                            <li> <a href="#" alt="Shopping Cart"><i class="fas fa-shopping-cart"></i></a></li>
+
+                        </ul>   
+                    </nav>        
+                </div>
             </header>
 
             <main>
@@ -364,8 +430,72 @@
 
             </main>
 
-            <footer>
-                <!--Completar con el footer que está armando Tomás-->
+            <footer class="main-footer">
+                <div class="main-footer-top-bar">
+
+                    <div class="bottom-logo">
+                        <img src="./images/logo-footer.png" class="Logo-vertical-f-negro" alt="Logo Fondo Negro"> 
+                    </div>
+                    
+                    <nav class="Menu-Footer-resumidos">
+                        <ul>
+                            <li> <a href="#" class="Titulo-Menu">INFORMACION UTIL</a></li>
+                            <li> <a href="#" class="Titulo-Menu">AYUDA</a></li>
+                            <li> <a href="#" class="Titulo-Menu">CONOCENOS</a></li>
+                        </ul>   
+                    </nav> 
+                    
+                    <div class="bottom-menus">
+                        <nav class="bot-men-item Informacion-Util">
+                            <ul>
+                                <li> <a href="#" class="Titulo-Menu">INFORMACION UTIL</a></li>
+                                <li> <a href="#">Politicas de Privacidad</a></li>
+                                <li> <a href="#">Medios de Pago</a></li>
+                                <li> <a href="#">Protocolo Covid-19</a></li>
+                                <li> <a href="#">Términos y condiciones</a></li>
+                                <li> <a href="#">Defensa del Consumidor</a></li>
+                            </ul>   
+                        </nav> 
+                
+                        <nav class="bot-men-item Ayuda">
+                            <ul>
+                                <li> <a href="#" class="Titulo-Menu">AYUDA</a></li>
+                                <li> <a href="#">Preguntas Frecuentes</a></li>
+                                <li> <a href="#">Sucursales</a></li>
+                                <li> <a href="#">Pagos</a></li>
+                                <li> <a href="#">Entregas</a></li>
+                                <li> <a href="#">Cambios</a></li>
+                            </ul>   
+                        </nav>
+            
+                        <nav class="bot-men-item Conocenos">
+                            <ul>
+                                <li> <a href="#" class="Titulo-Menu">CONOCENOS</a></li>
+                                <li> <a href="#">Nuestra Historia</a></li>
+                                <li> <a href="#">Trabaja con Nosotros</a></li>
+                                <li> <a href="#">Contáctanos</a></li>
+                                <li> <a href="#"><i class="fab fa-whatsapp"></i>  11-5799-0114</a></li>
+                            </ul>   
+                        </nav>
+                    </div>
+        
+                </div>
+
+                <hr class="horizontal-bar">
+            
+                <div class="main-footer-bottom-bar">
+                    
+                    <div class="redes-sociales">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-facebook-square"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a> 
+                    </div> 
+                    <p class="COPYRIGHT">
+                        COPYRIGHT © 2021 The Argies INC. ALL RIGHTS RESERVED
+                    </p> 
+          
+                </div>
             </footer>
 
         </body>
