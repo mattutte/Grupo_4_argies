@@ -164,7 +164,7 @@ header {
     padding: 0px 10px;
 }
 
-.fa-shopping-cart {
+.shopping-cart {     /* originalmente escrito por TH: .fa-shopping-cart*/
     width: 30%;
     align-content: center;
     font-size: 15px;
