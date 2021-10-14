@@ -20,8 +20,9 @@ body {
 }
 
 .main-container {
-    width: 980px;
+    width: 100%;
     margin: 0px auto;
+    padding: 0px 50px;
 }
 
 .go_back {
@@ -37,7 +38,7 @@ body {
 }
 
 .col-imagen, .col-detalle, .col-basket {
-    margin: 0px 5px;
+    margin: 0px 20px;
     flex: 25%;
 }
 
@@ -300,6 +301,7 @@ body {
         align-items: center;
         margin: 10px 10px 30px;
         padding: 2px 5px;
+        padding-top: 10px;
     }
 
     .item_description {
@@ -353,6 +355,71 @@ body {
     .slider-item .fav-icon {
         color: #FF3c3c;
     }
+
+
+    /*FOOTER*/
+
+   footer {
+       padding: 10px 30px;
+       background-color: #111111;
+   }
+
+   .main-footer {
+       display: flex;
+       flex-direction: column;
+   }
+
+   .main-footer-bottom-bar {
+       padding: 20px;
+   }
+
+   .main-footer-top-bar, .bottom-menus {
+       display: flex;
+       align-items: flex-start;
+   }
+
+   .bottom-menus {
+       width: 80%;
+       justify-content: space-around;
+       margin-top: 15px;
+   }
+
+   .bottom-logo {
+       width: 20%;
+   }
+
+   .bottom-logo img {
+       width: 150px;
+   }
+
+   .horizontal-bar {
+       display: block;
+       width: 95%;
+       border: 0;
+       border-bottom: 2px solid white;
+       margin:auto;
+   }
+
+   .main-footer-bottom-bar p {
+       font-size: 8px;
+   }
+
+    .fab {
+       color: white;
+       font-size: 25px;
+   }
+
+   .fa-whatsapp {
+       font-size: medium;
+   }
+
+   .Titulo-Menu {
+       font-size: 12px;
+   }
+
+   .bot-men-item li {
+       line-height: 20px;
+   }
 
 
 /* HOVER ACTIONS*/
@@ -431,10 +498,41 @@ body {
 
 /* RESPONSIVE SECTION */
 
-@media (min-width: 377px) and (max-width: 768px){
+@media (min-width: 1026px) {
+
+    .col-basket {
+        padding: 0px 30px;
+    }
+
+
+    [class|="button"]  {
+        max-width: 250px;
+    }
+
+    .cart-buttons form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1025px){
+    .products-slider {
+        flex-wrap: wrap;
+    }
+
+    .slider-item {
+        margin: 10px 5px 30px;
+    }
+
+}
+
+
+@media (min-width: 481px) and (max-width: 768px){
 
     .col-imagen {
-        max-width: 50%;
+        max-width: 80%;
+        margin-left: 15%;
     }
 
     .product-detail-bottom, .row-bottom {
@@ -452,6 +550,7 @@ body {
 
     .col-detalle {
         max-width: 50%;
+        margin-top: 20px;
     }
 
     .product-img-block {
@@ -482,10 +581,30 @@ body {
     .prev, .next {
         display: none;
     }
+    
+    /*FOOTER by TH*/
+
+    .Informacion-Util{
+        display: none;
+    }
+    
+    .Ayuda{
+        display: none;
+    }
+    
+    .Conocenos{
+        display: none;
+    }
+
+    .Menu-Footer-resumidos {
+        display: flex;
+        margin-right: 20%;
+    }
+
 
 }
 
-@media screen and (max-width: 376px){
+@media screen and (max-width: 480px){
 
     .main-container {
         flex-direction: column;
@@ -526,5 +645,21 @@ body {
     .prev, .next {
         display: none;
     }
+
+    /* Footer by TH*/
+
+    .Informacion-Util{
+        display: none;
+    }
+    
+    .Ayuda{
+        display: none;
+    }
+    
+    .Conocenos{
+        display: none;
+    }
+
+
 
 }
