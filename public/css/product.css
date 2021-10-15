@@ -13,6 +13,57 @@
     height: 10px;
 }
 
+.clear20px {
+    clear: both;
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 20px;
+}
+
+/*HEADER*/
+
+.upper-top-menu {
+    max-width: 300px;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0px 10px;
+}
+
+
+.upper-top-menu li {
+    font-size: 12px;
+}
+
+.main-header-bottom-bar {
+    /*background-color: #f4f2e9;
+    color: white;*/
+    border-bottom: 1px solid #b6b6b6;
+    height: 50px;
+}
+
+.main-menu a {
+    color: #1b1c20;
+    font-size: 13px;
+}
+
+#shopping-cart-top-menu {
+    font-size: 15px;
+}
+
+.lower-right-menu ul {
+    display: flex;
+    justify-content: space-between ;
+}
+
+.lower-right-menu i {
+    color: #1b1c20;
+}
+
+
+/*BODY*/
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
@@ -257,26 +308,13 @@ body {
 
 /* BOTTOM PART */
 
-    .products-slider {
-        display: flex;
-        justify-content:space-around;
-    }
-
-    .row-bottom {
-        margin-top: 60px;
-    }
-
-    .title h2 {
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 22px;
-        color: #777;
-        margin-bottom: 20px;
-    }
-
     .carousel {
         position: relative;
         display: flex;
         flex-direction: column;
+        margin-bottom: 20px;
+        width: 100%;
+        overflow-x: auto;
     }
 
     .prev, .next {
@@ -299,13 +337,43 @@ body {
         right:0;
     }
 
+    .products-slider {
+        display: flex;
+        justify-content:flex-start;
+        overflow-x: auto;
+    }
+
     .slider-item {
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin: 10px 10px 30px;
+        margin: 10px 10px;
         padding: 2px 5px;
         padding-top: 10px;
+    }
+
+    .products-slider::-webkit-scrollbar {
+        display: none;
+    }
+
+    .row-bottom {
+        margin-top: 60px;
+    }
+
+    .item_image {
+        padding: 5px;
+    }
+
+    .item_image img {
+        width: 160px;
+        height: 160px;
+    }
+
+    .title h2 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 22px;
+        color: #777;
+        margin-bottom: 20px;
     }
 
     .item_description {
@@ -408,6 +476,10 @@ body {
        font-size: 8px;
    }
 
+   .main-footer-top-bar {
+       border: 0;
+   }
+
     .fab {
        color: white;
        font-size: 25px;
@@ -459,7 +531,7 @@ body {
 
     .mainimg-big:active {
         cursor: zoom-in;
-        transform: scale(2) translate(30px,60px);
+        transform: scale(1.5) translate(20px,60px);
         box-shadow: inset 0px 15px 10px -15px rgb(121, 46, 46);
     }
 
