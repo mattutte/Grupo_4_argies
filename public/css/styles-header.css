@@ -162,6 +162,8 @@ header {
     align-content: center;
     font-size: 15px;
     padding: 0px 10px;
+    color: #1b1c20;
+    
 }
 
 .shopping-cart {     /* originalmente escrito por TH: .fa-shopping-cart*/
@@ -169,22 +171,23 @@ header {
     align-content: center;
     font-size: 15px;
     padding: 0px 10px;
+    color: #1b1c20;
 }
 
 
 footer {
-    background-color: black;
+    background-color:#111;
     color: #FFFFFF;
     font-family: Roboto;
-    font-size: 9px;
+    font-size: 8px;
     font-style: normal;
     font-weight: 700;
-    line-height: 21px;
+    line-height: 20px;
     letter-spacing: 2.25px;
     text-align: left;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-between;
     align-items: flex-start;
     
@@ -197,12 +200,17 @@ footer li a {
 .main-footer-top-bar {
     display: flex;
     flex-direction:row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-between;
     width: 100%;
     align-items: flex-start;
-    border-bottom: 2px solid white;
     padding: 5px 20px;
+}
+.barra-h-blanca{
+    display: block;
+    width: 95%;
+    border-bottom: 3px white solid;
+    margin:auto;
 }
 
 .Logo-vertical-f-negro {
@@ -236,7 +244,7 @@ footer li a {
 .main-footer-bottom-bar {
     display: flex;
     flex-direction:row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
     width: 100%;
@@ -246,27 +254,27 @@ footer li a {
 .redes-sociales ul{
     display: flex;
     flex-direction:row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
     padding: 5px;
-    size: 20px;
+    size: 14px;
 }
 
 .redes-sociales ul li{
-    padding: 3px;
+    padding: 1px;
     color: white;
 }
 
 .COPYRIGHT {
-    font-size: 6px;
+    font-size: 5px;
     text-align: right;
-    padding-left: 2px;
+    padding-left: 1px;
 
 }
 
 
-@media (min-width: 481px){
+@media (min-width: 510px){
 
     
 
@@ -313,7 +321,9 @@ footer li a {
     }
 
     .main-header-bottom-bar img {
-        width: 10%;
+        
+        
+        width: 150px;
         }
     .burger-menu {
         display: none;
@@ -349,6 +359,7 @@ footer li a {
     .main-header-bottom-bar{
         size: 12px;
         background-color: white;
+        color: #1b1c20;
         display: flex;
         flex-direction:row;
         flex-wrap: wrap;
@@ -362,6 +373,7 @@ footer li a {
 
     .main-menu{
         width: 60%;
+        color: #1b1c20;
     }
 
     .main-menu ul{
@@ -371,6 +383,11 @@ footer li a {
         justify-content: space-between;
         align-items: center;
         width: 100%;
+    }
+
+    .main-menu a{
+        
+        color: #1b1c20;
     }
 
     .lower-right-menu{
@@ -388,7 +405,7 @@ footer li a {
     }
 
     footer{
-        font-size: 7px;
+        font-size: 5px;
     }
     .Menu-Footer-resumidos {
         display: none;
@@ -418,9 +435,13 @@ footer li a {
         align-items: flex-start;
     }
 
+    .redes-sociales{
+        padding: 15px;
+    }
+
     .redes-sociales a{
         font-size: 10px;
-        padding: 5px;
+        padding: 7px;
     }
 
     .COPYRIGHT{
@@ -433,7 +454,7 @@ footer li a {
     
 }
 
-@media (min-width: 769px){
+@media (min-width: 650px){
 
     .Logo-vertical-f-negro {
         width:12%;
