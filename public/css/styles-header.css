@@ -35,7 +35,7 @@ header {
 .Covid-Info{
     display: flex;
     flex-direction: row;
-    width: 20%;
+    width: 30%;
     padding: 2px;
 }
 
@@ -48,7 +48,7 @@ header {
 }
 
 .Covid-Info p{
-    font-size: 6px;
+    font-size: 8px;
 }
 
 .search-results {
@@ -116,6 +116,8 @@ header {
     
 }
 
+
+
 .main-header-bottom-bar{
     display: flex;
     flex-direction:row;
@@ -132,8 +134,10 @@ header {
     }
 .burger-menu {
     width: 10%;
-    background-color: blue;
+    background-color: #34568B;
+    border-radius: 5px;
 }
+
 
 .main-menu{
     display: none;
@@ -143,8 +147,9 @@ header {
     display: flex;
     flex-direction:row;
     flex-wrap: nowrap;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
+    padding-right: 5px;
     width: 40%;
 }
 
@@ -172,6 +177,25 @@ header {
     font-size: 15px;
     padding: 0px 10px;
     color: #1b1c20;
+}
+
+.main-menu-dropdown{
+    display: none;
+}
+
+/* Show the dropdown menu on hover burger menu */
+.burger-menu:hover .main-menu-dropdown {
+
+    display: flex;
+    flex-direction:column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items:flex-start;
+    width: 90%;
+    padding-left: 20px;
+    background-color: whitesmoke;
+    color: black;
+    
 }
 
 
@@ -307,6 +331,7 @@ footer li a {
     
     .upper-top-menu ul li a{
         text-decoration: none;
+        font-size: 9px;
         color: white;
         justify-content: space-between;
         padding: 0px 5px;
@@ -458,6 +483,12 @@ footer li a {
 
     .Logo-vertical-f-negro {
         width:12%;
+    }
+
+    .upper-top-menu ul li a{
+        
+        font-size: 12px;
+        
     }
 
     .main-menu li{
