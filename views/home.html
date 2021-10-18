@@ -22,39 +22,86 @@
 
 </head>
 <body>
-<header>
-    <div class="barraFunciones">
-        <div class="covidLogo">
-        <img width="40" src="images/Logo-vertical-f-negro.png">
-        <p>covid-19 preguntas frecuentes</p>
+    <header class="main-header">
+        
+        <div class="main-header-top-bar">
+            <div class="Covid-Info">
+                <img src="./images/Casaka-small-f-negro.png" class="Covid-19" alt="Covid Info">
+                <p>COVID-19 INFO</p>
+            </div>
+            <form class="search-results" action:"/search" method="POST">   
+                <input class="searchbar" id="searchbar" type="text" placeholder="Busca productos, marcas" > 
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+
+            
+        
+            <div class="dropdown">
+                <button class="dropntn"><img src="./images/bandera-argentina.jpg" class="Bandera-Argentina" alt="Bandera Argentina"></button>
+                <div class="dropdown-content">
+                    <a href="#"><img src="./images/bandera-argentina.jpg" class="Bandera-Argentina" alt="Bandera Argentina"></a>
+                    <a href="#"><img src="./images/bandera-inglaterra.png" class="Bandera-Inglesa" alt="Bandera Inglesa"></a>
+                    <a href="#"><img src="./images/bandera-brasil.png" class="Bandera-Brasil" alt="Bandera Brasilera"></a>
+                    <a href="#"><img src="./images/bandera-china.png" class="Bandera-China" alt="Bandera China"></a>
+                </div>   
+            </div> 
+
+            <nav class="upper-top-menu">
+                <ul>
+                    <li> <a href="#">Sobre nosotros</a></li>
+                    <li> <a href="#">Registrate</a></li>
+                    <li> <a href="#">Sign in</a></li>
+
+                </ul>   
+            </nav> 
         </div>
-    <div class="busqueda">
-        <input type="text" placeholder="Search...">
-    </div>
-    <div class="cuenta">
-        <a style="color:white" href="*">Argies</a>
-        <a style="color:white" href="*">Creators club</a>
-        <a style="color:white" href="/signin">Sing in</a>
-    </div>
-    </div>
-    <div class="barraOpciones">
-    <div class="logoCazaka">
-        <img width="150" src="images/Logo-horizontal-f-blanco.png">
-    </div>
-    <div class="opciones">
-        <a style="color:black" href="/product">Jerseys</a>
-        <a style="color:black" href="*">Clubs</a>
-        <a style="color:black" href="*">Leagues</a>
-        <a style="color:black" href="*">National teams</a>
-        <a style="color:black" href="*">Collectables</a>
-        <a style="color:black" href="*">Clearance</a>
-        <a style="color:black" href="*">New arrivals</a>
-    </div>
-    <div>
-        <i class="fas fa-shopping-cart"></i>
-    </div>
-    </div>
-</header>
+
+        <div class="main-header-bottom-bar">
+            <img src="./images/Logo-horizontal-f-blanco.png" class="logo-horizontal-b" alt="logo horizontal Casaka"> 
+            
+            <div class="burger-menu">
+                <i class="fas fa-bars"> </i>
+            </div> 
+
+
+            <nav class="main-menu">
+                <ul>
+                    <li> <a href="#">Camisetas</a></li>
+                    <li> <a href="#">Clubes</a></li>
+                    <li> <a href="#">Ligas</a></li>
+                    <li> <a href="#">Seleccionados</a></li>
+                    <li> <a href="#">Coleccionables</a></li>
+                    <li> <a href="#">Ofertas</a></li>
+                    <li> <a href="#">Novedades</a></li>
+                </ul>   
+            </nav> 
+
+            <nav class="lower-right-menu">
+                <ul>
+                    <li> <a href="#" alt="Favorites"><i class="fas fa-heart"></i></a></li>
+                    <li> <a href="#" alt="Shopping Cart" class="shopping-cart"><i class="fas fa-shopping-cart"></i></a></li>
+
+                </ul>   
+            </nav>        
+        </div>
+
+        <nav class="main-menu-dropdown">
+            <ul>
+                <li> <a href="#">Camisetas</a></li>
+                <li> <a href="#">Clubes</a></li>
+                <li> <a href="#">Ligas</a></li>
+                <li> <a href="#">Seleccionados</a></li>
+                <li> <a href="#">Coleccionables</a></li>
+                <li> <a href="#">Ofertas</a></li>
+                <li> <a href="#">Novedades</a></li>
+                <li> <a href="#">Registrate</a></li>
+                <li> <a href="#">Sign in</a></li>
+                <li> <a href="#">Sobre nosotros</a></li>
+            </ul>   
+        </nav>
+
+
+    </header>
 <main>
 <section class="pickedForYou">
     <h3 class="titulares">Picked for you</h3>
@@ -168,7 +215,15 @@
         
         
     <div class="main-footer-top-bar">
-        <img src="./images/Casaka-small-f-negro.png" class="Logo-vertical-f-negro" alt="Logo Fondo Negro">
+        <img src="./images/logo-footer.png" class="Logo-vertical-f-negro" alt="Logo Fondo Negro"> 
+        
+        <nav class="Menu-Footer-resumidos">
+            <ul>
+                <li> <a href="#" class="Titulo-Menu">INFORMACION UTIL</a></li>
+                <li> <a href="#" class="Titulo-Menu">AYUDA</a></li>
+                <li> <a href="#" class="Titulo-Menu">CONOCENOS</a></li>
+            </ul>   
+        </nav> 
         
         <nav class="Informacion-Util">
             <ul>
@@ -204,16 +259,18 @@
 
     </div>
 
+    <hr class="barra-h-blanca">
+
     <div class="main-footer-bottom-bar">
         
-        <nav class="redes-sociales">
+        <div class="redes-sociales">
             <ul>
                 <li> <a href="#"><i class="fab fa-instagram"></i></a></li>
                 <li> <a href="#"><i class="fab fa-facebook-square"></i></a></li>
                 <li> <a href="#"><i class="fab fa-twitter"></i></a></li>
                 <li> <a href="#"><i class="fab fa-youtube"></i></a></li>
             </ul>   
-        </nav> 
+        </div> 
         <p class="COPYRIGHT">
             COPYRIGHT © 2021 The Argies INC. ALL RIGHTS RESERVED
         </p> 
