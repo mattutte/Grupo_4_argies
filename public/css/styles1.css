@@ -4,6 +4,7 @@
   box-sizing: border-box;
   text-decoration: none;
   list-style: none;
+  font-family: Roboto;
 }
 
 header {
@@ -215,7 +216,7 @@ form {
   }
   
   /* Set a style for all buttons */
-  button {
+  main button {
     background-color: #04AA6D;
     color: white;
     padding: 14px 20px;
@@ -226,7 +227,7 @@ form {
   }
   
   /* Add a hover effect for buttons */
-  button:hover {
+  main button:hover {
     opacity: 0.8;
   }
   
