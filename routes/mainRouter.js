@@ -5,6 +5,9 @@ const router = express.Router();
 const mainController = require('../controllers/mainController');
 
 router.get('/',mainController.home);
-router.get('/about',mainController.about);
+router.get('/product',mainController.product);
+router.get('/signin',mainController.signin);
+router.get('/signup',mainController.signup);
+router.get('/shopping-cart',mainController.shoppingcart);
 
 module.exports = router;
