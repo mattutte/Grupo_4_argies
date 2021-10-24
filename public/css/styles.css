@@ -1,38 +1,25 @@
 body {
     font-family: Roboto;
+    width: 100%;
 }
 
-.barraFunciones {
-    background-color: black;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.covidLogo {
-    display:flex;
-}
-
-.cuenta {
-    display: flex;
-    justify-content: space-between;
-}
-
-a {
-    margin: 8px;
-}
-
-.barraOpciones {
-    background-color: white;
-    color: black;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 main {
-    width: 90%;
     text-align: center;
+}
+.banners {
+    display: block;
+}
+.filauno {
+    display: flex;
+    margin: 20px;
+    margin-left: 8%;
+    margin-right: 8%;
+    text-align: center;
+    justify-content: center;
+}
+.novedades {
+    margin: 20px;
+    width: 50%;
 }
 article {
     margin: 10px;
@@ -46,7 +33,7 @@ article {
     text-align: left;
 }
 .precio {
-    color:goldenrod;
+    color:#AA9964;
     text-align: left;
     font-size: 30px;
 }
@@ -141,4 +128,20 @@ footer li a {
     text-align: right;
     padding-left: 2px;
 
+}
+
+@media (max-width: 480px){
+    .articulos {
+        flex-wrap: wrap;
+        display: flex;
+        align-items: stretch;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px){
+    .articulos {
+        flex-wrap: wrap;
+        display: flex;
+        align-items: stretch;
+    }
 }
