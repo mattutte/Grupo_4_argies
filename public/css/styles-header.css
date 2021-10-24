@@ -129,7 +129,13 @@ header {
 .main-header-bottom-bar img {
     max-width: 90px;
     max-height: 40px;
-    }
+}
+
+.nav-logo img {
+    max-width: 90px;
+    max-height: 40px;
+}
+
 .burger-menu {
     width: 10%;
     background-color: blue;
@@ -161,14 +167,16 @@ header {
     width: 30%;
     align-content: center;
     font-size: 15px;
-    padding: 0px 10px;
+    /*padding: 0px 10px;*/
+    color: white;
 }
 
-.shopping-cart {     /* originalmente escrito por TH: .fa-shopping-cart*/
+.fa-shopping-cart {     /* originalmente escrito por TH: .fa-shopping-cart*/
     width: 30%;
     align-content: center;
     font-size: 15px;
-    padding: 0px 10px;
+    /*padding: 0px 10px;*/
+    color: white;
 }
 
 
@@ -360,7 +368,7 @@ footer li a {
         width: 20%;
     }
 
-    .main-menu{
+   .main-menu{
         width: 60%;
     }
 

@@ -16,7 +16,7 @@ app.get('/frame', (req,res) =>{
 })
 
 app.get('/product', (req,res) =>{
-    res.sendFile(path.join(__dirname,'/views/product.html'))
+    res.sendFile(path.join(__dirname,'/views/productv2.html'))
 })
 
 app.get('/shopping-cart', (req,res) =>{
@@ -25,6 +25,11 @@ app.get('/shopping-cart', (req,res) =>{
 
 app.get('/signup', (req, res) => {
     const archivo = path.join(__dirname, './views/signup.html')
+    res.sendFile(archivo);
+});
+
+app.get('/productSearch', (req, res) => {
+    const archivo = path.join(__dirname, './views/productSearch.html')
     res.sendFile(archivo);
 });
 
