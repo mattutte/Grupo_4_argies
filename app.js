@@ -18,7 +18,7 @@ const mainRouter = require('./routes/mainRouter');
 
 app.use('/',mainRouter); 
 
-// app.get('/', (req, res) => {
+//app.get('/', (req, res) => {
 //     const archivo = path.join(__dirname, './views/home.html')
 //     res.sendFile(archivo);
 // });
