@@ -8,18 +8,23 @@ app.set('views','./views');
 
 app.use(express.static('public'));
 
-app.use(express.urlencoded());
+//app.use(express.urlencoded());
 
-const mainController = require('./controllers/mainController');
-const mainRouter = require('./routes/mainRouter');
+//const mainController = require('./controllers/mainController');
+//const mainRouter = require('./routes/mainRouter');
 
-
+/*
 app.get('/', mainController.index);
+*/
 app.get('/product', (req,res) =>{
     res.sendFile(path.join(__dirname,'/views/productv2.html'))
 })
 
-app.use('/',mainRouter); 
+app.get('/productSearch', (req,res) =>{
+    res.sendFile(path.join(__dirname,'/views/productSearch.html'))
+})
+
+//app.use('/',mainRouter); 
 
  app.get('/', (req, res) => {
      const archivo = path.join(__dirname, './views/home.html')

@@ -82,7 +82,7 @@
 
                     <nav class="lower-right-menu">
                         <ul>
-                            <li> <a href="#" alt="Favorites"><i class="fas fa-heart"></i></a></li>
+                            <li> <a href="#" alt="Favorites"><i class="fas fa-heart fa-stack-1x"></i></a></li>
                             <li> <a href="#" alt="Shopping Cart"><i class="fas fa-shopping-cart" id="shopping-cart-top-menu"></i></a></li>
                         </ul>   
                     </nav>        
@@ -93,20 +93,972 @@
 
             <main>
                 <!--Pagina principal: permite configurar el cuerpo central-->
-                <div class="main-container">
+                <div class="main-container container">
 
                     <!--First row: encabezado del cuerpo principal-->
                     <div class="row-upper">
-                        <div class="go_back">
-                            <a href="../" class="go_back-button">
-                                <i class="fas fa-chevron-left"></i>
-                                Volver atrás
-                            </a>
+                        <div class="row">
+                            <div class="col">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item">
+                                        <a href="/"> Home</a>
+                                    </li>
+                                    <li class="breadcrumb-item">
+                                        <a href="#" class="last-visited" aria-current="page"> Resultados de búsqueda </a>
+                                    </li>
+                                </ol>
+                            </div>
                         </div>
+
                     </div>
 
                     <!--Middle row: cuerpo principal. Contiene imagen, detalle y canasta del producto-->
-                    <div class="row-middle">
+                    <div class="row">
+                        <div class="row-content col-12">
+                            <div class="tab-pane container active">
+                                <div class="row grid-header">
+                                    <div class="result-count text-center col-12 col-md-9 order-sm-2">
+                                        <span class="search-result-count">
+                                            <span class="count">250</span> Resultados
+                                        </span>
+                                    </div>
+                                    <div class="col-6 col-sm-3 order-sm-1">
+                                        <select class="custom-select">
+                                            <option class="most-relevant"> Mas relevantes</option>
+                                            <option class="most-sold"> Mas vendidos</option>
+                                            <option class="newest-product"> Lanzamientos</option>
+                                            <option class="lowest-price"> Precio más bajo</option>
+                                            <option class="highest-price"> Precio más alto</option>
+                                        </select>
+                                        <img src="/images/up-and-down-icon.jpg" class="sort-icon">
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="refinement-bar col-md-3">
+                                        <div class="filter-header">
+                                            <div class="header-bar">
+                                                <div class="pull-left">
+
+                                                </div>
+                                                <div class="pull-right close">
+                                                    <i class="fa fa-close"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="refinements-container">
+                                            <div class="refinements">
+                                                <!--Tipo de producto-->
+                                                <div class="card collapsible refinement">
+                                                    <div class="card-header col-sm-12">
+                                                        <button class="title btn text-left btn-block"></button>
+                                                        <h2> Tipo de producto</h2>
+                                                    </div>
+                                                    <div class="card-body content value">
+                                                        <ul class="values content">
+                                                            <span class="filter-options">
+                                                                <li class="col-sm-4 col-md-12">
+                                                                    <button>
+                                                                        <i class="far fa-square">
+                                                                            <span>Short-sleeve Jersey</span>
+                                                                        </i>
+                                                                    </button>
+                                                                </li>
+                                                            </span>
+                                                            <span class="filter-options">
+                                                                <li class="col-sm-4 col-md-12">
+                                                                    <button>
+                                                                        <i class="far fa-square">
+                                                                            <span>Long-sleeve Jersey</span>
+                                                                        </i>
+                                                                    </button>
+                                                                </li>
+                                                            </span>
+                                                            <span class="filter-options">
+                                                                <li class="col-sm-4 col-md-12">
+                                                                    <button>
+                                                                        <i class="far fa-square">
+                                                                            <span>Team Jersey</span>
+                                                                        </i>
+                                                                    </button>
+                                                                </li>
+                                                            </span>
+                                                            <span class="filter-options">
+                                                                <li class="col-sm-4 col-md-12">
+                                                                    <button>
+                                                                        <i class="far fa-square">
+                                                                            <span>Signed Jersey</span>
+                                                                        </i>
+                                                                    </button>
+                                                                </li>
+                                                            </span>
+
+                                                        </ul>
+
+                                                    </div>
+                                                </div>
+                                                <!--Genero-->
+                                                <div class="card collapsible refinement">
+                                                    <div class="card-header col-sm-12">
+                                                        <button class="title btn text-left btn-block"></button>
+                                                        <h2> Genero</h2>
+                                                    </div>
+                                                    <div class="card-body content value">
+                                                        <ul class="values content">
+                                                            <span class="filter-options">
+                                                                <li class="col-sm-4 col-md-12">
+                                                                    <button>
+                                                                        <i class="far fa-square">
+                                                                            <span>Hombre</span>
+                                                                        </i>
+                                                                    </button>
+                                                                </li>
+                                                            </span>
+                                                            <span class="filter-options">
+                                                                <li class="col-sm-4 col-md-12">
+                                                                    <button>
+                                                                        <i class="far fa-square">
+                                                                            <span>Mujer</span>
+                                                                        </i>
+                                                                    </button>
+                                                                </li>
+                                                            </span>
+                                                            <span class="filter-options">
+                                                                <li class="col-sm-4 col-md-12">
+                                                                    <button>
+                                                                        <i class="far fa-square">
+                                                                            <span>Niña</span>
+                                                                        </i>
+                                                                    </button>
+                                                                </li>
+                                                            </span>
+                                                            <span class="filter-options">
+                                                                <li class="col-sm-4 col-md-12">
+                                                                    <button>
+                                                                        <i class="far fa-square">
+                                                                            <span>Niño</span>
+                                                                        </i>
+                                                                    </button>
+                                                                </li>
+                                                            </span>
+
+                                                        </ul>
+
+                                                    </div>
+                                                </div>
+                                                <!--Categoria-->
+                                                <div class="card collapsible refinement">
+                                                    <div class="card-header col-sm-12">
+                                                        <button class="title btn text-left btn-block"></button>
+                                                        <h2> Categoria</h2>
+                                                    </div>
+                                                    <div class="card-body content value">
+                                                        <ul class="values content">
+                                                            <span class="filter-options">
+                                                                <li class="col-sm-4 col-md-12">
+                                                                    <button>
+                                                                        <i class="far fa-square">
+                                                                            <span>Moda</span>
+                                                                        </i>
+                                                                    </button>
+                                                                </li>
+                                                            </span>
+                                                            <span class="filter-options">
+                                                                <li class="col-sm-4 col-md-12">
+                                                                    <button>
+                                                                        <i class="far fa-square">
+                                                                            <span>Running</span>
+                                                                        </i>
+                                                                    </button>
+                                                                </li>
+                                                            </span>
+                                                            <span class="filter-options">
+                                                                <li class="col-sm-4 col-md-12">
+                                                                    <button>
+                                                                        <i class="far fa-square">
+                                                                            <span>Entrenamiento</span>
+                                                                        </i>
+                                                                    </button>
+                                                                </li>
+                                                            </span>
+                                                            <span class="filter-options">
+                                                                <li class="col-sm-4 col-md-12">
+                                                                    <button>
+                                                                        <i class="far fa-square">
+                                                                            <span>Secondary</span>
+                                                                        </i>
+                                                                    </button>
+                                                                </li>
+                                                            </span>
+
+                                                        </ul>
+
+                                                    </div>
+                                                </div>
+                                                <!--Marca-->
+                                                <div class="card collapsible refinement">
+                                                    <div class="card-header col-sm-12">
+                                                        <button class="title btn text-left btn-block"></button>
+                                                        <h2> Marca</h2>
+                                                    </div>
+                                                    <div class="card-body content value">
+                                                        <ul class="values content">
+                                                            <span class="filter-options">
+                                                                <li class="col-sm-4 col-md-12">
+                                                                    <button>
+                                                                        <i class="far fa-square">
+                                                                            <span>Nike</span>
+                                                                        </i>
+                                                                    </button>
+                                                                </li>
+                                                            </span>
+                                                            <span class="filter-options">
+                                                                <li class="col-sm-4 col-md-12">
+                                                                    <button>
+                                                                        <i class="far fa-square">
+                                                                            <span>Adidas</span>
+                                                                        </i>
+                                                                    </button>
+                                                                </li>
+                                                            </span>
+                                                            <span class="filter-options">
+                                                                <li class="col-sm-4 col-md-12">
+                                                                    <button>
+                                                                        <i class="far fa-square">
+                                                                            <span>Fila</span>
+                                                                        </i>
+                                                                    </button>
+                                                                </li>
+                                                            </span>
+                                                            <span class="filter-options">
+                                                                <li class="col-sm-4 col-md-12">
+                                                                    <button>
+                                                                        <i class="far fa-square">
+                                                                            <span>Le Coq Sportif</span>
+                                                                        </i>
+                                                                    </button>
+                                                                </li>
+                                                            </span>
+
+                                                        </ul>
+
+                                                    </div>
+                                                </div>
+                                                <!--Talle-->
+                                                <div class="card collapsible refinement">
+                                                    <div class="card-header col-sm-12">
+                                                        <button class="title btn text-left btn-block"></button>
+                                                        <h2> Talle</h2>
+                                                    </div>
+                                                    <div class="card-body content value">
+                                                        <ul class="values content">
+                                                            <span class="filter-options">
+                                                                <li class="col-sm-2 col-md-5 list-inline-item">
+                                                                    <button>
+                                                                        <i class="far fa-square">
+                                                                            <span> 14</span>
+                                                                        </i>
+                                                                    </button>
+                                                                </li>
+                                                            </span>
+                                                            <span class="filter-options">
+                                                                <li class="col-sm-2 col-md-5 list-inline-item">
+                                                                    <button>
+                                                                        <i class="far fa-square">
+                                                                            <span> 17.5</span>
+                                                                        </i>
+                                                                    </button>
+                                                                </li>
+                                                            </span>
+                                                            <span class="filter-options">
+                                                                <li class="col-sm-2 col-md-5 list-inline-item">
+                                                                    <button>
+                                                                        <i class="far fa-square">
+                                                                            <span> 18.5</span>
+                                                                        </i>
+                                                                    </button>
+                                                                </li>
+                                                            </span>
+                                                            <span class="filter-options">
+                                                                <li class="col-sm-2 col-md-5 list-inline-item">
+                                                                    <button>
+                                                                        <i class="far fa-square">
+                                                                            <span> 19</span>
+                                                                        </i>
+                                                                    </button>
+                                                                </li>
+                                                            </span>
+                                                            <span class="filter-options">
+                                                                <li class="col-sm-2 col-md-5 list-inline-item">
+                                                                    <button>
+                                                                        <i class="far fa-square">
+                                                                            <span> 19.5</span>
+                                                                        </i>
+                                                                    </button>
+                                                                </li>
+                                                            </span>
+                                                            <span class="filter-options">
+                                                                <li class="col-sm-2 col-md-5 list-inline-item">
+                                                                    <button>
+                                                                        <i class="far fa-square">
+                                                                            <span> 20</span>
+                                                                        </i>
+                                                                    </button>
+                                                                </li>
+                                                            </span>
+                                                            <span class="filter-options">
+                                                                <li class="col-sm-2 col-md-5 list-inline-item">
+                                                                    <button>
+                                                                        <i class="far fa-square">
+                                                                            <span> 20.5</span>
+                                                                        </i>
+                                                                    </button>
+                                                                </li>
+                                                            </span>
+                                                            <span class="filter-options">
+                                                                <li class="col-sm-2 col-md-5 list-inline-item">
+                                                                    <button>
+                                                                        <i class="far fa-square">
+                                                                            <span> 21</span>
+                                                                        </i>
+                                                                    </button>
+                                                                </li>
+                                                            </span>
+
+                                                        </ul>
+
+                                                    </div>
+                                                </div>
+                                                <!--Precio-->
+                                                <div class="card collapsible refinement">
+                                                    <div class="card-header col-sm-12">
+                                                        <button class="title btn text-left btn-block"></button>
+                                                        <h2> Precio</h2>
+                                                    </div>
+                                                    <div class="card-body content value">
+                                                        <ul class="values content">
+                                                            <span class="filter-options">
+                                                                <li class="col-sm-4 col-md-12">
+                                                                    <button>
+                                                                        <i class="far fa-square">
+                                                                            <span> $0 - $999</span>
+                                                                        </i>
+                                                                    </button>
+                                                                </li>
+                                                            </span>
+                                                            <span class="filter-options">
+                                                                <li class="col-sm-4 col-md-12">
+                                                                    <button>
+                                                                        <i class="far fa-square">
+                                                                            <span> $1000 - $1999</span>
+                                                                        </i>
+                                                                    </button>
+                                                                </li>
+                                                            </span>
+                                                            <span class="filter-options">
+                                                                <li class="col-sm-4 col-md-12">
+                                                                    <button>
+                                                                        <i class="far fa-square">
+                                                                            <span> $2000 - $4999</span>
+                                                                        </i>
+                                                                    </button>
+                                                                </li>
+                                                            </span>
+                                                            <span class="filter-options">
+                                                                <li class="col-sm-4 col-md-12">
+                                                                    <button>
+                                                                        <i class="far fa-square">
+                                                                            <span> $5000 - 9999</span>
+                                                                        </i>
+                                                                    </button>
+                                                                </li>
+                                                            </span>
+                                                            <span class="filter-options">
+                                                                <li class="col-sm-4 col-md-12">
+                                                                    <button>
+                                                                        <i class="far fa-square">
+                                                                            <span> $10000 - $14999</span>
+                                                                        </i>
+                                                                    </button>
+                                                                </li>
+                                                            </span>
+                                                            <span class="filter-options">
+                                                                <li class="col-sm-4 col-md-12">
+                                                                    <button>
+                                                                        <i class="far fa-square">
+                                                                            <span> $15000 o más</span>
+                                                                        </i>
+                                                                    </button>
+                                                                </li>
+                                                            </span>
+                                                        </ul>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="resultado-busqueda col-sm-12 col-md-9">
+                                        <div class="row product-grid">
+                                            <!--Product 1-->
+                                            <div class="col-6 col-sm-4">
+                                                <div class="product">
+                                                    <div class="product-tile">
+                                                        <div class="image-container">
+                                                            <a href="#">
+                                                                <div class="product-image-container">
+                                                                    <img class="tile-image" src="/images/camiseta1.jpeg">
+                                                                </div>
+                                                            </a>
+                                                            <a class="wishlistTile">
+                                                                <span class="fa-stack fa-lg">
+                                                                    <i class="far fa-heart fa-stack-1x"></i>
+                                                                    <i class="fas fa-circle fa-inverse fa-stack-2x"></i>
+                                                                </span>
+                                                            </a>
+                                                            <a class="quickview">
+                                                                <span class="fa-stack fa-lg">
+                                                                    <i class="fas fa-expand-alt fa-stack-1x"></i>
+                                                                    <i class="fas fa-circle fa-inverse fa-stack-2x"></i>
+                                                                </span>
+                                                            </a>
+
+                                                        </div>
+                                                        <div class="tile-body">
+                                                            <div class="description">
+                                                                <a href="#">
+                                                                    JUVENTUS 21/22 HOME JERSEY BY ADIDAS
+                                                                </a>
+                                                            </div>
+                                                            <div class="price">
+                                                                $10.999
+                                                            </div>
+                                                            <div class="tile-body-footer">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                            </div> <!--Product 1-->
+
+                                            <!--Product 2-->
+                                            <div class="col-6 col-sm-4">
+                                                <div class="product">
+                                                    <div class="product-tile">
+                                                        <div class="image-container">
+                                                            <a href="#">
+                                                                <div class="product-image-container">
+                                                                    <img class="tile-image" src="/images/camiseta2.jpeg">
+                                                                </div>
+                                                            </a>
+                                                            <a class="wishlistTile">
+                                                                <span class="fa-stack fa-lg">
+                                                                    <i class="far fa-heart fa-stack-1x"></i>
+                                                                    <i class="fas fa-circle fa-inverse fa-stack-2x"></i>
+                                                                </span>
+                                                            </a>
+                                                            <a class="quickview">
+                                                                <span class="fa-stack fa-lg">
+                                                                    <i class="fas fa-expand-alt fa-stack-1x"></i>
+                                                                    <i class="fas fa-circle fa-inverse fa-stack-2x"></i>
+                                                                </span>
+                                                            </a>
+
+                                                        </div>
+                                                        <div class="tile-body">
+                                                            <div class="description">
+                                                                <a href="#">
+                                                                    INTER MILAN 21/22 HOME JERSEY BY NIKE
+                                                                </a>
+                                                            </div>
+                                                            <div class="price">
+                                                                <span class="sales">
+                                                                    <span class="value">
+                                                                        $11.999
+                                                                    </span>
+                                                                </span>
+                                                            </div>
+                                                            <div class="tile-body-footer">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> <!--Product 2--> 
+
+                                            <!--Product 3-->
+                                            <div class="col-6 col-sm-4">
+                                                <div class="product">
+                                                    <div class="product-tile">
+                                                        <div class="image-container">
+                                                            <a href="#">
+                                                                <div class="product-image-container">
+                                                                    <img class="tile-image" src="/images/camiseta3.jpeg">
+                                                                </div>
+                                                            </a>
+                                                            <a class="wishlistTile">
+                                                                <span class="fa-stack fa-lg">
+                                                                    <i class="far fa-heart fa-stack-1x"></i>
+                                                                    <i class="fas fa-circle fa-inverse fa-stack-2x"></i>
+                                                                </span>
+                                                            </a>
+                                                            <a class="quickview">
+                                                                <span class="fa-stack fa-lg">
+                                                                    <i class="fas fa-expand-alt fa-stack-1x"></i>
+                                                                    <i class="fas fa-circle fa-inverse fa-stack-2x"></i>
+                                                                </span>
+                                                            </a>
+
+                                                        </div>
+                                                        <div class="tile-body">
+                                                            <div class="description">
+                                                                <a href="#">
+                                                                    Nike Youth Soccer Liverpool Home Jersey
+                                                                </a>
+                                                            </div>
+                                                            <div class="price">
+                                                                <span class="sales">
+                                                                    <span class="value">
+                                                                        $11.999
+                                                                    </span>
+                                                                </span>
+                                                            </div>
+                                                            <div class="tile-body-footer">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                            </div> <!--Product 3-->
+
+                                            <!--Product 4-->
+                                            <div class="col-6 col-sm-4">
+                                                <div class="product">
+                                                    <div class="product-tile">
+                                                        <div class="image-container">
+                                                            <a href="#">
+                                                                <div class="product-image-container">
+                                                                    <img class="tile-image" src="/images/camiseta4.jpeg">
+                                                                </div>
+                                                            </a>
+                                                            <a class="wishlistTile">
+                                                                <span class="fa-stack fa-lg">
+                                                                    <i class="far fa-heart fa-stack-1x"></i>
+                                                                    <i class="fas fa-circle fa-inverse fa-stack-2x"></i>
+                                                                </span>
+                                                            </a>
+                                                            <a class="quickview">
+                                                                <span class="fa-stack fa-lg">
+                                                                    <i class="fas fa-expand-alt fa-stack-1x"></i>
+                                                                    <i class="fas fa-circle fa-inverse fa-stack-2x"></i>
+                                                                </span>
+                                                            </a>
+
+                                                        </div>
+                                                        <div class="tile-body">
+                                                            <div class="description">
+                                                                <a href="#">
+                                                                    JUVENTUS 21/22 HOME JERSEY BY ADIDAS
+                                                                </a>
+                                                            </div>
+                                                            <div class="price">
+                                                                <span class="sales">
+                                                                    <span class="value">
+                                                                        $11.999
+                                                                    </span>
+                                                                </span>
+                                                            </div>
+                                                            <div class="tile-body-footer">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> <!--Product 4-->
+
+                                            <!--Product 5-->
+                                            <div class="col-6 col-sm-4">
+                                                <div class="product">
+                                                    <div class="product-tile">
+                                                        <div class="image-container">
+                                                            <a href="#">
+                                                                <div class="product-image-container">
+                                                                    <img class="tile-image" src="/images/camiseta5.jpeg">
+                                                                </div>
+                                                            </a>
+                                                            <a class="wishlistTile">
+                                                                <span class="fa-stack fa-lg">
+                                                                    <i class="far fa-heart fa-stack-1x"></i>
+                                                                    <i class="fas fa-circle fa-inverse fa-stack-2x"></i>
+                                                                </span>
+                                                            </a>
+                                                            <a class="quickview">
+                                                                <span class="fa-stack fa-lg">
+                                                                    <i class="fas fa-expand-alt fa-stack-1x"></i>
+                                                                    <i class="fas fa-circle fa-inverse fa-stack-2x"></i>
+                                                                </span>
+                                                            </a>
+
+                                                        </div>
+                                                        <div class="tile-body">
+                                                            <div class="description">
+                                                                <a href="#">
+                                                                    ITALY EURO 20/21 HOME JERSEY BY PUMA
+                                                                </a>
+                                                            </div>
+                                                            <div class="price">
+                                                                <span class="sales">
+                                                                    <span class="value">
+                                                                        $11.999
+                                                                    </span>
+                                                                </span>
+                                                            </div>
+                                                            <div class="tile-body-footer">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                            </div> <!--Product 5-->
+
+                                            <!--Product 6-->
+                                            <div class="col-6 col-sm-4">
+                                                <div class="product">
+                                                    <div class="product-tile">
+                                                        <div class="image-container">
+                                                            <a href="#">
+                                                                <div class="product-image-container">
+                                                                    <img class="tile-image" src="/images/camiseta6.jpeg">
+                                                                </div>
+                                                            </a>
+                                                            <a class="wishlistTile">
+                                                                <span class="fa-stack fa-lg">
+                                                                    <i class="far fa-heart fa-stack-1x"></i>
+                                                                    <i class="fas fa-circle fa-inverse fa-stack-2x"></i>
+                                                                </span>
+                                                            </a>
+                                                            <a class="quickview">
+                                                                <span class="fa-stack fa-lg">
+                                                                    <i class="fas fa-expand-alt fa-stack-1x"></i>
+                                                                    <i class="fas fa-circle fa-inverse fa-stack-2x"></i>
+                                                                </span>
+                                                            </a>
+
+                                                        </div>
+                                                        <div class="tile-body">
+                                                            <div class="description">
+                                                                <a href="#">
+                                                                    ADIDAS ARSENAL TRAINING JERSEY 21/22
+                                                                </a>
+                                                            </div>
+                                                            <div class="price">
+                                                                <span class="sales">
+                                                                    <span class="value">
+                                                                        $11.999
+                                                                    </span>
+                                                                </span>
+                                                            </div>
+                                                            <div class="tile-body-footer">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                            </div> <!--Product 6-->
+
+                                            <!--Product 7-->
+                                            <div class="col-6 col-sm-4">
+                                                <div class="product">
+                                                    <div class="product-tile">
+                                                        <div class="image-container">
+                                                            <a href="#">
+                                                                <div class="product-image-container">
+                                                                    <img class="tile-image" src="/images/camiseta7.jpeg">
+                                                                </div>
+                                                            </a>
+                                                            <a class="wishlistTile">
+                                                                <span class="fa-stack fa-lg">
+                                                                    <i class="far fa-heart fa-stack-1x"></i>
+                                                                    <i class="fas fa-circle fa-inverse fa-stack-2x"></i>
+                                                                </span>
+                                                            </a>
+                                                            <a class="quickview">
+                                                                <span class="fa-stack fa-lg">
+                                                                    <i class="fas fa-expand-alt fa-stack-1x"></i>
+                                                                    <i class="fas fa-circle fa-inverse fa-stack-2x"></i>
+                                                                </span>
+                                                            </a>
+
+                                                        </div>
+                                                        <div class="tile-body">
+                                                            <div class="description">
+                                                                <a href="#">
+                                                                    Arsenal 21/22 Authentic Home Jersey by adidas
+                                                                </a>
+                                                            </div>
+                                                            <div class="price">
+                                                                <span class="sales">
+                                                                    <span class="value">
+                                                                        $11.999
+                                                                    </span>
+                                                                </span>
+                                                            </div>
+                                                            <div class="tile-body-footer">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> <!--Product 7-->
+
+                                            <!--Product 8-->
+                                            <div class="col-6 col-sm-4">    
+                                                <div class="product">
+                                                    <div class="product-tile">
+                                                        <div class="image-container">
+                                                            <a href="#">
+                                                                <div class="product-image-container">
+                                                                    <img class="tile-image" src="/images/camiseta8.jpeg">
+                                                                </div>
+                                                            </a>
+                                                            <a class="wishlistTile">
+                                                                <span class="fa-stack fa-lg">
+                                                                    <i class="far fa-heart fa-stack-1x"></i>
+                                                                    <i class="fas fa-circle fa-inverse fa-stack-2x"></i>
+                                                                </span>
+                                                            </a>
+                                                            <a class="quickview">
+                                                                <span class="fa-stack fa-lg">
+                                                                    <i class="fas fa-expand-alt fa-stack-1x"></i>
+                                                                    <i class="fas fa-circle fa-inverse fa-stack-2x"></i>
+                                                                </span>
+                                                            </a>
+
+                                                        </div>
+                                                        <div class="tile-body">
+                                                            <div class="description">
+                                                                <a href="#">
+                                                                    MANCHESTER UNITED AUTHENTIC THIRD JERSEY BY ADIDAS
+                                                                </a>
+                                                            </div>
+                                                            <div class="price">
+                                                                <span class="sales">
+                                                                    <span class="value">
+                                                                        $11.999
+                                                                    </span>
+                                                                </span>
+                                                            </div>
+                                                            <div class="tile-body-footer">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>  <!--Product 8-->
+
+                                            <!--Product 9-->
+                                            <div class="col-6 col-sm-4">
+                                                <div class="product">
+                                                    <div class="product-tile">
+                                                        <div class="image-container">
+                                                            <a href="#">
+                                                                <div class="product-image-container">
+                                                                    <img class="tile-image" src="/images/camiseta9.jpeg">
+                                                                </div>
+                                                            </a>
+                                                            <a class="wishlistTile">
+                                                                <span class="fa-stack fa-lg">
+                                                                    <i class="far fa-heart fa-stack-1x"></i>
+                                                                    <i class="fas fa-circle fa-inverse fa-stack-2x"></i>
+                                                                </span>
+                                                            </a>
+                                                            <a class="quickview">
+                                                                <span class="fa-stack fa-lg">
+                                                                    <i class="fas fa-expand-alt fa-stack-1x"></i>
+                                                                    <i class="fas fa-circle fa-inverse fa-stack-2x"></i>
+                                                                </span>
+                                                            </a>
+
+                                                        </div>
+                                                        <div class="tile-body">
+                                                            <div class="description">
+                                                                <a href="#">
+                                                                    BORUSSIA DORTMUND 21/22 HOME JERSEY BY PUMA
+                                                                </a>
+                                                            </div>
+                                                            <div class="price">
+                                                                <span class="sales">
+                                                                    <span class="value">
+                                                                        $11.999
+                                                                    </span>
+                                                                </span>
+                                                            </div>
+                                                            <div class="tile-body-footer">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                            </div> <!--Product 9-->
+
+                                            <!--Product 10-->
+                                            <div class="col-6 col-sm-4">
+                                                <div class="product">
+                                                    <div class="product-tile">
+                                                        <div class="image-container">
+                                                            <a href="#">
+                                                                <div class="product-image-container">
+                                                                    <img class="tile-image" src="/images/camiseta10.jpeg">
+                                                                </div>
+                                                            </a>
+                                                            <a class="wishlistTile">
+                                                                <span class="fa-stack fa-lg">
+                                                                    <i class="far fa-heart fa-stack-1x"></i>
+                                                                    <i class="fas fa-circle fa-inverse fa-stack-2x"></i>
+                                                                </span>
+                                                            </a>
+                                                            <a class="quickview">
+                                                                <span class="fa-stack fa-lg">
+                                                                    <i class="fas fa-expand-alt fa-stack-1x"></i>
+                                                                    <i class="fas fa-circle fa-inverse fa-stack-2x"></i>
+                                                                </span>
+                                                            </a>
+
+                                                        </div>
+                                                        <div class="tile-body">
+                                                            <div class="description">
+                                                                <a href="#">
+                                                                    RIVER PLATE 21/22 AWAY JERSEY BY ADIDAS
+                                                                </a>
+                                                            </div>
+                                                            <div class="price">
+                                                                <span class="sales">
+                                                                    <span class="value">
+                                                                        $11.999
+                                                                    </span>
+                                                                </span>
+                                                            </div>
+                                                            <div class="tile-body-footer">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> <!--Product 10-->
+
+                                            <!--Product 11-->
+                                            <div class="col-6 col-sm-4">
+                                                <div class="product">
+                                                    <div class="product-tile">
+                                                        <div class="image-container">
+                                                            <a href="#">
+                                                                <div class="product-image-container">
+                                                                    <img class="tile-image" src="/images/camiseta11.jpeg">
+                                                                </div>
+                                                            </a>
+                                                            <a class="wishlistTile">
+                                                                <span class="fa-stack fa-lg">
+                                                                    <i class="far fa-heart fa-stack-1x"></i>
+                                                                    <i class="fas fa-circle fa-inverse fa-stack-2x"></i>
+                                                                </span>
+                                                            </a>
+                                                            <a class="quickview">
+                                                                <span class="fa-stack fa-lg">
+                                                                    <i class="fas fa-expand-alt fa-stack-1x"></i>
+                                                                    <i class="fas fa-circle fa-inverse fa-stack-2x"></i>
+                                                                </span>
+                                                            </a>
+
+                                                        </div>
+                                                        <div class="tile-body">
+                                                            <div class="description">
+                                                                <a href="#">
+                                                                    ARSENAL 21/22 AUTHENTIC THIRD JERSEY BY ADIDAS
+                                                                </a>
+                                                            </div>
+                                                            <div class="price">
+                                                                <span class="sales">
+                                                                    <span class="value">
+                                                                        $11.999
+                                                                    </span>
+                                                                </span>
+                                                            </div>
+                                                            <div class="tile-body-footer">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> <!--Product 11-->
+
+                                            <!--Product 12-->
+                                            <div clas="col-6 col-sm-4">
+                                                <div class="product">
+                                                    <div class="product-tile">
+                                                        <div class="image-container">
+                                                            <a href="#">
+                                                                <div class="product-image-container">
+                                                                    <img class="tile-image" src="/images/camiseta12.jpeg">
+                                                                </div>
+                                                            </a>
+                                                            <a class="wishlistTile">
+                                                                <span class="fa-stack fa-lg">
+                                                                    <i class="far fa-heart fa-stack-1x"></i>
+                                                                    <i class="fas fa-circle fa-inverse fa-stack-2x"></i>
+                                                                </span>
+                                                            </a>
+                                                            <a class="quickview">
+                                                                <span class="fa-stack fa-lg">
+                                                                    <i class="fas fa-expand-alt fa-stack-1x"></i>
+                                                                    <i class="fas fa-circle fa-inverse fa-stack-2x"></i>
+                                                                </span>
+                                                            </a>
+
+                                                        </div>
+                                                        <div class="tile-body">
+                                                            <div class="description">
+                                                                <a href="#">
+                                                                    BAYERN MUNICH 21/22 AUTHENTIC HOME JERSEY BY ADIDAS
+                                                                </a>
+                                                            </div>
+                                                            <div class="price">
+                                                                <span class="sales">
+                                                                    <span class="value">
+                                                                        $11.999
+                                                                    </span>
+                                                                </span>
+                                                            </div>
+                                                            <div class="tile-body-footer">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> <!--Product 12-->
+
+                                            <div class="col-12 grid-footer">
+                                                <div class="end-page-container">
+                                                    <div class="text-center">
+                                                        <span class="page">Páginas:</span>
+                                                        <button class="btn pagination-page btn-active"> 1</button>
+                                                        <button class="btn pagination-page"> 2</button>
+                                                        <span class="ellipsis btn-padding">...</span>
+                                                        <button class="btn pagination-page"> 24</button>
+                                                        <button class="btn btn-padding"> ></button>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
 
                     </div>  <!--Middle row-->
 
