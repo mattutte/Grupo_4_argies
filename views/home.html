@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+
+    <!-- vinculacion a libreria de estilos-->
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/styles-header.css">
+
+    <!--viculacion a pagina con íconos-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Hind:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+    <title>Cazaka home</title>
+    
+
+</head>
+<body>
+    <header class="Header">
+                                
+        <div class="main-header-top-bar">
+            <div class="Covid-Info">
+                <img src="./images/Casaka-small-f-negro.png" class="Covid-19" alt="Covid Info">
+                <p>COVID-19 INFO</p>
+            </div>
+            <form class="search-results" action:"/search" method="POST">   
+                <input class="searchbar" id="searchbar" type="text" placeholder="Busca productos, marcas" > 
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+
+            
+        
+            <div class="dropdown">
+                <button class="dropntn"><img src="./images/bandera-argentina.jpg" class="Bandera-Argentina" alt="Bandera Argentina"></button>
+                <div class="dropdown-content">
+                    <a href="#"><img src="./images/bandera-argentina.jpg" class="Bandera-Argentina" alt="Bandera Argentina"></a>
+                    <a href="#"><img src="./images/bandera-inglaterra.png" class="Bandera-Inglesa" alt="Bandera Inglesa"></a>
+                    <a href="#"><img src="./images/bandera-brasil.png" class="Bandera-Brasil" alt="Bandera Brasilera"></a>
+                    <a href="#"><img src="./images/bandera-china.png" class="Bandera-China" alt="Bandera China"></a>
+                </div>   
+            </div> 
+
+            <nav class="upper-top-menu">
+                <ul>
+                    <li> <a href="#">Sobre nosotros</a></li>
+                    <li> <a href="/signup">Registrate</a></li>
+                    <li> <a href="/signin">Sign in</a></li>
+
+                </ul>   
+            </nav> 
+        </div>
+
+        <div class="main-header-bottom-bar">
+            <img src="./images/Logo-horizontal-f-blanco.png" class="logo-horizontal-b" alt="logo horizontal Casaka"> 
+            
+            <div class="burger-menu">
+                <i class="fas fa-bars"> </i>
+            </div>
+
+            <nav class="main-menu">
+                <ul>
+                    <li> <a href="#">Camisetas</a></li>
+                    <li> <a href="#">Clubes</a></li>
+                    <li> <a href="#">Ligas</a></li>
+                    <li> <a href="#">Seleccionados</a></li>
+                    <li> <a href="#">Coleccionables</a></li>
+                    <li> <a href="#">Ofertas</a></li>
+                    <li> <a href="#">Novedades</a></li>
+                </ul>   
+            </nav> 
+
+            <nav class="lower-right-menu">
+                <ul>
+                    <li> <a href="#" alt="Favorites"><i class="fas fa-heart"></i></a></li>
+                    <li> <a href="#" alt="Shopping Cart"><i class="fas fa-shopping-cart" id="shopping-cart-top-menu"></i></a></li>
+                </ul>   
+            </nav>        
+        </div>
+    </header>
+<main>
+    <div class="banner">
+        <img width=100% src="images/chelseabanner.JPG">
+    </div>
+    <div class="banners">
+        <div class="filauno">
+            <img class="novedades" src="images/spurs.JPG">
+            <img class="novedades" src="images/unitedbaner.JPG">
+        </div>
+        <div class="filauno">
+            <img class="novedades" src="images/mexicobanner.JPG">
+            <img class="novedades" src="images/estadosunidosbanner.JPG">
+        </div>
+    </div>
+<section class="pickedForYou">
+    <h3 class="titulares">Picked for you</h3>
+    <div class="articulos">
+        <article>
+            <div>
+            <img width="200" src="images/camiseta1.jpeg">
+        </div>
+        <div class="rating">
+            <img width="70" src="images/rating-stars.png">
+        </div>
+            <div class="descripcion">
+                <p class="equipo">JUVENTUS 21/22 HOME JERSEY</p>
+                <p class="precio">$89.99</p>
+            </div>
+        </article>
+        <article>
+            <div>
+            <img width="200" src="images/camiseta2.jpeg">
+        </div>
+        <div class="rating">
+            <img width="70" src="images/rating-stars.png">
+        </div>
+            <div class="descripcion">
+                <p class="equipo">INTER MILAN 21/22 HOME JERSEY</p>
+                <p class="precio">$89.99</p>
+            </div>
+        </article>
+        
+        <article>
+            <a href="/product">
+            <div>
+            <img width="200" src="images/camiseta3.jpeg">
+        </div>
+        <div class="rating">
+            <img width="70" src="images/rating-stars.png">
+        </div>
+            <div class="descripcion">
+                <p class="equipo">AC MILAN 21/22 HOME JERSEY</p>
+                <p class="precio">$89.99</p>
+            </div>
+        </a>
+        </article>
+        
+        <article>
+            <div>
+            <img width="200" src="images/Camiseta4.jpeg">
+        </div>
+        <div class="rating">
+            <img width="70" src="images/rating-stars.png">
+        </div>
+            <div class="descripcion">
+                <p class="equipo">MANCHESTER UNITED 21/22 SECOND JERSEY</p>
+                <p class="precio">$89.99</p>
+            </div>
+        </article>
+    </div>
+</section>
+<section class="mostSold">
+    <h3 class="titulares">Most Sold</h3>
+    <div class="articulos">
+        <article>
+            <div>
+            <img width="200" src="images/camiseta5.jpeg">
+        </div>
+        <div class="rating">
+            <img width="70" src="images/rating-stars.png">
+        </div>
+            <div class="descripcion">
+                <p class="equipo">ITALY EURO 20/21 HOME JERSEY</p>
+                <p class="precio">$89.99</p>
+            </div>
+        </article>
+        <article>
+            <div>
+            <img width="200" src="images/camiseta6.jpeg">
+        </div>
+        <div class="rating">
+            <img width="70" src="images/rating-stars.png">
+        </div>
+            <div class="descripcion">
+                <p class="equipo">ARSENAL TRAINING JERSEY 21/22</p>
+                <p class="precio">$89.99</p>
+            </div>
+        </article>
+        <article>
+            <div>
+            <img width="200" src="images/camiseta7.jpeg">
+        </div>
+        <div class="rating">
+            <img width="70" src="images/rating-stars.png">
+        </div>
+            <div class="descripcion">
+                <p class="equipo">ARSENAL 21/22 AUTHENTIC HOME JERSEY</p>
+                <p class="precio">$89.99</p>
+            </div>
+        </article>
+        <article>
+            <div>
+            <img width="200" src="images/Camiseta8.jpeg">
+        </div>
+        <div class="rating">
+            <img width="70" src="images/rating-stars.png">
+        </div>
+            <div class="descripcion">
+                <p class="equipo">MANCHESTER UNITED 21/22 THIRD JERSEY</p>
+                <p class="precio">$89.99</p>
+            </div>
+        </article>
+    </div>
+</section>
+</main>
+<footer class="main-footer">
+        
+        
+        
+    <div class="main-footer-top-bar">
+        <img src="./images/Casaka-small-f-negro.png" class="Logo-vertical-f-negro" alt="Logo Fondo Negro">
+        
+        <nav class="Informacion-Util">
+            <ul>
+                <li> <a href="#" class="Titulo-Menu">INFORMACION UTIL</a></li>
+                <li> <a href="#">Politicas de Privacidad</a></li>
+                <li> <a href="#">Medios de Pago</a></li>
+                <li> <a href="#">Protocolo Covid-19</a></li>
+                <li> <a href="#">Términos y condiciones</a></li>
+                <li> <a href="#">Defensa del Consumidor</a></li>
+            </ul>   
+        </nav> 
+
+        <nav class="Ayuda">
+            <ul>
+                <li> <a href="#" class="Titulo-Menu">AYUDA</a></li>
+                <li> <a href="#">Preguntas Frecuentes</a></li>
+                <li> <a href="#">Sucursales</a></li>
+                <li> <a href="#">Pagos</a></li>
+                <li> <a href="#">Entregas</a></li>
+                <li> <a href="#">Cambios</a></li>
+            </ul>   
+        </nav>
+
+        <nav class="Conocenos">
+            <ul>
+                <li> <a href="#" class="Titulo-Menu">CONOCENOS</a></li>
+                <li> <a href="#">Nuestra Historia</a></li>
+                <li> <a href="#">Trabaja con Nosotros</a></li>
+                <li> <a href="#">Contáctanos</a></li>
+                <li> <a href="#"><i class="fab fa-whatsapp"></i>11-5799-0114</a></li>
+            </ul>   
+        </nav>
+
+    </div>
+
+    <div class="main-footer-bottom-bar">
+        
+        <nav class="redes-sociales">
+            <ul>
+                <li> <a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li> <a href="#"><i class="fab fa-facebook-square"></i></a></li>
+                <li> <a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li> <a href="#"><i class="fab fa-youtube"></i></a></li>
+            </ul>   
+        </nav> 
+        <p class="COPYRIGHT">
+            COPYRIGHT © 2021 The Argies INC. ALL RIGHTS RESERVED
+        </p> 
+
+                
+    </div>
+
+    
+
+</footer>
+
+
+
+
+</body>
+</html>
+
