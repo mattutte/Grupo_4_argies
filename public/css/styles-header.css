@@ -174,36 +174,16 @@ header {
     width: 30%;
     align-content: center;
     font-size: 15px;
-    padding: 0px 10px;
-    color: #1b1c20;
-    
+    /*padding: 0px 10px;*/
+    color: white;
 }
 
 .fa-shopping-cart {     /* originalmente escrito por TH: .fa-shopping-cart*/
     width: 30%;
     align-content: center;
     font-size: 15px;
-    padding: 0px 10px;
-    color: #1b1c20;
-}
-
-.main-menu-dropdown{
-    display: none;
-}
-
-/* Show the dropdown menu on hover burger menu */
-.burger-menu:hover .main-menu-dropdown {
-
-    display: flex;
-    flex-direction:column;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items:flex-start;
-    width: 90%;
-    padding-left: 20px;
-    background-color: whitesmoke;
-    color: black;
-    
+    /*padding: 0px 10px;*/
+    color: white;
 }
 
 

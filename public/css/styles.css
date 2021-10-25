@@ -12,7 +12,8 @@ main {
 .filauno {
     display: flex;
     margin: 20px;
-   
+    margin-left: 8%;
+    margin-right: 8%;
     text-align: center;
     justify-content: center;
 }
@@ -67,7 +68,7 @@ article {
 
 
 
-}
+
 
 @media (max-width: 480px){
     .articulos {

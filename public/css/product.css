@@ -24,7 +24,16 @@
     height: 20px;
 }
 
+/*
 
+<<<<<<< HEAD
+=======
+@keyframes bounce {
+	0% { transform: translateY(0px)}
+	50% { transform: translateY(-6px)}
+}
+
+>>>>>>> 98a08b11b2e7e83a6f681aacb42faa07f4fcc120
 header {
     position: sticky;
     top: 0;
