@@ -8,6 +8,9 @@ let mainController = {
     product: (req,res)=>{
         res.render('product')
     },
+    productSearch: (req,res)=>{
+        res.render('productSearch')
+    },
     signin: (req,res)=>{
         res.render('signin')
     },

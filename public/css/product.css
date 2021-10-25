@@ -25,7 +25,11 @@
 }
 
 
-
+header {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
 
 
 /*BODY*/
@@ -305,7 +309,7 @@ body {
 
     .products-slider {
         display: flex;
-        justify-content:flex-start;
+        justify-content:center;
         overflow-x: auto;
     }
 
@@ -473,7 +477,15 @@ body {
         background-color: rgba(94, 90, 90, 0.8);
     }
 
+    .discount:hover {
+        transform: scale(1.05);
+        background-color: #e31524;
+        color: white;
+        cursor: pointer;
+    }
+
 /* RESPONSIVE SECTION */
+
 
 @media (min-width: 1026px) {
 
