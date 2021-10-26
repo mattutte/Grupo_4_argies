@@ -73,6 +73,9 @@ header {
 .main-header .searchbar{
         
         padding: 0px;
+        margin: 0px;
+        height: 18px;
+        border-radius: 3px;
     }
 
 .main-header .searchbar input{
@@ -80,18 +83,22 @@ header {
     
 }
 
-.main-header .submit{
+.search-results button{
         
     font-size: 14px;
     border: none;
     border-radius: 3px;
+    background-color: white;
+    border-left: #666 solid 1px;
     color: #666;
-    height: 40px;
+    
     align-self: center;
     padding-bottom: 5px;
     padding-right: 10px;
     margin: 0px;
     padding: 0px;
+    width: auto;
+    opacity: 1;
     
 }
 
@@ -119,6 +126,13 @@ header {
     z-index: 1;
   }
   
+  .dropdown-banderas button {
+    width: 20px;
+    display: block;
+    
+    background-color: transparent;
+    padding: 0px 0px 2px 0px;
+  }
   
   /* Links inside the dropdown */
   .dropdown-banderas img {
