@@ -10,7 +10,14 @@ app.use(express.static('public'));
 
 app.use(express.urlencoded());
 
-//const mainController = require('./controllers/mainController');
+
+const mainRouter = require('./routes/mainRouter');
+
+
+
+app.use('/',mainRouter); 
+
+
 
 const mainRouter = require('./routes/mainRouter');
 

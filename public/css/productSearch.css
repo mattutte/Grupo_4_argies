@@ -2,6 +2,11 @@
     margin: 0px;
     box-sizing: border-box;
     padding: 0px;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> d8dcc237ec9bf2be0405d84e7c586a7893df74d7
     font-family: sans-serif;
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -9,6 +14,10 @@
 
 h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
+<<<<<<< HEAD
+=======
+>>>>>>> 98a08b11b2e7e83a6f681aacb42faa07f4fcc120
+>>>>>>> d8dcc237ec9bf2be0405d84e7c586a7893df74d7
 }
 
 .clear10px {
@@ -32,6 +41,58 @@ h1, h2, h3, h4, h5, h6 {
 /*BODY*/
 
 body {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.main-container {
+    width: 100%;
+    margin: 0px auto;
+    padding: 0px 50px;
+}
+
+.go_back {
+    margin-bottom: 10px;
+}
+
+.go_back-button {
+    text-decoration: none;
+}
+
+.row-middle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+
+/* RESPONSIVE SECTION */
+
+
+@media (min-width: 1026px) {
+
+}
+
+@media (min-width: 769px) and (max-width: 1025px){
+
+
+}
+
+
+@media (min-width: 481px) and (max-width: 768px){
+
+}
+
+@media screen and (max-width: 480px){
+
+=======
+>>>>>>> d8dcc237ec9bf2be0405d84e7c586a7893df74d7
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1rem;
@@ -723,5 +784,9 @@ button, input, select {
     .container {
         max-width: 1170px;
     }
+<<<<<<< HEAD
+=======
+>>>>>>> 98a08b11b2e7e83a6f681aacb42faa07f4fcc120
+>>>>>>> d8dcc237ec9bf2be0405d84e7c586a7893df74d7
 
 }

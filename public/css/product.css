@@ -26,11 +26,20 @@
 
 /*
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> d8dcc237ec9bf2be0405d84e7c586a7893df74d7
 @keyframes bounce {
 	0% { transform: translateY(0px)}
 	50% { transform: translateY(-6px)}
 }
 
+<<<<<<< HEAD
+=======
+>>>>>>> 98a08b11b2e7e83a6f681aacb42faa07f4fcc120
+>>>>>>> d8dcc237ec9bf2be0405d84e7c586a7893df74d7
 header {
     position: sticky;
     top: 0;

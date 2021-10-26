@@ -17,6 +17,7 @@ main {
     text-align: center;
     justify-content: center;
 }
+
 .novedades {
     margin: 20px;
     width: 50%;
@@ -67,7 +68,7 @@ article {
 
 
 
-}
+
 
 @media (max-width: 480px){
     .articulos {
