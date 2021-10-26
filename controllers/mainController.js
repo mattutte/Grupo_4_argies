@@ -20,6 +20,9 @@ let mainController = {
     shoppingcart: (req,res)=>{
         res.render('shopping-cart')
     },
+    perfil: (req,res)=>{
+        res.render('profile')
+    },
 
 };
 

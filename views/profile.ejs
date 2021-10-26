@@ -1,24 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
-
-  <!-- vinculacion a libreria de estilos-->
-  <link rel="stylesheet" href="./css/normalize.css">
-  <link rel="stylesheet" href="./css/profile.css">
-
-  <!--viculacion a pagina con íconos-->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-
-  <title>Cazaka home - Perfil</title>
-    
-</head>
+  <%- include('./partials/head.ejs',{titulo:"Perfil",stylesFile:"profile.css"}) %>
 <body>
-
+  <!-- Header -->
+  <%- include('./partials/header.ejs') %>
+    
+    
+  <!-- Profile -->
+  <mian>
 <form action="action_page.php" style="border:1px solid #ccc">
     <div class="container">
       <h1>Completar Perfil</h1>
@@ -50,6 +39,11 @@
       </div>
     </div>
   </form>
+
+</mian>
+
+<!-- Footer -->
+<%- include('./partials/footer.ejs') %>
 
 </body>
 
