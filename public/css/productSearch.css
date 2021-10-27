@@ -44,6 +44,7 @@ body {
     line-height: 1.5;
     color: #212529;
     text-align: left;
+    background-color: #f8f8f8 !important;
 }
 
 .main-container {
@@ -71,15 +72,15 @@ body {
 
 
 .card-header {
-    padding: .75rem 1.25rem;
+    padding: .25rem 1.25rem 0.75rem;
     margin-bottom: 0;
 }
 
 [class*="col-"] {
     position: relative;
     width: 100%;
-    padding-right: 6px;
-    padding-left: 6px;
+    padding-right: 4px;
+    padding-left: 4px;
 }
 
 .breadcrumb {
@@ -93,6 +94,13 @@ body {
 
 .container .breadcrumb {
     border-radius: 0;
+}
+
+.product {
+    background-color: white;
+    border-radius: 2px;
+    box-shadow: 1px 3px 1px rgb(50 50 50 / 10%);
+    margin: 12px 8px 0 0;
 }
 
 
@@ -301,6 +309,10 @@ option {
     margin-bottom: 1em;
 }
 
+.refinement-bar {
+    overflow: auto;
+}
+
 .card {
     position: relative;
     display: flex;
@@ -426,6 +438,8 @@ button, input, select {
     color: #121212;
     border: none;
     background-color: transparent;
+    white-space: nowrap;
+    text-align: left;
 }
 
 .main-container .refinements .card .card-body .values li button i {
@@ -435,10 +449,7 @@ button, input, select {
 .main-container .refinements .card .card-body .values li button span {
     font-family: Roboto,sans-serif;
     font-weight: 700;
-}
-
-.refinement-bar {
-    overflow: auto;
+    white-space: normal;
 }
 
 .card-body.content.value::-webkit-scrollbar {
@@ -467,7 +478,7 @@ button, input, select {
 /* RESULTADO BUSQUEDA ----------------------------------------------------------------*/
 
 .resultado-busqueda {
-    padding: 10px;
+    padding: 0px 10px 10px;
 }
 
 .container .product .product-tile {
@@ -484,7 +495,8 @@ button, input, select {
 .container .product {
     max-width: 275px;
     /*height: 500px;      /*original 450* cambio para el nuevo price-box*/
-    margin: auto auto 5px;
+    /*margin: auto auto 5px;*/
+    margin: 0 0 10px;
 }
 
 
@@ -874,7 +886,7 @@ button, input, select {
 
 /* PIE DE PAGINA ----------------------------------------------------------------*/
 
-.end-page-container .btn-active {
+.pagination-lg .btn-active {
     border-color: #121212;
     border-radius: 50%;
     padding: .11rem .5rem;
