@@ -212,20 +212,26 @@
 
                             <!--Carrusel de productos similares-->
                             <ul class="products-slider">
+                                <% products.forEach(product => { 
+                                    let regular_price = parseFloat(product.regularPrice.replace('$', ''));
+                                    let special_price = parseFloat(product.specialPrice.replace('$', ''));
+                                    let discount = (1 - special_price/regular_price)*100;
+                                    let price_discount = discount.toFixed(0);    
+                                %>
 
-                                <!--Primer item del carousel-->
+                                <!--Item <% product %> del carousel-->
                                 <li id="item_0" class="slider-item">
                                     <div class="item_image">
-                                        <img src="/images/camiseta1.jpeg">
+                                        <img src="/images/<%= product.images.main %>">
                                     </div>
                                     <div class="item_description">
-                                        <h4>JUVENTUS 21/22 HOME JERSEY BY ADIDAS</h4>
+                                        <h4><%= product.description %></h4>
                                         <div class="price-discount">
-                                            <span class="price-list">AR$ 2.750</span>
-                                            <span class="discount">50% OFF</span>
+                                            <span class="price-list"><%= 'AR'+product.regularPrice %></span>
+                                            <span class="discount"><%= price_discount + '%' +' OFF'%></span>
                                         </div>
                                         <div class="price-box">
-                                            <p>AR$ 1.380</p>
+                                            <p><%= 'AR'+product.specialPrice %></p>
                                         </div>
                                         <div class="item_afip">
                                             <p>Incluye impuesto PAIS y percepción AFIP</p>
@@ -239,110 +245,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                <!--Segundo item del carousel-->
-                                <li id="item_1" class="slider-item">
-                                    <div class="item_image">
-                                        <img src="/images/camiseta2.jpeg">
-                                    </div>
-                                    <div class="item_description">
-                                        <h4>INTER MILAN 21/22 HOME JERSEY BY NIKE</h4>
-                                        <div class="price-discount">
-                                            <span class="price-list">AR$ 2.750</span>
-                                            <span class="discount">50% OFF</span>
-                                        </div>
-                                        <div class="price-box">
-                                            <p>AR$ 1.380</p>
-                                        </div>
-                                        <div class="item_afip">
-                                            <p>Incluye impuesto PAIS y percepción AFIP</p>
-                                        </div>
-                                        <div class="fav-icon">
-                                            <i class="far fa-heart"></i>
-                                        </div>
-                                        <div class="clear20px"></div>
-                                        <div>
-                                            <span class="free-delivery"></span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <!--Tercer item del carousel-->
-                                <li id="item_2" class="slider-item">
-                                    <div class="item_image">
-                                        <img src="/images/camiseta4.jpeg">
-                                    </div>
-                                    <div class="item_description">
-                                        <h4>JUVENTUS 21/22 HOME JERSEY BY ADIDAS</h4>
-                                        <div class="price-discount">
-                                            <span class="price-list">AR$ 2.750</span>
-                                            <span class="discount">50% OFF</span>
-                                        </div>
-                                        <div class="price-box">
-                                            <p>AR$ 1.380</p>
-                                        </div>
-                                        <div class="item_afip">
-                                            <p>Incluye impuesto PAIS y percepción AFIP</p>
-                                        </div>
-                                        <div class="fav-icon">
-                                            <i class="far fa-heart"></i>
-                                        </div>
-                                        <div class="clear20px"></div>
-                                        <div>
-                                            <span class="free-delivery"></span>
-                                        </div>
-                                    </div>
-                                <!--Cuarto item del carrusel-->
-                                </li>
-                                <li id="item_3" class="slider-item">
-                                    <div class="item_image">
-                                        <img src="/images/camiseta5.jpeg" width="160px" height="160px">
-                                    </div>
-                                    <div class="item_description">
-                                        <h4>ITALY EURO 20/21 HOME JERSEY BY PUMA</h4>
-                                        <div class="price-discount">
-                                            <span class="price-list">AR$ 2.750</span>
-                                            <span class="discount">50% OFF</span>
-                                        </div>
-                                        <div class="price-box">
-                                            <p>AR$ 1.380</p>
-                                        </div>
-                                        <div class="item_afip">
-                                            <p>Incluye impuesto PAIS y percepción AFIP</p>
-                                        </div>
-                                        <div class="fav-icon">
-                                            <i class="far fa-heart"></i>
-                                        </div>
-                                        <div class="clear20px"></div>
-                                        <div>
-                                            <span class="free-delivery"></span>
-                                        </div>
-                                    </div>
-                                <!--Quinto item del carousel-->
-                                </li>
-                                <li id="item_4" class="slider-item">
-                                    <div class="item_image">
-                                        <img src="/images/camiseta6.jpeg">
-                                    </div>
-                                    <div class="item_description">
-                                        <h4>ADIDAS ARSENAL TRAINING JERSEY 21/22</h4>
-                                        <div class="price-discount">
-                                            <span class="price-list">AR$ 2.750</span>
-                                            <span class="discount">50% OFF</span>
-                                        </div>
-                                        <div class="price-box">
-                                            <p>AR$ 1.380</p>
-                                        </div>
-                                        <div class="item_afip">
-                                            <p>Incluye impuesto PAIS y percepción AFIP</p>
-                                        </div>
-                                        <div class="fav-icon">
-                                            <i class="far fa-heart"></i>
-                                        </div>
-                                        <div class="clear20px"></div>
-                                        <div>
-                                            <span class="free-delivery"></span>
-                                        </div>
-                                    </div>
-                                </li>
+                                <% }) %>
                             </ul>   <!--Carousel de productos similares-->
                             <!--Next and Previous buttons-->
                             <a class="prev">&#10094</a>

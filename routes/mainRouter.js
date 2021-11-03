@@ -11,5 +11,6 @@ router.get('/signup',mainController.signup);
 router.get('/shopping-cart',mainController.shoppingcart);
 router.get('/productsearch',mainController.productSearch);
 router.get('/profile',mainController.perfil);
+router.get('/product/add',mainController.addProduct);
 
 module.exports = router;

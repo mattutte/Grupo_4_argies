@@ -519,6 +519,15 @@ body {
         align-items: center;
     }
 
+    .products-slider {
+        justify-content: flex-start;
+    }
+
+    .slider-item {
+        margin: 10px 19px;
+        width: 20ox;
+    }
+
     
 }
 
