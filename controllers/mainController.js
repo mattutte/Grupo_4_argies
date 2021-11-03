@@ -29,6 +29,9 @@ let mainController = {
     addProduct: (req,res)=>{
         res.render('product-add-form')
     },
+    editProduct: (req,res)=>{
+        res.render('product-edit-form')
+    },
 
 };
 
