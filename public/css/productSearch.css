@@ -683,6 +683,7 @@ button, input, select {
 
 .price .range, .price .sales {
     font-weight: 700;
+    font-size: 20px;
 }
 
 .container .product .product-tile .tile-body .price {

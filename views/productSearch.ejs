@@ -448,7 +448,22 @@
                                         </div>
                                         <div class="row product-grid">
 
-                                            <% products.forEach(product => { %>
+                                            <% products.forEach(product => {
+                                                var formatter = new Intl.NumberFormat('es-AR', {
+                                                style: 'currency',
+                                                currency: 'ARS',
+                                                minimumFractionDigits: 0,
+
+                                                // These options are needed to round to whole numbers if that's what you want.
+                                                //minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
+                                                //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
+                                                });
+                                                let regular_price = product.regularPrice.replace('$', '')*1000;
+                                                let special_price = product.specialPrice.replace('$', '')*1000;
+                                                let discount = (1 - special_price/regular_price)*100;
+                                                let price_discount = discount.toFixed(0);
+                                                let price_difference = formatter.format(regular_price-special_price);
+                                            %>
 
                                             <!--Product <% product %>-->
                                             <div class="col-6 col-sm-4">
@@ -531,7 +546,7 @@
                                                                 <div class="price-savings-box">
                                                                     <div class="price-savings">
                                                                         <div class="price-savings-value">
-                                                                            <%= product.regularPrice - product.specialPrice %>
+                                                                            Save <%= price_difference %>
                                                                         </div>
                                                                     </div>
                                                                     <span>
