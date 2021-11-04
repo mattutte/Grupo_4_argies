@@ -261,7 +261,175 @@
         "regularPrice": "$8.401",
         "specialPrice": "$5.461",
         "images": {
-            "main": "camiseta11.jpeg",
+            "main": "camiseta12.jpeg",
+            "front": "",
+            "back": ""
+        },
+        "caption": "",
+        "inventario": {
+        "disponibilidad": 5,
+        "peso-paq": 0.850,
+        "devolucion": "No",
+        "tiempo de entrega": "24hs"
+        }
+    },
+    {
+        "id": 13,
+        "name": "REAL MADRID 21/22 AUTHENTIC AWAY JERSEY BY ADIDAS",
+        "description": "",
+        "caracteristicas": [],
+        "talles": ["Small", "Medium", "Large", "Extra-large"],
+        "regularPrice": "$8.401",
+        "specialPrice": "$5.461",
+        "images": {
+            "main": "camiseta13.jpeg",
+            "front": "",
+            "back": ""
+        },
+        "caption": "",
+        "inventario": {
+        "disponibilidad": 5,
+        "peso-paq": 0.850,
+        "devolucion": "No",
+        "tiempo de entrega": "24hs"
+        }
+    },
+    {
+        "id": 14,
+        "name": "BAYERN MUNICH 20/21 AUTHENTIC HOME JERSEY BY ADIDAS",
+        "description": "",
+        "caracteristicas": [],
+        "talles": ["Small", "Medium", "Large", "Extra-large"],
+        "regularPrice": "$8.401",
+        "specialPrice": "$5.461",
+        "images": {
+            "main": "camiseta14.jpeg",
+            "front": "",
+            "back": ""
+        },
+        "caption": "",
+        "inventario": {
+        "disponibilidad": 5,
+        "peso-paq": 0.850,
+        "devolucion": "No",
+        "tiempo de entrega": "24hs"
+        }
+    },
+    {
+        "id": 15,
+        "name": "AC MILAN 21/22 AWAY JERSEY BY PUMA",
+        "description": "",
+        "caracteristicas": [],
+        "talles": ["Small", "Medium", "Large", "Extra-large"],
+        "regularPrice": "$8.401",
+        "specialPrice": "$5.461",
+        "images": {
+            "main": "camiseta15.jpeg",
+            "front": "",
+            "back": ""
+        },
+        "caption": "",
+        "inventario": {
+        "disponibilidad": 5,
+        "peso-paq": 0.850,
+        "devolucion": "No",
+        "tiempo de entrega": "24hs"
+        }
+    },
+    {
+        "id": 16,
+        "name": "MARSEILLE 21/22 AWAY JERSEY BY PUMA",
+        "description": "",
+        "caracteristicas": [],
+        "talles": ["Small", "Medium", "Large", "Extra-large"],
+        "regularPrice": "$8.401",
+        "specialPrice": "$5.461",
+        "images": {
+            "main": "camiseta16.jpeg",
+            "front": "",
+            "back": ""
+        },
+        "caption": "",
+        "inventario": {
+        "disponibilidad": 5,
+        "peso-paq": 0.850,
+        "devolucion": "No",
+        "tiempo de entrega": "24hs"
+        }
+    },
+    {
+        "id": 17,
+        "name": "ATLETICO MADRID 21/22 THIRD JERSEY BY NIKE",
+        "description": "",
+        "caracteristicas": [],
+        "talles": ["Small", "Medium", "Large", "Extra-large"],
+        "regularPrice": "$8.401",
+        "specialPrice": "$5.461",
+        "images": {
+            "main": "camiseta17.jpeg",
+            "front": "",
+            "back": ""
+        },
+        "caption": "",
+        "inventario": {
+        "disponibilidad": 5,
+        "peso-paq": 0.850,
+        "devolucion": "No",
+        "tiempo de entrega": "24hs"
+        }
+    },
+    {
+        "id": 18,
+        "name": "AS ROMA 21/22 HOME JERSEY BY NEW BALANCE",
+        "description": "",
+        "caracteristicas": [],
+        "talles": ["Small", "Medium", "Large", "Extra-large"],
+        "regularPrice": "$8.401",
+        "specialPrice": "$5.461",
+        "images": {
+            "main": "camiseta18.jpeg",
+            "front": "",
+            "back": ""
+        },
+        "caption": "",
+        "inventario": {
+        "disponibilidad": 5,
+        "peso-paq": 0.850,
+        "devolucion": "No",
+        "tiempo de entrega": "24hs"
+        }
+    },
+    {
+        "id": 19,
+        "name": "BAYERN MUNICH 21/22 THIRD JERSEY BY ADIDAS",
+        "description": "",
+        "caracteristicas": [],
+        "talles": ["Small", "Medium", "Large", "Extra-large"],
+        "regularPrice": "$8.401",
+        "specialPrice": "$5.461",
+        "images": {
+            "main": "camiseta19.jpeg",
+            "front": "",
+            "back": ""
+        },
+        "caption": "",
+        "inventario": {
+        "disponibilidad": 5,
+        "peso-paq": 0.850,
+        "devolucion": "No",
+        "tiempo de entrega": "24hs"
+        }
+    },
+    {
+        "id": 20,
+        "name": "PSG 21/22 THIRD JERSEY BY NIKE",
+        "description": "",
+        "caracteristicas": [],
+        "talles": ["Small", "Medium", "Large", "Extra-large"],
+        "regularPrice": "$8.401",
+        "specialPrice": "$5.461",
+        "images": {
+            "main": "camiseta20.jpeg",
             "front": "",
             "back": ""
         },
@@ -273,5 +441,4 @@
         "tiempo de entrega": "24hs"
         }
     }
-
 ]

@@ -12,7 +12,7 @@ let mainController = {
     },
     productSearch: (req,res)=>{
         productos = 
-        res.render('productSearch', {products})
+        res.render('productSearch', {products, resultsPerPage: 12})
     },
     signin: (req,res)=>{
         res.render('signin')

@@ -448,7 +448,10 @@
                                         </div>
                                         <div class="row product-grid">
 
-                                            <% products.forEach(product => {
+                                            <% for (let i = 0; i < Math.min(products.length, resultsPerPage); i++) {
+
+                                                product = products[i];
+
                                                 var formatter = new Intl.NumberFormat('es-AR', {
                                                 style: 'currency',
                                                 currency: 'ARS',
@@ -567,7 +570,7 @@
                                                 </div> 
                                             </div> <!--Product <% product %>-->
 
-                                            <% }) %>
+                                            <% } %>
 
                                             <!--End Page-->
                                             <div class="col-12 grid-footer">
