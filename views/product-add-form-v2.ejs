@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs',{titulo:"Agregar Producto",stylesFile:"profile.css"}) %>
+<body>
+  <!-- Header -->
+  <%- include('./partials/header.ejs') %>
+    
+    
+  <!-- Profile -->
+  <mian>
+
+    <div class="container products-wrapper">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="products-title">Formulario de creación de productos</h2>
+        </div>
+      </div>
+      <div class="col-12">
+        <form action="/products" enctype="multipart/form-data" method="POST">
+          <div class="row product-detail">
+            <div class="col-12 col-md-6">
+              <label for="name" class="form-label">Nombre del producto:</label>
+              <input type="text" id="name" name="name" placeholder="Ej: Remera Juventus" class="form-input">
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="description" class="form-label">Descricpion del producto:</label>
+              <input type="text" id="description" name="description" placeholder="Agregue una breve descripcion" class="form-input">
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="caracteristicas" class="form-label">Descricpion del producto:</label>
+              <input type="text" id="caracteristicas" name="caracteristicas" placeholder="Enumera las caracteristicas principales del producto" class="form-input">
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="talles" class="form-label">Talles:</label>
+              <select name="talles" id="talles" class="form-input">
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+                <option value="Extra-Large">Extra-Large</option>
+              </select>
+            <div class="col-12 col-md-6">
+              <label for="regularPrice" class="form-label">Precio del producto:</label>
+              <input type="text" id="regularPrice" name="regularPrice" placeholder="Ej: 5678" class="form-input">
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="specialPrice" class="form-label">Precio con Descuento:</label>
+              <input type="text" id="specialPrice" name="specialPrice" placeholder="Ej: 5678" class="form-input">
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="cuotas" class="form-label">Cantidad de Cuotas:</label>
+              <input type="number" id="cuotas" name="cuotas" placeholder="Ej: 24" class="form-input">
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="category" class="form-label">Categoría:</label>
+              <select name="category" id="category" class="form-input">
+                <option value="">Elegí</option>
+                <option value="in-sale">En oferta</option>
+                <option value="visited">Últimos agregados</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label for="description" class="form-label">Descipción:</label>
+              <textarea name="description" id="description" class="form-input"></textarea>
+            </div>
+            <div class="col-12">
+              <label for="foto" class="form-label">Foto:</label>
+              <input type="file" id="foto" name="foto" placeholder="Ej: .jpg" class="form-input">
+            </div>
+  
+            <div class="col-12">
+              <button action="/" type="submit" class="buy-now-button">Guardar producto</button>
+            </div>
+          </div>
+        </form>
+      </div>
+  
+    </div>
+    <!-- /todos los productos -->
+
+
+<form action="action_page.php" style="border:1px solid #ccc">
+    <div class="container">
+      <h1>Dar de alta un Producto</h1>
+           <p>Por favor complete los datos del producto</p>
+       <hr>
+ a
+      <label for="nanme"><b>Nombre</b></label>
+      <input type="text" placeholder="ej: JUVENTUS 21/22 HOME JERSEY BY ADIDAS" name="name" required>
+  
+      <label for="description"><b>Descripcion</b></label>
+      <input type="text" placeholder="Breve descripcion" name="description" required>
+
+      <label for="caracteristicas"><b>caracteristicas</b></label>
+      <input type="text" placeholder="Caracteristicas particulares" name="caracteristicas" required>
+  
+      <label for="equipo"><b>Equipo local favorito</b></label>
+      <input type="text" placeholder="Ingresar equipo" name="equipo" required>
+  
+      <label for="jugador"><b>Jugador favorito</b></label>
+      <input type="text" placeholder="Ingresar jugador favorito" name="jugador" required>
+  
+      <label>
+      <input type="checkbox" checked="checked" name="mayorde13" style="margin-bottom:15px"> Soy mayor de 13 años
+      </label>
+        
+      <div class="clearfix">
+        <button type="button" class="cancelbtn">Borrar</button>
+        <button type="submit" class="signupbtn">Grabar</button>
+      </div>
+    </div>
+  </form>
+
+</mian>
+
+<!-- Footer -->
+<%- include('./partials/footer.ejs') %>
+
+</body>
+
+</html>
