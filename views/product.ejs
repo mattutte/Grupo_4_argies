@@ -9,7 +9,9 @@
         <%- include('./partials/header.ejs') %>        
 
         <!-- Main -->
-
+            <% productDetail = products.filter((element) => {
+                return element.id == productId;
+            })[0] %>
             
 
             <div class="clear10px"></div>
@@ -37,12 +39,23 @@
                                 <!--Galeria: imágenes disponibles del producto en formato pequeño-->
                                 <div class="product-img-box">
                                     <div class="more-views">
-                                        <img id="img-gal-ppal" class="gallery-thumb" src="/images/camiseta3_frente.jpeg">
-                                        <img id="img-gal-back" class="gallery-thumb" src="/images/camiseta3_dorso.jpeg">
-                                        <!--<img id="img-gal-side" class="gallery-thumb" src="/">-->
+                                        <% 
+                                        
+                                        if(productDetail.images.front != ""){
+                                            image_front = productDetail.images.front;
+                                        }else{
+                                            image_front = productDetail.images.main;
+                                        }
+                                        
+                                        %>
+
+                                        <img id="img-gal-ppal" class="gallery-thumb" src="/images/<%= image_front %>">
+                                        <% if(productDetail.images.back != ""){ %>
+                                            <img id="img-gal-ppal" class="gallery-thumb" src="/images/<%= productDetail.images.back %>">
+                                        <% } %>
                                     </div>
                                     <div class="product-img">
-                                        <img id="img-ppal" class="mainimg-big" src="/images/camiseta3.jpeg" width="100%">
+                                        <img id="img-ppal" class="mainimg-big" src="/images/<%= productDetail.images.main %>" width="100%">
                                     </div>
                                 </div>
 
@@ -54,49 +67,46 @@
                         <div class="col-detalle">
 
                             <div class="product-name">
-                                <h1>Nike Youth Soccer Liverpool Home Jersey</h1>
-                                <h3>Camiseta del Liverpool Titular</h3>
+                                <h1><%= productDetail.name %></h1>
+                                <h3><%= productDetail.description %></h3>
                                 <div class="rating-container">
                                     <div class="rating-box">
                                         <img src="/images/rating-stars.png" width="100px">
                                     </div>
                                     <div class="rating-text">
-                                        <span>25 Calificaciones</span>
+                                        <span><%= productDetail.rating.quantity %> Calificaciones</span>
                                     </div>
                                 </div>
                             </div>
 
                             <dl class="product-options">
                                 <dt class="size-name">
-                                    <label>Talle - Medium</label>
+                                    <label>Talle</label>
                                 </dt>
                                 <dl class="size-option">
                                     <div class="input-box">
                                         <select>
-                                            <option title="Small" class="size-options">Small</option>
-                                            <option title="Medium" class="size-options">Medium</option>
-                                            <option title="Large" class="size-options">Large</option>
-                                            <option title="Extra" class="size-options">Extra-Large</option>
+                                            <% productDetail.talles.forEach(talle => { %>
+                                            <option title="<%= talle %>" class="size-options"><%= talle %></option>
+                                            <% }) %>
                                         </select>
                                     </div>
                                 </dl>
                             </dl>
 
                             <div class="product-detail">
-                                <p class="availability">Disponibilidad: <span>Solo 1 en stock</span></p>
-                                <p class="brand">Marca: <span>Nike en Argentina</span></p>
-                                <p class="weight">Peso paquete: <span>0.850 kg</span></p>
-                                <p class="return-option">Acepta devolucion: <span>No</span></p>
-                                <p class="time-shipping">Tiempo de entrega: <span>24hs</span></p>
+                                <p class="inventario">Disponibilidad: <span><%= productDetail.inventario.disponibilidad %></span></p>
+                                <p class="brand">Marca: <span><%= productDetail.brand %></span></p>
+                                <p class="weight">Peso paquete: <span><%= productDetail.inventario.peso_paq %> kg</span></p>
+                                <p class="return-option">Acepta devolucion: <span><%= productDetail.inventario.devolucion %></span></p>
+                                <p class="time-shipping">Tiempo de entrega: <span><%= productDetail.inventario.tiempoEntrega %></span></p>
                             </div>
 
                             <div class="product-description">
                                 <ul>
-                                    <p class="product-desc"><li>Jersey</li></p>
-                                    <p class="product-desc"><li>La tecnología Dri-FIT te ayuda a mantenerte seco y cómodo...</li></p>
-                                    <p class="product-desc"><li>El diseño auténtico sigue el modelo de lo que usan los profesionales en los partidos en casa...</li></p>
-                                    <p class="product-desc"><li>Ajuste estándar para una sensación relajada y cómoda</li></p>
-                                    <p class="product-desc"><li>100% poliéster reciclado</li></p>
+                                    <% productDetail.caracteristicas.forEach(element => { %>
+                                    <p class="product-desc"><li><%= element %></li></p>
+                                <% }) %>
                                 </ul>
                             </div>
     
@@ -106,15 +116,29 @@
                         <div class="col-basket">
 
                             <div class="price-currency">
+                                <%
+                                
+                                var formatter = new Intl.NumberFormat('es-AR', {
+                                    style: 'decimal',
+                                    minimumFractionDigits: 0,
+                                });
+
+                                let regular_price = parseFloat(productDetail.regularPrice.replace('$', ''))*1000;
+                                let special_price = parseFloat(productDetail.specialPrice.replace('$', ''))*1000;
+                                let discount = (1 - special_price/regular_price)*100;
+                                let price_discount = discount.toFixed(0);
+                                let price_difference = formatter.format(regular_price - special_price);
+                                let afipRG = formatter.format((special_price*0.35).toFixed(0));  
+                                %>
                                 <div class="price-original">
                                     Precio: 
-                                    <span>AR$ 12.000</span>
+                                    <span>AR$ <%= regular_price %></span>
                                 </div>
                                 <div class="price-saving">
                                     Ahorras: 
-                                    <span>AR$ 1.500</span>
+                                    <span>AR$ <%= price_difference %></span>
                                      (
-                                    <span>AR$ 12.000</span>
+                                    <span><%= price_discount %>% </span>
                                      )
                                 </div>
                             </div>
@@ -123,11 +147,11 @@
 
                             <div class="price-box">
                                 <div class="price-value">
-                                    <span>AR$ 10.500</span>
+                                    <span>AR$ <%= formatter.format(special_price) %></span>
                                 </div>
                                 <div class="clear10px"></div>
                                 <div class="price-taxes">
-                                    <span>Incluye impuesto PAIS y percepción AFIP. Podés recuperar AR$ 1.125 de esta compra</span>
+                                    <span>Incluye impuesto PAIS y percepción AFIP. Podés recuperar AR$ <%= afipRG %> de esta compra</span>
                                 </div>
                                 <div class="clear10px"></div>
                                 <div class="price-add-to-cart">
@@ -149,7 +173,9 @@
                                         <div class="payment-icon">
                                             <i class="far fa-credit-card"></i>
                                         </div>
-                                        <span class="installments">Hasta 3 cuotas sin interés pagando con <strong>Santander Rio</strong></span>
+                                        <% if (productDetail.cuotas != ""){ %>
+                                        <span class="installments">Hasta <%= productDetail.cuotas.cantidad %> cuotas sin interés pagando con <strong><%= productDetail.cuotas.banco %></strong></span>
+                                        <% } %>
                                     </div>
                                     <div class="cuotas12">
                                         <div class="payment-icon">
@@ -185,7 +211,7 @@
 
                     <div class="product-detail-bottom">
                         <h3>Más detalles del producto</h3>
-                        <p>Representa a tu equipo con la camiseta de local del Liverpool FC Stadium. La tela altamente transpirable ayuda a mantener el sudor alejado de la piel, para que se mantenga fresco y cómodo en el campo o en las gradas. Este producto está elaborado con tejido de poliéster 100% reciclado.</p>
+                        <p><%= productDetail.detalle %></p>
                     </div>
 
                     <!--Bottom row: contiene ofertas relacionadas-->
@@ -225,7 +251,7 @@
                                         <img src="/images/<%= product.images.main %>">
                                     </div>
                                     <div class="item_description">
-                                        <h4><%= product.description %></h4>
+                                        <h4><%= product.name %></h4>
                                         <div class="price-discount">
                                             <span class="price-list"><%= 'AR'+product.regularPrice %></span>
                                             <span class="discount"><%= price_discount + '%' +' OFF'%></span>

@@ -8,7 +8,7 @@ let mainController = {
         res.render('home')
     },
     product: (req,res)=>{
-        res.render('product', {products})
+        res.render('product', {products, productId: 3})
     },
     productSearch: (req,res)=>{
         productos = 
