@@ -1078,6 +1078,9 @@ button, input, select {
     .container .product .product-tile .tile-body .tipe-op-2 {
         min-height: 80px;
     }
+    .container .product .product-tile .tile-body .description {
+        height: 45px;
+    }
 
 
 }
