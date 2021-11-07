@@ -10,14 +10,9 @@ app.use(express.static('public'));
 
 app.use(express.urlencoded()); 
 
-
-
 const mainRouter = require('./routes/mainRouter');
 
-
-
 app.use('/',mainRouter); 
-
 
 app.listen(3000, () => {
     console.log("Servidor corriendo");
