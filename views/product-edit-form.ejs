@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('./partials/head.ejs',{titulo:"Editar Producto",stylesFile:"profile.css"}) %>
+    <%- include('./partials/head.ejs',{titulo:"Editar Producto",stylesFile:"styles.css"}) %>
 <body>
   <!-- Header -->
   <%- include('./partials/header.ejs') %>
@@ -12,7 +12,7 @@
     <div class="container products-wrapper">
       <div class="row">
         <div class="col-12">
-          <h2 class="products-title">Formulario de edición de productos</h2>
+          <h2 class="products-title">Formulario de edicionión de productos</h2>
         </div>
       </div>
       <div class="col-12">
@@ -72,7 +72,7 @@
             </div>
             <div class="col-12 col-md-6">
               <label for="caption" class="form-label">Comentarios adicionales:</label>
-              <textarea type="text" id="caption" name="caption" placeholder="Ej: Santander" class="form-input"></textarea>
+              <textarea type="text" id="caption" name="caption" class="form-input"></textarea>
             </div>
             <div class="col-12 col-md-6">
               <label for="disponibilidad" class="form-label">Cantidad diponible:</label>
@@ -84,11 +84,11 @@
             </div>
             <div class="col-12 col-md-6">
               <label for="devolucion" class="form-label">Permite devolucion:</label>
-              <input type="checkbox" id="devolucion" name="devolucion" value="Si" class="form-input">
-              <input type="checkbox" id="devolucion" name="devolucion" value="No" class="form-input">
+              <input type="checkbox" id="devolucion" name="devolucion" value="Si" class="form-input">Si
+              <input type="checkbox" id="devolucion" name="devolucion" value="No" class="form-input">No
             </div>
             <div class="col-12 col-md-6">
-              <label for="tiempoEntrega" class="form-label">Comentarios adicionales:</label>
+              <label for="tiempoEntrega" class="form-label">Tiempo de Entrega:</label>
               <select name="tiempoEntrega"  class="form-input">
                 <option value="2hs">Dentro de las 2 hs Siguientes</option>
                 <option value="24hs">En 24 horas</option>
@@ -98,7 +98,7 @@
             </div>
             <div class="col-12 col-md-6">
               <label for="rating" class="form-label">Rating de usuarios:</label>
-              <input type="number" id="rating" name="rating" placeholder="de 0 a 5" class="form-input">
+              <input type="number" id="rating" name="rating" class="form-input">
             </div>
             <div class="col-12 col-md-6">
               <label for="quantity" class="form-label">Cantidad de opiniones:</label>
@@ -114,9 +114,7 @@
       </div>
   
     </div>
-    <!-- Producto a editar -->
-
-
+    
 
 </main>
 
