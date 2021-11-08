@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <%- include('./partials/head.ejs',{titulo:"Agregar Producto", stylesFile:"styles.css"}) %>
+  <link href="/css/productForm.css" rel="stylesheet">
 <body>
   <!-- Header -->
   <%- include('./partials/header.ejs') %>
@@ -8,6 +9,13 @@
     
   <!-- Profile -->
   <main>
+
+    <div class="flexcontainer">
+      <div class="divs div1">div1</div>
+      <div class="divs div2">div2</div>
+      <div class="divs div3">div3</div>
+      <div class="divs div4">div4</div>
+    </div>
 
     <div class="container products-wrapper">
       <div class="row">
@@ -18,23 +26,15 @@
       <div class="col-12">
         <form action="/products" enctype="multipart/form-data" method="POST">
           <div class="row product-detail">
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 common-input">
               <label for="name" class="form-label">Nombre del producto:</label>
               <input type="text" id="name" name="name" placeholder="Ej: Remera Juventus" class="form-input">
             </div>
-            <div class="col-12 col-md-6">
-              <label for="brand" class="form-label">Nombre del producto:</label>
-              <input type="text" id="brand" name="brand placeholder="Ej: Adidas" class="form-input">
-            </div>
-            <div class="col-12 col-md-6">
-              <label for="description" class="form-label">Descricpion del producto:</label>
+            <div class="col-12 col-md-6 common-input">
+              <label for="description" class="form-label">Descripción del producto:</label>
               <textarea type="text" id="description" name="description" placeholder="Agregue una breve descripcion" class="form-input"></textarea>
             </div>
-            <div class="col-12 col-md-6">
-              <label for="caracteristicas" class="form-label">Descricpion del producto:</label>
-              <input type="text" id="caracteristicas" name="caracteristicas" placeholder="Enumera las caracteristicas principales del producto" class="form-input">
-            </div>
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 select-input">
               <label for="talles" class="form-label">Talles:</label>
               <select name="talles" id="talles" class="form-input">
                 <option value="Small">Small</option>
