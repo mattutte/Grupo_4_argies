@@ -9,7 +9,7 @@
         <%- include('./partials/header.ejs') %>        
 
         <!-- Main -->
-            <% productDetail = product %>
+            <% productDetail = productToEdit %>
             
 
             <div class="clear10px"></div>
@@ -194,11 +194,11 @@
                                 </div>
                                 <div class="cart-buttons">
                                     <form>
-                                        <button type="button" title="Comprar" class="button-buy">Comprar</button>
+                                        <button type="button" title="Editar el Producto" class="button-buy"><a href="/products/pre_edit/<%= productDetail.id %>">Editar el Producto</a></button>
                                     </form>
                                     <div class="clear10px"></div>
                                     <form>
-                                    <button type="button" title="Agregar al carrito" class="button-add-to-cart">Agregar al carrito</button>
+                                    <button type="button" title="Borrar el producto" class="button-add-to-cart">Borrar el Producto</button>
                                     </form>
                                     <div class="clear10px"></div>
                                 </div>
@@ -212,70 +212,7 @@
                         <p><%= productDetail.detalle %></p>
                     </div>
 
-                    <!--Bottom row: contiene ofertas relacionadas-->
-                    <div class="row-bottom">
-
-                        <div class="title">
-                            <h2>Productos similares</h2>
-                        </div>
-
-                        <div class="carousel">
-
-                            <!--
-                            <div class="arrows">
-
-                                <a href="#" class="carousel-control-prev">
-                                    <i class="fas fa-angle-left"></i>
-                                </a>
-                                <a href="#" class="carousel-control-next">
-                                    <i class="fas fa-angle-right"></i>
-                                </a>
-                                
-                            </div>
-                            -->
-
-                            <!--Carrusel de productos similares-->
-                            <ul class="products-slider">
-                                <% products.forEach(product => { 
-                                    let regular_price = parseFloat(product.regularPrice.replace('$', ''));
-                                    let special_price = parseFloat(product.specialPrice.replace('$', ''));
-                                    let discount = (1 - special_price/regular_price)*100;
-                                    let price_discount = discount.toFixed(0);    
-                                %>
-
-                                <!--Item <% product %> del carousel-->
-                                <li id="item_0" class="slider-item">
-                                    <div class="item_image">
-                                        <img src="/images/<%= product.images.main %>">
-                                    </div>
-                                    <div class="item_description">
-                                        <h4><%= product.name %></h4>
-                                        <div class="price-discount">
-                                            <span class="price-list"><%= 'AR'+product.regularPrice %></span>
-                                            <span class="discount"><%= price_discount + '%' +' OFF'%></span>
-                                        </div>
-                                        <div class="price-box">
-                                            <p><%= 'AR'+product.specialPrice %></p>
-                                        </div>
-                                        <div class="item_afip">
-                                            <p>Incluye impuesto PAIS y percepción AFIP</p>
-                                        </div>
-                                        <div class="fav-icon">
-                                            <i class="far fa-heart"></i>
-                                        </div>
-                                        <div class="clear20px"></div>
-                                        <div>
-                                            <span class="free-delivery"></span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <% }) %>
-                            </ul>   <!--Carousel de productos similares-->
-                            <!--Next and Previous buttons-->
-                            <a class="prev">&#10094</a>
-                            <a class="next">&#10095</a>
-                        </div>
-                    </div>  <!--Row bottom-->
+                    
 
                 </div>  <!--Main container-->
 

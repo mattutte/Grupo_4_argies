@@ -20,17 +20,38 @@ const upload = multer({storage: storage}); // generar middleware upload
 // ************ Controller Require ************
 const mainController = require('../controllers/mainController');
 
+/*** GET HOME ***/ 
 router.get('/',mainController.home);
 
-router.get('/product',mainController.product);
-router.get('/productsearch',mainController.productSearch);
-router.get('/product/add',mainController.addProduct);
-router.get('/product/edit',mainController.editProduct);
 
+
+/*** GET ALL PRODUCTS ***/ 
+router.get('/productsearch',mainController.productSearch);
+
+/*** GET A PARTICULAR PRODUCT ***/
+router.get('/product/:id',mainController.product);
+
+/*** ADD AND EDIT PRODUCT ***/
+router.get('/admin',mainController.admin);
+
+router.get('/product/add/',mainController.addProduct);
+router.post('/', upload.single('foto'),mainController.store);
+
+
+router.get('/product/pre_edit/:id',mainController.pre_edit);
+router.get('/product/edit/:id',mainController.editProduct);
+router.put('/product/:id', upload.single('foto'), mainController.update); // los datos del formulario vienen por body
+
+
+/*** DELETE ONE PRODUCT***/ 
+router.delete('/product/:id', mainController.destroy);
+
+/*** USER ACCESS AND INFO***/ 
 router.get('/signin',mainController.signin);
 router.get('/signup',mainController.signup);
 router.get('/profile',mainController.perfil);
 
+/*** SHOPPING CART ACCESS***/ 
 router.get('/shopping-cart',mainController.shoppingcart);
 
 

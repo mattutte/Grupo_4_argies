@@ -1,37 +1,132 @@
-// Acá nos falta nuestra fuente de datos
+const fs = require('fs');
+const path = require('path');
 
-const products = require('../Data/products.json');
+const productsFilePath = path.join(__dirname, '../data/products.json');
+const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));// pasa el json a un array
+
+//const products = require('../Data/products.json');
 
 // Acá nos falta un objeto literal con las acciones para cada ruta
 let mainController = {
     home: (req,res)=>{
-        res.render('home')
+        res.render('home',products)
     },
+    
     product: (req,res)=>{
-        res.render('product', {products, productId: 3})
+        const product = products.find((prod) => prod.id == req.params.id);
+        
+        res.render('product', {products, product})
     },
+    
     productSearch: (req,res)=>{
         productos = 
         res.render('productSearch', {products, resultsPerPage: 12})
     },
+    
     signin: (req,res)=>{
         res.render('signin')
     },
+    
     signup: (req,res)=>{
         res.render('signup')
     },
+    
     shoppingcart: (req,res)=>{
         res.render('shopping-cart')
     },
+    
     perfil: (req,res)=>{
         res.render('profile')
     },
+    
     addProduct: (req,res)=>{
         res.render('product-add-form')
     },
-    editProduct: (req,res)=>{
-        res.render('product-edit-form')
+    
+    store: (req, res) => {
+
+		const nuevoProducto = {
+		
+			id : products[products.length-1].id + 1, // le crea un id 1 mas alto que el del ultimo
+			...req.body, // le agrega todo lo del formulario excepto el file
+			image: req.file? req.file.filename : '' //le agrega el file que uploade
+			};
+		
+		products.push(nuevoProducto);
+
+		fs.writeFileSync(productsFilePath,JSON.stringify(products,null,' '));
+		
+
+		res.redirect('/');
+		
+		//res.send('se creo producto');
+	},
+    
+    admin: (req,res)=>{
+        res.render('admin',{products, resultsPerPage: 12})
     },
+    
+    pre_edit: (req,res)=>{
+        const productToEdit = products.find((prod) => prod.id == req.params.id);
+        
+        res.render('product-pre-edit',{productToEdit})
+    },
+    
+    editProduct: (req,res)=>{
+        const productToEdit = products.find((prod) => prod.id == req.params.id);
+        res.render('product-edit-form',{productToEdit})
+    },
+    
+    update: (req, res) => {
+		const productIndex = products.findIndex((producto)=>{
+			return (producto.id == req.params.id)
+			
+		});
+
+		const productoEditado = {
+			id: products[productIndex].id,
+			name: req.body.name,
+			price: Number(req.body.price),
+			discount: Number(req.body.discount),
+			category: req.body.category,
+			description: req.body.description,
+			
+			image: req.file? req.file.filename : products[productIndex].image //le agrega el file que uploade, si lo hice, sino mantengo el anterior
+			};
+		
+			products[productIndex] = productoEditado;
+
+			fs.writeFileSync(productsFilePath,JSON.stringify(products,null,' '));
+		
+
+			res.redirect('/');
+		
+		
+		
+		
+	},
+
+	// Delete - Delete one product from DB
+	destroy : (req, res) => {
+
+		
+
+		const productIndex = products.findIndex((producto)=>{
+			return (producto.id == req.params.id)
+			
+		});
+			
+		// buscar el producto con ese id	
+		
+		products.splice(productIndex,1);
+
+		fs.writeFileSync(productsFilePath,JSON.stringify(products,null,' '));
+		
+
+		res.redirect('/')
+		
+		
+	}
 
 };
 

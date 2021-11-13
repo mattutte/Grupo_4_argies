@@ -14,6 +14,15 @@
                 <div class="main-container container">
 
                     <!--First row: encabezado del cuerpo principal-->
+                    <div class="button-div">
+                        <button type="button" class="button btn-cart">
+                            <a href="product/add">
+                                <span>Agregar un Producto Nuevo</span>
+                            </a>
+                        </button>
+                    </div>
+
+
                     <div class="row-upper">
                         <div class="row">
                             <div class="col">
@@ -29,6 +38,7 @@
                         </div>
 
                     </div>
+                    
 
                     <!--Middle row: cuerpo principal. Contiene imagen, detalle y canasta del producto-->
                     <div class="row">
@@ -472,7 +482,7 @@
                                                 <div class="product">
                                                     <div class="product-tile">
                                                         <div class="image-container">
-                                                            <a href="product/<%= product.id %>"</a>
+                                                            <a href="#">
                                                                 <div class="product-image-container">
                                                                     <img class="tile-image" src="/images/<%= product.images.main %>">
                                                                 </div>
@@ -493,7 +503,7 @@
                                                         </div>
                                                         <div class="tile-body">
                                                             <div class="description">
-                                                                <a href="product/<%= product.id %>">
+                                                                <a href="#">
                                                                     <%= product.name%>
                                                                 </a>
                                                             </div>
@@ -507,25 +517,12 @@
                                                                     </p>
                                                                 </div>
                                                                 <form class="form-box">
-                                                                    <p class="text-center qty-label">Cantidad</p>
-                                                                    <div class="input-group">
-                                                                        <select class='input-number'>
-                                                                            <option value="1">1</option>
-                                                                            <option value="2">2</option>
-                                                                            <option value="3">3</option>
-                                                                            <option value="4">4</option>
-                                                                            <option value="5">5</option>
-                                                                            <option value="6">6</option>
-                                                                            <option value="7">7</option>
-                                                                            <option value="8">8</option>
-                                                                            <option value="9">9</option>
-                                                                            <option value="10">10</option>
-                                                                        </select>
-                                                                    </div>
+                                                                    
                                                                     <div class="button-div">
                                                                         <button type="button" class="button btn-cart">
-                                                                            <i class="fas fa-shopping-cart"></i>
-                                                                            <span>Comprar</span>
+                                                                            <a href="product/pre_edit/<%= product.id %>">
+                                                                                <span>Editar</span>
+                                                                            </a>
                                                                         </button>
                                                                     </div>
                                                                 </form>
@@ -559,8 +556,9 @@
                                                                 </div>
                                                                 <div class="add-to-cart">
                                                                     <button type="button" class="button btn-cart-sm">
-                                                                        <i class="fas fa-shopping-cart"></i>
-                                                                        <span>Comprar</span>
+                                                                        <a href="product/pre_edit/<%= product.id %>">
+                                                                        <span>Editar</span>
+                                                                        </a>
                                                                     </button>
                                                                 </div>
                                                             </div>
