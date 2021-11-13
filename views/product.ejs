@@ -246,10 +246,12 @@
                                 <!--Item <% product %> del carousel-->
                                 <li id="item_0" class="slider-item">
                                     <div class="item_image">
-                                        <img src="/images/<%= product.images.main %>">
+                                        <a href="/product/<%= product.id %>">
+                                            <img src="/images/<%= product.images.main %>">
+                                        </a>
                                     </div>
                                     <div class="item_description">
-                                        <h4><%= product.name %></h4>
+                                        <h4><a href="/product/<%= product.id %>"><%= product.name %></a></h4>
                                         <div class="price-discount">
                                             <span class="price-list"><%= 'AR'+product.regularPrice %></span>
                                             <span class="discount"><%= price_discount + '%' +' OFF'%></span>
