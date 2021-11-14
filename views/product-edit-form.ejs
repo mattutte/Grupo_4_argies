@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('./partials/head.ejs',{titulo:"Editar Producto",stylesFile:"styles.css"}) %>
+    <%- include('./partials/head.ejs',{titulo:'Editando: ' +  productToEdit.name ,stylesFile:"styles.css"}) %>
 <body>
   <!-- Header -->
   <%- include('./partials/header.ejs') %>
@@ -16,98 +16,108 @@
         </div>
       </div>
       <div class="col-12">
-        <form action="/products" enctype="multipart/form-data" method="POST">
+        <form action="/products/<%= productToEdit.id %>?_method=PUT" enctype="multipart/form-data" method="POST">
           <div class="row product-detail">
             <div class="col-12 col-md-6">
               <label for="name" class="form-label">Nombre del producto:</label>
-              <input type="text" id="name" name="name" placeholder="Ej: Remera Juventus" class="form-input">
+              <input type="text" id="name" name="name" value=<%= productToEdit.name %> class="form-input">
             </div>
             <div class="col-12 col-md-6">
-              <label for="brand" class="form-label">Nombre del producto:</label>
-              <input type="text" id="brand" name="brand placeholder="Ej: Adidas" class="form-input">
+              <label for="brand" class="form-label">Marca:</label>
+              <input type="text" id="brand" name="brand value=<%= productToEdit.brand %>" class="form-input">
             </div>
             <div class="col-12 col-md-6">
               <label for="description" class="form-label">Descricpion del producto:</label>
-              <textarea type="text" id="description" name="description" placeholder="Agregue una breve descripcion" class="form-input"></textarea>
+              <textarea type="text" id="description" name="description" value=<%= productToEdit.description %> class="form-input"></textarea>
             </div>
             <div class="col-12 col-md-6">
-              <label for="caracteristicas" class="form-label">Descricpion del producto:</label>
-              <input type="text" id="caracteristicas" name="caracteristicas" placeholder="Enumera las caracteristicas principales del producto" class="form-input">
+              <label for="caracteristicas" class="form-label">Caracteristicas del Producto:</label>
+              <input type="text" id="caracteristicas" name="caracteristicas" value=<%= JSON.stringify(productToEdit.caracteristicas) %> class="form-input">
             </div>
             <div class="col-12 col-md-6">
               <label for="talles" class="form-label">Talles:</label>
               <select name="talles" id="talles" class="form-input">
-                <option value="Small">Small</option>
-                <option value="Medium">Medium</option>
-                <option value="Large">Large</option>
-                <option value="Extra-Large">Extra-Large</option>
+                <option value="Small" <% productToEdit.talles == 'Small' ? 'selected' : '' %>>Small</option>
+                <option value="Medium" <% productToEdit.talles == 'Medium' ? 'selected' : '' %>>Medium</option>
+                <option value="Large" <% productToEdit.talles == 'Large' ? 'selected' : '' %>>Large</option>
+                <option value="Extra-Large" <% productToEdit.talles == 'Extra-Large' ? 'selected' : '' %>>Extra-Large</option>
               </select>
             <div class="col-12 col-md-6">
               <label for="regularPrice" class="form-label">Precio del producto:</label>
-              <input type="text" id="regularPrice" name="regularPrice" placeholder="Ej: 5678" class="form-input">
+              <input type="text" id="regularPrice" name="regularPrice" value=<%= productToEdit.regularPrice %> class="form-input">
             </div>
             <div class="col-12 col-md-6">
               <label for="specialPrice" class="form-label">Precio con Descuento:</label>
-              <input type="text" id="specialPrice" name="specialPrice" placeholder="Ej: 5678" class="form-input">
+              <input type="text" id="specialPrice" name="specialPrice" value=<%= productToEdit.specialPrice %> class="form-input">
             </div>
             <div class="col-12 col-md-6">
               <label for="cuotas-banco" class="form-label">Cuotas con Banco:</label>
-              <input type="text" id="cuotas-banco" name="cuotas-banco" placeholder="Ej: Santander" class="form-input">
+              <input type="text" id="cuotas-banco" name="cuotas-banco" value=<%= productToEdit.cuotas.banco %> class="form-input">
             </div>
             <div class="col-12 col-md-6">
               <label for="cuotas" class="form-label">Cantidad de Cuotas:</label>
-              <input type="number" id="cuotas" name="cuotas" placeholder="Ej: 24" class="form-input">
+              <input type="number" id="cuotas" name="cuotas" value=<%= productToEdit.cuotas.cantidad %> class="form-input">
             </div>
             <div class="col-12 col-md-6">
-              <label for="images-main" class="form-label">Imagen Principal:</label>
-              <input type="file" id="images-main" name="images-main" placeholder="Imagen principal" class="form-input">
+              <img src=<%= productToEdit.images.main %> alt="Imagen Principal" width="200" height="300">
+              <br>
+              <label for="images-main" class="form-label">Cambiar Imagen Principal:</label>
+              <br>
+              <input type="file" id="images-main" name="images-main" value=<%= productToEdit.images.main %> class="form-input">
             </div>
             <div class="col-12 col-md-6">
-              <label for="images-front" class="form-label">Imagen de Frente:</label>
-              <input type="file" id="images-front" name="images-front" placeholder="Imagen principal" class="form-input">
+              <img src=<%= productToEdit.images.front %> alt="Imagen de Frente" width="200" height="300">
+              <br>
+                <label for="images-front" class="form-label">Cambiar Imagen de Frente:</label>
+              <br>
+              <input type="file" id="images-front" name="images-front" value=<%= productToEdit.images.front %> class="form-input">
             </div>
             <div class="col-12 col-md-6">
-              <label for="images-back" class="form-label">Imagen de Dorso:</label>
-              <input type="file" id="images-back" name="images-back" placeholder="Imagen principal" class="form-input">
+              <img src=<%= productToEdit.images.back %> alt="Imagen de Espalda" width="200" height="300">
+              <br>
+                <label for="images-back" class="form-label">Cambiar Imagen de Dorso:</label>
+              <br>
+              <input type="file" id="images-back" name="images-back" value=<%= productToEdit.images.back %> class="form-input">
             </div>
             <div class="col-12 col-md-6">
               <label for="caption" class="form-label">Comentarios adicionales:</label>
-              <textarea type="text" id="caption" name="caption" class="form-input"></textarea>
+              <textarea type="text" id="caption" name="caption" class="form-input" value=<%= productToEdit.caption %>></textarea>
             </div>
             <div class="col-12 col-md-6">
               <label for="disponibilidad" class="form-label">Cantidad diponible:</label>
-              <input type="number" id="disponibilidad" name="disponibilidad" placeholder="Ej: 4" class="form-input">
+              <input type="number" id="disponibilidad" name="disponibilidad" value=<%= productToEdit.inventario.disponibilidad %> class="form-input">
             </div>
             <div class="col-12 col-md-6">
               <label for="peso_paq" class="form-label">Peso en kg:</label>
-              <input type="number" id="peso_paq" name="Peso" placeholder="Ej: 0,85" class="form-input">
+              <input type="number" id="peso_paq" name="Peso" value=<%= productToEdit.inventario.peso_paq %> class="form-input">
             </div>
             <div class="col-12 col-md-6">
               <label for="devolucion" class="form-label">Permite devolucion:</label>
-              <input type="checkbox" id="devolucion" name="devolucion" value="Si" class="form-input">Si
-              <input type="checkbox" id="devolucion" name="devolucion" value="No" class="form-input">No
+              <input type="checkbox" id="devolucion" name="devolucion" value="Si" class="form-input" <% productToEdit.devolucion == 'Si' ? 'selected' : '' %>>Si
+              <input type="checkbox" id="devolucion" name="devolucion" value="No" class="form-input" <% productToEdit.devolucion == 'No' ? 'selected' : '' %>>No
             </div>
             <div class="col-12 col-md-6">
               <label for="tiempoEntrega" class="form-label">Tiempo de Entrega:</label>
               <select name="tiempoEntrega"  class="form-input">
-                <option value="2hs">Dentro de las 2 hs Siguientes</option>
-                <option value="24hs">En 24 horas</option>
-                <option value="48hs">En 48 horas</option>
-                <option value="1Semana">En una semana</option>
-                <option value="2Semanas">En dos semana</option>
+                <option value="2hs" <% productToEdit.tiempoEntrega == '2hs' ? 'selected' : '' %>>Dentro de las 2 hs Siguientes</option>
+                <option value="24hs" <% productToEdit.tiempoEntrega == '24hs' ? 'selected' : '' %>>En 24 horas</option>
+                <option value="48hs"<% productToEdit.tiempoEntrega == '48hs' ? 'selected' : '' %>>En 48 horas</option>
+                <option value="1Semana" <% productToEdit.tiempoEntrega == '1Semana' ? 'selected' : '' %>>En una semana</option>
+                <option value="2Semanas" <% productToEdit.tiempoEntrega == '2Semanas' ? 'selected' : '' %>>En dos semana</option>
             </div>
+            <br>
             <div class="col-12 col-md-6">
-              <label for="rating" class="form-label">Rating de usuarios:</label>
-              <input type="number" id="rating" name="rating" class="form-input">
+              <label for="rating" class="form-label">Ranking de opiniones:</label>
+              <input type="number" id="rating" name="rating" class="form-input" value=<%= productToEdit.rating.value %>>
             </div>
             <div class="col-12 col-md-6">
               <label for="quantity" class="form-label">Cantidad de opiniones:</label>
-              <input type="number" id="quantity" name="quantity"  class="form-input">
+              <input type="number" id="quantity" name="quantity"  class="form-input" value=<%= productToEdit.quantity %>>
             </div>
             
   
             <div class="col-12">
-              <button action="/" type="submit" class="buy-now-button">Guardar producto</button>
+              <button action="/product/<%= productToEdit.id %>" type="submit" class="buy-now-button">Guardar producto</button>
             </div>
           </div>
         </form>
