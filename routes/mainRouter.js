@@ -34,8 +34,8 @@ router.get('/product/:id',mainController.product);
 /*** ADD AND EDIT PRODUCT ***/
 router.get('/admin',mainController.admin);
 
-router.get('/product/add/',mainController.addProduct);
-router.post('/', upload.single('foto'),mainController.store);
+router.get('/addProduct',mainController.addProduct);
+router.post('/', upload.array('images'),mainController.store);
 
 
 router.get('/product/pre_edit/:id',mainController.pre_edit);
