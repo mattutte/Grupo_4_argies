@@ -194,10 +194,12 @@
                                 </div>
                                 <div class="cart-buttons">
                                     <form>
-                                        <button type="button" title="Editar el Producto" class="button-buy"><a href="/products/pre_edit/<%= productDetail.id %>">Editar el Producto</a></button>
+                                        <a href="/product/edit/1">
+                                            <button type="button" title="Editar el Producto" class="button-buy">Editar el Producto</button>
+                                        </a>
                                     </form>
                                     <div class="clear10px"></div>
-                                    <form>
+                                    <form action="/products/<%= productDetail.id %>?_method=DELETE" method="POST">
                                     <button type="button" title="Borrar el producto" class="button-add-to-cart">Borrar el Producto</button>
                                     </form>
                                     <div class="clear10px"></div>
