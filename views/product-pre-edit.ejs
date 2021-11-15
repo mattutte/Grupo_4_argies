@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
         <!-- Head -->
-        <%- include('./partials/head.ejs',{titulo:"Editando:  +  productToEdit.name",stylesFile:"product.css"}) %>
+        <%- include('./partials/head.ejs',{titulo:"Editando: " +  productToEdit.name,stylesFile:"product.css"}) %>
     <body>
         
 
@@ -194,7 +194,7 @@
                                 </div>
                                 <div class="cart-buttons">
                                     <form>
-                                        <a href="/product/edit/1">
+                                        <a href="/product/edit/<%= productDetail.id %>">
                                             <button type="button" title="Editar el Producto" class="button-buy">Editar el Producto</button>
                                         </a>
                                     </form>

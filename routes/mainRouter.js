@@ -35,12 +35,12 @@ router.get('/product/:id',mainController.product);
 router.get('/admin',mainController.admin);
 
 router.get('/addProduct',mainController.addProduct);
-router.post('/', upload.array('images'),mainController.store);
+router.post('/productSearch', upload.array('images'),mainController.store);
 
 
 router.get('/product/pre_edit/:id',mainController.pre_edit);
 router.get('/product/edit/:id',mainController.editProduct);
-router.put('/product/:id', upload.single('foto'), mainController.update); // los datos del formulario vienen por body
+router.put('/product/:id', upload.single('images-main'),upload.single('images-front'),upload.single('images-back'), mainController.update); // los datos del formulario vienen por body
 
 
 /*** DELETE ONE PRODUCT***/ 

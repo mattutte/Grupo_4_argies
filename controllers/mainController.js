@@ -49,9 +49,7 @@ let mainController = {
 		
 			id : products[products.length-1].id + 1, // le crea un id 1 mas alto que el del ultimo
 			...req.body, // le agrega todo lo del formulario excepto el file
-			images: req.file? req.file.filename : '', //le agrega el file que uploade
-            images: req.file? req.file.filename : '',
-            images: req.file? req.file.filename : '',
+			images: req.file? req.file.filename : '', //le agrega el file que uploaded
 			};
 		
 		products.push(nuevoProducto);
