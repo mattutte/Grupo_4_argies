@@ -7,7 +7,7 @@ const path = require('path');
 
 var storage = multer.diskStorage({  // configuramos storage con destination y filename
     destination: (req, file, cb)=>{
-        cb(null, path.join(__dirname, '../public/imgages'))
+        cb(null, path.join(__dirname, '../public/images/'))
     },
     filename: (req, file,cb)=>{
         cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname)
@@ -40,7 +40,7 @@ router.post('/productSearch', upload.array('images'),mainController.store);
 
 router.get('/product/pre_edit/:id',mainController.pre_edit);
 router.get('/product/edit/:id',mainController.editProduct);
-router.put('/product/:id', upload.single('images-main'),upload.single('images-front'),upload.single('images-back'), mainController.update); // los datos del formulario vienen por body
+router.put('/product/:id', upload.array('images-main'),upload.array('images-front'),upload.array('images-back'), mainController.update); // los datos del formulario vienen por body
 
 
 /*** DELETE ONE PRODUCT***/ 

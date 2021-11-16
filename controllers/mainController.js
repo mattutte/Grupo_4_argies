@@ -49,7 +49,7 @@ let mainController = {
 		
 			id : products[products.length-1].id + 1, // le crea un id 1 mas alto que el del ultimo
 			...req.body, // le agrega todo lo del formulario excepto el file
-			images: req.file? req.file.filename : '', //le agrega el file que uploaded
+			images:{main: req.file? req.file.filename : ''}, //le agrega el file que uploaded
 			};
 		
 		products.push(nuevoProducto);
@@ -82,6 +82,7 @@ let mainController = {
 			return (producto.id == req.params.id)
 			
 		});
+        console.log(req.files);
 
 		const productoEditado = {
 			id: products[productIndex].id,
@@ -98,7 +99,7 @@ let mainController = {
             inventario:{disponibilidad: req.body.disponibilidad,peso_paq: req.body.peso_paq},
 			rating:{value: req.body.rating,quantity: req.body.quantity},
             
-			images: req.file? req.file.filename : products[productIndex].image //le agrega el file que uploade, si lo hice, sino mantengo el anterior
+			images:{main: req.file? req.file.filename : products[productIndex].image} //le agrega el file que uploade, si lo hice, sino mantengo el anterior
 			};
 		
 			products[productIndex] = productoEditado;
@@ -115,6 +116,7 @@ let mainController = {
 
 	// Delete - Delete one product from DB
 	destroy : (req, res) => {
+        console.log("llegamos al destroy");
 
 		
 
@@ -122,6 +124,8 @@ let mainController = {
 			return (producto.id == req.params.id)
 			
 		});
+
+        console.log(productIndex);
 			
 		// buscar el producto con ese id	
 		

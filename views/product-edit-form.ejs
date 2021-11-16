@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="col-12">
-        <form action="/products/<%= productToEdit.id %>?_method=PUT" enctype="multipart/form-data" method="POST">
+        <form action="/product/<%= productToEdit.id %>?_method=PUT" enctype="multipart/form-data" method="POST">
           <div class="row product-detail">
             <div class="col-12 col-md-6">
               <label for="name" class="form-label">Nombre del producto:</label>
@@ -59,25 +59,25 @@
               <input type="number" id="cuotas" name="cuotas" value=<%= productToEdit.cuotas.cantidad %> class="form-input">
             </div>
             <div class="col-12 col-md-6">
-              <img src=<%= productToEdit.images.main %> alt="Imagen Principal" width="200" height="300">
+              <img src="/images/<%= productToEdit.images.main %>" alt="Imagen Principal" width="100" height="100">
               <br>
               <label for="images-main" class="form-label">Cambiar Imagen Principal:</label>
               <br>
-              <input type="file" id="images-main" name="images-main" value=<%= productToEdit.images.main %> class="form-input">
+              <input type="file" id="images-main" name="images-main"  class="form-input">
             </div>
             <div class="col-12 col-md-6">
-              <img src=<%= productToEdit.images.front %> alt="Imagen de Frente" width="200" height="300">
+              <img src="/images/<%= productToEdit.images.front %>" alt="Imagen de Frente" width="100" height="100">
               <br>
                 <label for="images-front" class="form-label">Cambiar Imagen de Frente:</label>
               <br>
-              <input type="file" id="images-front" name="images-front" value=<%= productToEdit.images.front %> class="form-input">
+              <input type="file" id="images-front" name="images-front"  class="form-input">
             </div>
             <div class="col-12 col-md-6">
-              <img src=<%= productToEdit.images.back %> alt="Imagen de Espalda" width="200" height="300">
+              <img src="/images/<%= productToEdit.images.back %>" alt="Imagen de Espalda" width="100" height="100">
               <br>
                 <label for="images-back" class="form-label">Cambiar Imagen de Dorso:</label>
               <br>
-              <input type="file" id="images-back" name="images-back" value=<%= productToEdit.images.back %> class="form-input">
+              <input type="file" id="images-back" name="images-back"  class="form-input">
             </div>
             <div class="col-12 col-md-6">
               <label for="caption" class="form-label">Comentarios adicionales:</label>
@@ -117,7 +117,7 @@
             
   
             <div class="col-12">
-              <button action="/product/<%= productToEdit.id %>" type="submit" class="buy-now-button">Guardar producto</button>
+              <button type="submit" class="buy-now-button">Guardar producto</button>
             </div>
           </div>
         </form>
