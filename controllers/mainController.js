@@ -86,12 +86,19 @@ let mainController = {
 		const productoEditado = {
 			id: products[productIndex].id,
 			name: req.body.name,
-			price: Number(req.body.price),
-			discount: Number(req.body.discount),
-			category: req.body.category,
-			description: req.body.description,
-			
-			image: req.file? req.file.filename : products[productIndex].image //le agrega el file que uploade, si lo hice, sino mantengo el anterior
+            brand: req.body.brand,
+            description: req.body.description,
+            carcteristica: req.body.carcteristica,
+            detalle: req.body.detalle,
+            talles: req.body.talles,
+			regularPrice: Number(req.body.regularPrice),
+			specialPrice: Number(req.body.specialPrice),
+			cuotas:{banco: req.body.cuotas-banco, cantidad: req.body.cuotas},
+            caption: Number(req.body.caption),
+            inventario:{disponibilidad: req.body.disponibilidad,peso_paq: req.body.peso_paq},
+			rating:{value: req.body.rating,quantity: req.body.quantity},
+            
+			images: req.file? req.file.filename : products[productIndex].image //le agrega el file que uploade, si lo hice, sino mantengo el anterior
 			};
 		
 			products[productIndex] = productoEditado;
