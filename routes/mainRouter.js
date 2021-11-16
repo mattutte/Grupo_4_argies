@@ -40,7 +40,7 @@ router.post('/productSearch', upload.array('images-main'),mainController.store);
 
 router.get('/product/pre_edit/:id',mainController.pre_edit);
 router.get('/product/edit/:id',mainController.editProduct);
-router.put('/product/:id', upload.array('images-main'),upload.array('images-front'),upload.array('images-back'), mainController.update); // los datos del formulario vienen por body
+router.put('/product/:id', upload.fields([{name:'images-main'},{name:'images-front'},{name:'images-back'}]), mainController.update); // los datos del formulario vienen por body
 
 
 /*** DELETE ONE PRODUCT***/ 

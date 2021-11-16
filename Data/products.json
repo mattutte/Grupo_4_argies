@@ -1,5 +1,77 @@
 [
  {
+  "id": 1,
+  "name": "JUVENTUS 21/22 HOME JERSEY BY ADIDAS",
+  "brand": "Adidas",
+  "description": "",
+  "caracteristicas": [],
+  "detalle": "",
+  "talles": [
+   "Small",
+   "Medium",
+   "Large",
+   "Extra-large"
+  ],
+  "regularPrice": "$8.401",
+  "specialPrice": "$5.461",
+  "cuotas": {
+   "banco": "Santander Rio",
+   "cantidad": 3
+  },
+  "images": {
+   "main": "camiseta1.jpeg",
+   "front": "",
+   "back": ""
+  },
+  "caption": "",
+  "inventario": {
+   "disponibilidad": 5,
+   "peso_paq": 0.85,
+   "devolucion": "No",
+   "tiempoEntrega": "24hs"
+  },
+  "rating": {
+   "value": 5,
+   "quantity": 25
+  }
+ },
+ {
+  "id": 2,
+  "name": "INTER MILAN 21/22 HOME JERSEY BY NIKE",
+  "brand": "Nike en Argentina",
+  "description": "Camiseta del Inter de Milan",
+  "caracteristicas": [],
+  "detalle": "",
+  "talles": [
+   "Small",
+   "Medium",
+   "Large",
+   "Extra-large"
+  ],
+  "regularPrice": "$9.206",
+  "specialPrice": "$6.332",
+  "cuotas": {
+   "banco": "Santander Rio",
+   "cantidad": 3
+  },
+  "images": {
+   "main": "camiseta2.jpeg",
+   "front": "",
+   "back": ""
+  },
+  "caption": "",
+  "inventario": {
+   "disponibilidad": 5,
+   "peso_paq": 0.85,
+   "devolucion": "No",
+   "tiempoEntrega": "24hs"
+  },
+  "rating": {
+   "value": 5,
+   "quantity": 25
+  }
+ },
+ {
   "id": 3,
   "name": "NIKE YOUTH SOCCER LIVERPOOL HOME JERSEY",
   "brand": "Nike en Argentina",
@@ -97,6 +169,42 @@
   },
   "images": {
    "main": "camiseta5.jpeg",
+   "front": "",
+   "back": ""
+  },
+  "caption": "",
+  "inventario": {
+   "disponibilidad": 5,
+   "peso_paq": 0.85,
+   "devolucion": "No",
+   "tiempoEntrega": "24hs"
+  },
+  "rating": {
+   "value": 5,
+   "quantity": 25
+  }
+ },
+ {
+  "id": 6,
+  "name": "ADIDAS ARSENAL TRAINING JERSEY 21/22",
+  "brand": "Adidas",
+  "description": "",
+  "caracteristicas": [],
+  "detalle": "",
+  "talles": [
+   "Small",
+   "Medium",
+   "Large",
+   "Extra-large"
+  ],
+  "regularPrice": "$8.401",
+  "specialPrice": "$5.461",
+  "cuotas": {
+   "banco": "Santander Rio",
+   "cantidad": 3
+  },
+  "images": {
+   "main": "camiseta6.jpeg",
    "front": "",
    "back": ""
   },
@@ -618,38 +726,50 @@
  },
  {
   "id": 21,
-  "name": "Chapaleugu",
-  "description": "es de polo",
-  "talles": "Small",
-  "regularPrice": "",
+  "name": "Chapaleufu IIII",
+  "brand": "",
+  "description": "Chapaleufu IIII",
+  "carcteristica": "",
+  "detalle": "",
+  "talles": "Medium",
+  "regularPrice": 234,
   "specialPrice": "",
-  "cuotas-banco": "",
-  "cuotas": "",
   "caption": "",
-  "disponibilidad": "",
-  "Peso": "",
-  "tiempoEntrega": "48hs",
-  "rating": "3",
-  "quantity": "32",
+  "inventario": {
+   "disponibilidad": "3",
+   "peso_paq": "",
+   "devolucion": "",
+   "tiempoEntrega": "2hs"
+  },
+  "rating": {
+   "value": "3",
+   "quantity": ""
+  },
   "images": {
    "main": ""
   }
  },
  {
   "id": 22,
-  "name": "La Dolfina",
-  "description": "de polo",
+  "name": "Ensenada",
+  "brand": "",
+  "description": "Ensenada",
+  "carcteristica": "",
+  "detalle": "",
   "talles": "Small",
-  "regularPrice": "2342324",
-  "specialPrice": "323",
-  "cuotas-banco": "",
-  "cuotas": "",
+  "regularPrice": "",
+  "specialPrice": "$ 23",
   "caption": "",
-  "disponibilidad": "",
-  "Peso": "",
-  "tiempoEntrega": "2hs",
-  "rating": "",
-  "quantity": "",
+  "inventario": {
+   "disponibilidad": "67",
+   "peso_paq": 0,
+   "devolucion": "Si",
+   "tiempoEntrega": "2hs"
+  },
+  "rating": {
+   "value": "3",
+   "quantity": 0
+  },
   "images": {
    "main": ""
   }
