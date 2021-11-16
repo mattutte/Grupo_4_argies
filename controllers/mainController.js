@@ -57,7 +57,7 @@ let mainController = {
 		fs.writeFileSync(productsFilePath,JSON.stringify(products,null,' '));
 		
 
-		res.redirect('/');
+		res.redirect('/productSearch');
 		
 		//res.send('se creo producto');
 	},
