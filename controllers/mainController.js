@@ -51,13 +51,16 @@ let mainController = {
 			name: req.body.name? req.body.name : "",
             brand: req.body.brand? req.body.brand : "",
             description: req.body.description? req.body.name : "",
-            carcteristica: req.body.carcteristica? req.body.carcteristica : "",
+            //carcteristica: req.body.carcteristica? req.body.carcteristica : "",
             detalle: req.body.detalle? req.body.detalle : "",
-            talles: req.body.talles.length == 0? []:req.body.talles,
+            talles: req.body.small.length == 0 &&
+                     req.body.medium.length == 0 && 
+                     req.body.large.length == 0 &&
+                     req.body.extralarge.length == 0? []:[req.body.small, req.body.medium, req.body.large, req.body.extralarge] ,
 			regularPrice: Number(req.body.regularPrice)? "$ " + req.body.regularPrice:"",
 			specialPrice: Number(req.body.specialPrice)? "$ " + req.body.specialPrice: "",
-			//cuotas:{banco: req.body.cuotas-banco? req.body.cuotas-banco:"", 
-            //        cantidad: req.body.cuotas? req.body.cuotas:0},
+			cuotas:{banco: req.body.cuotasbanco? req.body.cuotasbanco:"", 
+                    cantidad: req.body.cuotas? req.body.cuotas:0},
             caption: req.body.caption? req.body.caption: "",
             inventario:{disponibilidad: req.body.disponibilidad? req.body.disponibilidad:0,
                         peso_paq: req.body.peso_paq? req.body.peso_paq:0,
@@ -65,9 +68,12 @@ let mainController = {
                         tiempoEntrega: req.body.tiempoEntrega? req.body.tiempoEntrega:""},
 			rating:{value: req.body.rating? Number(req.body.rating):0,
                     quantity: req.body.quantity? req.body.quantity:0}, // le agrega todo lo del formulario excepto el file
-			images:{main: req.file? req.file.filename : ''}, //le agrega el file que uploaded
+            images:{main: req.files[0]? req.files.filename[0] : {},
+                        front: req.files[1]? req.files.filename[1] : {},
+                        back: req.files[2]? req.files.filename[2] : {} 
+                    } //le agrega los files que uploade, si lo hice, sino mantengo el anterior
 			};
-		
+		console.log(nuevoProducto);
 		products.push(nuevoProducto);
 
 		fs.writeFileSync(productsFilePath,JSON.stringify(products,null,' '));
@@ -105,28 +111,32 @@ let mainController = {
 			name: req.body.name? req.body.name : "",
             brand: req.body.brand? req.body.brand : "",
             description: req.body.description? req.body.name : "",
-            carcteristica: req.body.carcteristica? req.body.carcteristica : "",
+            //carcteristica: req.body.carcteristica? req.body.carcteristica : "",
             detalle: req.body.detalle? req.body.detalle : "",
-            talles: req.body.talles.length == 0? []:req.body.talles,
+            talles: req.body.small.length == 0 &&
+                     req.body.medium.length == 0 && 
+                     req.body.large.length == 0 &&
+                     req.body.extralarge.length == 0? []:[req.body.small, req.body.medium, req.body.large, req.body.extralarge] ,
 			regularPrice: Number(req.body.regularPrice)? "$ " + req.body.regularPrice:"",
 			specialPrice: Number(req.body.specialPrice)? "$ " + req.body.specialPrice: "",
-			//cuotas:{banco: req.body.cuotas-banco? req.body.cuotas-banco:"", 
-            //        cantidad: req.body.cuotas? req.body.cuotas:0},
+			cuotas:{banco: req.body.cuotasbanco? req.body.cuotasbanco:"", 
+                    cantidad: req.body.cuotas? req.body.cuotas:0},
             caption: req.body.caption? req.body.caption: "",
             inventario:{disponibilidad: req.body.disponibilidad? req.body.disponibilidad:0,
                         peso_paq: req.body.peso_paq? req.body.peso_paq:0,
                         devolucion: req.body.devolucion? req.body.devolucion:"", 
                         tiempoEntrega: req.body.tiempoEntrega? req.body.tiempoEntrega:""},
 			rating:{value: req.body.rating? Number(req.body.rating):0,
-                    quantity: req.body.quantity? req.body.quantity:0},
-            
-			images:{main: req.file? req.file.filename +"1" : products[productIndex].images.main,
-                    //front: req.file? req.file.filename +"2" : products[productIndex].images.front,
-                    //back: req.file? req.file.filename +"3" : products[productIndex].images.back 
-                } //le agrega el file que uploade, si lo hice, sino mantengo el anterior
+                    quantity: req.body.quantity? req.body.quantity:0}, // le agrega todo lo del formulario excepto el file
+            images:{main: req.files[0]? req.files.filename[0] : {},
+                        front: req.files[1]? req.files.filename[1] : {},
+                        back: req.files[2]? req.files.filename[2] : {} 
+                    } //le agrega los files que uploade, si lo hice, sino mantengo el anterior
 			};
 		
-			products[productIndex] = productoEditado;
+			console.log(productoEditado);
+            
+            products[productIndex] = productoEditado;
 
 			fs.writeFileSync(productsFilePath,JSON.stringify(products,null,' '));
 		

@@ -35,7 +35,7 @@ router.get('/product/:id',mainController.product);
 router.get('/admin',mainController.admin);
 
 router.get('/addProduct',mainController.addProduct);
-router.post('/productSearch', upload.array('images-main'),mainController.store);
+router.post('/productSearch', upload.fields([{name:'images-main'},{name:'images-front'},{name:'images-back'}]),mainController.store);
 
 
 router.get('/product/pre_edit/:id',mainController.pre_edit);

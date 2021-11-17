@@ -35,13 +35,21 @@
               <textarea type="text" id="description" name="description" placeholder="Agregue una breve descripcion" class="form-input"></textarea>
             </div>
             <div class="col-12 col-md-6 select-input">
-              <label for="talles" class="form-label">Talles:</label>
-              <select name="talles" id="talles" class="form-input">
+              <label for="talles" class="form-label">Talles:</label><br>
+              <input type="checkbox" name="small" id="talles-small" value="Small" class="form-input">
+              <label for="small">Small</label><br>
+              <input type="checkbox" name="medium" id="talles-medium" value="Medium" class="form-input">
+              <label for="medium">Medium</label><br>
+              <input type="checkbox" name="large" id="talles-large" value="Large" class="form-input">
+              <label for="large">Large</label><br>
+              <input type="checkbox" name="extralarge" id="talles-extralarge" value="Extra-Large" class="form-input">
+              <label for="extralarge">Extra Large</label><br>
+              <!-- <select name="talles" id="talles" class="form-input">
                 <option value="Small">Small</option>
                 <option value="Medium">Medium</option>
                 <option value="Large">Large</option>
                 <option value="Extra-Large">Extra-Large</option>
-              </select>
+              </select> -->
             <div class="col-12 col-md-6">
               <label for="regularPrice" class="form-label">Precio del producto:</label>
               <input type="text" id="regularPrice" name="regularPrice" placeholder="Ej: 5678" class="form-input">
@@ -51,8 +59,8 @@
               <input type="text" id="specialPrice" name="specialPrice" placeholder="Ej: 5678" class="form-input">
             </div>
             <div class="col-12 col-md-6">
-              <label for="cuotas-banco" class="form-label">Cuotas con Banco:</label>
-              <input type="text" id="cuotas-banco" name="cuotas-banco" placeholder="Ej: Santander" class="form-input">
+              <label for="cuotasbanco" class="form-label">Cuotas con Banco:</label>
+              <input type="text" id="cuotasbanco" name="cuotasbanco" placeholder="Ej: Santander" class="form-input">
             </div>
             <div class="col-12 col-md-6">
               <label for="cuotas" class="form-label">Cantidad de Cuotas:</label>

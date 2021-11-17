@@ -726,52 +726,37 @@
  },
  {
   "id": 21,
-  "name": "Chapaleufu IIII",
+  "name": "Chapa",
   "brand": "",
-  "description": "Chapaleufu IIII",
-  "carcteristica": "",
+  "description": "",
   "detalle": "",
-  "talles": "Medium",
-  "regularPrice": 234,
-  "specialPrice": "",
+  "talles": [
+   "Small",
+   "Medium",
+   null,
+   null
+  ],
+  "regularPrice": "$ 323",
+  "specialPrice": "$ 2323",
+  "cuotas": {
+   "banco": "",
+   "cantidad": 0
+  },
   "caption": "",
   "inventario": {
-   "disponibilidad": "3",
-   "peso_paq": "",
-   "devolucion": "",
-   "tiempoEntrega": "2hs"
-  },
-  "rating": {
-   "value": "3",
-   "quantity": ""
-  },
-  "images": {
-   "main": ""
-  }
- },
- {
-  "id": 22,
-  "name": "Ensenada",
-  "brand": "",
-  "description": "Ensenada",
-  "carcteristica": "",
-  "detalle": "",
-  "talles": "Small",
-  "regularPrice": "",
-  "specialPrice": "$ 23",
-  "caption": "",
-  "inventario": {
-   "disponibilidad": "67",
+   "disponibilidad": "12",
    "peso_paq": 0,
-   "devolucion": "Si",
+   "devolucion": "No",
    "tiempoEntrega": "2hs"
   },
   "rating": {
-   "value": "3",
-   "quantity": 0
+   "value": 2,
+   "quantity": "2"
   },
   "images": {
-   "main": ""
+   "main": {},
+   "front": {},
+   "back": {}
   }
  }
 ]

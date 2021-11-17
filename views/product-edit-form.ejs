@@ -32,16 +32,28 @@
             </div>
             <div class="col-12 col-md-6">
               <label for="caracteristicas" class="form-label">Caracteristicas del Producto:</label>
-              <input type="text" id="caracteristicas" name="caracteristicas" value=<%= JSON.stringify(productToEdit.caracteristicas) %> class="form-input">
+              <input type="text" id="caracteristicas" name="caracteristicas" class="form-input">
             </div>
             <div class="col-12 col-md-6">
               <label for="talles" class="form-label">Talles:</label>
-              <select name="talles" id="talles" class="form-input">
+
+              
+              <input type="checkbox" name="small" id="talles-small" value="Small" class="form-input" <% productToEdit.talles.includes('Small') ? 'selected' : '' %>>
+              <label for="small">Small</label><br>
+              <input type="checkbox" name="medium" id="talles-medium" value="Medium" class="form-input" <% productToEdit.talles.includes('Medium') ? 'selected' : '' %>>
+              <label for="medium">Medium</label><br>
+              <input type="checkbox" name="large" id="talles-large" value="Large" class="form-input" <% productToEdit.talles.includes('Large') ? 'selected' : '' %>>
+              <label for="large">Large</label><br>
+              <input type="checkbox" name="extralarge" id="talles-extralarge" value="Extra-Large" class="form-input" <% productToEdit.talles.includes('Extra') ? 'selected' : '' %>>
+              <label for="extralarge">Extra Large</label><br>
+
+
+              <!-- <select name="talles" id="talles" class="form-input">
                 <option value="Small" <% productToEdit.talles == 'Small' ? 'selected' : '' %>>Small</option>
                 <option value="Medium" <% productToEdit.talles == 'Medium' ? 'selected' : '' %>>Medium</option>
                 <option value="Large" <% productToEdit.talles == 'Large' ? 'selected' : '' %>>Large</option>
                 <option value="Extra-Large" <% productToEdit.talles == 'Extra-Large' ? 'selected' : '' %>>Extra-Large</option>
-              </select>
+              </select> -->
             <div class="col-12 col-md-6">
               <label for="regularPrice" class="form-label">Precio del producto:</label>
               <input type="text" id="regularPrice" name="regularPrice" value=<%= productToEdit.regularPrice %> class="form-input">
@@ -51,8 +63,8 @@
               <input type="text" id="specialPrice" name="specialPrice" value=<%= productToEdit.specialPrice %> class="form-input">
             </div>
             <div class="col-12 col-md-6">
-              <label for="cuotas-banco" class="form-label">Cuotas con Banco:</label>
-              <input type="text" id="cuotas-banco" name="cuotas-banco" value=<%= productToEdit.cuotas.banco %> class="form-input">
+              <label for="cuotasbanco" class="form-label">Cuotas con Banco:</label>
+              <input type="text" id="cuotasbanco" name="cuotasbanco" value=<%= productToEdit.cuotas.banco %> class="form-input">
             </div>
             <div class="col-12 col-md-6">
               <label for="cuotas" class="form-label">Cantidad de Cuotas:</label>
