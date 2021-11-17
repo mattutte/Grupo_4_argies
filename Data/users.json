@@ -1,0 +1,46 @@
+[
+    {
+        "id": 1,
+        "email": "tomiley@gmail.com",
+        "password": 1234,
+        "direccion": "Paraná 123, Pilar",
+        "pais": "Argentina",
+        "seleccionFavorita": "Milan AC",
+        "equipoLocFav": "Boca",
+        "jugadorFavorito": "Maradona",
+        "mayor": true
+    },
+    {
+        "id": 2,
+        "email": "denichang@gmail.com",
+        "password": "abcd",
+        "direccion": "Av Libertador 1340 depto. 302, CABA",
+        "pais": "Argentina",
+        "seleccionFavorita": "Inter Milan",
+        "equipoLocFav": "Racing",
+        "jugadorFavorito": "Palermo",
+        "mayor": true
+    },
+    {
+        "id": 3,
+        "email": "elborto@gmail.com",
+        "password": "blabla",
+        "direccion": "donde está el agite",
+        "pais": "Argentina",
+        "seleccionFavorita": "Real Madrid",
+        "equipoLocFav": "River",
+        "jugadorFavorito": "Aimar",
+        "mayor": true
+    },
+    {
+        "id": 4,
+        "email": "matute@gmail.com",
+        "password": "imposibledesacar",
+        "direccion": "lejosenelnorte",
+        "pais": "Argentina",
+        "seleccionFavorita": "Barcelona",
+        "equipoLocFav": "Boca",
+        "jugadorFavorito": "Messi",
+        "mayor": true
+    }
+]

@@ -40,7 +40,7 @@ let mainController = {
     },
     
     addProduct: (req,res)=>{
-        res.render('product-add-form')
+        res.render('product-add-form v2')
     },
     
     store: (req, res) => {

@@ -1,0 +1,60 @@
+.main-container {
+    max-width: 935px;
+    padding: 26px 30px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    margin: auto;
+    position: relative;
+}
+
+h2 {
+    margin: 0 0 8px 0;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.listGroup {
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    border-radius: 3px 3px 0 0;
+    padding: 20px;
+}
+
+.listGroup h2 {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.listGroup p {
+    margin-bottom: 0;
+    margin: 8px 0;
+}
+
+.grid {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: stretch;
+}
+
+.grid-cell {
+    position: relative;
+    display: flex;
+    flex: 0 0 auto;
+    min-width: 0;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.grid-cell-wrapper {
+    margin: 10px;
+    flex: 1 1 100%;
+    min-width: 0;
+}
+
+.listInLineSelect {
+    max-width: 280px;
+    position: relative;
+}
+
