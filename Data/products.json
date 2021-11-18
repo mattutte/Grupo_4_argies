@@ -4,7 +4,7 @@
   "name": "JUVENTUS 21/22 HOME JERSEY BY ADIDAS",
   "brand": "Adidas",
   "description": "",
-  "caracteristicas": [],
+  "caracteristicas": "",
   "detalle": "",
   "talles": [
    "Small",
@@ -40,7 +40,7 @@
   "name": "INTER MILAN 21/22 HOME JERSEY BY NIKE",
   "brand": "Nike en Argentina",
   "description": "Camiseta del Inter de Milan",
-  "caracteristicas": [],
+  "caracteristicas": "",
   "detalle": "",
   "talles": [
    "Small",
@@ -72,52 +72,11 @@
   }
  },
  {
-  "id": 3,
-  "name": "NIKE YOUTH SOCCER LIVERPOOL HOME JERSEY",
-  "brand": "Nike en Argentina",
-  "description": "Camiseta del Liverpool Titular",
-  "caracteristicas": [
-   "La tecnología Dri-FIT te ayuda a mantenerte seco y cómodo...",
-   "El diseño auténtico sigue el modelo de lo que usan los profesionales en los partidos en casa...",
-   "Ajuste estándar para una sensación relajada y cómoda",
-   "100% poliéster reciclado"
-  ],
-  "detalle": "Representa a tu equipo con la camiseta de local del Liverpool FC Stadium. La tela altamente transpirable ayuda a mantener el sudor alejado de la piel, para que se mantenga fresco y cómodo en el campo o en las gradas. Este producto está elaborado con tejido de poliéster 100% reciclado.",
-  "talles": [
-   "Small",
-   "Medium",
-   "Large",
-   "Extra-large"
-  ],
-  "regularPrice": "$8.401",
-  "specialPrice": "$5.461",
-  "cuotas": {
-   "banco": "Santander Rio",
-   "cantidad": 3
-  },
-  "images": {
-   "main": "camiseta3.jpeg",
-   "front": "camiseta3_frente.jpeg",
-   "back": "camiseta3_dorso.jpeg"
-  },
-  "caption": "",
-  "inventario": {
-   "disponibilidad": 1,
-   "peso_paq": 0.85,
-   "devolucion": "No",
-   "tiempoEntrega": "24hs"
-  },
-  "rating": {
-   "value": 5,
-   "quantity": 25
-  }
- },
- {
   "id": 4,
   "name": "JUVENTUS 21/22 HOME JERSEY BY ADIDAS",
   "brand": "Adidas",
   "description": "",
-  "caracteristicas": [],
+  "caracteristicas": "",
   "detalle": "",
   "talles": [
    "Small",
@@ -153,7 +112,7 @@
   "name": "ITALY EURO 20/21 HOME JERSEY BY PUMA",
   "brand": "Puma",
   "description": "",
-  "caracteristicas": [],
+  "caracteristicas": "",
   "detalle": "",
   "talles": [
    "Small",
@@ -189,7 +148,7 @@
   "name": "ADIDAS ARSENAL TRAINING JERSEY 21/22",
   "brand": "Adidas",
   "description": "",
-  "caracteristicas": [],
+  "caracteristicas": "",
   "detalle": "",
   "talles": [
    "Small",
@@ -225,7 +184,7 @@
   "name": "ARSENAL 21/22 AUTHENTIC HOME JERSEY BY ADIDAS",
   "brand": "Adidas",
   "description": "",
-  "caracteristicas": [],
+  "caracteristicas": "",
   "detalle": "",
   "talles": [
    "Small",
@@ -261,7 +220,7 @@
   "name": "MANCHESTER UNITEDAUTHENTIC THIRD JERSEY BY ADIDAS",
   "brand": "Adidas",
   "description": "",
-  "caracteristicas": [],
+  "caracteristicas": "",
   "detalle": "",
   "talles": [
    "Small",
@@ -297,7 +256,7 @@
   "name": "BORUSSIA DORTMUND 21/22 HOME JERSEY BY PUMA",
   "brand": "Puma",
   "description": "",
-  "caracteristicas": [],
+  "caracteristicas": "",
   "detalle": "",
   "talles": [
    "Small",
@@ -333,7 +292,7 @@
   "name": "RIVER PLATE 21/22 AWAY JERSEY BY ADIDAS",
   "brand": "Adidas",
   "description": "",
-  "caracteristicas": [],
+  "caracteristicas": "",
   "detalle": "",
   "talles": [
    "Small",
@@ -369,7 +328,7 @@
   "name": "ARSENAL 21/22 AUTHENTIC THIRD JERSEY BY ADIDAS",
   "brand": "Adidas",
   "description": "",
-  "caracteristicas": [],
+  "caracteristicas": "",
   "detalle": "",
   "talles": [
    "Small",
@@ -405,7 +364,7 @@
   "name": "BAYERN MUNICH 21/22 AUTHENTIC HOME JERSEY BY ADIDAS",
   "brand": "Adidas",
   "description": "",
-  "caracteristicas": [],
+  "caracteristicas": "",
   "detalle": "",
   "talles": [
    "Small",
@@ -441,7 +400,7 @@
   "name": "REAL MADRID 21/22 AUTHENTIC AWAY JERSEY BY ADIDAS",
   "brand": "Adidas",
   "description": "",
-  "caracteristicas": [],
+  "caracteristicas": "",
   "detalle": "",
   "talles": [
    "Small",
@@ -477,7 +436,7 @@
   "name": "BAYERN MUNICH 20/21 AUTHENTIC HOME JERSEY BY ADIDAS",
   "brand": "Adidas",
   "description": "",
-  "caracteristicas": [],
+  "caracteristicas": "",
   "detalle": "",
   "talles": [
    "Small",
@@ -513,7 +472,7 @@
   "name": "AC MILAN 21/22 AWAY JERSEY BY PUMA",
   "brand": "Puma",
   "description": "",
-  "caracteristicas": [],
+  "caracteristicas": "",
   "detalle": "",
   "talles": [
    "Small",
@@ -549,7 +508,7 @@
   "name": "MARSEILLE 21/22 AWAY JERSEY BY PUMA",
   "brand": "Puma",
   "description": "",
-  "caracteristicas": [],
+  "caracteristicas": "",
   "detalle": "",
   "talles": [
    "Small",
@@ -585,7 +544,7 @@
   "name": "ATLETICO MADRID 21/22 THIRD JERSEY BY NIKE",
   "brand": "Nike en Argentina",
   "description": "",
-  "caracteristicas": [],
+  "caracteristicas": "",
   "detalle": "",
   "talles": [
    "Small",
@@ -621,7 +580,7 @@
   "name": "AS ROMA 21/22 HOME JERSEY BY NEW BALANCE",
   "brand": "New Balance",
   "description": "",
-  "caracteristicas": [],
+  "caracteristicas": "",
   "detalle": "",
   "talles": [
    "Small",
@@ -657,7 +616,7 @@
   "name": "BAYERN MUNICH 21/22 THIRD JERSEY BY ADIDAS",
   "brand": "Adidas",
   "description": "",
-  "caracteristicas": [],
+  "caracteristicas": "",
   "detalle": "",
   "talles": [
    "Small",
@@ -693,7 +652,7 @@
   "name": "PSG 21/22 THIRD JERSEY BY NIKE",
   "brand": "Nike en Argentina",
   "description": "",
-  "caracteristicas": [],
+  "caracteristicas": "",
   "detalle": "",
   "talles": [
    "Small",
@@ -757,6 +716,76 @@
    "main": {},
    "front": {},
    "back": {}
+  }
+ },
+ {
+  "id": 22,
+  "name": "La Ensenada",
+  "brand": "",
+  "description": "La Ensenada",
+  "detalle": "",
+  "talles": [
+   "Small",
+   "Medium",
+   null,
+   null
+  ],
+  "regularPrice": "$ 234",
+  "specialPrice": "$ 2342",
+  "cuotas": {
+   "banco": "HBO",
+   "cantidad": "21"
+  },
+  "caption": "",
+  "inventario": {
+   "disponibilidad": "23",
+   "peso_paq": 0,
+   "devolucion": "Si",
+   "tiempoEntrega": "2hs"
+  },
+  "rating": {
+   "value": 3,
+   "quantity": "33"
+  },
+  "images": {
+   "main": {},
+   "front": {},
+   "back": {}
+  }
+ },
+ {
+  "id": 23,
+  "name": "chapaleufu",
+  "brand": "",
+  "description": "chapaleufu",
+  "detalle": "",
+  "talles": [
+   "Small",
+   "Medium",
+   null,
+   null
+  ],
+  "regularPrice": "$ 234",
+  "specialPrice": "$ 213",
+  "cuotas": {
+   "banco": "",
+   "cantidad": "1"
+  },
+  "caption": "",
+  "inventario": {
+   "disponibilidad": 0,
+   "peso_paq": 0,
+   "devolucion": "No",
+   "tiempoEntrega": "2hs"
+  },
+  "rating": {
+   "value": 0,
+   "quantity": 0
+  },
+  "images": {
+   "main": "images-main-1637204396664.jpeg",
+   "front": null,
+   "back": "images-back-1637204396668.jpeg"
   }
  }
 ]

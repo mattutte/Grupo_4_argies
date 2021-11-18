@@ -101,11 +101,9 @@
                             </div>
 
                             <div class="product-description">
-                                <ul>
-                                    <% productDetail.caracteristicas.forEach(element => { %>
-                                    <p class="product-desc"><li><%= element %></li></p>
-                                <% }) %>
-                                </ul>
+                                
+                                    <%= productDetail.caracteristicas %>
+                                    
                             </div>
     
                         </div>  <!--Col-detalle-->

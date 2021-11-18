@@ -44,14 +44,15 @@ let mainController = {
     },
     
     store: (req, res) => {
-
+        console.log(req.body);
+        console.log(req.files);
 		const nuevoProducto = {
 		
 			id : products[products.length-1].id + 1, // le crea un id 1 mas alto que el del ultimo
 			name: req.body.name? req.body.name : "",
             brand: req.body.brand? req.body.brand : "",
             description: req.body.description? req.body.name : "",
-            //carcteristica: req.body.carcteristica? req.body.carcteristica : "",
+            carcteristica: req.body.carcteristica? req.body.carcteristica : "",
             detalle: req.body.detalle? req.body.detalle : "",
             talles: req.body.small.length == 0 &&
                      req.body.medium.length == 0 && 
@@ -68,9 +69,9 @@ let mainController = {
                         tiempoEntrega: req.body.tiempoEntrega? req.body.tiempoEntrega:""},
 			rating:{value: req.body.rating? Number(req.body.rating):0,
                     quantity: req.body.quantity? req.body.quantity:0}, // le agrega todo lo del formulario excepto el file
-            images:{main: req.files[0]? req.files.filename[0] : {},
-                        front: req.files[1]? req.files.filename[1] : {},
-                        back: req.files[2]? req.files.filename[2] : {} 
+            images:{main: req.files["images-main"]? req.files["images-main"][0].filename : null,
+                        front: req.files["images-front"]? req.files["images-front"][0].filename : null,
+                        back: req.files["images-back"]? req.files["images-back"][0].filename : null 
                     } //le agrega los files que uploade, si lo hice, sino mantengo el anterior
 			};
 		console.log(nuevoProducto);
@@ -104,14 +105,17 @@ let mainController = {
 			return (producto.id == req.params.id)
 			
 		});
+
         console.log(req.files);
+        const productToEdit = products.find((prod) => prod.id == req.params.id); 
+        
 
 		const productoEditado = {
 			id: products[productIndex].id,
 			name: req.body.name? req.body.name : "",
             brand: req.body.brand? req.body.brand : "",
             description: req.body.description? req.body.name : "",
-            //carcteristica: req.body.carcteristica? req.body.carcteristica : "",
+            carcteristica: req.body.carcteristica? req.body.carcteristica : "",
             detalle: req.body.detalle? req.body.detalle : "",
             talles: req.body.small.length == 0 &&
                      req.body.medium.length == 0 && 
@@ -128,9 +132,9 @@ let mainController = {
                         tiempoEntrega: req.body.tiempoEntrega? req.body.tiempoEntrega:""},
 			rating:{value: req.body.rating? Number(req.body.rating):0,
                     quantity: req.body.quantity? req.body.quantity:0}, // le agrega todo lo del formulario excepto el file
-            images:{main: req.files[0]? req.files.filename[0] : {},
-                        front: req.files[1]? req.files.filename[1] : {},
-                        back: req.files[2]? req.files.filename[2] : {} 
+            images:{main: req.files["images-main"]? req.files["images-main"][0].filename : productToEdit.images.main,
+                        front: req.files["images-front"]? req.files["images-front"][0].filename  : productToEdit.images.front,
+                        back: req.files["images-back"]? req.files["images-back"][0].filename  : productToEdit.images.back 
                     } //le agrega los files que uploade, si lo hice, sino mantengo el anterior
 			};
 		
