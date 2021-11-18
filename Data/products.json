@@ -1,38 +1,37 @@
 [
  {
   "id": 1,
-  "name": "JUVENTUS 21/22 HOME JERSEY BY ADIDAS",
+  "name": "JUVENTUS",
   "brand": "Adidas",
   "description": "",
-  "caracteristicas": "",
   "detalle": "",
   "talles": [
-   "Small",
-   "Medium",
-   "Large",
-   "Extra-large"
+   null,
+   null,
+   null,
+   null
   ],
   "regularPrice": "$8.401",
   "specialPrice": "$5.461",
   "cuotas": {
-   "banco": "Santander Rio",
-   "cantidad": 3
-  },
-  "images": {
-   "main": "camiseta1.jpeg",
-   "front": "",
-   "back": ""
+   "banco": "Santander",
+   "cantidad": "3"
   },
   "caption": "",
   "inventario": {
-   "disponibilidad": 5,
+   "disponibilidad": "5",
    "peso_paq": 0.85,
    "devolucion": "No",
-   "tiempoEntrega": "24hs"
+   "tiempoEntrega": "2hs"
   },
   "rating": {
    "value": 5,
-   "quantity": 25
+   "quantity": "345"
+  },
+  "images": {
+   "main": "camiseta1.jpeg",
+   "front": "images-front-1637208155956.jpeg",
+   "back": "images-back-1637208155958.jpeg"
   }
  },
  {
@@ -73,38 +72,38 @@
  },
  {
   "id": 4,
-  "name": "JUVENTUS 21/22 HOME JERSEY BY ADIDAS",
-  "brand": "Adidas",
-  "description": "",
-  "caracteristicas": "",
+  "name": "JUVENTUS",
+  "brand": "",
+  "description": "JUVENTUS",
+  "carcteristica": "",
   "detalle": "",
   "talles": [
    "Small",
    "Medium",
    "Large",
-   "Extra-large"
+   "Extra-Large"
   ],
-  "regularPrice": "$8.401",
-  "specialPrice": "$5.461",
+  "regularPrice": "",
+  "specialPrice": "",
   "cuotas": {
-   "banco": "Santander Rio",
-   "cantidad": 3
-  },
-  "images": {
-   "main": "camiseta4.jpeg",
-   "front": "",
-   "back": ""
+   "banco": "Santander",
+   "cantidad": "3"
   },
   "caption": "",
   "inventario": {
-   "disponibilidad": 1,
-   "peso_paq": 0.85,
-   "devolucion": "No",
-   "tiempoEntrega": "24hs"
+   "disponibilidad": "1",
+   "peso_paq": 0,
+   "devolucion": "",
+   "tiempoEntrega": "2hs"
   },
   "rating": {
    "value": 5,
-   "quantity": 25
+   "quantity": "23232"
+  },
+  "images": {
+   "main": "images-main-1637206595948.jpeg",
+   "front": "",
+   "back": ""
   }
  },
  {
@@ -786,6 +785,68 @@
    "main": "images-main-1637204396664.jpeg",
    "front": null,
    "back": "images-back-1637204396668.jpeg"
+  }
+ },
+ {
+  "id": 24,
+  "name": "Chpaasdf",
+  "brand": "",
+  "description": "",
+  "carcteristica": "",
+  "detalle": "",
+  "talles": [],
+  "regularPrice": "$ 333",
+  "specialPrice": "$ 333",
+  "cuotas": {
+   "banco": "as",
+   "cantidad": 0
+  },
+  "caption": "",
+  "inventario": {
+   "disponibilidad": "212",
+   "peso_paq": 0,
+   "devolucion": "No",
+   "tiempoEntrega": "2hs"
+  },
+  "rating": {
+   "value": 0,
+   "quantity": 0
+  },
+  "images": {
+   "main": "images-main-1637208660171.jpeg",
+   "front": "images-front-1637208660173.jpeg",
+   "back": null
+  }
+ },
+ {
+  "id": 25,
+  "name": "Chapa",
+  "brand": "",
+  "description": "",
+  "carcteristica": "",
+  "detalle": "",
+  "talles": [],
+  "regularPrice": "$ 3232",
+  "specialPrice": "$ 322",
+  "cuotas": {
+   "banco": "d",
+   "cantidad": "1"
+  },
+  "caption": "",
+  "inventario": {
+   "disponibilidad": 0,
+   "peso_paq": 0,
+   "devolucion": "No",
+   "tiempoEntrega": "2hs"
+  },
+  "rating": {
+   "value": 0,
+   "quantity": "23"
+  },
+  "images": {
+   "main": "images-main-1637208907123.jpeg",
+   "front": "images-front-1637208907126.jpeg",
+   "back": null
   }
  }
 ]

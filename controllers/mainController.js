@@ -40,7 +40,7 @@ let mainController = {
     },
     
     addProduct: (req,res)=>{
-        res.render('product-add-form v2')
+        res.render('product-add-form')
     },
     
     store: (req, res) => {
@@ -51,13 +51,13 @@ let mainController = {
 			id : products[products.length-1].id + 1, // le crea un id 1 mas alto que el del ultimo
 			name: req.body.name? req.body.name : "",
             brand: req.body.brand? req.body.brand : "",
-            description: req.body.description? req.body.name : "",
+            description: req.body.description? req.body.description : "",
             carcteristica: req.body.carcteristica? req.body.carcteristica : "",
             detalle: req.body.detalle? req.body.detalle : "",
-            talles: req.body.small.length == 0 &&
-                     req.body.medium.length == 0 && 
-                     req.body.large.length == 0 &&
-                     req.body.extralarge.length == 0? []:[req.body.small, req.body.medium, req.body.large, req.body.extralarge] ,
+            talles: typeof(req.body.small) !="undefined" &&
+                typeof(req.body.medium) !="undefined" && 
+                typeof(req.body.large) !="undefined" &&
+                typeof(req.body.extralarge) !="undefined"? [req.body.small, req.body.medium, req.body.large, req.body.extralarge]:[] ,
 			regularPrice: Number(req.body.regularPrice)? "$ " + req.body.regularPrice:"",
 			specialPrice: Number(req.body.specialPrice)? "$ " + req.body.specialPrice: "",
 			cuotas:{banco: req.body.cuotasbanco? req.body.cuotasbanco:"", 
@@ -107,31 +107,32 @@ let mainController = {
 		});
 
         console.log(req.files);
+        console.log(req.body);
         const productToEdit = products.find((prod) => prod.id == req.params.id); 
         
 
 		const productoEditado = {
 			id: products[productIndex].id,
-			name: req.body.name? req.body.name : "",
-            brand: req.body.brand? req.body.brand : "",
-            description: req.body.description? req.body.name : "",
-            carcteristica: req.body.carcteristica? req.body.carcteristica : "",
-            detalle: req.body.detalle? req.body.detalle : "",
-            talles: req.body.small.length == 0 &&
-                     req.body.medium.length == 0 && 
-                     req.body.large.length == 0 &&
-                     req.body.extralarge.length == 0? []:[req.body.small, req.body.medium, req.body.large, req.body.extralarge] ,
-			regularPrice: Number(req.body.regularPrice)? "$ " + req.body.regularPrice:"",
-			specialPrice: Number(req.body.specialPrice)? "$ " + req.body.specialPrice: "",
-			cuotas:{banco: req.body.cuotasbanco? req.body.cuotasbanco:"", 
-                    cantidad: req.body.cuotas? req.body.cuotas:0},
-            caption: req.body.caption? req.body.caption: "",
-            inventario:{disponibilidad: req.body.disponibilidad? req.body.disponibilidad:0,
-                        peso_paq: req.body.peso_paq? req.body.peso_paq:0,
-                        devolucion: req.body.devolucion? req.body.devolucion:"", 
-                        tiempoEntrega: req.body.tiempoEntrega? req.body.tiempoEntrega:""},
-			rating:{value: req.body.rating? Number(req.body.rating):0,
-                    quantity: req.body.quantity? req.body.quantity:0}, // le agrega todo lo del formulario excepto el file
+			name: req.body.name? req.body.name : productToEdit.name,
+            brand: req.body.brand? req.body.brand : productToEdit.brand,
+            description: req.body.description? req.body.description : productToEdit.description,
+            carcteristica: req.body.carcteristica? req.body.carcteristica : productToEdit.carcteristica,
+            detalle: req.body.detalle? req.body.detalle : productToEdit.detalle,
+            talles: typeof(req.body.small) !="undefined" &&
+                    typeof(req.body.medium) !="undefined" && 
+                    typeof(req.body.large) !="undefined" &&
+                    typeof(req.body.extralarge) !="undefined"? productToEdit.talles:[req.body.small, req.body.medium, req.body.large, req.body.extralarge] ,
+			regularPrice: Number(req.body.regularPrice)? "$ " + req.body.regularPrice: productToEdit.regularPrice,
+			specialPrice: Number(req.body.specialPrice)? "$ " + req.body.specialPrice: productToEdit.specialPrice,
+			cuotas:{banco: req.body.cuotasbanco? req.body.cuotasbanco:productToEdit.cuotas.banco, 
+                    cantidad: req.body.cuotas? req.body.cuotas:productToEdit.cuotas.cantidad},
+            caption: req.body.caption? req.body.caption: productToEdit.caption,
+            inventario:{disponibilidad: req.body.disponibilidad? req.body.disponibilidad:productToEdit.inventario.disponibilidad,
+                        peso_paq: req.body.peso_paq? req.body.peso_paq:productToEdit.inventario.peso_paq,
+                        devolucion: req.body.devolucion? req.body.devolucion:productToEdit.inventario.devolucion, 
+                        tiempoEntrega: req.body.tiempoEntrega? req.body.tiempoEntrega:productToEdit.inventario.tiempoEntrega},
+			rating:{value: req.body.rating? Number(req.body.rating):productToEdit.rating.value,
+                    quantity: req.body.quantity? req.body.quantity:productToEdit.rating.quantity}, // le agrega todo lo del formulario excepto el file
             images:{main: req.files["images-main"]? req.files["images-main"][0].filename : productToEdit.images.main,
                         front: req.files["images-front"]? req.files["images-front"][0].filename  : productToEdit.images.front,
                         back: req.files["images-back"]? req.files["images-back"][0].filename  : productToEdit.images.back 
