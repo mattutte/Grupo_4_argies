@@ -3,9 +3,10 @@ body {
     width: 100%;
 }
 
-main {
+/*main {
     text-align: center;
-}
+}*/
+
 .banners {
     display: block;
 }
