@@ -180,6 +180,11 @@ body {
         color: #696969;
     }
 
+    .product-description li {
+        list-style-type: circle;
+        list-style-position: inside;
+    }
+
 /* BASKET COLUMN */
 
     .col-basket {

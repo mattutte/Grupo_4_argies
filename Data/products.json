@@ -4,6 +4,9 @@
   "name": "JUVENTUS",
   "brand": "Adidas",
   "description": "",
+  "caracteristicas": [
+   "gran camiseta!"
+  ],
   "detalle": "",
   "talles": [
    null,
@@ -22,7 +25,7 @@
    "disponibilidad": "5",
    "peso_paq": 0.85,
    "devolucion": "No",
-   "tiempoEntrega": "2hs"
+   "tiempoEntrega": "1Semana"
   },
   "rating": {
    "value": 5,
@@ -71,11 +74,52 @@
   }
  },
  {
+  "id": 3,
+  "name": "AC",
+  "brand": "PUMA",
+  "description": "Camiseta del AC Milan",
+  "caracteristicas": [
+   "La tecnología Dri-FIT te ayuda a mantenerte seco y cómodo...",
+   "El diseño auténtico sigue el modelo de lo que usan los profesionales en los partidos en casa...",
+   "Ajuste estándar para una sensación relajada y cómoda",
+   "100% poliéster reciclado"
+  ],
+  "detalle": "",
+  "talles": [
+   null,
+   null,
+   null,
+   null
+  ],
+  "regularPrice": "$10.500",
+  "specialPrice": "$9.200",
+  "cuotas": {
+   "banco": "Santander",
+   "cantidad": "3"
+  },
+  "caption": "",
+  "inventario": {
+   "disponibilidad": "1",
+   "peso_paq": 0,
+   "devolucion": "",
+   "tiempoEntrega": "1Semana"
+  },
+  "rating": {
+   "value": 5,
+   "quantity": "1200"
+  },
+  "images": {
+   "main": "camiseta3.jpeg",
+   "front": "camiseta3_frente.jpeg",
+   "back": "camiseta3_dorso.jpeg"
+  }
+ },
+ {
   "id": 4,
   "name": "JUVENTUS",
   "brand": "",
   "description": "JUVENTUS",
-  "carcteristica": "",
+  "caracteristicas": "",
   "detalle": "",
   "talles": [
    "Small",
@@ -94,7 +138,7 @@
    "disponibilidad": "1",
    "peso_paq": 0,
    "devolucion": "",
-   "tiempoEntrega": "2hs"
+   "tiempoEntrega": "1Semana"
   },
   "rating": {
    "value": 5,
@@ -792,7 +836,7 @@
   "name": "Chpaasdf",
   "brand": "",
   "description": "",
-  "carcteristica": "",
+  "caracteristicas": "",
   "detalle": "",
   "talles": [],
   "regularPrice": "$ 333",
@@ -823,7 +867,7 @@
   "name": "Chapa",
   "brand": "",
   "description": "",
-  "carcteristica": "",
+  "caracteristicas": "",
   "detalle": "",
   "talles": [],
   "regularPrice": "$ 3232",

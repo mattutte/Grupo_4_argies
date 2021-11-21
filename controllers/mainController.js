@@ -40,7 +40,7 @@ let mainController = {
     },
     
     addProduct: (req,res)=>{
-        res.render('product-add-form')
+        res.render('product-add-form v2')
     },
     
     store: (req, res) => {
@@ -97,7 +97,7 @@ let mainController = {
     
     editProduct: (req,res)=>{
         const productToEdit = products.find((prod) => prod.id == req.params.id);
-        res.render('product-edit-form',{productToEdit})
+        res.render('product-edit-form v2',{productToEdit})
     },
     
     update: (req, res) => {
@@ -106,9 +106,29 @@ let mainController = {
 			
 		});
 
-        console.log(req.files);
-        console.log(req.body);
+        //console.log(req.files);
+        //console.log(req.body);
         const productToEdit = products.find((prod) => prod.id == req.params.id); 
+        
+        //Procesando características -----------------------------------
+            if (productToEdit.caracteristicas == ""){
+                productToEdit.caracteristicas = ["", "", "", ""];
+            }
+
+            let caracteristicas_original = [req.body.caract_1? req.body.caract_1 : productToEdit.caracteristicas[0],req.body.caract_2? req.body.caract_2 : productToEdit.caracteristicas[1],req.body.caract_3? req.body.caract_3 : productToEdit.caracteristicas[2],req.body.caract_4? req.body.caract_4 : productToEdit.caracteristicas[3]];
+            let caracteristicas_clean = []
+            //console.log(caracteristicas_original);
+            let i = 0;
+            for (let carac in caracteristicas_original) {
+                if (caracteristicas_original[carac]!=""){
+                    caracteristicas_clean.push(caracteristicas_original[carac]);
+                    i++;
+                }
+            }
+            console.log(caracteristicas_clean);
+            if (i=0){
+                caracteristicas_clean = "";
+            }
         
 
 		const productoEditado = {
@@ -116,7 +136,7 @@ let mainController = {
 			name: req.body.name? req.body.name : productToEdit.name,
             brand: req.body.brand? req.body.brand : productToEdit.brand,
             description: req.body.description? req.body.description : productToEdit.description,
-            carcteristica: req.body.carcteristica? req.body.carcteristica : productToEdit.carcteristica,
+            caracteristicas: caracteristicas_clean,
             detalle: req.body.detalle? req.body.detalle : productToEdit.detalle,
             talles: typeof(req.body.small) !="undefined" &&
                     typeof(req.body.medium) !="undefined" && 
@@ -139,7 +159,7 @@ let mainController = {
                     } //le agrega los files que uploade, si lo hice, sino mantengo el anterior
 			};
 		
-			console.log(productoEditado);
+			//console.log(productoEditado);
             
             products[productIndex] = productoEditado;
 
