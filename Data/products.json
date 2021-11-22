@@ -116,19 +116,19 @@
  },
  {
   "id": 4,
-  "name": "JUVENTUS",
+  "name": "MANCHESTER UNITED 21/22 AUTHENTIC AWAY JERSEY",
   "brand": "",
   "description": "JUVENTUS",
   "caracteristicas": "",
-  "detalle": "",
+  "detalle": "",    
   "talles": [
    "Small",
    "Medium",
    "Large",
    "Extra-Large"
   ],
-  "regularPrice": "",
-  "specialPrice": "",
+  "regularPrice": "$7.540",
+  "specialPrice": "$6.950",
   "cuotas": {
    "banco": "Santander",
    "cantidad": "3"
@@ -145,7 +145,7 @@
    "quantity": "23232"
   },
   "images": {
-   "main": "images-main-1637206595948.jpeg",
+   "main": "camiseta4.jpeg",
    "front": "",
    "back": ""
   }

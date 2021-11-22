@@ -447,7 +447,7 @@
                                             </div>
                                         </div>
                                         <div class="row product-grid">
-
+                                            
                                             <% for (let i = 0; i < Math.min(
                                                 products.length, resultsPerPage); i++) {
 
@@ -467,7 +467,7 @@
                                                 let price_difference = formatter.format(regular_price - special_price);
                                             %>
 
-                                            <!--Product <% product %>-->
+                                            <!--Product <%=i+1%>-->
                                             <div class="col-6 col-sm-4">
                                                 <div class="product">
                                                     <div class="product-tile">
@@ -567,7 +567,7 @@
                                                         </div>
                                                     </div>
                                                 </div> 
-                                            </div> <!--Product <%= product %> -->
+                                            </div> 
 
                                             <% } %>
 
