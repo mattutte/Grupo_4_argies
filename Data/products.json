@@ -39,10 +39,14 @@
  },
  {
   "id": 2,
-  "name": "INTER MILAN 21/22 HOME JERSEY BY NIKE",
-  "brand": "Nike en Argentina",
+  "name": "INTER",
+  "brand": "Nike",
   "description": "Camiseta del Inter de Milan",
-  "caracteristicas": "",
+  "caracteristicas": [
+   " VaporKnit Technology – premium technology combining lightweight cooling, reduced cling and precision fit while wicking sweat from the body and drying quickly",
+   "100% polyester",
+   "Officially licensed"
+  ],
   "detalle": "",
   "talles": [
    "Small",
@@ -53,24 +57,24 @@
   "regularPrice": "$9.206",
   "specialPrice": "$6.332",
   "cuotas": {
-   "banco": "Santander Rio",
-   "cantidad": 3
+   "banco": "Santander",
+   "cantidad": "3"
+  },
+  "caption": "",
+  "inventario": {
+   "disponibilidad": "5",
+   "peso_paq": 0.85,
+   "devolucion": "No",
+   "tiempoEntrega": "1Semana"
+  },
+  "rating": {
+   "value": 5,
+   "quantity": 25
   },
   "images": {
    "main": "camiseta2.jpeg",
    "front": "",
    "back": ""
-  },
-  "caption": "",
-  "inventario": {
-   "disponibilidad": 5,
-   "peso_paq": 0.85,
-   "devolucion": "No",
-   "tiempoEntrega": "24hs"
-  },
-  "rating": {
-   "value": 5,
-   "quantity": 25
   }
  },
  {
@@ -120,7 +124,7 @@
   "brand": "",
   "description": "JUVENTUS",
   "caracteristicas": "",
-  "detalle": "",    
+  "detalle": "",
   "talles": [
    "Small",
    "Medium",
