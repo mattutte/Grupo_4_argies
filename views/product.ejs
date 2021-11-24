@@ -100,7 +100,15 @@
 
                             <div class="product-description">
                                 
-                                    <%= productDetail.caracteristicas %>
+                                <ul>
+                                    <% if(Array.isArray(productDetail.caracteristicas)){ productDetail.caracteristicas.forEach(carac => {%>
+                                    <p class="product-desc"><li><%= carac %></li></p>
+                                    <% })}else{ %>
+                                        <p class="product-desc"><li><%= productDetail.caracteristicas %></li></p>
+                                    <% } %>
+                                </ul>
+
+                                <!-- <%= productDetail.caracteristicas %> -->
                                     
                             </div>
     
@@ -236,7 +244,14 @@
                                     let regular_price = parseFloat(product.regularPrice.replace('$', ''));
                                     let special_price = parseFloat(product.specialPrice.replace('$', ''));
                                     let discount = (1 - special_price/regular_price)*100;
-                                    let price_discount = discount.toFixed(0);    
+                                    let price_discount = discount.toFixed(0);
+                                    if(Number.isNaN(regular_price)){
+                                        regulat_price = 0;
+                                    }
+                                    if(Number.isNaN(special_price)){
+                                        special_price = 0;
+                                    }
+                                    price_discount = (price_discount>0)? price_discount : 0;
                                 %>
 
                                 <!--Item <% product %> del carousel-->
@@ -249,11 +264,17 @@
                                     <div class="item_description">
                                         <h4><a href="/product/<%= product.id %>"><%= product.name %></a></h4>
                                         <div class="price-discount">
+                                            <% if(regular_price >= 0){ %>
                                             <span class="price-list"><%= 'AR'+product.regularPrice %></span>
+                                            <% } %>
+                                            <% if (price_discount > 0){ %>
                                             <span class="discount"><%= price_discount + '%' +' OFF'%></span>
+                                            <% } %>
                                         </div>
                                         <div class="price-box">
+                                            <% if(special_price > 0){ %>
                                             <p><%= 'AR'+product.specialPrice %></p>
+                                            <% } %>
                                         </div>
                                         <div class="item_afip">
                                             <p>Incluye impuesto PAIS y percepción AFIP</p>

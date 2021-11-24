@@ -10,6 +10,11 @@
     margin-left: 50px;
 }
 
+.h_align {
+    display: flex;
+    align-items: center;
+}
+
 
 body {
     font-family: Arial,Helvetica,sans-serif;
@@ -186,6 +191,22 @@ button.listInlineSelect__selectBox-help {
     width: 100%;
 }
 
+.caract-input {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.caract-input label {
+    width: 60px;
+    font-size: 12px;
+}
+
+.form-input-caract {
+    height: 20px;
+    width: 100%;
+}
+
 .checkboxWrapper {
     padding: 0 6px;
     list-style: none;
@@ -217,6 +238,10 @@ button.listInlineSelect__selectBox-help {
 
 .check-input + span {
     margin-left: 5px;
+}
+
+#caption {
+    height: 50px;
 }
 
 [data-key="action-buttons"] {
