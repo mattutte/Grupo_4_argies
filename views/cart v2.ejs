@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head -->
+    <%- include('./partials/head.ejs',{titulo:"Signin",stylesFile:"cart v2.css"}) %>
+<body>
+    <!-- Header -->
+    <%- include('./partials/header.ejs') %>
+    
+
+
+<main>
+    <svg xmlns="http://www.w3.org/2000/svg" style='display:none'>
+        <symbol id='accessories' viewBox='0 0 100 90'>
+            <path d='M90,15h-5v75h5c5.5,0,10-4.5,10-10V25C100,
+            19.5,95.5,15,90,15z M0,25v55c0,5.5,4.5,10,10,10h5V15h-5C4.5,
+            15,0,19.5,0,25z M67,4.5C63.6,3,58.2,0,50,0S36.4,3,33,
+            4.5V15H22v75h56V15H67V4.5z M61,15H39V8.3C41.7,7.2,45.5,6,50,
+            6s8.3,1.2,11,2.3V15z'>
+            </path>
+        </symbol>
+        <symbol id='printer' viewBox='0 0 98 85'>
+            <path d="M6.5 25h85c2.854 0 2.385-3.04 0.965-3.535C91.045 21 75.2 15 72.5 15H68V0H30v15h-4.5 c-2.75 0-18.545 5.969-19.965 6.465C4.115 22 3.6 25 6.5 25z M92.5 30.5h-87c-2.75 0-5.5 3.25-5.5 6V54c0 2.8 2.8 6 5.5 6 h9.912L11 85h76l-4.412-25H92.5c2.75 0 5.5-3.25 5.5-6V36.5C98 33.8 95.2 30.5 92.5 30.5z M21 75l7-32.5h42L77 75H21z">
+            </path>
+        </symbol>
+        <symbol id='protection' viewBox="0 0 1024 1024">
+            <path d="M837.546667 155.733333a42.666667 42.666667 0 0 0-35.84-8.533333 341.333333 341.333333 0 0 1-265.386667-54.186667 42.666667 42.666667 0 0 0-48.64 0 341.333333 341.333333 0 0 1-265.386667 54.186667 42.666667 42.666667 0 0 0-35.84 8.533333 42.666667 42.666667 0 0 0-15.786666 33.28v317.866667a384 384 0 0 0 160.853333 312.746667l155.733333 110.933333a42.666667 42.666667 0 0 0 49.493334 0l155.733333-110.933333A384 384 0 0 0 853.333333 506.88V189.013333a42.666667 42.666667 0 0 0-15.786666-33.28zM768 506.88a298.666667 298.666667 0 0 1-125.013333 243.2L512 843.52l-130.986667-93.44A298.666667 298.666667 0 0 1 256 506.88v-268.8a426.666667 426.666667 0 0 0 256-59.306667 426.666667 426.666667 0 0 0 256 59.306667z"></path>
+        </symbol>
+    </svg>
+    <div class='main-content'>
+        <div class='new-page-width'>
+            <div>
+                <div class='cart-top'>
+                    <div class='cart-header-left'>
+                        <h1>
+                            <span class='fs30 upper c1 light'>
+                                <span>
+                                    My Cart
+                                </span>
+                            </span>
+                        </h1>
+                    </div>s
+                    <div class='cart-header-right'>
+                        <div class="upper-right clearfix">
+                            <a class='open-new-window right noUnderline fs14'>
+                                <svg><use xlink:href="#printer"></use></svg>
+                                <span class='printBtn'>Print</span>
+                            </a>
+                            <a class='openInOnePopUpLayer right noUnderline fs14'>
+                                <i class="fas fa-envelope"></i>
+                                <span>Email</span>
+                            </a>
+                        </div>
+                    </div>
+                    <br class='clearfix'>
+                </div>
+                <div id="cartWrapper" class="borderBox clearfix">
+                    <div class='cart-items'>
+                        <div class="itemInCart">
+                            <div class='table'>
+                                <div class="table-row">
+                                    <div class='item-details'>
+                                        <div class='table'>
+                                            <div class='item-image'>
+                                                <span class='itemImg'>
+                                                    <a href='/'>
+
+                                                    </a>
+                                                </span>
+                                            </div>
+                                            <div class='table-row'>
+                                                <div class='item-title'>
+                                                    <a class='itemName bold fs16'>
+                                                        <span class='cName'>Marca</span>
+                                                        Descripcion
+                                                    </a>
+                                                    <p class='productNumbers c9 fs12'>
+                                                        <span>Acá va el código</span>
+                                                    </p>
+                                                    <p class='shopping-data'>
+                                                        <a>
+                                                            <span>Shipping options</span>
+                                                        </a>
+                                                    </p>
+                                                </div>
+                                                <div class='inventario'>
+                                                    <p class='bold c41'>
+                                                        <span class='c33 fs16 bold notStock'>
+                                                            Proximamente
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                                <div class='item-qty'>
+                                                    <form method='post' class='updateCart'>
+                                                        <input type="hidden" name="is" value="REG">
+                                                        <input type="hidden" name="sku" value="12666">
+                                                        <input type="hidden" name="cli">
+                                                        <span class='qty qty-input-wrap'>
+                                                            <input type='text' class='input' value='1'>
+                                                            <a class='update-qty displayNone fs13 c5'>Update</a>
+                                                        </span>
+                                                    </form>
+                                                </div>
+                                                <div class='item-price'>
+                                                    <span>$1.250,00</span>
+                                                </div>
+                                                <div class='item-offers'>
+                                                    <div class='related-items'>
+                                                        <a class='showRelated related-link'>
+                                                            <svg>
+                                                                <use xlink:href="#accessories"></use>
+                                                            </svg>
+                                                            Related products
+                                                        </a>
+                                                    </div>
+                                                    <span class='clearfix'></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='item-adons'>
+                                            <div class='cart-item-warranties'>
+                                                <div class='item-protections-wrapper'>
+                                                    <div class='item-protections-label'>
+                                                        Protection plans
+                                                    </div>
+                                                    <div class='item-protections fs14 c39'>
+                                                        <div class='pp-choose-plan'>
+                                                            <div class='pp-icon'>
+                                                                <svg>
+                                                                    <use xlink:href="#protection"></use>
+                                                                </svg>
+                                                            </div>
+                                                            <div class='pp-starting-from'>
+                                                                Protection plans starting at 
+                                                                <span class='bold'>$15.99</span>
+                                                            </div>
+                                                            <button class='s-btn'>
+                                                                See options
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class='item-ctas-container'>
+                                            <a class='save-item'>
+                                                <i class="fas fa-history"></i>
+                                                <span>Save for later</span>
+                                            </a>
+                                            <a class='remove-item'>
+                                                <i class="far fa-trash-alt"></i>
+                                                <span>Remove</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br class='clearfix'>
+                            </div>
+                            <div class='item-total-wrapper'>
+                                <div class='item-total clearfix'>
+                                    <p class='fs18 c1 bold'>
+                                        <span class='priceTitle item-total-label'>Item total:</span>
+                                        <span class='lPrice item-total-value'>
+                                            <span class='fs14'>$</span>
+                                            <span class='itemTitlePrice'>125</span>
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="itemInCart">
+                            <div class='table'>
+                                <div class="table-row">
+                                    <div class='item-details'>
+                                        <div class='table'>
+                                            <div class='item-image'>
+                                                <span class='itemImg'>
+                                                    <a href='/'>
+
+                                                    </a>
+                                                </span>
+                                            </div>
+                                            <div class='table-row'>
+                                                <div class='item-title'>
+                                                    <a class='itemName bold fs16'>
+                                                        <span class='cName'>Marca</span>
+                                                        Descripcion
+                                                    </a>
+                                                    <p class='productNumbers c9 fs12'>
+                                                        <span>Acá va el código</span>
+                                                    </p>
+                                                    <p class='shopping-data'>
+                                                        <a>
+                                                            <span>Shipping options</span>
+                                                        </a>
+                                                    </p>
+                                                </div>
+                                                <div class='inventario'>
+                                                    <p class='bold c41'>
+                                                        <span class='c33 fs16 bold notStock'>
+                                                            Proximamente
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                                <div class='item-qty'>
+                                                    <form method='post' class='updateCart'>
+                                                        <input type="hidden" name="is" value="REG">
+                                                        <input type="hidden" name="sku" value="12666">
+                                                        <input type="hidden" name="cli">
+                                                        <span class='qty qty-input-wrap'>
+                                                            <input type='text' class='input' value='1'>
+                                                            <a class='update-qty displayNone fs13 c5'>Update</a>
+                                                        </span>
+                                                    </form>
+                                                </div>
+                                                <div class='item-price'>
+                                                    <span>$1.250,00</span>
+                                                </div>
+                                                <div class='item-offers'>
+                                                    <div class='related-items'>
+                                                        <a class='showRelated related-link'>
+                                                            <svg>
+
+                                                            </svg>
+                                                            Related products
+                                                        </a>
+                                                    </div>
+                                                    <span class='clearfix'></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='item-adons'>
+                                            <div class='cart-item-warranties'>
+                                                <div class='item-protections-wrapper'>
+                                                    <div class='item-protections-label'>
+                                                        Protection plans
+                                                    </div>
+                                                    <div class='item-protections fs14 c39'>
+                                                        <div class='pp-choose-plan'>
+                                                            <div class='pp-icon'>
+                                                                <svg>
+
+                                                                </svg>
+                                                            </div>
+                                                            <div class='pp-starting-from'>
+                                                                Protection plans starting at 
+                                                                <span class='bold'>$15.99</span>
+                                                            </div>
+                                                            <button class='s-btn'>
+                                                                See options
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class='item-ctas-container'>
+                                            <a class='save-item'>
+                                                <svg></svg>
+                                                <span>Save for later</span>
+                                            </a>
+                                            <a class='remove-item'>
+                                                <svg class='delete-item'></svg>
+                                                <span>Remove</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br class='clearfix'>
+                            </div>
+                            <div class='item-total-wrapper'>
+                                <div class='item-total clearfix'>
+                                    <p class='fs18 c1 bold'>
+                                        <span class='priceTitle item-total-label'>Item total:</span>
+                                        <span class='lPrice item-total-value'>
+                                            <span class='fs14'>$</span>
+                                            <span class='itemTitlePrice'>125</span>
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <section id=saveForLaterBox>
+                            <div>
+                                <div class='header-container'>
+                                    <h2>
+                                        <svg></svg>
+                                        Saved for later
+                                    </h2>
+                                    <p>
+                                        bla bla
+                                    </p>
+                                </div>
+                                <div class='no-items-container'>
+                                    <span>
+                                        Any items you "Save for Later" will appear here
+                                    </span>
+                                </div>
+                            </div>
+                        </section>
+
+                    </div>
+                    <div class='totals-col'>
+                        <div class='left cartTotalContainer'>
+                            <div class='cartAppContainer'>
+                                <div>
+                                    <div class='shipping-cost'>
+                                        <h3 class='bold upper fs20'>
+                                            Estimate shipping and tax 
+                                            <spa class='estimate-tooltip'>
+                                                <svg></svg>
+                                            </span>
+                                        </h3>
+                                        <div class='form-container'>
+                                            <form>
+                                                <div>
+                                                    <div class='store-pickup clearfix'>
+                                                        <p class='inlineBlock'>
+                                                            <span class='styled-checkbox big'>
+                                                                <input class='displayNone'>
+                                                            </span>
+                                                            <span>
+
+                                                            </span>
+                                                        </p>
+                                                        <a class='fs14 c46 storeLocationLink underline-on-hover'>
+                                                            See details
+                                                        </a>
+                                                    </div>
+                                                </div>
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class='cart-totals-wrapper'>
+                                        <div>
+                                            <div class='cart-shipping-totals'>
+                                                <div class='totals clearfix'>
+                                                    <div class='clearfix'>
+                                                        <span class='left bold'>
+                                                            Subtotal:
+                                                        </span>
+                                                        <span class='bold right'>
+                                                            <span class='fs14'>ARS</span>
+                                                            $1.723
+                                                        </span>
+                                                    </div>
+                                                    <div class='clearfix'>
+                                                        <span class='left clearfix'>
+                                                            <span>Shipping</span>
+                                                            <i class='fs12 c4'>starting from</i>
+                                                        </span>
+                                                        <span class='right'>
+                                                            $57.55
+                                                        </span>
+                                                    </div>
+                                                    <div class='clearfix'>
+                                                        <div>
+                                                            <span class='left clearfix'>
+                                                                <span>Sales Tax</span>
+                                                            </span>
+                                                            <span class='right'>
+                                                                <span class='fs14'>
+                                                                    ARS
+                                                                </span>
+                                                                $0.00
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class='clearfix'>
+                                                        <span class='you-pay left clearfix bold'>
+                                                            Total
+                                                        </span>
+                                                        <span class='bold right'>
+                                                            <span class='fs14'>ARS </span>
+                                                            $1.780
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <span class='checkout-button'>
+                                                    <form name='updateCart' class='updateCart'>
+                                                        <a class='bold'>
+                                                            <input id='loginCart' name='checkoutLogin' type='submit' value='Begin Checkout' class='btn s-btn-theme s-style-4 upper'>
+                                                            <svg class='checkout-icon'>
+
+                                                            </svg>
+                                                        </a>
+                                                    </form>
+                                                </span>
+                                                <div class='other-checkout-method'>
+                                                    <span>or</span>
+                                                </div>
+                                                <div class='alt-payment'>
+                                                    <div id='paypalButton'>
+                                                        <div class='paypal-button-container'>
+                                                            <div id='paypal-buttons-box' class='paypal-buttons'>
+                                                                <iframe></iframe>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id='totalWrapper'>
+                                                <div id='cartOptions'>
+                                                    <div id='cartLinks'>
+                                                        <div>
+                                                            <ul class='helpful-links clearfix'>
+                                                                <li class='first-column'>
+                                                                    <a class='c46 underline-on-hover'>
+                                                                        Extended holiday returns
+                                                                    </a>
+                                                                </li>
+                                                                <li class='second-column'>
+                                                                    <a class='c46 underline-on-hover'>
+                                                                        Shipping information
+                                                                    </a>
+                                                                </li>
+                                                                <li class='first-column'>
+                                                                    <a class='c46 underline-on-hover'>
+                                                                        Payment options
+                                                                    </a>
+                                                                </li>
+                                                                <li class='second-column'>
+                                                                    <a class='c46 underline-on-hover'>
+                                                                        Your Privacy & Security
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                            <div class='clearfix cart-contact-links'>
+                                                                <div class='cart-liveChat left'>
+                                                                    <a class='noUnderline cursor-pointer'>
+                                                                        <div class='inlineBlock'>
+                                                                            <svg class='cart-links-chatIcon inlineBlock'></svg>
+                                                                            <div class='inlineBlock'>
+                                                                                <div class='fs20 c38 smbold upper cart-liveChatLink'>
+                                                                                    live chat
+                                                                                </div>
+                                                                                <div class='fs10 c38 light upper'>
+                                                                                     
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                                <div class='cart-callCS left'>
+                                                                    <a class='noUnderline relative'>
+                                                                        <div class='inlineBlock'>
+                                                                            <div class='fs20 c38 smbold upper cart-phoneLink'>
+                                                                                4834.6521
+                                                                            </div>
+                                                                            <div class='fs10 c38 light upper'>
+                                                                                     
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                                <div class='clearfix fs14 c4 text-center OpenSans-400-normal'>
+                                                                    Your Cart ID # 385 662 767 28
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<%- include('./partials/footer.ejs') %>
+
+</body>
+</html>

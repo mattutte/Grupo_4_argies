@@ -196,7 +196,11 @@ let mainController = {
 		res.redirect('/')
 		
 		
-	}
+	},
+
+    checkCart: (req,res)=>{
+        res.render('cart v2');
+    }
 
 };
 
