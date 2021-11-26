@@ -4,6 +4,9 @@ const path = require('path');
 const productsFilePath = path.join(__dirname, '../data/products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));// pasa el json a un array
 
+const basketFilePath = path.join(__dirname, '../data/shopping-cart.json');
+const cart_basket = JSON.parse(fs.readFileSync(basketFilePath, 'utf-8'));
+
 //const products = require('../Data/products.json');
 
 // Acá nos falta un objeto literal con las acciones para cada ruta
@@ -199,7 +202,7 @@ let mainController = {
 	},
 
     checkCart: (req,res)=>{
-        res.render('cart v2');
+        res.render('cart v2', {cart_basket, products, user: 1});
     }
 
 };

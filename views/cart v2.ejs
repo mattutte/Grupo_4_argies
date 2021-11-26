@@ -68,6 +68,68 @@
                 </div>
                 <div id="cartWrapper" class="borderBox clearfix">
                     <div class='cart-items'>
+
+                        <% 
+                            var formatter = new Intl.NumberFormat('es-AR', {
+                                style: 'currency',
+                                currency: 'ARS',
+                                minimumFractionDigits: 0,
+                            });
+
+                            let productos=[];
+                            let total = 0;
+                            let shipping = 544.42;
+
+                            for (let i = 0; i < cart_basket.length; i++) {
+
+                                if((cart_basket[i].user_id == user) && (cart_basket[i].status == 'open')){
+                                    productos = cart_basket[i].products;
+                                    break;  
+                                }
+                            }
+
+                            let taxes;
+
+                        %>
+                        
+                        <%  productos.forEach(prod => {
+
+                                let nombre;
+                                let marca;
+                                let descripcion;
+                                let imagen;
+                                let regular_price = prod.regular_price;
+                                let special_price = prod.special_price;
+                                let cantidad = prod.qty;
+                                let cantidad_disponible = prod.available;
+                                let regular_amount = formatter.format(regular_price * cantidad);
+                                let special_amount = formatter.format(special_price * cantidad);
+                                let saving = (regular_price - special_price)*cantidad;
+                                let display;
+                                let displayNot;
+
+                                total = total + special_price * cantidad;
+                                taxes = 0.1 * special_price * cantidad;
+
+                                products.forEach(element => {
+                                    if (element.id == prod.id){
+                                        nombre = element.name;
+                                        marca = element.brand;
+                                        descripcion = element.description;
+                                        imagen = element.images.main;
+                                    }
+                                });  
+
+                                if (cantidad > cantidad_disponible){
+                                    displayNot = 'displayNone';
+                                    display = '';
+                                }else{
+                                    displayNot = '';
+                                    display = 'displayNone';
+                                }
+
+                        %>  
+
                         <div class="itemInCart">
                             <div class='table'>
                                 <div class="table-row">
@@ -76,18 +138,18 @@
                                             <div class='item-image'>
                                                 <span class='itemImg'>
                                                     <a href='/'>
-                                                        <img src='/images/camiseta3.jpeg'>
+                                                        <img src='/images/<%= imagen %>'>
                                                     </a>
                                                 </span>
                                             </div>
                                             <div class='table-row'>
                                                 <div class='item-title'>
                                                     <a class='itemName bold fs16'>
-                                                        <span class='cName'>Marca</span>
-                                                        Descripcion
+                                                        <span class='cName'><%= marca %></span>
+                                                        <%= nombre %>
                                                     </a>
                                                     <p class='productNumbers c9 fs12'>
-                                                        <span>Acá va el código</span>
+                                                        <span><%= descripcion %></span>
                                                     </p>
                                                     <p class='shipping-data'>
                                                         <a>
@@ -96,7 +158,7 @@
                                                     </p>
                                                 </div>
                                                 <div class='inventario'>
-                                                    <div class='not-in-stock displayNone'>
+                                                    <div class='not-in-stock <%= display %>'>
                                                         <p class='bold c41'>
                                                             <span class='c33 fs16 bold notStock'>
                                                                 Proximamente
@@ -109,7 +171,7 @@
                                                             2-4 weeks
                                                         </div>
                                                     </div>
-                                                    <div class='in-stock'>
+                                                    <div class='in-stock <%= displayNot %> '>
                                                         <p class='bold c41'>
                                                             <span class='c29 fs16 bold'>
                                                                 In Stock
@@ -127,14 +189,14 @@
                                                         <input type="hidden" name="sku" value="12666">
                                                         <input type="hidden" name="cli">
                                                         <span class='qty qty-input-wrap'>
-                                                            <input type='text' class='input' value='1'>
+                                                            <input type='text' class='input' value='<%= cantidad %>'>
                                                             <a class='update-qty displayNone fs13 c5'>Update</a>
                                                         </span>
                                                     </form>
                                                 </div>
                                                 <div class='item-price'>
-                                                    <p class='regular-price'>$2.500</p>
-                                                    <span>$1.250,00</span>
+                                                    <p class='regular-price'><%= regular_amount %></p>
+                                                    <span><%= special_amount %></span>
                                                 </div>
                                                 <div class='item-offers'>
                                                     <div class='related-items'>
@@ -194,161 +256,22 @@
                                     <p class='subL subL-rebate fs15 c41'>
                                         <span class='priceTitle c1 item-total-label'>Instant Savings:</span>
                                         <span class='bold lPrice item-total-value'>
-                                            <span class='fs14'></span>
-                                            <span class='itemTitlePrice'>$125</span>
+                                            <span class='fs14'>$</span>
+                                            <span class='itemTitlePrice'><%= saving %></span>
                                         </span>
                                     </p>
                                     <p class='subL fs18 c1 bold'>
                                         <span class='priceTitle item-total-label'>Item Total:</span>
                                         <span class='lPrice item-total-value'>
                                             <span class='fs14'>$</span>
-                                            <span class='itemTitleprice'>499</span>
+                                            <span class='itemTitleprice'><%= special_amount%></span>
                                         </span>
                                     </p>
                                 </div>
                             </div>
                         </div>
-                        <div class="itemInCart">
-                            <div class='table'>
-                                <div class="table-row">
-                                    <div class='item-details'>
-                                        <div class='table'>
-                                            <div class='item-image'>
-                                                <span class='itemImg'>
-                                                    <a href='/'>
-                                                        <img src='/images/camiseta2.jpeg'>
-                                                    </a>
-                                                </span>
-                                            </div>
-                                            <div class='table-row'>
-                                                <div class='item-title'>
-                                                    <a class='itemName bold fs16'>
-                                                        <span class='cName'>Marca</span>
-                                                        Descripcion
-                                                    </a>
-                                                    <p class='productNumbers c9 fs12'>
-                                                        <span>Acá va el código</span>
-                                                    </p>
-                                                    <p class='shipping-data'>
-                                                        <a>
-                                                            <span class='bold'>Shipping options</span>
-                                                        </a>
-                                                    </p>
-                                                </div>
-                                                <div class='inventario'>
-                                                    <div class='not-in-stock'>
-                                                        <p class='bold c41'>
-                                                            <span class='c33 fs16 bold notStock'>
-                                                                Proximamente
-                                                            </span>
-                                                        </p>
-                                                        <div class='shipping-time'>
-                                                            <span>
-                                                                <span>Expected availability:</span>
-                                                            </span>
-                                                            2-4 weeks
-                                                        </div>
-                                                    </div>
-                                                    <div class='in-stock displayNone'>
-                                                        <p class='bold c41'>
-                                                            <span class='c29 fs16 bold'>
-                                                                In Stock
-                                                            </span>
-                                                        </p>
-                                                        <div class='shipping-time'>
-                                                            Ready to ship
-                                                            <span></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class='item-qty'>
-                                                    <form method='post' class='updateCart'>
-                                                        <input type="hidden" name="is" value="REG">
-                                                        <input type="hidden" name="sku" value="12666">
-                                                        <input type="hidden" name="cli">
-                                                        <span class='qty qty-input-wrap'>
-                                                            <input type='text' class='input' value='1'>
-                                                            <a class='update-qty displayNone fs13 c5'>Update</a>
-                                                        </span>
-                                                    </form>
-                                                </div>
-                                                <div class='item-price'>
-                                                    <p class='regular-price'>$2.500</p>
-                                                    <span>$1.250,00</span>
-                                                </div>
-                                                <div class='item-offers'>
-                                                    <div class='related-items'>
-                                                        <a class='showRelated related-link'>
-                                                            <svg>
-                                                                <use xlink:href="#accessories"></use>
-                                                            </svg>
-                                                            Related products
-                                                        </a>
-                                                    </div>
-                                                    <span class='clearfix'></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class='item-adons'>
-                                            <div class='cart-item-warranties'>
-                                                <div class='item-protections-wrapper'>
-                                                    <div class='item-protections-label'>
-                                                        Protection plans
-                                                    </div>
-                                                    <div class='item-protections fs14 c39'>
-                                                        <div class='pp-choose-plan'>
-                                                            <div class='pp-icon'>
-                                                                <svg>
-                                                                    <use xlink:href="#protection"></use>
-                                                                </svg>
-                                                            </div>
-                                                            <div class='pp-starting-from'>
-                                                                Protection plans starting at 
-                                                                <span class='bold'>$15.99</span>
-                                                            </div>
-                                                            <button class='s-btn s-small s-style-2'>
-                                                                See options
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class='item-ctas-container'>
-                                            <a class='save-item'>
-                                                <i class="fas fa-history"></i>
-                                                <span>Save for later</span>
-                                            </a>
-                                            <a class='remove-item'>
-                                                <i class="far fa-trash-alt"></i>
-                                                <span>Remove</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <br class='clearfix'>
-                            </div>
-                            <div class='item-total-wrapper'>
-                                <div class='item-total clearfix'>
-                                    <p class='subL subL-rebate fs15 c41'>
-                                        <span class='priceTitle c1 item-total-label'>Instant Savings:</span>
-                                        <span class='bold lPrice item-total-value'>
-                                            <span class='fs14'></span>
-                                            <span class='itemTitlePrice'>$125</span>
-                                        </span>
-                                    </p>
-                                    <p class='subL fs18 c1 bold'>
-                                        <span class='priceTitle item-total-label'>Item Total:</span>
-                                        <span class='lPrice item-total-value'>
-                                            <span class='fs14'>$</span>
-                                            <span class='itemTitleprice'>499</span>
-                                        </span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <section id=saveForLaterBox>
+                        <% }) %>
+                        <section id='saveForLaterBox'>
                             <div>
                                 <div class='header-container'>
                                     <h2>
@@ -410,16 +333,16 @@
                                                         </span>
                                                         <span class='bold right'>
                                                             <span class='fs14'>ARS</span>
-                                                            $1.723
+                                                            <%= formatter.format(total) %>
                                                         </span>
                                                     </div>
-                                                    <div class='clearfix'>
+                                                    <div class='clearfix fs16'>
                                                         <span class='left clearfix'>
                                                             <span>Shipping</span>
                                                             <i class='fs12 c4'>starting from</i>
                                                         </span>
                                                         <span class='right'>
-                                                            $57.55
+                                                            ARS <%= formatter.format(shipping) %>
                                                         </span>
                                                     </div>
                                                     <div class='clearfix'>
@@ -431,7 +354,7 @@
                                                                 <span class='fs14'>
                                                                     ARS
                                                                 </span>
-                                                                $0.00
+                                                                <%= taxes %>
                                                             </span>
                                                         </div>
                                                     </div>
@@ -442,7 +365,7 @@
                                                         </span>
                                                         <span class='bold right'>
                                                             <span class='fs14'>ARS </span>
-                                                            $1.780
+                                                            <%= formatter.format(total + taxes) %>
                                                         </span>
                                                     </div>
                                                 </div>
