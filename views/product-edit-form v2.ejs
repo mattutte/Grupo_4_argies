@@ -203,19 +203,20 @@
                         
                         <div class="checkboxWrapper">
                           <span class="check_box inline-item">
-                            <input type="checkbox" name="small" id="talles-small" value="Small" class="input-check" checked=<% productToEdit.talles.includes("Small")? true : false %>>
+
+                            <input type="checkbox" name="small" id="talles-small" value="Small" class="input-check" <%= productToEdit.talles.includes("Small")? 'checked' : '' %>>
                             <label for="small">Small</label>
                           </span>
                           <span class="check_box inline-item">
-                            <input type="checkbox" name="medium" id="talles-medium" value="Medium" class="input-check" checked=<% productToEdit.talles.includes("Medium")? true : false %>>
+                            <input type="checkbox" name="medium" id="talles-medium" value="Medium" class="input-check" <%= productToEdit.talles.includes("Medium")? 'checked' : '' %>>
                             <label for="medium">Medium</label>
                           </span>
                           <span class="check_box inline-item">
-                            <input type="checkbox" name="large" id="talles-large" value="Large" class="input-check" checked=<% productToEdit.talles.includes("Large")? true : false %>>
+                            <input type="checkbox" name="large" id="talles-large" value="Large" class="input-check" <%= productToEdit.talles.includes("Large")? 'checked' : '' %>>
                             <label for="large">Large</label>  
                           </span>
                           <span class="check_box inline-item">
-                            <input type="checkbox" name="extralarge" id="talles-extralarge" value="Extra-Large" class="input-check" checked=<% productToEdit.talles.includes("Extra")? true : false %>>
+                            <input type="checkbox" name="extralarge" id="talles-extralarge" value="Extra-Large" class="input-check" <%= productToEdit.talles.includes("Extra-Large")? 'checked' : '' %>>
                             <label for="extralarge">Extra Large</label>
                           </span>
                         </div>

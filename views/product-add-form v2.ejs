@@ -4,7 +4,7 @@
   <link href="/css/productForm v2.css" rel="stylesheet">
 <body>
   <!-- Header -->
-  <%- include('./partials/header.ejs') %>
+  <%- include('./partials/header v2.ejs') %>
     
     
   <!-- Main section -->
@@ -61,6 +61,42 @@
                           </span>
                         </button>
                       -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Marca ------------------------------------------------->
+              <div class="grid_cell">
+                <div class="grid_cell_wrapper">
+                  <div class="listInlineSelect inputField">
+                    <div class="listInlineSelect__selectBox">
+                      <div class="listInlineSelect__selectBoxLabelWrapper">
+                        <div class="inputField__label">
+                          <label for="brand" class="form-label">
+                            <span>Marca</span>
+                          </label>
+                          <!--
+                          <button class="listInlineSelect__selectBox-help">
+                            Name of product
+                          </button>
+                          -->
+                        </div>
+                      </div>
+                      <div class="listInlineSelect__selectBox-activeRegion">
+                        <!--<textarea type="text" id="description" name="description" placeholder="Agregue una breve descripcion" class="form-input"></textarea>-->
+                        <input type="text" id="brand" name="brand" class="form-input" placeholder="Ej: Nike">
+                        
+                        <!--
+                        <button>
+                          <span class="lostInlineSelect__selectBox-value">
+                            <span class="listInlineSelect__selectBox-valueText">
+                              <span>Casual</span>
+                            </span>
+                          </span>
+                        </button>
+                        -->
+
                       </div>
                     </div>
                   </div>
@@ -231,6 +267,92 @@
                       </div>
                       <div class="listInlineSelect__selectBox-activeRegion">
                         <textarea type="text" id="caption" name="caption" class="form-input"></textarea>
+                        <!--<input type="text" id="name" name="name" placeholder="Ej: Remera Juventus" class="form-input">-->
+                        
+                        <!--
+                        <button>
+                          <span class="lostInlineSelect__selectBox-value">
+                            <span class="listInlineSelect__selectBox-valueText">
+                              <span>Casual</span>
+                            </span>
+                          </span>
+                        </button>
+                        -->
+                        <!--
+                        <select name="talles" id="talles" class="form-input">
+                          <option value="Small">Small</option>
+                          <option value="Medium">Medium</option>
+                          <option value="Large">Large</option>
+                          <option value="Extra-Large">Extra-Large</option>
+                        </select>
+                        -->
+                      </div>                   
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Características del producto -------------------------->
+              <div class="grid_cell">
+                <div class="grid_cell_wrapper">
+                  <div class="listInlineSelect inputField">
+                    <div class="listInlineSelect__selectBox">
+                      <div class="listInlineSelect__selectBoxLabelWrapper">
+                        <div class="inputField__label">
+                          <label for="caption" class="form-label">
+                            <span>Características</span>
+                          </label>
+                          <!--
+                          <button class="listInlineSelect__selectBox-help">
+                            Name of product
+                          </button>
+                          -->
+
+                          <!--
+                          <div class="checkboxWrapper">
+                            <span class="check_box inline-item">
+                              <input type="checkbox" name="small" id="talles-small" value="Small" class="input-check">
+                              <label for="small">Small</label>
+                            </span>
+                            <span class="check_box inline-item">
+                              <input type="checkbox" name="medium" id="talles-medium" value="Medium" class="input-check">
+                              <label for="medium">Medium</label>
+                            </span>
+                            <span class="check_box inline-item">
+                              <input type="checkbox" name="large" id="talles-large" value="Large" class="input-check">
+                              <label for="large">Large</label>
+                            </span>
+                            <span class="check_box inline-item">
+                              <input type="checkbox" name="extralarge" id="talles-extralarge" value="Extra-Large" class="input-check">
+                              <label for="extralarge">Extra Large</label>
+                            </span>
+                          </div>
+                          -->
+
+                        </div>
+                      </div>
+                      <div class="listInlineSelect__selectBox-activeRegion">
+
+                        <!-- Característica 1 ---------------->
+                        <div class="caract-input">
+                          <label>Linea 1</label>
+                          <textarea type="text" id="caract_1" name="caract_1" class="form-input-caract" placeholder="Ej:  VaporKnit Technology"></textarea>
+                        </div>
+                        <!-- Característica 2 ---------------->
+                        <div class="caract-input">
+                          <label>Linea 2</label>
+                          <textarea type="text" id="caract_2" name="caract_2" class="form-input-caract" placeholder="Ej : 100% polyester"></textarea>
+                        </div>
+                        <!-- Característica 3 ---------------->
+                        <div class="caract-input">
+                          <label>Linea 3</label>
+                          <textarea type="text" id="caract_3" name="caract_3" class="form-input-caract" placeholder="Ej: Heat press"></textarea>
+                        </div>
+                        <!-- Característica 4 ---------------->
+                        <div class="caract-input">
+                          <label>Linea 4</label>
+                          <textarea type="text" id="caract_4" name="caract_4" class="form-input-caract" placeholder="Ej: Officially licensed"></textarea>
+                        </div>
+
                         <!--<input type="text" id="name" name="name" placeholder="Ej: Remera Juventus" class="form-input">-->
                         
                         <!--
@@ -935,7 +1057,7 @@
 </main>
 
 <!-- Footer -->
-<%- include('./partials/footer.ejs') %>
+<%- include('./partials/footer v2.ejs') %>
 
 </body>
 

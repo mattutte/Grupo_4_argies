@@ -24,6 +24,10 @@
     height: 20px;
 }
 
+.center {
+    text-align: center;
+}
+
 header {
     background-color: black;
     color: #FFFFFF;
@@ -829,6 +833,237 @@ header {
     /*color: rgb(60, 243, 219);*/
 }
 
+/* Menu desplegable de items en carrito */
+    .main-menu-right .cart-content {
+        position: absolute;
+        max-height: 0;
+        max-width: 300px;
+        overflow: hidden;
+        right: 0;
+        top: 50px;
+        right: 10px;
+        z-index: 11;
+        box-shadow: 0 4px 20px 0 rgb(0 0 0 / 50%);
+        background: #fff;
+        min-width: 280px;
+        width: 100%;
+        cursor: default;
+        text-align: left;
+        transition: max-height 0.15s ease-out;
+    }
+
+    .main-menu-right .cart:hover .cart-content {
+        max-height: 450px;
+        transition: 0.25s ease-out;
+    }
+
+    body .main-menu-right .cart-content * {
+        font-family: Arial; 
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 18px;
+        padding: 0;
+        margin: 0;
+        color: #696969;
+    }
+
+    body .main-menu-right .cart-content strong {
+        font-family: Arial; 
+        font-weight: 700;
+    }
+
+    .main-menu-right a.cart-header:hover .cart-content {
+        max-height: 450px;
+        transition: max-height .25s ease-in;
+    }
+
+    .main-menu-right .mini-products-list {
+        max-height: 320px;
+        overflow: auto;
+    }
+
+    .main-menu-right .mini-products-list li {
+        background: #fff;
+        border-bottom: 1px solid #dedede;
+        clear: both;
+        min-height: 85px;
+        position: relative;
+        overflow: hidden;
+        width: 85%;
+        margin: auto;
+        padding: 15px 0 5px;
+        transition: max-height .2s ease-out;
+        transition: min-height .2s ease-out;
+    }
+
+    .mini-products-list .product-control-buttons {
+        overflow: hidden;
+        position: relative;
+        margin-bottom: 5px;
+        float: right;
+    }
+
+    .btn-remove {
+        display: block;
+        width: 15px;
+        height: 15px;
+        line-height: 0;
+        background: url(/images/trash_icon.svg) no-repeat;
+        background-size: 13px;
+        font-size: 0;
+        overflow: hidden;
+        margin-left: 13px;
+        cursor: pointer;
+    }
+
+    .main-menu-right .mini-products-list .cart-product-image {
+        width: 70px;
+        float: left;
+        background: #fff;
+        margin-right: 10px;
+    }
+
+    .main-menu-right .mini-products-list .cart-product-image img {
+        max-width: 75px;
+        max-height: 75px;
+        border: 0;
+        vertical-align: top;
+    }
+
+    .main-menu-right .cart-product-name {
+        padding-bottom: 0;
+        width: 54%!important;
+        color: #000;
+        margin-left: 10px;
+        display: block;
+        overflow: hidden;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .main-menu-right .mini-products-list .cart-product-details {
+        overflow: inherit;
+        margin: 0 0 0 80px;
+        color: #000;
+        padding-top: 10px;
+    }
+
+    body .main-menu-right .cart-content .price {
+        color: #000;
+        font-weight: 400;
+        float: right;
+        white-space: nowrap;
+        display: inline-block;
+    }
+
+    body .main-menu-right .cart-content .subtotal {
+        color: #575757;
+        margin: 0 20px;
+        padding-top: 10px;
+        font-weight: 400;
+        background: #fff;
+    }
+
+    body .main-menu-right .cart-content .subtotal .price {
+        float: right;
+        color: #900;
+    }
+
+    body .main-menu-right .cart-content .actions {
+        overflow: hidden;
+        padding: 10px 20px;
+        background: #fff;
+        text-align: center;
+    }
+
+    .btn-cart {
+        font: 12px Arial,Helvetica,sans-serif;
+        vertical-align: middle;
+        color: #000;
+    }
+
+    body .main-menu-right .cart-content .actions button {
+        text-align: center;
+        align-items: center;
+    }
+
+    .main-menu-right .actions button.button span {
+        font-size: 13px;
+    }
+
+    .main-menu-right .actions button.button>span {
+        background: #ff3c3c;
+        transition: background .1s linear,background-color .1s linear;
+    }
+
+    .main-menu-right .cart-indent .actions button.button {
+        background: 0 0;
+        border: 0;
+        overflow: visible;
+        cursor: pointer;
+        width: auto;
+        border-radius: 3px;
+        margin: 0;
+        padding: 0;
+        font: 12px Arial,Helvetica,sans-serif;
+        vertical-align: middle;
+        color: #000;
+    }
+
+    body .main-menu-right .cart-content .actions button.button span {
+        font-size: 13px;
+    }
+
+    .main-menu-right .cart-indent .actions button.button span span {
+        padding: 0 90px;
+        color: #fff;
+    }
+
+    body .main-menu-right .cart-content button.button span span {
+        display: block;
+        float: left;
+        padding: 0 20px;
+        line-height: 32px;
+    }
+
+    body .main-menu-right .cart-content .actions button.button.btn-checkout>span {
+        background-color: #FFD814;
+        color: #000;
+        margin-top: 5px;
+    }
+
+    body .main-menu-right .cart-content .actions button.button.btn-checkout span span {
+        color: #000;
+
+    }
+
+    .main-menu-right .actions button.color-btn-comprar>span {
+        background: #ff892c!important;
+    }
+
+    body .main-menu-right .cart-content .actions button.button>span {
+        background: #ff3c3c;
+        color: #fff;
+        font-family: arial,sans-serif;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 32px;
+        height: 32px;
+        border-radius: 3px;
+    }
+
+    body .main-menu-right .cart-content .actions button.button>span {
+        float: left;
+        text-align: center;
+        white-space: nowrap;
+        padding: 0;
+        line-height: 32px;
+    }
+
+    body .main-menu-right .cart-content .actions button.btn-checkout span span {
+        padding: 0 74px!important;
+    }
+
 
 /*FOOTER -------------------------------------------------------------------------------- */
 /*----------------------------------------------------------------------------------------*/
@@ -1161,7 +1396,7 @@ footer li a {
         padding: 5px 20px;
     }
 
-    .main-menu a {
+    .main-menu a:not(.cart-header) {
         padding: 0.25rem 1rem;
     }
 

@@ -12,7 +12,7 @@ const cart_basket = JSON.parse(fs.readFileSync(basketFilePath, 'utf-8'));
 // Acá nos falta un objeto literal con las acciones para cada ruta
 let mainController = {
     home: (req,res)=>{
-        res.render('home',products)
+        res.render('home',{products})
     },
     
     product: (req,res)=>{
@@ -49,18 +49,39 @@ let mainController = {
     store: (req, res) => {
         console.log(req.body);
         console.log(req.files);
+
+        //Procesando características -----------------------------------
+        let caracteristicas_req = [req.body.caract_1, req.body.caract_2, req.body.caract_3, req.body.caract_4];
+        let caracteristicas_def = []
+
+        caracteristicas_req.forEach(caracteristica => {
+            if (typeof(caracteristica)!="undefined"){
+                caracteristicas_def.push(caracteristica);
+            }
+        });
+
+        //Procesando talles --------------------------------------------
+        let talles_req = [
+            typeof(req.body.small) !="undefined"? "Small" : "", 
+            typeof(req.body.medium) !="undefined"? "Medium" : "",
+            typeof(req.body.large) !="undefined"? "Large" : "",
+            typeof(req.body.extralarge) !="undefined"? "Extra-Large" : ""];
+        let talles_def = [];
+        talles_req.forEach(talle => {
+            if (talle !== ''){
+                talles_def.push(talle);
+            }
+        })
+
 		const nuevoProducto = {
 		
 			id : products[products.length-1].id + 1, // le crea un id 1 mas alto que el del ultimo
 			name: req.body.name? req.body.name : "",
             brand: req.body.brand? req.body.brand : "",
             description: req.body.description? req.body.description : "",
-            carcteristica: req.body.carcteristica? req.body.carcteristica : "",
+            caracteristicas: caracteristicas_def,
             detalle: req.body.detalle? req.body.detalle : "",
-            talles: typeof(req.body.small) !="undefined" &&
-                typeof(req.body.medium) !="undefined" && 
-                typeof(req.body.large) !="undefined" &&
-                typeof(req.body.extralarge) !="undefined"? [req.body.small, req.body.medium, req.body.large, req.body.extralarge]:[] ,
+            talles: talles_def,
 			regularPrice: Number(req.body.regularPrice)? "$ " + req.body.regularPrice:"",
 			specialPrice: Number(req.body.specialPrice)? "$ " + req.body.specialPrice: "",
 			cuotas:{banco: req.body.cuotasbanco? req.body.cuotasbanco:"", 
@@ -119,32 +140,41 @@ let mainController = {
             }
 
             let caracteristicas_original = [req.body.caract_1? req.body.caract_1 : productToEdit.caracteristicas[0],req.body.caract_2? req.body.caract_2 : productToEdit.caracteristicas[1],req.body.caract_3? req.body.caract_3 : productToEdit.caracteristicas[2],req.body.caract_4? req.body.caract_4 : productToEdit.caracteristicas[3]];
-            let caracteristicas_clean = []
+            let caracteristicas_def = []
             //console.log(caracteristicas_original);
             let i = 0;
             for (let carac in caracteristicas_original) {
                 if (caracteristicas_original[carac]!=""){
-                    caracteristicas_clean.push(caracteristicas_original[carac]);
+                    caracteristicas_def.push(caracteristicas_original[carac]);
                     i++;
                 }
             }
-            console.log(caracteristicas_clean);
+            console.log(caracteristicas_def);
             if (i=0){
-                caracteristicas_clean = "";
+                caracteristicas_def = "";
             }
-        
+
+        //Procesando talles --------------------------------------------
+            let talles_req = [
+                typeof(req.body.small) !="undefined"? "Small" : "", 
+                typeof(req.body.medium) !="undefined"? "Medium" : "",
+                typeof(req.body.large) !="undefined"? "Large" : "",
+                typeof(req.body.extralarge) !="undefined"? "Extra-Large" : ""];
+            let talles_def = [];
+            talles_req.forEach(talle => {
+                if (talle !== ''){
+                    talles_def.push(talle);
+                }
+            })
 
 		const productoEditado = {
 			id: products[productIndex].id,
 			name: req.body.name? req.body.name : productToEdit.name,
             brand: req.body.brand? req.body.brand : productToEdit.brand,
             description: req.body.description? req.body.description : productToEdit.description,
-            caracteristicas: caracteristicas_clean,
+            caracteristicas: caracteristicas_def,
             detalle: req.body.detalle? req.body.detalle : productToEdit.detalle,
-            talles: typeof(req.body.small) !="undefined" &&
-                    typeof(req.body.medium) !="undefined" && 
-                    typeof(req.body.large) !="undefined" &&
-                    typeof(req.body.extralarge) !="undefined"? productToEdit.talles:[req.body.small, req.body.medium, req.body.large, req.body.extralarge] ,
+            talles: talles_def,
 			regularPrice: Number(req.body.regularPrice)? "$ " + req.body.regularPrice: productToEdit.regularPrice,
 			specialPrice: Number(req.body.specialPrice)? "$ " + req.body.specialPrice: productToEdit.specialPrice,
 			cuotas:{banco: req.body.cuotasbanco? req.body.cuotasbanco:productToEdit.cuotas.banco, 
