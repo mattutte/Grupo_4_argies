@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Head -->
+<%- include('./partials/head.ejs',{titulo:"Signup",stylesFile:"styles2.css"}) %>
+<body>
+    <!-- Header -->
+    <%- include('./partials/header v2.ejs') %>
+    
+    
+    <!-- Signin -->
+
+<main>
+
+<form action="action_page.php" style="border:1px solid #ccc">
+    <div class="container">
+      <h1>Crear usuario</h1>
+      <p>POr favor completar para crear una cuenta.</p>
+      <hr>
+  
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Ingresar Email" name="email" required>
+  
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Ingrese Password" name="psw" required>
+  
+      <label for="psw-repeat"><b>Repeat Password</b></label>
+      <input type="password" placeholder="Repita Password" name="psw-repeat" required>
+  
+      <!-- <label>
+        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+      </label> -->
+      
+      <div class="container">
+        <h1>Por favor, complete su perfil</h1>
+             <p>Por favor complete sus datos.</p>
+         <hr>
+   
+        <label for="direccion"><b>Direccion</b></label>
+        <input type="text" placeholder="Ingresar direccion" name="direccion" required>
+    
+        <label for="pais"><b>Pais</b></label>
+        <input type="text" placeholder="Ingresar pais" name="pais" required>
+  
+        <label for="seleccion"><b>Selección favorita</b></label>
+        <input type="text" placeholder="Ingresar equipo" name="seleccion" required>
+    
+        <label for="equipo"><b>Equipo local favorito</b></label>
+        <input type="text" placeholder="Ingresar equipo" name="equipo" required>
+    
+        <label for="jugador"><b>Jugador favorito</b></label>
+        <input type="text" placeholder="Ingresar jugador favorito" name="jugador" required>
+    
+        <label>
+        <input type="checkbox" checked="checked" name="mayorde13" style="margin-bottom:15px"> Soy mayor de 13 años
+        </label>
+
+  
+      <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+  
+      <div class="clearfix">
+        <button type="button" class="cancelbtn">Cancelar</button>
+        <button type="submit" class="signupbtn">Crear cuenta</button>
+      </div>
+    </div>
+  </form>
+
+</main>
+
+    <!-- Footer -->
+    <%- include('./partials/footer v2.ejs') %>
+
+</body>
+
+</html>

@@ -31,7 +31,7 @@ let mainController = {
     },
     
     signup: (req,res)=>{
-        res.render('signup')
+        res.render('signupv2')
     },
     
     shoppingcart: (req,res)=>{
