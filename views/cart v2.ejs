@@ -5,6 +5,24 @@
 <body>
     <!-- Header -->
     <%- include('./partials/header v2.ejs') %>
+
+    <div class='banner'>
+        <a class='cursor-pointer'>
+            <div class='site-notes clearfix'>
+                <div class='site-note info clearfix'>
+                    <div class='deals fs30'>
+                        <span class='deals-event onHover'>BLACK FRIDAY</span>
+                        <span class='deals-tag c47'>DEALS</span>
+                        <span class='deal-container'>
+                            <div class='deal-button'>
+                                <span class='deal-text'>Shop Now</span>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
     
 
 <main>
@@ -51,8 +69,18 @@
                                 </span>
                             </span>
                         </h1>
+                        <div class='cart-toolbar header-left'>
+                            <span class='remove-all'>
+                                Remove All
+                            </span>
+                        </div>
                     </div>
                     <div class='cart-header-right'>
+                        <div class='cart-toolbar header-right'>
+                            <span class='remove-all'>
+                                Remove All
+                            </span>
+                        </div>
                         <div class="upper-right clearfix">
                             <a class='open-new-window right noUnderline fs14'>
                                 <svg><use xlink:href="#printer"></use></svg>
@@ -64,7 +92,7 @@
                             </a>
                         </div>
                     </div>
-                    <br class='clearfix'>
+                    <br class='clearfix from_769 displayNone'>
                 </div>
                 <div id="cartWrapper" class="borderBox clearfix">
                     <div class='cart-items'>
@@ -89,6 +117,7 @@
                             }
 
                             let taxes;
+                            console.log(productos);
 
                         %>
                         
@@ -107,6 +136,7 @@
                                 let saving = (regular_price - special_price)*cantidad;
                                 let display;
                                 let displayNot;
+                                let colorNotInStock;
 
                                 total = total + special_price * cantidad;
                                 taxes = 0.1 * special_price * cantidad;
@@ -122,10 +152,12 @@
 
                                 if (cantidad > cantidad_disponible){
                                     displayNot = 'displayNone';
-                                    display = '';
+                                    display = ''
+                                    colorNotInStock = 'notInStock';
                                 }else{
                                     displayNot = '';
                                     display = 'displayNone';
+                                    colorNotInStock = '';
                                 }
 
                         %>  
@@ -144,7 +176,7 @@
                                             </div>
                                             <div class='table-row'>
                                                 <div class='item-title'>
-                                                    <a class='itemName bold fs16'>
+                                                    <a class='itemName bold fs16 upper underline-on-hover'>
                                                         <span class='cName'><%= marca %></span>
                                                         <%= nombre %>
                                                     </a>
@@ -189,7 +221,7 @@
                                                         <input type="hidden" name="sku" value="12666">
                                                         <input type="hidden" name="cli">
                                                         <span class='qty qty-input-wrap'>
-                                                            <input type='text' class='input' value='<%= cantidad %>'>
+                                                            <input type='text' class='input <%= colorNotInStock %>' value='<%= cantidad %>'>
                                                             <a class='update-qty displayNone fs13 c5'>Update</a>
                                                         </span>
                                                     </form>
@@ -199,7 +231,7 @@
                                                     <span><%= special_amount %></span>
                                                 </div>
                                                 <div class='item-offers'>
-                                                    <div class='related-items'>
+                                                    <div class='related-items underline-on-hover'>
                                                         <a class='showRelated related-link'>
                                                             <svg>
                                                                 <use xlink:href="#accessories"></use>
@@ -263,7 +295,7 @@
                                     <p class='subL fs18 c1 bold'>
                                         <span class='priceTitle item-total-label'>Item Total:</span>
                                         <span class='lPrice item-total-value'>
-                                            <span class='fs14'>$</span>
+                                            <span class='fs14'></span>
                                             <span class='itemTitleprice'><%= special_amount%></span>
                                         </span>
                                     </p>
@@ -327,6 +359,7 @@
                                         <div>
                                             <div class='cart-shipping-totals'>
                                                 <div class='totals clearfix'>
+                                                    <!-- Subtotal -->
                                                     <div class='clearfix'>
                                                         <span class='left bold'>
                                                             Subtotal:
@@ -336,6 +369,7 @@
                                                             <%= formatter.format(total) %>
                                                         </span>
                                                     </div>
+                                                    <!-- Shipping -->
                                                     <div class='clearfix fs16'>
                                                         <span class='left clearfix'>
                                                             <span>Shipping</span>
@@ -354,7 +388,7 @@
                                                                 <span class='fs14'>
                                                                     ARS
                                                                 </span>
-                                                                <%= taxes %>
+                                                                <%= formatter.format(taxes) %>
                                                             </span>
                                                         </div>
                                                     </div>

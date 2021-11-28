@@ -202,7 +202,7 @@ let mainController = {
 	},
 
     checkCart: (req,res)=>{
-        res.render('cart v2', {cart_basket, products, user: 1});
+        res.render('cart v2', {cart_basket, products, user: 2});
     }
 
 };

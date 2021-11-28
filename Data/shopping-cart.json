@@ -86,6 +86,13 @@
                 "regular_price": 400,
                 "special_price": 290,
                 "available": 10
+            },
+            {
+                "id": 3,
+                "qty": 4,
+                "regular_price": 1300,
+                "special_price": 950,
+                "available": 2
             }
         ]
     }

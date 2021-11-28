@@ -68,6 +68,42 @@ header {
     padding: 0px 2px;
 }
 
+.top-bar input {
+    top:6px;
+    left:6px;
+    opacity:0;
+    display:block;
+    padding:0;
+    margin:0;
+    border:0;
+    position:absolute;
+    height:35px;
+    width:35px;
+    cursor: pointer;
+}
+
+.top-bar-left input {
+    display: none;
+}
+
+.top-bar-left input:checked:after {
+    transform: scaleX(1);
+    -webkit-transform: scaleX(1);
+}
+
+.top-bar-left input:checked ~ .dropdown-menu {
+    display:block;
+}
+
+.top-bar-right input[type='checkbox']:checked:after {
+    transform: scaleX(1);
+    -webkit-transform: scaleX(1);
+}
+
+.top-bar-right input[type='checkbox']:checked ~ .dropdown-menu {
+    display:block;
+}
+
 .nav-burger-menu {
     padding: 14px 14px;
     cursor: pointer;
@@ -75,7 +111,47 @@ header {
     display:none;
 }
 
-.nav-burger-menu:hover {
+.dropdown-menu {
+    display:none;
+}
+
+.menu-header {
+    position: absolute;
+    width: 150px;
+    text-align: left;
+    padding: 10px 0;
+    background-color: #f8f8f8;
+    color: #333;
+    border-radius: 5px;
+    top: 55px;
+    left: 6px;
+    text-indent: 0;
+    z-index: 11;
+    box-shadow: -2px 4px 12px rgb(180, 180, 180);
+}
+
+.menu-header li.general-menu {
+    width: 100%;
+    float: left;
+    padding: 9px 20px;
+    font-size: 13px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.menu-header li.general-menu:hover {
+    cursor: pointer;
+    background-color: #ebebeb;
+}
+
+.menu-header li.general-menu a {
+    color: #333;
+    float: left;
+    width: 100%;
+}
+
+.nav-burger-menu:hover, .top-bar input[type='checkbox']:hover + .nav-burger-menu {
     box-shadow: 0 0 0 1px white;
 }
 
@@ -616,6 +692,7 @@ header {
     margin-right: 2rem;
     position: relative;
     transition: transform .3s ease;
+    cursor: pointer;
 }
 
 .article-list-item::before {
@@ -1017,8 +1094,22 @@ footer li a {
 
 @media (min-width: 769px){
 
+    .menu-header {
+        top:60px;
+    }
+
     .nav-burger-menu-left {
         display: block;
+    }
+
+    .top-bar-left input {
+        display: block;
+        top:11px;   
+        left:9px;
+    }
+
+    .top-bar-right input {
+        display: none;
     }
 
     .nav-logo-top {

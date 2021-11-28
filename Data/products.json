@@ -1,7 +1,7 @@
 [
  {
   "id": 1,
-  "name": "JUVENTUS",
+  "name": "JUVENTUS 21/22 AUTHENTIC HOME JERSEY",
   "brand": "Adidas",
   "description": "",
   "caracteristicas": [
@@ -39,7 +39,8 @@
  },
  {
   "id": 2,
-  "name": "INTER",
+  "name": "INTER MILAN 21/22 AUTHENTIC HOME JERSEY",
+  "club": "INTER",
   "brand": "Nike",
   "description": "Camiseta del Inter de Milan",
   "caracteristicas": [
@@ -79,7 +80,8 @@
  },
  {
   "id": 3,
-  "name": "AC",
+  "name": "AC MILAN 21/22 HOME JERSEY",
+  "club": "AC MILAN",
   "brand": "PUMA",
   "description": "Camiseta del AC Milan",
   "caracteristicas": [
@@ -121,6 +123,7 @@
  {
   "id": 4,
   "name": "MANCHESTER UNITED 21/22 AUTHENTIC AWAY JERSEY",
+  "club": "MANCHESTER UNITED",
   "brand": "",
   "description": "JUVENTUS",
   "caracteristicas": "",
@@ -157,6 +160,7 @@
  {
   "id": 5,
   "name": "ITALY EURO 20/21 HOME JERSEY BY PUMA",
+  "club": "ITALY EURO",
   "brand": "Puma",
   "description": "",
   "caracteristicas": "",
@@ -193,6 +197,7 @@
  {
   "id": 6,
   "name": "ADIDAS ARSENAL TRAINING JERSEY 21/22",
+  "club": "ARSENAL",
   "brand": "Adidas",
   "description": "",
   "caracteristicas": "",
@@ -229,6 +234,7 @@
  {
   "id": 7,
   "name": "ARSENAL 21/22 AUTHENTIC HOME JERSEY BY ADIDAS",
+  "club": "ARSENAL",
   "brand": "Adidas",
   "description": "",
   "caracteristicas": "",
@@ -264,7 +270,8 @@
  },
  {
   "id": 8,
-  "name": "MANCHESTER UNITEDAUTHENTIC THIRD JERSEY BY ADIDAS",
+  "name": "MANCHESTER UNITED AUTHENTIC THIRD JERSEY BY ADIDAS",
+  "club": "MANCHESTER UNITED",
   "brand": "Adidas",
   "description": "",
   "caracteristicas": "",
@@ -301,6 +308,7 @@
  {
   "id": 9,
   "name": "BORUSSIA DORTMUND 21/22 HOME JERSEY BY PUMA",
+  "club": "BORUSSIA DORTMUND",
   "brand": "Puma",
   "description": "",
   "caracteristicas": "",
@@ -337,6 +345,7 @@
  {
   "id": 10,
   "name": "RIVER PLATE 21/22 AWAY JERSEY BY ADIDAS",
+  "club": "RIVER PLATE",
   "brand": "Adidas",
   "description": "",
   "caracteristicas": "",
@@ -373,6 +382,7 @@
  {
   "id": 11,
   "name": "ARSENAL 21/22 AUTHENTIC THIRD JERSEY BY ADIDAS",
+  "club": "ARSENAL",
   "brand": "Adidas",
   "description": "",
   "caracteristicas": "",
@@ -409,6 +419,7 @@
  {
   "id": 12,
   "name": "BAYERN MUNICH 21/22 AUTHENTIC HOME JERSEY BY ADIDAS",
+  "club": "BAYERN MUNICH",
   "brand": "Adidas",
   "description": "",
   "caracteristicas": "",
@@ -445,6 +456,7 @@
  {
   "id": 13,
   "name": "REAL MADRID 21/22 AUTHENTIC AWAY JERSEY BY ADIDAS",
+  "club": "REAL MADRID",
   "brand": "Adidas",
   "description": "",
   "caracteristicas": "",
@@ -481,6 +493,7 @@
  {
   "id": 14,
   "name": "BAYERN MUNICH 20/21 AUTHENTIC HOME JERSEY BY ADIDAS",
+  "club": "BAYERN MUNICH",
   "brand": "Adidas",
   "description": "",
   "caracteristicas": "",
@@ -517,6 +530,7 @@
  {
   "id": 15,
   "name": "AC MILAN 21/22 AWAY JERSEY BY PUMA",
+  "club": "AC MILAN",
   "brand": "Puma",
   "description": "",
   "caracteristicas": "",
@@ -553,6 +567,7 @@
  {
   "id": 16,
   "name": "MARSEILLE 21/22 AWAY JERSEY BY PUMA",
+  "club": "MARSEILLE",
   "brand": "Puma",
   "description": "",
   "caracteristicas": "",
@@ -589,6 +604,7 @@
  {
   "id": 17,
   "name": "ATLETICO MADRID 21/22 THIRD JERSEY BY NIKE",
+  "club": "ATLETICO MADRID",
   "brand": "Nike en Argentina",
   "description": "",
   "caracteristicas": "",
@@ -625,6 +641,7 @@
  {
   "id": 18,
   "name": "AS ROMA 21/22 HOME JERSEY BY NEW BALANCE",
+  "club": "AC ROMA",
   "brand": "New Balance",
   "description": "",
   "caracteristicas": "",
@@ -661,6 +678,7 @@
  {
   "id": 19,
   "name": "BAYERN MUNICH 21/22 THIRD JERSEY BY ADIDAS",
+  "club": "BAYERN MUNICH",
   "brand": "Adidas",
   "description": "",
   "caracteristicas": "",
@@ -697,6 +715,7 @@
  {
   "id": 20,
   "name": "PSG 21/22 THIRD JERSEY BY NIKE",
+  "club": "PSG",
   "brand": "Nike en Argentina",
   "description": "",
   "caracteristicas": "",
@@ -733,6 +752,7 @@
  {
   "id": 21,
   "name": "Chapa",
+  "club": "",
   "brand": "",
   "description": "",
   "detalle": "",
@@ -768,6 +788,7 @@
  {
   "id": 22,
   "name": "La Ensenada",
+  "club": "",
   "brand": "",
   "description": "La Ensenada",
   "detalle": "",
@@ -803,6 +824,7 @@
  {
   "id": 23,
   "name": "chapaleufu",
+  "club": "",
   "brand": "",
   "description": "chapaleufu",
   "detalle": "",
