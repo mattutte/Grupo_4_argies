@@ -412,6 +412,7 @@ a {
 .inventario {
     width: 17%;
     text-align: center;
+    margin-right: 20px;
 }
 
 span.notStock {
@@ -427,6 +428,7 @@ span.notStock {
     float: left;
     width: 5%;
     margin-right: 2.5%;
+    margin-left: 40px;
 }
 
 .item-qty input {
@@ -444,6 +446,7 @@ span.notStock {
     text-align: right;
     font-weight: 700;
     white-space: nowrap;
+    margin-left: 10px;
 }
 
 .regular-price {
@@ -1089,7 +1092,7 @@ div#cartLinks {
     }
 }
 
-@media (max-width: 501px){
+@media (max-width: 499px){
 
     .item-details .table-row {
         width: 100%;
@@ -1151,7 +1154,7 @@ div#cartLinks {
 
 @media (min-width: 580px){
     .item-title {
-        width: 50%;
+        width: 40%;
     }
 }
 
