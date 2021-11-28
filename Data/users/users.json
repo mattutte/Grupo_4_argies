@@ -8,7 +8,9 @@
         "seleccionFavorita": "Milan AC",
         "equipoLocFav": "Boca",
         "jugadorFavorito": "Maradona",
-        "mayor": true
+        "mayor": true,
+        "images": "yo.jpeg",
+        "perfil": ""
     },
     {
         "id": 2,
@@ -19,7 +21,9 @@
         "seleccionFavorita": "Inter Milan",
         "equipoLocFav": "Racing",
         "jugadorFavorito": "Palermo",
-        "mayor": true
+        "mayor": true,
+        "images": "yo.jpeg",
+        "perfil": ""
     },
     {
         "id": 3,
@@ -30,7 +34,9 @@
         "seleccionFavorita": "Real Madrid",
         "equipoLocFav": "River",
         "jugadorFavorito": "Aimar",
-        "mayor": true
+        "mayor": true,
+        "images": "yo.jpeg",
+        "perfil": ""
     },
     {
         "id": 4,
@@ -41,6 +47,8 @@
         "seleccionFavorita": "Barcelona",
         "equipoLocFav": "Boca",
         "jugadorFavorito": "Messi",
-        "mayor": true
+        "mayor": true,
+        "images": "yo.jpeg",
+        "perfil": ""
     }
 ]
