@@ -657,6 +657,8 @@ header {
 .product-list-item {
     padding-right: .5rem;
     flex: 1 1 50%;
+    font-size: 1.05rem;
+    line-height: 1.2rem;
 }
 
 .product-list-title {
