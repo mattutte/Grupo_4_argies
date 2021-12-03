@@ -1,5 +1,7 @@
 const fs = require('fs');
 const path = require('path');
+const { response } = require("express")
+const { validationResult } = require("express-validator")
 
 const productsFilePath = path.join(__dirname, '../data/products.json');
 const usuariosFilePath = path.join(__dirname, '../data/users/users.json');
@@ -37,10 +39,15 @@ let mainController = {
 
     crearperfil: (req,res)=>{
         console.log(req.body);
-        console.log(req.files);
+        console.log(req.file);
+
+        var response = req.body
+        var errors = validationResult(req).mapped()
+
+        console.log(errors);
 
         const bcrypt = require('bcryptjs');
-	    const passEncriptada = bcrypt.hashSync(req.body.password, 10);
+	    const passEncriptada = bcrypt.hashSync(req.body.psw, 10);
 
         const nuevoUsuario = {
 		
@@ -52,14 +59,14 @@ let mainController = {
             seleccionFavorita: req.body.detalle? req.body.detalle : "",
             equipoLocFav:req.body.detalle? req.body.detalle : "",
             mayor: req.body.detalle? true : false,
-            images: req.file.foto.filename,
+            images: req.file.filename,
                          
         }
 
         console.log(nuevoUsuario);
 		usuarios.push(nuevoUsuario);
 
-		fs.writeFileSync(productsFilePath,JSON.stringify(usuarios,null,' '));
+		fs.writeFileSync(usuariosFilePath,JSON.stringify(usuarios,null,' '));
 		
 
 		res.redirect('/');
