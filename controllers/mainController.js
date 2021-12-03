@@ -2,8 +2,9 @@ const fs = require('fs');
 const path = require('path');
 
 const productsFilePath = path.join(__dirname, '../data/products.json');
+const usuariosFilePath = path.join(__dirname, '../data/users/users.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));// pasa el json a un array
-
+const usuarios = JSON.parse(fs.readFileSync(usuariosFilePath, 'utf-8'));// pasa el json a un array
 const basketFilePath = path.join(__dirname, '../data/shopping-cart.json');
 const cart_basket = JSON.parse(fs.readFileSync(basketFilePath, 'utf-8'));
 
@@ -32,6 +33,38 @@ let mainController = {
     
     signup: (req,res)=>{
         res.render('signupv2')
+    },
+
+    crearperfil: (req,res)=>{
+        console.log(req.body);
+        console.log(req.files);
+
+        const bcrypt = require('bcryptjs');
+	    const passEncriptada = bcrypt.hashSync(req.body.password, 10);
+
+        const nuevoUsuario = {
+		
+			id : usuarios[usuarios.length-1].id + 1, // le crea un id 1 mas alto que el del ultimo
+			email: req.body.email,
+            password: passEncriptada,
+            direccion: req.body.description? req.body.description : "",
+            pais: req.body.pais,
+            seleccionFavorita: req.body.detalle? req.body.detalle : "",
+            equipoLocFav:req.body.detalle? req.body.detalle : "",
+            mayor: req.body.detalle? true : false,
+            images: req.file.foto.filename,
+                         
+        }
+
+        console.log(nuevoUsuario);
+		usuarios.push(nuevoUsuario);
+
+		fs.writeFileSync(productsFilePath,JSON.stringify(usuarios,null,' '));
+		
+
+		res.redirect('/');
+
+        //res.render('perfilv2')
     },
     
     shoppingcart: (req,res)=>{

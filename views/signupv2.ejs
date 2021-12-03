@@ -11,10 +11,10 @@
 
 <main>
 
-<form action="action_page.php" style="border:1px solid #ccc">
+<form action="/signup" enctype="multipart/form-data" style="border:1px solid #ccc">
     <div class="container">
       <h1>Crear usuario</h1>
-      <p>POr favor completar para crear una cuenta.</p>
+      <p>POr favor, completar para crear una cuenta:</p>
       <hr>
   
       <label for="email"><b>Email</b></label>
@@ -30,25 +30,30 @@
         <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
       </label> -->
       
+      <br>
       
-      
-        <h3>Por favor complete sus datos.</h3>
-         <hr>
+      <h3>Agruegue datos adicionales:</h3>
+         <br>
    
-        <label for="direccion"><b>Direccion</b></label>
-        <input type="text" placeholder="Ingresar direccion" name="direccion" required>
+         <label for="foto"><b>Foto </b></label>
+         <input type="file" placeholder="Subir foto" name="foto" required>
+
+         <p> </p>
+        
+         <label for="direccion"><b>Direccion</b></label>
+          <input type="text" placeholder="Ingresar direccion" name="direccion" required>
     
-        <label for="pais"><b>Pais</b></label>
-        <input type="text" placeholder="Ingresar pais" name="pais" required>
+          <label for="pais"><b>Pais</b></label>
+          <input type="text" placeholder="Ingresar pais" name="pais" required>
   
-        <label for="seleccion"><b>Selección favorita</b></label>
-        <input type="text" placeholder="Ingresar equipo" name="seleccion" required>
+          <label for="seleccion"><b>Selección favorita</b></label>
+          <input type="text" placeholder="Ingresar equipo" name="seleccion" required>
     
-        <label for="equipo"><b>Equipo local favorito</b></label>
-        <input type="text" placeholder="Ingresar equipo" name="equipo" required>
+          <label for="equipo"><b>Equipo local favorito</b></label>
+          <input type="text" placeholder="Ingresar equipo" name="equipo" required>
     
-        <label for="jugador"><b>Jugador favorito</b></label>
-        <input type="text" placeholder="Ingresar jugador favorito" name="jugador" required>
+          <label for="jugador"><b>Jugador favorito</b></label>
+          <input type="text" placeholder="Ingresar jugador favorito" name="jugador" required>
     
         <label>
         <input type="checkbox" checked="checked" name="mayorde13" style="margin-bottom:15px"> Soy mayor de 13 años

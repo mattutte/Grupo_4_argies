@@ -1,5 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const { check } = require('express-validator');
+var validator = require('express-validator');
+
 
 // ************ Multer configuration ************
 const multer = require('multer'); // require multer
@@ -15,6 +18,17 @@ var storage = multer.diskStorage({  // configuramos storage con destination y fi
     }
 });
 const upload = multer({storage: storage}); // generar middleware upload
+
+// ************ Validator configuration ************
+const {body} = require('express-validator');
+const validations =[
+    body('email').notEmpty().isEmail().withMessage('Debe completar un email valido').bail(),
+    body('password').notEmpty().isLength(7).withMessage('Debe completar una clave de al menos 7 cifras').bail(),
+    body('psw-repeat').equals(body('password')),
+    body('pais').notEmpty().withMessage('Debe informar su pais').bail(),
+    body('foto').notEmpty().withMessage('Debe subir su foto').bail(),
+    
+]
 
 
 // ************ Controller Require ************
@@ -49,7 +63,9 @@ router.delete('/product/:id', mainController.destroy);
 /*** USER ACCESS AND INFO***/ 
 router.get('/signin',mainController.signin);
 router.get('/signup',mainController.signup);
-router.get('/profile',mainController.perfil);
+//router.get('/profile',mainController.crearperfil);
+
+router.post('/signup',upload.single('foto'),mainController.crearperfil);
 
 /*** SHOPPING CART ACCESS***/ 
 router.get('/shopping-cart',mainController.shoppingcart);
