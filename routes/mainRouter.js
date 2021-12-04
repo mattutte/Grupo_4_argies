@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const { check } = require('express-validator');
+//const { check } = require('express-validator');
 var validator = require('express-validator');
+const {body} = require('express-validator');
 
 
 // ************ Multer configuration ************
@@ -20,13 +21,13 @@ var storage = multer.diskStorage({  // configuramos storage con destination y fi
 const upload = multer({storage: storage}); // generar middleware upload
 
 // ************ Validator configuration ************
-const {body} = require('express-validator');
+
 const validations =[
     body('email').notEmpty().isEmail().withMessage('Debe completar un email valido').bail(),
     body('psw').notEmpty().isLength(7).withMessage('Debe completar una clave de al menos 7 cifras').bail(),
-    body('psw-repeat').equals(body('psw')),
+    body('pswrepeat').equals('psw').bail(),
     body('pais').notEmpty().withMessage('Debe informar su pais').bail(),
-    body('foto').notEmpty().withMessage('Debe subir su foto').bail(),
+    body('foto').notEmpty().withMessage('Debe subir su foto'),
     
 ]
 

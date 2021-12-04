@@ -41,37 +41,46 @@ let mainController = {
         console.log(req.body);
         console.log(req.file);
 
-        var response = req.body
-        var errors = validationResult(req).mapped()
+        let response = req.body;
+        let errores = validationResult(req);
+        console.log(errores);
 
-        console.log(errors);
+        
 
-        const bcrypt = require('bcryptjs');
-	    const passEncriptada = bcrypt.hashSync(req.body.psw, 10);
+        if(errores.isEmpty()){
 
-        const nuevoUsuario = {
+        
+
+            const bcrypt = require('bcryptjs');
+    	    const passEncriptada = bcrypt.hashSync(req.body.psw, 10);
+
+            const nuevoUsuario = {
 		
-			id : usuarios[usuarios.length-1].id + 1, // le crea un id 1 mas alto que el del ultimo
-			email: req.body.email,
-            password: passEncriptada,
-            direccion: req.body.description? req.body.description : "",
-            pais: req.body.pais,
-            seleccionFavorita: req.body.detalle? req.body.detalle : "",
-            equipoLocFav:req.body.detalle? req.body.detalle : "",
-            mayor: req.body.detalle? true : false,
-            images: req.file.filename,
+		    	id : usuarios[usuarios.length-1].id + 1, // le crea un id 1 mas alto que el del ultimo
+			    email: req.body.email,
+                password: passEncriptada,
+                direccion: req.body.description? req.body.description : "",
+                pais: req.body.pais,
+                seleccionFavorita: req.body.detalle? req.body.detalle : "",
+                equipoLocFav:req.body.detalle? req.body.detalle : "",
+                mayor: req.body.detalle? true : false,
+                images: req.file.filename,
                          
+            }
+
+            console.log(nuevoUsuario);
+	    	usuarios.push(nuevoUsuario);
+
+		    fs.writeFileSync(usuariosFilePath,JSON.stringify(usuarios,null,' '));
+		
+
+		    res.redirect('/');
+        }else{
+            
+            res.render('signupv2',{errores: errores.array(), old:req.body}); 
         }
 
-        console.log(nuevoUsuario);
-		usuarios.push(nuevoUsuario);
-
-		fs.writeFileSync(usuariosFilePath,JSON.stringify(usuarios,null,' '));
-		
-
-		res.redirect('/');
-
-        //res.render('perfilv2')
+        
     },
     
     shoppingcart: (req,res)=>{
