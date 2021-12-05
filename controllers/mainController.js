@@ -34,26 +34,26 @@ let mainController = {
     },
 
     checksignin: (req,res)=>{
-        let usuarioCheckIn = usuarios.find((usuario) => usuario.email == req.body.email);
+        const usuarioCheckIn = usuarios.find((usuario) => usuario.email == req.body.email);
         console.log(usuarioCheckIn);
-        let emailUsuario = usuarioCheckIn.email;
-        let passwordEncriptadaUsuario = usuarioCheckIn.psw;
-
-        const bcrypt = require('bcryptjs');
-        let check = bcrypt.compareSync(req.body.psw, passwordEncriptadaUsuario);
-        console.log(check);
-
-
-        const errorMessage = 'el email o el password no coinciden con nuestros registros'
-        if(usuarioCheckIn.isEmpty()){
-            res.render('signin',errorMessage)
-        }else if(!check){
-            res.render('signin',errorMessage)
+        const errorMessage = ['el email o el password no coinciden con nuestros registros'];
+        if(usuarioCheckIn){
+            //let emailUsuario = usuarioCheckIn.email;
+            const passwordEncriptadaUsuario = usuarioCheckIn.password;
+            console.log(passwordEncriptadaUsuario);
+            const bcrypt = require('bcryptjs');
+            const check = bcrypt.compareSync(req.body.psw, passwordEncriptadaUsuario);
+            console.log(check);
+            if(check){
+                res.render('home',{products,usuarioCheckIn})
+            }else{
+                console.log(errorMessage[0]);
+                res.render('signin',errorMessage);         
+            }
         }else{
-            res.render('home',{products,usuarioCheckIn})            
+            console.log(errorMessage[0]);
+            res.render('signin',errorMessage);         
         };
-
-
     },
     
     signup: (req,res)=>{
