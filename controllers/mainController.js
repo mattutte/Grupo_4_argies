@@ -48,7 +48,7 @@ let mainController = {
                 res.render('home',{products,usuarioCheckIn})
             }else{
                 console.log(errorMessage[0]);
-                res.render('signin',errorMessage);         
+                res.render('signin', {errores: {msg:errorMessage}});         
             }
         }else{
             console.log(errorMessage[0]);

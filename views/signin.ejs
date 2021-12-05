@@ -35,8 +35,10 @@
     </div>
   </form>
 
-  <% if(locals.errorMessage){%>
-    <t3> <% errorMessage[0] %></t3>
+  <% if(locals.errores && errores.msg){%>
+    
+      <t3> <% errores.msg %></t3>
+      
   <% } %>
 
 </main>
