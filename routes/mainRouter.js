@@ -23,13 +23,17 @@ const upload = multer({storage: storage}); // generar middleware upload
 // ************ Validator configuration ************
 
 const validations =[
-    body('email').notEmpty().isEmail().withMessage('Debe completar un email valido').bail(),
-    body('psw').notEmpty().isLength(7).withMessage('Debe completar una clave de al menos 7 cifras').bail(),
+    body('email').notEmpty().withMessage('Debe completar un email valido').bail()
+                    .isEmail().withMessage('Debe completar un email valido').bail(),
+    body('psw').notEmpty().withMessage('Debe completar una clave de al menos 7 cifras').bail()
+                .isLength(7).withMessage('Debe completar una clave de al menos 7 cifras').bail(),
     body('pswrepeat').equals('psw').bail(),
     body('pais').notEmpty().withMessage('Debe informar su pais').bail(),
     body('foto').notEmpty().withMessage('Debe subir su foto'),
     
 ]
+
+
 
 
 // ************ Controller Require ************
@@ -62,10 +66,11 @@ router.put('/product/:id', upload.fields([{name:'images-main'},{name:'images-fro
 router.delete('/product/:id', mainController.destroy);
 
 /*** USER ACCESS AND INFO***/ 
-router.get('/signin',mainController.signin);
-router.get('/signup',mainController.signup);
-//router.get('/profile',mainController.crearperfil);
 
+router.get('/signin',mainController.signin);
+router.post('/signin',mainController.checksignin);
+
+router.get('/signup',mainController.signup);
 router.post('/signup', validations, upload.single('foto'),mainController.crearperfil);
 
 /*** SHOPPING CART ACCESS***/ 

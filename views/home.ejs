@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <!-- Head -->
-    <%- include('./partials/head.ejs',{titulo:"Tu Carrito",stylesFile:"styles.css"}) %>
-
+    <% if(locals.usuarioCheckIn && usuarioCheckIn.seleccionFarofita){%>
+        <t3> <%- include('./partials/head.ejs',{titulo:"Hola, fanatico de "+ usuarioCheckIn.seleccionFarofita,stylesFile:"styles.css"}) %></t3>
+    <% }else{ %>
+        <%- include('./partials/head.ejs',{titulo:"Bienvenido a Casaka",stylesFile:"styles.css"}) %>
+    <% }%>
 <body>
     
     <!-- Header -->
