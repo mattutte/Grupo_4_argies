@@ -25,6 +25,7 @@ const upload = multer({storage: storage}); // generar middleware upload
 const validations =[
     body('email').notEmpty().withMessage('Debe completar un email valido').bail()
                     .isEmail().withMessage('Debe completar un email valido').bail(),
+                    
     body('psw').notEmpty().withMessage('Debe completar una clave de al menos 7 cifras').bail()
                 .isLength(7).withMessage('Debe completar una clave de al menos 7 cifras').bail(),
     body('pswrepeat').equals('psw').bail(),

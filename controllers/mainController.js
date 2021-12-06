@@ -48,7 +48,8 @@ let mainController = {
                 res.render('home',{products,usuarioCheckIn})
             }else{
                 console.log(errorMessage[0]);
-                res.render('signin', {errores: {msg:errorMessage}});         
+                res.render('signin', errorMessage);
+                         
             }
         }else{
             console.log(errorMessage[0]);
@@ -89,7 +90,7 @@ let mainController = {
                 mayor: req.body.detalle? true : false,
                 images: req.file.filename,
                          
-            }
+            };
 
             console.log(nuevoUsuario);
 	    	usuarios.push(nuevoUsuario);
