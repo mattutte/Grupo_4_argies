@@ -26,9 +26,9 @@ const validations =[
     body('email').notEmpty().withMessage('Debe completar un email valido').bail()
                     .isEmail().withMessage('Debe completar un email valido').bail(),
                     
-    body('psw').notEmpty().withMessage('Debe completar una clave de al menos 7 cifras').bail()
-                .isLength(7).withMessage('Debe completar una clave de al menos 7 cifras').bail(),
-    body('pswrepeat').equals('psw').bail(),
+    body('psw').notEmpty().withMessage('Debe completar una clave de al menos 5 cifras').bail()
+                .isLength(5).withMessage('Debe completar una clave de al menos 5 cifras').bail(),
+    //body('pswrepeat').equals('psw').withMessage('Las passwords deben coincidir').bail(),
     body('pais').notEmpty().withMessage('Debe informar su pais').bail(),
     body('foto').notEmpty().withMessage('Debe subir su foto'),
     

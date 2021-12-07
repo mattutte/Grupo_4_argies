@@ -36,7 +36,7 @@ let mainController = {
     checksignin: (req,res)=>{
         const usuarioCheckIn = usuarios.find((usuario) => usuario.email == req.body.email);
         console.log(usuarioCheckIn);
-        const errorMessage = ['el email o el password no coinciden con nuestros registros'];
+        const errorMessage = 'el email o el password no coinciden con nuestros registros';
         if(usuarioCheckIn){
             //let emailUsuario = usuarioCheckIn.email;
             const passwordEncriptadaUsuario = usuarioCheckIn.password;
@@ -48,12 +48,12 @@ let mainController = {
                 res.render('home',{products,usuarioCheckIn})
             }else{
                 console.log(errorMessage[0]);
-                res.render('signin', errorMessage);
+                res.render('signin', {errorMessage});
                          
             }
         }else{
             console.log(errorMessage[0]);
-            res.render('signin',errorMessage);         
+            res.render('signin',{errorMessage});         
         };
     },
     

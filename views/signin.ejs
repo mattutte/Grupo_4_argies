@@ -34,10 +34,10 @@
       <span class="psw">Forgot <a href="#">password?</a></span>
     </div>
   </form>
-
+  <% console.log(locals.errorMessage,'desde ejs') %>
   <% if(locals.errorMessage){%>
     
-    <t3> <% errorMessage %></t3>
+    <t3> <%= errorMessage %></t3>
     
   <% } %>
 
