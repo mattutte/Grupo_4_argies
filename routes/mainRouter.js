@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 //const { check } = require('express-validator');
 var validator = require('express-validator');
-const {body} = require('express-validator');
+const {check} = require('express-validator');
 
 
 // ************ Multer configuration ************
@@ -23,16 +23,20 @@ const upload = multer({storage: storage}); // generar middleware upload
 // ************ Validator configuration ************
 
 const validations =[
-    body('email').notEmpty().withMessage('Debe completar un email valido').bail()
+    check('email').notEmpty().withMessage('Debe completar un email valido').bail()
                     .isEmail().withMessage('Debe completar un email valido').bail(),
                     
-    body('psw').notEmpty().withMessage('Debe completar una clave de al menos 5 cifras').bail()
+    check('psw').notEmpty().withMessage('Debe completar una clave de al menos 5 cifras').bail()
                 .isLength(5).withMessage('Debe completar una clave de al menos 5 cifras').bail(),
-    //body('pswrepeat').equals('psw').withMessage('Las passwords deben coincidir').bail(),
-    body('pais').notEmpty().withMessage('Debe informar su pais').bail(),
-    body('foto').notEmpty().withMessage('Debe subir su foto'),
+    check('pswrepeat').equals('psw').withMessage('Las passwords deben coincidir').bail(),
+    check('pais').notEmpty().withMessage('Debe informar su pais').bail(),
+    check('foto').notEmpty().withMessage('Debe subir su foto'),
     
 ]
+    
+
+    
+
 
 
 
@@ -72,7 +76,7 @@ router.get('/signin',mainController.signin);
 router.post('/signin',mainController.checksignin);
 
 router.get('/signup',mainController.signup);
-router.post('/signup', validations, upload.single('foto'),mainController.crearperfil);
+router.post('/signup', upload.single('foto'), validations ,mainController.crearperfil);
 
 /*** SHOPPING CART ACCESS***/ 
 router.get('/shopping-cart',mainController.shoppingcart);

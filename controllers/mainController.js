@@ -62,16 +62,18 @@ let mainController = {
     },
 
     crearperfil: (req,res)=>{
+        //console.log(validations);
         console.log(req.body);
         console.log(req.file);
 
         let response = req.body;
-        let errores = validationResult(req);
+        let errores = validationResult(req).mapped();
         console.log(errores);
+        
 
         
 
-        if(errores.isEmpty()){
+        if(errores.length==0){
 
         
 
@@ -88,7 +90,7 @@ let mainController = {
                 seleccionFavorita: req.body.detalle? req.body.detalle : "",
                 equipoLocFav:req.body.detalle? req.body.detalle : "",
                 mayor: req.body.detalle? true : false,
-                images: req.file.filename,
+                images: req.file? req.file.filename : "",
                          
             };
 
@@ -101,7 +103,7 @@ let mainController = {
 		    res.redirect('/');
         }else{
             
-            res.render('signupv2',{errores: errores.array(), old:req.body}); 
+            res.render('signupv2',{errores: errores, old:req.body}); 
         }
 
         

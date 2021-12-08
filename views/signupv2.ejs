@@ -17,7 +17,8 @@
     <div class="container">
       <h1>Crear usuario</h1>
 
-
+      <%= console.log(locals.errores) %>
+      <%= console.log(locals.errores.length) %>
       <% if(locals.errores?.length){%>
         <% errores.forEach(error =>{ %>
         <t3> <%= error.msg %></t3>
