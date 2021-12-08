@@ -64,16 +64,18 @@ let mainController = {
     crearperfil: (req,res)=>{
         //console.log(validations);
         console.log(req.body);
-        console.log(req.file);
+        //console.log(req.file);
 
         let response = req.body;
         let errores = validationResult(req).mapped();
         console.log(errores);
+        //console.log(errores.keys.length);
+        //console.log(errores.msg)
         
 
         
 
-        if(errores.length==0){
+        if(!errores){
 
         
 
@@ -90,7 +92,7 @@ let mainController = {
                 seleccionFavorita: req.body.detalle? req.body.detalle : "",
                 equipoLocFav:req.body.detalle? req.body.detalle : "",
                 mayor: req.body.detalle? true : false,
-                images: req.file? req.file.filename : "",
+                images: req.file.filename,
                          
             };
 
@@ -102,7 +104,7 @@ let mainController = {
 
 		    res.redirect('/');
         }else{
-            
+            //console.log(errores);
             res.render('signupv2',{errores: errores, old:req.body}); 
         }
 

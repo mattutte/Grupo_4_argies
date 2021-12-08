@@ -17,10 +17,10 @@
     <div class="container">
       <h1>Crear usuario</h1>
 
-      <%= console.log(locals.errores) %>
-      <%= console.log(locals.errores.length) %>
-      <% if(locals.errores?.length){%>
-        <% errores.forEach(error =>{ %>
+      
+      
+      <% if(locals.errores && !errores.length == 0){%>
+        <% locals.errores.forEach(error =>{ %>
         <t3> <%= error.msg %></t3>
         <% }) %>
       <% } %>
@@ -49,7 +49,7 @@
          <br>
    
          <label for="foto"><b>Foto </b></label>
-         <input type="file" placeholder="Subir foto" name="foto">
+         <input type="file" placeholder="Subir foto" name="foto" value="foto">
 
          <p> </p>
         
