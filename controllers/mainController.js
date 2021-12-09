@@ -64,10 +64,10 @@ let mainController = {
     crearperfil: (req,res)=>{
         //console.log(validations);
         console.log(req.body);
-        //console.log(req.file);
+        console.log(req.file);
 
         let response = req.body;
-        let errores = validationResult(req).mapped();
+        let errores = validationResult(req);
         console.log(errores);
         //console.log(errores.keys.length);
         //console.log(errores.msg)
@@ -75,7 +75,7 @@ let mainController = {
 
         
 
-        if(!errores){
+        if(errores.isEmpty()){
 
         
 

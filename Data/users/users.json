@@ -138,5 +138,16 @@
   "equipoLocFav": "",
   "mayor": false,
   "images": ""
+ },
+ {
+  "id": 13,
+  "email": "analia@mia.com",
+  "password": "$2a$10$SjhHmjdLDGvcFEKXr9IuBeGjP59IBFi5FmERaiNg9bZ96Iz5X673C",
+  "direccion": "",
+  "pais": "UK",
+  "seleccionFavorita": "",
+  "equipoLocFav": "",
+  "mayor": false,
+  "images": "foto-1639017265908.jpeg"
  }
 ]

@@ -30,7 +30,7 @@ const validations =[
                 .isLength(5).withMessage('Debe completar una clave de al menos 5 cifras').bail(),
     //check('pswrepeat').equals('psw').withMessage('Las passwords deben coincidir').bail(),
     check('pais').notEmpty().withMessage('Debe informar su pais').bail(),
-    check('foto').notEmpty().withMessage('Debe subir su foto'),
+    //check('foto').notEmpty().withMessage('Debe subir su foto'),
     
 ]
     

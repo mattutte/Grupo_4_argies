@@ -19,10 +19,12 @@
 
       
       
-      <% if(locals.errores && !errores.length == 0){%>
-        <% locals.errores.forEach(error =>{ %>
-        <t3> <%= error.msg %></t3>
+      <% if(locals.errores && errores != undefined){ %>
+        <% errores.errors.forEach(error =>{ %>
+          <t3> <%= error.msg %> </t3>
         <% }) %>
+        
+        
       <% } %>
 
       <br>
@@ -49,7 +51,7 @@
          <br>
    
          <label for="foto"><b>Foto </b></label>
-         <input type="file" placeholder="Subir foto" name="foto" value="foto">
+         <input type="file" placeholder="Subir foto" name="foto">
 
          <p> </p>
         
