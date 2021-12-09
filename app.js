@@ -33,6 +33,9 @@ app.set('views', path.join(__dirname, '/views')); // Define la ubicación de la 
 const mainRouter = require('./routes/mainRouter');
 app.use('/',mainRouter); 
 
+
+app.use(session({secret: "cazaka"}));
+
 app.listen(3000, () => {
     console.log("Servidor corriendo");
 });
