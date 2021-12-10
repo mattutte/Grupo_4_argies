@@ -147,8 +147,15 @@
             <nav class="nav-right-menu">
                 <div class="nav-right-items">
                     <div class="nav-right-item"><a href="#">Sobre nosotros</a></div>
-                    <div class="nav-right-item"><a href="/signup">Registrate</a></div>
-                    <div class="nav-right-item"><a href="/signin">Sign in</a></div>
+                    <% if (!locals.session.loggedin){ %>
+                        <div class="nav-right-item"><a href="/signup">Registrate</a></div>
+                        <div class="nav-right-item"><a href="/signin">Sign in</a></div>
+                        <% } else{ %>
+                            <div class="nav-right-item"><a href="/account">Cuenta</a></div>
+                            <form action='/logout' method='POST' class='nav-right-item'>
+                                <button type='submit'>Log out</button>
+                            </form>
+                            <% } %>
                 </div>   
             </nav> 
         </div>
@@ -812,11 +819,13 @@
                                 <span class='price'>ARS$ 41.115</span>
                             </p>
                             <div class='actions'>
-                                <button type='button' title='Ver carrito' class='button btn-cart'>
-                                    <span>
-                                        <span>Ver carrito</span>
-                                    </span>
-                                </button>
+                                <a href='/cart'>
+                                    <button type='button' title='Ver carrito' class='button btn-cart'>
+                                        <span>
+                                            <span>Ver carrito</span>
+                                        </span>
+                                    </button>
+                                </a>
                                 <button type='button' title='Finalizar compra' class='button btn-checkout'>
                                     <span>
                                         <span>Finalizar compra</span>

@@ -4,6 +4,7 @@ const router = express.Router();
 var validator = require('express-validator');
 const {check} = require('express-validator');
 
+const redirectLogin = require('../middleware/redirectLogin');
 
 // ************ Multer configuration ************
 const multer = require('multer'); // require multer
@@ -77,6 +78,10 @@ router.post('/signin',mainController.checksignin);
 
 router.get('/signup',mainController.signup);
 router.post('/signup', upload.single('foto'), validations ,mainController.crearperfil);
+
+router.get('/check', mainController.check);
+
+router.post('/logout',mainController.logout);
 
 /*** SHOPPING CART ACCESS***/ 
 router.get('/shopping-cart',mainController.shoppingcart);

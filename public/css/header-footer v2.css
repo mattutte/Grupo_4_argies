@@ -349,9 +349,17 @@ header {
     padding: 0.75rem;       /*bajar a 0.25 para 1024*/
 }
 
-.nav-right-item a {
+.nav-right-item a, .nav-right-item button {
     color: white;
     font-size: 14px;        /*bajar a 12px para 1024*/
+}
+
+.nav-right-item button {
+    background-color: transparent;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+
 }
 
 .nav-right-item:hover {
