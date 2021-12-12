@@ -8,14 +8,13 @@ const methodOverride =  require('method-override'); // Pasar poder usar los mét
 
 // ************ express() - (don't touch) ************
 const app = express();
-const session = require('express-session');
-	
+
+const recordarUsuario = require('./middleware/recordameMiddleware')	
 
 // ************ Middlewares - (don't touch) ************
 //app.use(express.static(path.join(__dirname, '../public')));  // Necesario para los archivos estáticos en el folder /public
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
-app.use(session({secret:'nombre del sitio', resave: false, saveUninitialized: true }));
 //app.use(logger('dev'));
 app.use(express.json());
 app.use(cookieParser());
@@ -26,12 +25,31 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views')); // Define la ubicación de la carpeta de las Vistas
 
 
+// ************ Configurando Session ************
+const session = require('express-session');
+app.use(session({
+    secret:'cazaca', 
+    resave: true, 
+    saveUninitialized: true, 
+    /*cookie: {
+        secure: false
+    }*/
+}));
+
+app.use(function (req, res, next) {
+    res.locals.session = req.session;
+    next();
+});
 
 // ************ WRITE YOUR CODE FROM HERE ************
 // ************ Route System require and use() ************
- 
+
+
 const mainRouter = require('./routes/mainRouter');
 app.use('/',mainRouter); 
+
+
+app.use(recordarUsuario);
 
 app.listen(3000, () => {
     console.log("Servidor corriendo");

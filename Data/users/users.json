@@ -63,17 +63,6 @@
   "images": "foto-1638567141405.jpeg"
  },
  {
-  "id": 6,
-  "email": "tomasheguy@gmail.com",
-  "password": "$2a$10$oFuQPKm9PfboxJTC/7m3Ue1kbF8tEVJf/HAP/TKvi8tIY3WaD0aBu",
-  "direccion": "",
-  "pais": "Argentina",
-  "seleccionFavorita": "",
-  "equipoLocFav": "",
-  "mayor": false,
-  "images": "foto-1638930189426.jpeg"
- },
- {
   "id": 7,
   "email": "theguy@me.com",
   "password": "$2a$10$QRLhOChFl6FgbEhHLMR2juLkNi9x19HtZYMp5xHj9HA9vA.whBjyW",
@@ -149,5 +138,16 @@
   "equipoLocFav": "",
   "mayor": false,
   "images": "foto-1639017265908.jpeg"
+ },
+ {
+  "id": 14,
+  "email": "tomasheguy@gmail.com",
+  "password": "$2a$10$P4Y.rnn8NQ9YXbz6DoxEN.SywATZpuSgf2XBx206Oo21SOSrYM8lu",
+  "direccion": "",
+  "pais": "UK",
+  "seleccionFavorita": "",
+  "equipoLocFav": "",
+  "mayor": false,
+  "images": "foto-1639325362742.jpeg"
  }
 ]

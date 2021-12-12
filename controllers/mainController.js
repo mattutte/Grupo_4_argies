@@ -37,24 +37,33 @@ let mainController = {
         const usuarioCheckIn = usuarios.find((usuario) => usuario.email == req.body.email);
         console.log(usuarioCheckIn);
         const errorMessage = 'el email o el password no coinciden con nuestros registros';
-        if(usuarioCheckIn){
+
+        if(usuarioCheckIn){ //usuario existe (está registrado)
             //let emailUsuario = usuarioCheckIn.email;
             const passwordEncriptadaUsuario = usuarioCheckIn.password;
-            console.log(passwordEncriptadaUsuario);
+            //console.log(passwordEncriptadaUsuario);
             const bcrypt = require('bcryptjs');
             const check = bcrypt.compareSync(req.body.psw, passwordEncriptadaUsuario);
-            console.log(check);
-            if(check){
-                res.render('home',{products,usuarioCheckIn})
-            }else{
-                console.log(errorMessage[0]);
-                res.render('signin', {errorMessage});
-                         
+            //console.log(check);
+
+            if(check){  //usuario existe y la contraseña es correcta
+                req.session.usuario = usuarioCheckIn.id;
+                req.session.loggedin = true;
+                req.session.save();
+                if (req.body.remember != undefined){
+                    res.cookie('usuarioRecordado', usuarioCheckIn.email, {maxAge: 2700000});
+                }
+                return res.redirect('/');
+            }else{  //usuario existe, pero ingresó mal la contraseña
+                //console.log(errorMessage[0]);
+                res.render('signin', {errorMessage});                         
             }
+
         }else{
-            console.log(errorMessage[0]);
+            //console.log(errorMessage[0]);
             res.render('signin',{errorMessage});         
         };
+        req.session.save();
     },
     
     signup: (req,res)=>{
@@ -71,6 +80,10 @@ let mainController = {
         console.log(errores);
         //console.log(errores.keys.length);
         //console.log(errores.msg)
+
+        //agregar control de que el email no sea repetido;
+
+        //agregar control de que el email del segundo campo sea igual al ingresado en el campo anterior;
         
 
         
@@ -310,6 +323,22 @@ let mainController = {
 
     checkCart: (req,res)=>{
         res.render('cart v2', {cart_basket, products, user: 2});
+    },
+
+    check: (req, res) => {
+        console.log("ejecutando check");
+        console.log("almacenado en session:")
+        console.log(req.session.usuario);
+        if(req.session.usuario != undefined){
+            res.send("estas logueado");
+        } else {
+            res.send("no estás logueado");
+        }
+    },
+
+    logout: (req, res) => {
+        req.session.destroy(null);
+        res.redirect('/');
     }
 
 };
