@@ -36,6 +36,7 @@ app.use(session({
     }*/
 }));
 
+// res local session permite que este disponible el valor session en todas las paginas para ver si estas loggeado
 app.use(function (req, res, next) {
     res.locals.session = req.session;
     next();
