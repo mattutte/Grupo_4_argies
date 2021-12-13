@@ -36,7 +36,7 @@
         </div>
 
         <div class="nav-search">
-            <form class="nav-searchbar">
+            <form class="nav-searchbar" action='/productsearch'>
                 <div class="nav-left">
                     <div class="nav-search-dropdown">
                         <span class="nav-search-label">All</span>
@@ -146,7 +146,7 @@
 
             <nav class="nav-right-menu">
                 <div class="nav-right-items">
-                    <div class="nav-right-item"><a href="#">Sobre nosotros</a></div>
+                    <div class="nav-right-item"><a href="/aboutUs">Sobre nosotros</a></div>
                     <% if (!locals.session.loggedin){ %>
                         <div class="nav-right-item"><a href="/signup">Registrate</a></div>
                         <div class="nav-right-item"><a href="/signin">Sign in</a></div>
@@ -760,80 +760,82 @@
                 <div class='cart'>
                     <a href="#" alt="Shopping Cart" class='cart-header'><i class="fas fa-shopping-cart" id="shopping-cart-top-menu"></i></a>
                     <!-- SHOPPING CART (Menu desplegable) -->
-                    <div class='cart-content'>
-                        <div class='cart-indent'>
-                            <ol id='cart-sidebar' class='mini-products-list'>
+                    <% if (locals.session.loggedin){ %>
+                        <div class='cart-content'>
+                            <div class='cart-indent'>
+                                <ol id='cart-sidebar' class='mini-products-list'>
 
-                                <li class='cart-item'>
-                                    <div class='product-control-buttons'>
-                                        <a title='quitar' class='btn-remove'></a>
-                                    </div>
-                                    <span class='cart-product-image'>
-                                        <div class='center'>
-                                            <img src='/images/camiseta3.jpeg'>
+                                    <li class='cart-item'>
+                                        <div class='product-control-buttons'>
+                                            <a title='quitar' class='btn-remove'></a>
                                         </div>
-                                    </span>
-                                    <p class='cart-product-name'>AC MILAN 21/22 HOME JERSEY BY PUMA</p>
-                                    <div class='cart-product-details'>
-                                        <strong>2</strong>
-                                        x 
-                                        <span class='price'>ARS$ 9.200</span>
-                                    </div>
-                                </li>
-                                <li class='cart-item'>
-                                    <div class='product-control-buttons'>
-                                        <a title='quitar' class='btn-remove'></a>
-                                    </div>
-                                    <span class='cart-product-image'>
-                                        <div class='center'>
-                                            <img src='/images/camiseta2.jpeg'>
+                                        <span class='cart-product-image'>
+                                            <div class='center'>
+                                                <img src='/images/camiseta3.jpeg'>
+                                            </div>
+                                        </span>
+                                        <p class='cart-product-name'>AC MILAN 21/22 HOME JERSEY BY PUMA</p>
+                                        <div class='cart-product-details'>
+                                            <strong>2</strong>
+                                            x 
+                                            <span class='price'>ARS$ 9.200</span>
                                         </div>
-                                    </span>
-                                    <p class='cart-product-name'>INTER MILAN 21/22 AUTHENTIC HOME JERSEY</p>
-                                    <div class='cart-product-details'>
-                                        <strong>1</strong>
-                                        x 
-                                        <span class='price'>ARS$ 6.332</span>
-                                    </div>
-                                </li>
-                                <li class='cart-item'>
-                                    <div class='product-control-buttons'>
-                                        <a title='quitar' class='btn-remove'></a>
-                                    </div>
-                                    <span class='cart-product-image'>
-                                        <div class='center'>
-                                            <img src='/images/camiseta1.jpeg'>
+                                    </li>
+                                    <li class='cart-item'>
+                                        <div class='product-control-buttons'>
+                                            <a title='quitar' class='btn-remove'></a>
                                         </div>
-                                    </span>
-                                    <p class='cart-product-name'>IJUVENTUS 21/22 AUTHENTIC HOME JERSEY</p>
-                                    <div class='cart-product-details'>
-                                        <strong>3</strong>
-                                        x 
-                                        <span class='price'>ARS$ 5.461</span>
-                                    </div>
-                                </li>
+                                        <span class='cart-product-image'>
+                                            <div class='center'>
+                                                <img src='/images/camiseta2.jpeg'>
+                                            </div>
+                                        </span>
+                                        <p class='cart-product-name'>INTER MILAN 21/22 AUTHENTIC HOME JERSEY</p>
+                                        <div class='cart-product-details'>
+                                            <strong>1</strong>
+                                            x 
+                                            <span class='price'>ARS$ 6.332</span>
+                                        </div>
+                                    </li>
+                                    <li class='cart-item'>
+                                        <div class='product-control-buttons'>
+                                            <a title='quitar' class='btn-remove'></a>
+                                        </div>
+                                        <span class='cart-product-image'>
+                                            <div class='center'>
+                                                <img src='/images/camiseta1.jpeg'>
+                                            </div>
+                                        </span>
+                                        <p class='cart-product-name'>IJUVENTUS 21/22 AUTHENTIC HOME JERSEY</p>
+                                        <div class='cart-product-details'>
+                                            <strong>3</strong>
+                                            x 
+                                            <span class='price'>ARS$ 5.461</span>
+                                        </div>
+                                    </li>
 
-                            </ol>
-                            <p class='subtotal'>
-                                <span class='label'>Subtotal del carrito:</span>
-                                <span class='price'>ARS$ 41.115</span>
-                            </p>
-                            <div class='actions'>
-                                <a href='/cart'>
-                                    <button type='button' title='Ver carrito' class='button btn-cart'>
+                                </ol>
+                                <p class='subtotal'>
+                                    <span class='label'>Subtotal del carrito:</span>
+                                    <span class='price'>ARS$ 41.115</span>
+                                </p>
+                                <div class='actions'>
+                                    <a href='/cart'>
+                                        <button type='button' title='Ver carrito' class='button btn-cart'>
+                                            <span>
+                                                <span>Ver carrito</span>
+                                            </span>
+                                        </button>
+                                    </a>
+                                    <button type='button' title='Finalizar compra' class='button btn-checkout'>
                                         <span>
-                                            <span>Ver carrito</span>
+                                            <span>Finalizar compra</span>
                                         </span>
                                     </button>
-                                </a>
-                                <button type='button' title='Finalizar compra' class='button btn-checkout'>
-                                    <span>
-                                        <span>Finalizar compra</span>
-                                    </span>
-                                </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    <% } %>
                 </div>
             </div>
 

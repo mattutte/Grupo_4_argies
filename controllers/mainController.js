@@ -15,6 +15,7 @@ const cart_basket = JSON.parse(fs.readFileSync(basketFilePath, 'utf-8'));
 // Acá nos falta un objeto literal con las acciones para cada ruta
 let mainController = {
     home: (req,res)=>{
+        console.log('entré al home');
         res.render('home',{products})
     },
     
@@ -51,7 +52,7 @@ let mainController = {
                 req.session.loggedin = true;
                 req.session.save();
                 if (req.body.remember != undefined){
-                    res.cookie('usuarioRecordado', usuarioCheckIn.email, {maxAge: 2700000});
+                    res.cookie('usuarioRecordado', usuarioCheckIn.id, {maxAge: 1800000}); //Duracion de cookie: 30 minutos
                 }
                 return res.redirect('/');
             }else{  //usuario existe, pero ingresó mal la contraseña
@@ -338,8 +339,21 @@ let mainController = {
 
     logout: (req, res) => {
         req.session.destroy(null);
+        res.clearCookie('usuarioRecordado');
         res.redirect('/');
-    }
+    },
+
+    aboutUs: (req,res)=>{
+        res.render('aboutUs');
+    },
+
+    account: (req,res)=>{
+        res.render('account');
+    },
+
+    faq: (req,res)=>{
+        res.render('faq');
+    },
 
 };
 

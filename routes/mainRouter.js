@@ -4,7 +4,8 @@ const router = express.Router();
 var validator = require('express-validator');
 const {check} = require('express-validator');
 
-const redirectLogin = require('../middleware/redirectLogin');
+const checkAccess = require('../middleware/authMiddleware');
+const redirect = require('../middleware/redirect');
 
 // ************ Multer configuration ************
 const multer = require('multer'); // require multer
@@ -57,14 +58,14 @@ router.get('/productsearch',mainController.productSearch);
 router.get('/product/:id',mainController.product);
 
 /*** ADD AND EDIT PRODUCT ***/
-router.get('/admin',mainController.admin);
+router.get('/admin', checkAccess, mainController.admin);
 
-router.get('/addProduct',mainController.addProduct);
+router.get('/addProduct', checkAccess, mainController.addProduct);
 router.post('/productSearch', upload.fields([{name:'images-main'},{name:'images-front'},{name:'images-back'}]),mainController.store);
-router.get('/cart', mainController.checkCart);
+router.get('/cart', redirect.register, mainController.checkCart);
 
-router.get('/product/pre_edit/:id',mainController.pre_edit);
-router.get('/product/edit/:id',mainController.editProduct);
+router.get('/product/pre_edit/:id', checkAccess, mainController.pre_edit);
+router.get('/product/edit/:id', checkAccess, mainController.editProduct);
 router.put('/product/:id', upload.fields([{name:'images-main'},{name:'images-front'},{name:'images-back'}]), mainController.update); // los datos del formulario vienen por body
 
 
@@ -73,15 +74,21 @@ router.delete('/product/:id', mainController.destroy);
 
 /*** USER ACCESS AND INFO***/ 
 
-router.get('/signin',mainController.signin);
+router.get('/signin', mainController.signin);
 router.post('/signin',mainController.checksignin);
 
-router.get('/signup',mainController.signup);
+router.get('/signup',redirect.account, mainController.signup);
 router.post('/signup', upload.single('foto'), validations ,mainController.crearperfil);
 
 router.get('/check', mainController.check);
 
 router.post('/logout',mainController.logout);
+
+router.get('/aboutUs',mainController.aboutUs);
+
+router.get('/account',redirect.register, mainController.account)
+
+router.get('/faq', mainController.faq)
 
 /*** SHOPPING CART ACCESS***/ 
 router.get('/shopping-cart',mainController.shoppingcart);
