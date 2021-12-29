@@ -10,10 +10,10 @@ CREATE TABLE `users` (
    `last_name` char(100) NOT NULL,
    `country` TEXT NOT NULL,
    `face_pic` TEXT NOT NULL,
-   `category` int NOT NULL,
+   `category` INT NOT NULL,
    `fav_national_team` INT,
-   `fav_team` int,
-   `adult` BOOL NOT NULL,
+   `fav_team` INT,
+   `adult` TEXT NOT NULL,
    PRIMARY KEY (`email`),
    FOREIGN KEY (`category`) REFERENCES `user_categories` (`id`),
    FOREIGN KEY (`fav_national_team`) REFERENCES `national_teams` (`id`),
@@ -57,7 +57,7 @@ CREATE TABLE `teams` (
 DROP TABLE IF EXISTS `championship_teams`;
 CREATE TABLE `championship_teams` (
    `id` INT NOT NULL,
-   `league_championship` int NOT NULL,
+   `league_championship` INT NOT NULL,
    `team` INT NOT NULL,
    PRIMARY KEY (`id`),
    FOREIGN KEY (`team`) REFERENCES `teams` (`id`),
@@ -84,7 +84,7 @@ CREATE TABLE `products` (
    `caption` TEXT,
    `rating_value` NUMERIC,
    `rating_num_comments` INT,
-   `returnable` BOOLEAN NOT NULL,
+   `returnable` TEXT NOT NULL,
    `delivery_time` TEXT NOT NULL,
    `sizes_available` TEXT NOT NULL,
    `q_available` INT NOT NULL,
@@ -106,7 +106,7 @@ CREATE TABLE `brands` (
 DROP TABLE IF EXISTS `multimedia_produt`;
 CREATE TABLE `multimedia_produt` (
    `id` INT NOT NULL,
-   `product` int NOT NULL,
+   `product` INT NOT NULL,
    `type` text NOT NULL,
    `description` TEXT NOT NULL,
    `name` TEXT NOT NULL,
@@ -145,8 +145,8 @@ CREATE TABLE `installments_schemes` (
    `id` INT NOT NULL,
    `bank_id` int NOT NULL,
    `installments` INT NOT NULL,
-   `fixed` BOOLEAN NOT NULL,
-   `interest_rate` FLOAT4,
+   `fixed` TEXT NOT NULL,
+   `interest_rate` FLOAT,
    PRIMARY KEY (`id`),
    FOREIGN KEY (`banks_id`) REFERENCES `banks` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -163,8 +163,8 @@ DROP TABLE IF EXISTS `installments_products`;
 CREATE TABLE `installments_products` (
    `id` INT NOT NULL,
    `name` TEXT,
-   `installments_id` int NOT NULL,
-   `product_id` int NOT NULL
+   `installments_id` INT NOT NULL,
+   `product_id` INT NOT NULL
    PRIMARY KEY (),
    FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
    FOREIGN KEY (`installments_id`) REFERENCES `installment_schemes` (`id`)
@@ -188,7 +188,7 @@ CREATE TABLE `product_category` (
 
 DROP TABLE IF EXISTS `shopping_cart`;
 CREATE TABLE `shopping_cart` (
-   `id` int NOT NULL,
+   `id` INT NOT NULL,
    `email_user` TEXT NOT NULL,
    `q_products` INT,
    `total_price` NUMERIC,
