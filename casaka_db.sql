@@ -13,7 +13,8 @@ CREATE TABLE `users` (
    `category` INT NOT NULL,
    `fav_national_team` INT,
    `fav_team` INT,
-   `adult` TEXT NOT NULL,
+   `adult` TEXT,
+   `admin` TEXT,
    PRIMARY KEY (`email`),
    FOREIGN KEY (`category`) REFERENCES `user_categories` (`id`),
    FOREIGN KEY (`fav_national_team`) REFERENCES `national_teams` (`id`),
@@ -207,42 +208,42 @@ CREATE TABLE `shopping_cart_content` (
 ) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
-ALTER TABLE `Users` ADD CONSTRAINT `FK_44b8f5cd-51a5-4569-95b6-e08d0395adf5` FOREIGN KEY (`fav_national_team`) REFERENCES `national_teams`(`id`)  ;
+-- ALTER TABLE `Users` ADD CONSTRAINT `FK_44b8f5cd-51a5-4569-95b6-e08d0395adf5` FOREIGN KEY (`fav_national_team`) REFERENCES `national_teams`(`id`)  ;
 
-ALTER TABLE `Users` ADD CONSTRAINT `FK_4fb465c8-d6d5-49c3-825e-f2e59ac61ab4` FOREIGN KEY (`fav_team`) REFERENCES `teams`(`id`)  ;
+-- ALTER TABLE `Users` ADD CONSTRAINT `FK_4fb465c8-d6d5-49c3-825e-f2e59ac61ab4` FOREIGN KEY (`fav_team`) REFERENCES `teams`(`id`)  ;
 
-ALTER TABLE `Users` ADD CONSTRAINT `FK_faeacb00-0c5a-477c-a92a-392e558d78e7` FOREIGN KEY (`category`) REFERENCES `user_categories`(`id`)  ;
+-- ALTER TABLE `Users` ADD CONSTRAINT `FK_faeacb00-0c5a-477c-a92a-392e558d78e7` FOREIGN KEY (`category`) REFERENCES `user_categories`(`id`)  ;
 
-ALTER TABLE `league_championships` ADD CONSTRAINT `FK_7d889b46-5429-4cdb-9644-900509442aeb` FOREIGN KEY (`league`) REFERENCES `leagues`(`id`)  ;
+-- ALTER TABLE `league_championships` ADD CONSTRAINT `FK_7d889b46-5429-4cdb-9644-900509442aeb` FOREIGN KEY (`league`) REFERENCES `leagues`(`id`)  ;
 
-ALTER TABLE `championship_teams` ADD CONSTRAINT `FK_50dd2f5d-d859-4f97-8804-059489cc2066` FOREIGN KEY (`league_championship`) REFERENCES `league_championships`(`id`)  ;
+-- ALTER TABLE `championship_teams` ADD CONSTRAINT `FK_50dd2f5d-d859-4f97-8804-059489cc2066` FOREIGN KEY (`league_championship`) REFERENCES `league_championships`(`id`)  ;
 
-ALTER TABLE `championship_teams` ADD CONSTRAINT `FK_b86f84be-8af2-4730-bb8f-1cadff2a9ddb` FOREIGN KEY (`team`) REFERENCES `teams`(`id`)  ;
+-- ALTER TABLE `championship_teams` ADD CONSTRAINT `FK_b86f84be-8af2-4730-bb8f-1cadff2a9ddb` FOREIGN KEY (`team`) REFERENCES `teams`(`id`)  ;
 
-ALTER TABLE `products` ADD CONSTRAINT `FK_429da5b2-5ff7-4221-8830-30546464dc49` FOREIGN KEY (`brand`) REFERENCES `brands`(`id`)  ;
+-- ALTER TABLE `products` ADD CONSTRAINT `FK_429da5b2-5ff7-4221-8830-30546464dc49` FOREIGN KEY (`brand`) REFERENCES `brands`(`id`)  ;
 
-ALTER TABLE `products` ADD CONSTRAINT `FK_8b4ace04-83a8-4cfd-9160-6f582b42fa1a` FOREIGN KEY (`championship_team`) REFERENCES `championship_teams`(`id`)  ;
+-- ALTER TABLE `products` ADD CONSTRAINT `FK_8b4ace04-83a8-4cfd-9160-6f582b42fa1a` FOREIGN KEY (`championship_team`) REFERENCES `championship_teams`(`id`)  ;
 
-ALTER TABLE `products` ADD CONSTRAINT `FK_5a022415-8054-479b-9297-f9221afc538a` FOREIGN KEY (`national_team`) REFERENCES `national_teams`(`id`)  ;
+-- ALTER TABLE `products` ADD CONSTRAINT `FK_5a022415-8054-479b-9297-f9221afc538a` FOREIGN KEY (`national_team`) REFERENCES `national_teams`(`id`)  ;
 
-ALTER TABLE `multimedia_produt` ADD CONSTRAINT `FK_587d4f1f-91eb-41e9-ac80-c3b6b1800d5b` FOREIGN KEY (`product`) REFERENCES `products`(`id`)  ;
+-- ALTER TABLE `multimedia_produt` ADD CONSTRAINT `FK_587d4f1f-91eb-41e9-ac80-c3b6b1800d5b` FOREIGN KEY (`product`) REFERENCES `products`(`id`)  ;
 
-ALTER TABLE `product_inventory` ADD CONSTRAINT `FK_30ba61dc-3fa7-4f25-bc52-aff34eb9dcbe` FOREIGN KEY (`product_id`) REFERENCES `products`(`id`)  ;
+-- ALTER TABLE `product_inventory` ADD CONSTRAINT `FK_30ba61dc-3fa7-4f25-bc52-aff34eb9dcbe` FOREIGN KEY (`product_id`) REFERENCES `products`(`id`)  ;
 
-ALTER TABLE `product_inventory` ADD CONSTRAINT `FK_6532f3d0-bf60-45af-a1b3-e781afe0503e` FOREIGN KEY (`category`) REFERENCES `product_category`(`id`)  ;
+-- ALTER TABLE `product_inventory` ADD CONSTRAINT `FK_6532f3d0-bf60-45af-a1b3-e781afe0503e` FOREIGN KEY (`category`) REFERENCES `product_category`(`id`)  ;
 
-ALTER TABLE `product_ratings` ADD CONSTRAINT `FK_ce6ad001-1d49-49e9-816c-e55e78b9700f` FOREIGN KEY (`product_id`) REFERENCES `products`(`id`)  ;
+-- ALTER TABLE `product_ratings` ADD CONSTRAINT `FK_ce6ad001-1d49-49e9-816c-e55e78b9700f` FOREIGN KEY (`product_id`) REFERENCES `products`(`id`)  ;
 
-ALTER TABLE `product_ratings` ADD CONSTRAINT `FK_d4fbda50-a4db-49c4-802b-79a389c53647` FOREIGN KEY (`user_id`) REFERENCES `Users`(`email`)  ;
+-- ALTER TABLE `product_ratings` ADD CONSTRAINT `FK_d4fbda50-a4db-49c4-802b-79a389c53647` FOREIGN KEY (`user_id`) REFERENCES `Users`(`email`)  ;
 
-ALTER TABLE `installments_schemes` ADD CONSTRAINT `FK_9650dee7-e66f-4a59-a7a0-f1691349c509` FOREIGN KEY (`bank_id`) REFERENCES `banks`(`id`)  ;
+-- ALTER TABLE `installments_schemes` ADD CONSTRAINT `FK_9650dee7-e66f-4a59-a7a0-f1691349c509` FOREIGN KEY (`bank_id`) REFERENCES `banks`(`id`)  ;
 
-ALTER TABLE `installments_products` ADD CONSTRAINT `FK_dcd32f4f-8209-4a62-9648-13edf697f072` FOREIGN KEY (`installment._id`) REFERENCES `installments_schemes`(`id`)  ;
+-- ALTER TABLE `installments_products` ADD CONSTRAINT `FK_dcd32f4f-8209-4a62-9648-13edf697f072` FOREIGN KEY (`installment._id`) REFERENCES `installments_schemes`(`id`)  ;
 
-ALTER TABLE `installments_products` ADD CONSTRAINT `FK_bdee2147-2fb1-45b1-9b8a-8b8b45cdf068` FOREIGN KEY (`product_id`) REFERENCES `products`(`id`)  ;
+-- ALTER TABLE `installments_products` ADD CONSTRAINT `FK_bdee2147-2fb1-45b1-9b8a-8b8b45cdf068` FOREIGN KEY (`product_id`) REFERENCES `products`(`id`)  ;
 
-ALTER TABLE `shopping_cart` ADD CONSTRAINT `FK_9fe0f2f1-4633-4f84-afc5-3667570c1897` FOREIGN KEY (`email_user`) REFERENCES `Users`(`email`)  ;
+-- ALTER TABLE `shopping_cart` ADD CONSTRAINT `FK_9fe0f2f1-4633-4f84-afc5-3667570c1897` FOREIGN KEY (`email_user`) REFERENCES `Users`(`email`)  ;
 
-ALTER TABLE `shopping_cart_content` ADD CONSTRAINT `FK_8fd8f977-3ae9-45a5-8079-a3511c696fe3` FOREIGN KEY (`id_product_in_inventory`) REFERENCES `product_inventory`(`id`)  ;
+-- ALTER TABLE `shopping_cart_content` ADD CONSTRAINT `FK_8fd8f977-3ae9-45a5-8079-a3511c696fe3` FOREIGN KEY (`id_product_in_inventory`) REFERENCES `product_inventory`(`id`)  ;
 
-ALTER TABLE `shopping_cart_content` ADD CONSTRAINT `FK_098a60f2-761c-476f-9731-ba09dc4426cf` FOREIGN KEY (`shopping_cart`) REFERENCES `shopping_cart`(`id`)  ;
+-- ALTER TABLE `shopping_cart_content` ADD CONSTRAINT `FK_098a60f2-761c-476f-9731-ba09dc4426cf` FOREIGN KEY (`shopping_cart`) REFERENCES `shopping_cart`(`id`)  ;
