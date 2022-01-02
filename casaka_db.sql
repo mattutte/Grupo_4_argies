@@ -1,6 +1,6 @@
 DROP DATABASE IF EXISTS 'casaka_db';
 CREATE DATABASE  IF NOT EXISTS 'casaka_db';
-USE 'casaka-db';
+USE 'casaka_db';
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
