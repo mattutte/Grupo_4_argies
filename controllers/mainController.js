@@ -17,16 +17,18 @@ const db = require('../database/models')
 // Acá nos falta un objeto literal con las acciones para cada ruta
 let mainController = {
     home: (req, res) => {
-        db.product.findAll({
-            order:[['rating','DESC']],
-            include:[{association:'brand'}]
-    }).then((products)=>{
-        res.render('home',{products,brands})
-    })
-    .catch((error)=>{
-        console.log(error);
-        res.send(500);
-    });
+        db.products.findAll({
+                order: [
+                    ['rating', 'DESC']
+                ],
+                include: [{ association: 'brand' }]
+            }).then((products) => {
+                res.render('home', { products, brands })
+            })
+            .catch((error) => {
+                console.log(error);
+                res.send(500);
+            });
 
         // modificar con sequilize
         //console.log('entré al home');
@@ -36,16 +38,16 @@ let mainController = {
     product: (req, res) => {
         const id = req.params.id;
         db.product.findByPk(id)({
-            include:[{association:'brand'}]
-        })
-        .then((product)=>{
-            res.render('product', {product,brand});
-        })
-        .catch((error)=>{
-            console.log(error);
-            res.send(500);
-        });
-        
+                include: [{ association: 'brand' }]
+            })
+            .then((product) => {
+                res.render('product', { product, brand });
+            })
+            .catch((error) => {
+                console.log(error);
+                res.send(500);
+            });
+
         // modificar con sequilize
         //const product = products.find((prod) => prod.id == req.params.id);
         //res.render('product', { products, product })
@@ -53,16 +55,18 @@ let mainController = {
 
     productSearch: (req, res) => {
 
-        db.product.findAll({
-            order:[['rating','DESC']],
-            include:[{association:'brand'}]
-        }).then((products)=>{
-            res.render("productSearch", { products, resultsPerPage: 12 })
-        })
-        .catch((error)=>{
-            console.log(error);
-            res.send(500);
-        });
+        db.products.findAll({
+                order: [
+                    ['rating', 'DESC']
+                ],
+                include: [{ association: 'brand' }]
+            }).then((products) => {
+                res.render("productSearch", { products, resultsPerPage: 12 })
+            })
+            .catch((error) => {
+                console.log(error);
+                res.send(500);
+            });
         //modificar con sequilize 
         //res.render('productSearch', { products, resultsPerPage: 12 })
     },
@@ -254,14 +258,14 @@ let mainController = {
     pre_edit: (req, res) => {
         const id = req.params.id;
         db.product.findByPk(id)
-        .then((productToEdit)=>{
-            res.render('product-pre-edit', {productToEdit});
-        })
-        .catch((error)=>{
-            console.log(error);
-            res.send(500);
-        });
-        
+            .then((productToEdit) => {
+                res.render('product-pre-edit', { productToEdit });
+            })
+            .catch((error) => {
+                console.log(error);
+                res.send(500);
+            });
+
         // modificar form con nueva estructure SQL
         //const productToEdit = products.find((prod) => prod.id == req.params.id);
         //res.render('product-pre-edit', { productToEdit })
@@ -270,57 +274,54 @@ let mainController = {
     editProduct: (req, res) => {
         const id = req.params.id;
         db.product.findByPk(id)
-        .then((productToEdit)=>{
-            res.render('product-edit-form v3', {productToEdit});
-        })
-        .catch((error)=>{
-            console.log(error);
-            res.send(500);
-        });
-        
+            .then((productToEdit) => {
+                res.render('product-edit-form v3', { productToEdit });
+            })
+            .catch((error) => {
+                console.log(error);
+                res.send(500);
+            });
+
         // modificar form con nueva estructure SQL
         //const productToEdit = products.find((prod) => prod.id == req.params.id);
         //res.render('product-edit-form v2', { productToEdit })
     },
 
     update: (req, res) => {
-    const id = req.params.id;
-            db.product.update(
-                {
-                    category: req.body.category ? req.body.category : productToEdit.category,
-                    name_product: req.body.name ? req.body.name : productToEdit.name_product,
-                    brand: req.body.brand ? req.body.brand : productToEdit.brand,
-                    description_product: req.body.description ? req.body.description : productToEdit.description_product,
-                    year_created: req.body.year ? req.body.year : productToEdit.year_created,
-                    features_style: req.body.features_style ? req.body.features_style : productToEdit.features_style,
-                    features_gender: req.body.features_style ? req.body.features_gender : productToEdit.features_style,
-                    features_use: req.body.features_style ? req.body.features_use : productToEdit.features_style,
-                    features_others: req.body.features_style ? req.body.features_others : productToEdit.features_style,
-                    regular_price: Number(req.body.regularPrice) ? req.body.regularPrice : productToEdit.regular_price,
-                    special_price: Number(req.body.specialPrice) ? req.body.specialPrice : productToEdit.special_price,
-                    caption: req.body.caption ? req.body.caption : productToEdit.caption,
-                    returnable: req.body.devolucion == 1? 1 : 0,
-                    delivery_time: req.body.delivery_time ? req.body.delivery_time : productToEdit.delivery_time,
-                    weight_package: req.body.weight_package ? req.body.weight_package : productToEdit.weight_package,
-                    color_available: req.body.color_available ? req.body.color_available : productToEdit.color_available,
-                    size_available: req.body.size_available ? req.body.size_available : productToEdit.size_available,
-                    image_main: req.file["images-main"] ? req.file["images-main"].filename : productToEdit.images_main,
-                    image_front: req.file["images-front"] ? req.file["images-front"].filename : productToEdit.images_front,
-                    image_back: req.file["images-back"] ? req.file["images-back"].filename : productToEdit.images_back,
-                 
-                } ,
-                {where:{id :id}}
-             )
-            
-             .then(function(){  
+        const id = req.params.id;
+        db.product.update({
+            category: req.body.category ? req.body.category : productToEdit.category,
+            name_product: req.body.name ? req.body.name : productToEdit.name_product,
+            brand: req.body.brand ? req.body.brand : productToEdit.brand,
+            description_product: req.body.description ? req.body.description : productToEdit.description_product,
+            year_created: req.body.year ? req.body.year : productToEdit.year_created,
+            features_style: req.body.features_style ? req.body.features_style : productToEdit.features_style,
+            features_gender: req.body.features_style ? req.body.features_gender : productToEdit.features_style,
+            features_use: req.body.features_style ? req.body.features_use : productToEdit.features_style,
+            features_others: req.body.features_style ? req.body.features_others : productToEdit.features_style,
+            regular_price: Number(req.body.regularPrice) ? req.body.regularPrice : productToEdit.regular_price,
+            special_price: Number(req.body.specialPrice) ? req.body.specialPrice : productToEdit.special_price,
+            caption: req.body.caption ? req.body.caption : productToEdit.caption,
+            returnable: req.body.devolucion == 1 ? 1 : 0,
+            delivery_time: req.body.delivery_time ? req.body.delivery_time : productToEdit.delivery_time,
+            weight_package: req.body.weight_package ? req.body.weight_package : productToEdit.weight_package,
+            color_available: req.body.color_available ? req.body.color_available : productToEdit.color_available,
+            size_available: req.body.size_available ? req.body.size_available : productToEdit.size_available,
+            image_main: req.file["images-main"] ? req.file["images-main"].filename : productToEdit.images_main,
+            image_front: req.file["images-front"] ? req.file["images-front"].filename : productToEdit.images_front,
+            image_back: req.file["images-back"] ? req.file["images-back"].filename : productToEdit.images_back,
+
+        }, { where: { id: id } })
+
+        .then(function() {
                 res.redirect('/')
             })
-            .catch((error)=>{
+            .catch((error) => {
                 console.log(error);
                 res.send(500);
             });
 
-        
+
         // modificar con sequilize y nueva estructure SQL
 
         // const productIndex = products.findIndex((producto) => {
@@ -473,7 +474,7 @@ let mainController = {
         res.render('faq');
     },
     test: (req, res) => {
-        db.users.findAll().then((result) => {
+        db.shopping_cart_content.findAll().then((result) => {
             res.send(result)
         })
     }

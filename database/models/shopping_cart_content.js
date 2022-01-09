@@ -1,7 +1,19 @@
 module.exports = (sequelize, dataTypes) => {
     let alias = 'shopping_cart_content';
     let cols = {
-
+        id: {
+            type: dataTypes.INTEGER,
+            primaryKey: true,
+            notNull: true
+        },
+        id_product: {
+            type: dataTypes.INTEGER,
+            notNull: true
+        },
+        shopping_cart: {
+            type: dataTypes.INTEGER,
+            notNull: true
+        }
     };
     let config = {
         tableName: 'shopping_cart_content',
