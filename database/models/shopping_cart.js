@@ -1,7 +1,23 @@
 module.exports = (sequelize, dataTypes) => {
     let alias = 'shopping_cart';
     let cols = {
-
+        id: {
+            type: dataTypes.INTEGER,
+            primaryKey: true,
+            notNull: true
+        },
+        email_user: {
+            type: dataTypes.STRING(100),
+            notNull: true
+        },
+        q_products: {
+            type: dataTypes.INTEGER,
+            notNull: true
+        },
+        total_price: {
+            type: dataTypes.FLOAT(2),
+            notNull: true
+        }
     };
     let config = {
         tableName: 'shopping_cart',
@@ -9,6 +25,16 @@ module.exports = (sequelize, dataTypes) => {
     }
 
     const shopping_cart = sequelize.define(alias, cols, config);
+
+    shopping_cart.associate = function(models){
+        shopping_cart.belongsToMany(models.product, {
+            as: "products",
+            through: "shopping_cart_content",
+            foreignKey: "shopping_cart",
+            otherKey: "id_product",
+            timestamps: false
+             })
+        };
 
     return shopping_cart
 }

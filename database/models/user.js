@@ -40,24 +40,28 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING,
             notNull: true
         },
-        category: {
-            type: dataTypes.INTEGER,
+        admin_category: {
+            type: dataTypes.TINYINT(1),
             notNull: true
         },
-        fav_national_team: {
-            type: dataTypes.INTEGER
-        },
         adult: {
-            type: dataTypes.INTEGER
-        },
+            type: dataTypes.TINYINT(1)
+        }
 
     };
     let config = {
         tableName: 'users',
         timestamps: false
-    }
-
+    };
+    
     const user = sequelize.define(alias, cols, config);
 
-    return user
+    user.associate = function(models){
+        user.hasMany(models.product_rating, {
+           as: "product_ratings",
+           foreignKey: "email"
+            })
+        };
+
+    return user;
 }

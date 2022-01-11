@@ -4,9 +4,9 @@ const { response } = require("express")
 const { validationResult } = require("express-validator")
 
 const productsFilePath = path.join(__dirname, '../data/products.json');
-const usuariosFilePath = path.join(__dirname, '../data/users/users.json');
+//const usuariosFilePath = path.join(__dirname, '../data/users/users.json');
 //const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8')); // pasa el json a un array
-const usuarios = JSON.parse(fs.readFileSync(usuariosFilePath, 'utf-8')); // pasa el json a un array
+//const usuarios = JSON.parse(fs.readFileSync(usuariosFilePath, 'utf-8')); // pasa el json a un array
 const basketFilePath = path.join(__dirname, '../data/shopping-cart.json');
 const cart_basket = JSON.parse(fs.readFileSync(basketFilePath, 'utf-8'));
 
@@ -19,14 +19,14 @@ let mainController = {
     home: (req, res) => {
         db.product.findAll({
             order:[['rating','DESC']],
-            include:[{association:'brand'}]
-    }).then((products)=>{
-        res.render('home',{products,brands})
-    })
-    .catch((error)=>{
-        console.log(error);
-        res.send(500);
-    });
+            include:[{association:'brand'},{association:'product_ratings'}]
+        }).then((products)=>{
+            res.render('home',{products})
+        })
+        .catch((error)=>{
+            console.log(error);
+            res.send(500);
+        });
 
         // modificar con sequilize
         //console.log('entré al home');
@@ -36,10 +36,10 @@ let mainController = {
     product: (req, res) => {
         const id = req.params.id;
         db.product.findByPk(id)({
-            include:[{association:'brand'}]
+            include:[{association:'brand'},{association:'product_ratings'}]
         })
         .then((product)=>{
-            res.render('product', {product,brand});
+            res.render('product', product);
         })
         .catch((error)=>{
             console.log(error);
@@ -55,7 +55,7 @@ let mainController = {
 
         db.product.findAll({
             order:[['rating','DESC']],
-            include:[{association:'brand'}]
+            include:[{association:'brand'},{association:'product_ratings'}]
         }).then((products)=>{
             res.render("productSearch", { products, resultsPerPage: 12 })
         })
@@ -171,8 +171,16 @@ let mainController = {
     },
 
     addProduct: (req, res) => {
+        db.brand.findAll()
+        .then((brands)=>{
+        
+        res.render('product-add-form v3',{brands:brands})
+        })
+        .catch((error)=>{
+            console.log(error);
+            res.send(500);
+        });
         // modificar form segun nuevo SQL
-        res.render('product-add-form v2')
     },
 
     store: (req, res) => {
@@ -180,82 +188,128 @@ let mainController = {
         console.log(req.body);
         console.log(req.files);
 
-        //Procesando características -----------------------------------
-        let caracteristicas_req = [req.body.caract_1, req.body.caract_2, req.body.caract_3, req.body.caract_4];
-        let caracteristicas_def = []
+        db.product.create(
+            {
 
-        caracteristicas_req.forEach(caracteristica => {
-            if (typeof(caracteristica) != "undefined") {
-                caracteristicas_def.push(caracteristica);
-            }
-        });
+                category: req.body.category,
+                name_product: req.body.name,
+                brand: req.body.brand,
+                description_product: req.body.description,
+                year_created: Number(req.body.year),
+                features_style: req.body.features_style,
+                features_gender: req.body.features_style,
+                features_use: req.body.features_style,
+                features_others: req.body.features_style,
+                regular_price: Number(req.body.regularPrice),
+                special_price: Number(req.body.specialPrice),
+                returnable: req.body.devolucion == 1? 1 : 0,
+                delivery_time: req.body.delivery_time,
+                weight_package: Number(req.body.weight_package),
+                color_available: req.body.color_available,
+                size_available: req.body.size_available,
+                image_main: req.file["images-main"].filename,
+                image_front: req.file["images-front"] ? req.file["images-front"].filename : "",
+                image_back: req.file["images-back"] ? req.file["images-back"].filename : ""
+             
+            } 
+         ).then(function(){
+             db.product.findAll({
+                include:[{association:'brand'},{association:'product_ratings'}],
+                order:[['rating','DESC']]
+         })})
+         .then((products)=>{
+             res.render('productSearch',products)
+         })
+
+        //Procesando características -----------------------------------
+        // let caracteristicas_req = [req.body.caract_1, req.body.caract_2, req.body.caract_3, req.body.caract_4];
+        // let caracteristicas_def = []
+
+        // caracteristicas_req.forEach(caracteristica => {
+        //     if (typeof(caracteristica) != "undefined") {
+        //         caracteristicas_def.push(caracteristica);
+        //     }
+        // });
 
         //Procesando talles --------------------------------------------
-        let talles_req = [
-            typeof(req.body.small) != "undefined" ? "Small" : "",
-            typeof(req.body.medium) != "undefined" ? "Medium" : "",
-            typeof(req.body.large) != "undefined" ? "Large" : "",
-            typeof(req.body.extralarge) != "undefined" ? "Extra-Large" : ""
-        ];
-        let talles_def = [];
-        talles_req.forEach(talle => {
-            if (talle !== '') {
-                talles_def.push(talle);
-            }
-        })
+        // let talles_req = [
+        //     typeof(req.body.small) != "undefined" ? "Small" : "",
+        //     typeof(req.body.medium) != "undefined" ? "Medium" : "",
+        //     typeof(req.body.large) != "undefined" ? "Large" : "",
+        //     typeof(req.body.extralarge) != "undefined" ? "Extra-Large" : ""
+        // ];
+        // let talles_def = [];
+        // talles_req.forEach(talle => {
+        //     if (talle !== '') {
+        //         talles_def.push(talle);
+        //     }
+        // })
 
-        const nuevoProducto = {
-            // modificar con sequilize y nueva estructure SQL
-            id: products[products.length - 1].id + 1, // le crea un id 1 mas alto que el del ultimo
-            name: req.body.name ? req.body.name : "",
-            brand: req.body.brand ? req.body.brand : "",
-            description: req.body.description ? req.body.description : "",
-            caracteristicas: caracteristicas_def,
-            detalle: req.body.detalle ? req.body.detalle : "",
-            talles: talles_def,
-            regularPrice: Number(req.body.regularPrice) ? "$ " + req.body.regularPrice : "",
-            specialPrice: Number(req.body.specialPrice) ? "$ " + req.body.specialPrice : "",
-            cuotas: {
-                banco: req.body.cuotasbanco ? req.body.cuotasbanco : "",
-                cantidad: req.body.cuotas ? req.body.cuotas : 0
-            },
-            caption: req.body.caption ? req.body.caption : "",
-            inventario: {
-                disponibilidad: req.body.disponibilidad ? req.body.disponibilidad : 0,
-                peso_paq: req.body.peso_paq ? req.body.peso_paq : 0,
-                devolucion: req.body.devolucion ? req.body.devolucion : "",
-                tiempoEntrega: req.body.tiempoEntrega ? req.body.tiempoEntrega : ""
-            },
-            rating: {
-                value: req.body.rating ? Number(req.body.rating) : 0,
-                quantity: req.body.quantity ? req.body.quantity : 0
-            }, // le agrega todo lo del formulario excepto el file
-            images: {
-                main: req.files["images-main"] ? req.files["images-main"][0].filename : null,
-                front: req.files["images-front"] ? req.files["images-front"][0].filename : null,
-                back: req.files["images-back"] ? req.files["images-back"][0].filename : null
-            } //le agrega los files que uploade, si lo hice, sino mantengo el anterior
-        };
-        console.log(nuevoProducto);
-        products.push(nuevoProducto);
+        // const nuevoProducto = {
+        //     // modificar con sequilize y nueva estructure SQL
+        //     id: products[products.length - 1].id + 1, // le crea un id 1 mas alto que el del ultimo
+        //     name: req.body.name ? req.body.name : "",
+        //     brand: req.body.brand ? req.body.brand : "",
+        //     description: req.body.description ? req.body.description : "",
+        //     caracteristicas: caracteristicas_def,
+        //     detalle: req.body.detalle ? req.body.detalle : "",
+        //     talles: talles_def,
+        //     regularPrice: Number(req.body.regularPrice) ? "$ " + req.body.regularPrice : "",
+        //     specialPrice: Number(req.body.specialPrice) ? "$ " + req.body.specialPrice : "",
+        //     cuotas: {
+        //         banco: req.body.cuotasbanco ? req.body.cuotasbanco : "",
+        //         cantidad: req.body.cuotas ? req.body.cuotas : 0
+        //     },
+        //     caption: req.body.caption ? req.body.caption : "",
+        //     inventario: {
+        //         disponibilidad: req.body.disponibilidad ? req.body.disponibilidad : 0,
+        //         peso_paq: req.body.peso_paq ? req.body.peso_paq : 0,
+        //         devolucion: req.body.devolucion ? req.body.devolucion : "",
+        //         tiempoEntrega: req.body.tiempoEntrega ? req.body.tiempoEntrega : ""
+        //     },
+        //     rating: {
+        //         value: req.body.rating ? Number(req.body.rating) : 0,
+        //         quantity: req.body.quantity ? req.body.quantity : 0
+        //     }, // le agrega todo lo del formulario excepto el file
+        //     images: {
+        //         main: req.files["images-main"] ? req.files["images-main"][0].filename : null,
+        //         front: req.files["images-front"] ? req.files["images-front"][0].filename : null,
+        //         back: req.files["images-back"] ? req.files["images-back"][0].filename : null
+        //     } //le agrega los files que uploade, si lo hice, sino mantengo el anterior
+        // };
+        // console.log(nuevoProducto);
+        // products.push(nuevoProducto);
 
-        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
+        // fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
 
 
-        res.redirect('/');
+        // res.redirect('/');
 
         //res.send('se creo producto');
     },
 
     admin: (req, res) => {
-        res.render('admin', { products, resultsPerPage: 12 })
+        db.product.findAll({
+            order:[['rating','DESC']],
+            include:[{association:'brand'}]
+        }).then((products)=>{
+            res.render('admin',{products, resultsPerPage: 12 })
+        })
+        .catch((error)=>{
+            console.log(error);
+            res.send(500);
+        });
+
+        // res.render('admin', { products, resultsPerPage: 12 })
     },
 
     pre_edit: (req, res) => {
         const id = req.params.id;
-        db.product.findByPk(id)
+        db.product.findByPk(id)({
+            include:[{association:'brand'},{association:'product_ratings'}]
+        })
         .then((productToEdit)=>{
-            res.render('product-pre-edit', {productToEdit});
+            res.render('product-pre-edit v3', productToEdit);
         })
         .catch((error)=>{
             console.log(error);
@@ -269,9 +323,14 @@ let mainController = {
 
     editProduct: (req, res) => {
         const id = req.params.id;
-        db.product.findByPk(id)
-        .then((productToEdit)=>{
-            res.render('product-edit-form v3', {productToEdit});
+        let productToEdit = db.product.findByPk(id)({
+            include:[{association:'brand'}]
+        });
+        let genresAvailable = db.genre.findAll()
+
+        Promise.all([productToEdit,genresAvailable])
+        .then(function([productToEdit, genres]){
+            res.render('product-edit-form v3', {productToEdit:productToEdit,genres:genres});
         })
         .catch((error)=>{
             console.log(error);
@@ -287,33 +346,32 @@ let mainController = {
     const id = req.params.id;
             db.product.update(
                 {
-                    category: req.body.category ? req.body.category : productToEdit.category,
-                    name_product: req.body.name ? req.body.name : productToEdit.name_product,
-                    brand: req.body.brand ? req.body.brand : productToEdit.brand,
-                    description_product: req.body.description ? req.body.description : productToEdit.description_product,
-                    year_created: req.body.year ? req.body.year : productToEdit.year_created,
-                    features_style: req.body.features_style ? req.body.features_style : productToEdit.features_style,
-                    features_gender: req.body.features_style ? req.body.features_gender : productToEdit.features_style,
-                    features_use: req.body.features_style ? req.body.features_use : productToEdit.features_style,
-                    features_others: req.body.features_style ? req.body.features_others : productToEdit.features_style,
-                    regular_price: Number(req.body.regularPrice) ? req.body.regularPrice : productToEdit.regular_price,
-                    special_price: Number(req.body.specialPrice) ? req.body.specialPrice : productToEdit.special_price,
-                    caption: req.body.caption ? req.body.caption : productToEdit.caption,
+                    category: req.body.category,
+                    name_product: req.body.name,
+                    brand: req.body.brand,
+                    description_product: req.body.description,
+                    year_created: Number(req.body.year),
+                    features_style: req.body.features_style,
+                    features_gender: req.body.features_style,
+                    features_use: req.body.features_style,
+                    features_others: req.body.features_style,
+                    regular_price: Number(req.body.regularPrice),
+                    special_price: Number(req.body.specialPrice),
                     returnable: req.body.devolucion == 1? 1 : 0,
-                    delivery_time: req.body.delivery_time ? req.body.delivery_time : productToEdit.delivery_time,
-                    weight_package: req.body.weight_package ? req.body.weight_package : productToEdit.weight_package,
-                    color_available: req.body.color_available ? req.body.color_available : productToEdit.color_available,
-                    size_available: req.body.size_available ? req.body.size_available : productToEdit.size_available,
-                    image_main: req.file["images-main"] ? req.file["images-main"].filename : productToEdit.images_main,
-                    image_front: req.file["images-front"] ? req.file["images-front"].filename : productToEdit.images_front,
-                    image_back: req.file["images-back"] ? req.file["images-back"].filename : productToEdit.images_back,
+                    delivery_time: req.body.delivery_time,
+                    weight_package: Number(req.body.weight_package),
+                    color_available: req.body.color_available,
+                    size_available: req.body.size_available,
+                    image_main: req.file["images-main"].filename,
+                    image_front: req.file["images-front"] ? req.file["images-front"].filename :"",
+                    image_back: req.file["images-back"] ? req.file["images-back"].filename : ""
                  
                 } ,
                 {where:{id :id}}
              )
             
              .then(function(){  
-                res.redirect('/')
+                res.redirect('/product/' + req.params.id)
             })
             .catch((error)=>{
                 console.log(error);
@@ -416,26 +474,43 @@ let mainController = {
 
     // Delete - Delete one product from DB
     destroy: (req, res) => {
-        // modificar con sequilize 
-        console.log("llegamos al destroy");
+        const id = req.params.id;
+                db.product.destroy(
+                
+                    {where:{id :id}}
+                 )
+                
+                 .then(function(){
+                    
+                    res.redirect('/')
+                })
+                .catch((error)=>{
+                    console.log(error);
+                    res.send(500);
+                });
+        
+        
+        
+        // // modificar con sequilize 
+        // console.log("llegamos al destroy");
 
 
 
-        const productIndex = products.findIndex((producto) => {
-            return (producto.id == req.params.id)
+        // const productIndex = products.findIndex((producto) => {
+        //     return (producto.id == req.params.id)
 
-        });
+        // });
 
-        console.log(productIndex);
+        // console.log(productIndex);
 
-        // buscar el producto con ese id	
+        // // buscar el producto con ese id	
 
-        products.splice(productIndex, 1);
+        // products.splice(productIndex, 1);
 
-        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
+        // fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
 
 
-        res.redirect('/')
+        // res.redirect('/')
 
 
     },

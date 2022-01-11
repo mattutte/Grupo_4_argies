@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
         <!-- Head -->
-        <%- include('./partials/head.ejs',{titulo:"Producto",stylesFile:"product.css"}) %>
+        <%- include('./partials/head.ejs',{titulo:"Editando: " +  productToEdit.name,stylesFile:"product.css"}) %>
     <body>
         
 
@@ -9,7 +9,7 @@
         <%- include('./partials/header v2.ejs') %>        
 
         <!-- Main -->
-            <% productDetail = product %>
+            <% productDetail = productToEdit %>
             
 
             <div class="clear10px"></div>
@@ -37,16 +37,18 @@
                                 <!--Galeria: imágenes disponibles del producto en formato pequeño-->
                                 <div class="product-img-box">
                                     <div class="more-views">
-                                        <% if(productDetail.images_front != ""){
-                                            image_front = productDetail.images.front;
+                                        <% 
+                                        
+                                        if(productDetail.images.front != ""){
+                                            image_front = productDetail.image_front;
                                         }else{
-                                            image_front = productDetail.images_main;
+                                            image_front = productDetail.image_main;
                                         }
                                         
                                         %>
 
                                         <img id="img-gal-ppal" class="gallery-thumb" src="/images/<%= image_front %>">
-                                        <% if(productDetail.images_back != ""){ %>
+                                        <% if(productDetail.image_back != ""){ %>
                                             <img id="img-gal-ppal" class="gallery-thumb" src="/images/<%= productDetail.images.back %>">
                                         <% } %>
                                     </div>
@@ -67,10 +69,10 @@
                                 <h3><%= productDetail.description %></h3>
                                 <div class="rating-container">
                                     <div class="rating-box">
-                                        <img src="/images/rating-stars.png" width="100px">
+                                        <!--<img src="/images/rating-stars.png" width="100px"> -->
                                     </div>
                                     <div class="rating-text">
-                                        <!--<span><%= productDetail.rating.quantity %> Calificaciones</span> -->
+                                        <!-- <span><%= productDetail.rating.quantity %> Calificaciones</span> -->
                                     </div>
                                 </div>
                             </div>
@@ -83,8 +85,8 @@
                                     <div class="input-box">
                                         <select>
                                             <% productDetail.size_available %>
-                                            <!--<option title="<%= talle %>" class="size-options"><%= talle %></option>
-                                            <% }) %>-->
+                                            <!-- <option title="<%= talle %>" class="size-options"><%= talle %></option>
+                                            <% }) %> -->
                                         </select>
                                     </div>
                                 </dl>
@@ -100,11 +102,9 @@
 
                             <div class="product-description">
                                 
-                                <p><%= productDetail.features_style %></p>   
-                                <p><%= productDetail.features_gender %></p>
-                                <p><%= productDetail.features_use %></p>
-
-                                <!-- <%= productDetail.caracteristicas %> -->
+                                    <p><%= productDetail.features_style %></p>
+                                    <p><%= productDetail.features_gender %></p>
+                                    <p><%= productDetail.features_use %></p>
                                     
                             </div>
     
@@ -194,11 +194,13 @@
                                 </div>
                                 <div class="cart-buttons">
                                     <form>
-                                        <button type="button" title="Comprar" class="button-buy">Comprar</button>
+                                        <a href="/product/edit/<%= productDetail.id %>">
+                                            <button type="button" title="Editar el Producto" class="button-buy">Editar el Producto</button>
+                                        </a>
                                     </form>
                                     <div class="clear10px"></div>
-                                    <form>
-                                    <button type="button" title="Agregar al carrito" class="button-add-to-cart">Agregar al carrito</button>
+                                    <form action="/product/<%= productDetail.id %>?_method=DELETE" method="POST">
+                                    <button type="submit" title="Borrar el producto" class="button-add-to-cart">Borrar el Producto</button>
                                     </form>
                                     <div class="clear10px"></div>
                                 </div>
@@ -212,85 +214,7 @@
                         <p><%= productDetail.featues_others %></p>
                     </div>
 
-                    <!--Bottom row: contiene ofertas relacionadas-->
-                    <div class="row-bottom">
-
-                        <div class="title">
-                            <h2>Productos similares</h2>
-                        </div>
-
-                        <div class="carousel">
-
-                            <!--
-                            <div class="arrows">
-
-                                <a href="#" class="carousel-control-prev">
-                                    <i class="fas fa-angle-left"></i>
-                                </a>
-                                <a href="#" class="carousel-control-next">
-                                    <i class="fas fa-angle-right"></i>
-                                </a>
-                                
-                            </div>
-                            -->
-
-                            <!--Carrusel de productos similares-->
-                            <ul class="products-slider">
-                                <% products.forEach(product => { 
-                                    let regular_price = parseFloat(product.regularPrice.replace('$', ''));
-                                    let special_price = parseFloat(product.specialPrice.replace('$', ''));
-                                    let discount = (1 - special_price/regular_price)*100;
-                                    let price_discount = discount.toFixed(0);
-                                    if(Number.isNaN(regular_price)){
-                                        regulat_price = 0;
-                                    }
-                                    if(Number.isNaN(special_price)){
-                                        special_price = 0;
-                                    }
-                                    price_discount = (price_discount>0)? price_discount : 0;
-                                %>
-
-                                <!--Item <% product %> del carousel-->
-                                <li id="item_0" class="slider-item">
-                                    <div class="item_image">
-                                        <a href="/product/<%= product.id %>">
-                                            <img src="/images/<%= product.images_main %>">
-                                        </a>
-                                    </div>
-                                    <div class="item_description">
-                                        <h4><a href="/product/<%= product.id %>"><%= product.name_product %></a></h4>
-                                        <div class="price-discount">
-                                            <% if(regular_price >= 0){ %>
-                                            <span class="price-list"><%= 'AR'+product.regularPrice %></span>
-                                            <% } %>
-                                            <% if (price_discount > 0){ %>
-                                            <span class="discount"><%= price_discount + '%' +' OFF'%></span>
-                                            <% } %>
-                                        </div>
-                                        <div class="price-box">
-                                            <% if(special_price > 0){ %>
-                                            <p><%= 'AR'+product.specialPrice %></p>
-                                            <% } %>
-                                        </div>
-                                        <div class="item_afip">
-                                            <p>Incluye impuesto PAIS y percepción AFIP</p>
-                                        </div>
-                                        <div class="fav-icon">
-                                            <i class="far fa-heart"></i>
-                                        </div>
-                                        <div class="clear20px"></div>
-                                        <div>
-                                            <span class="free-delivery"></span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <% }) %>
-                            </ul>   <!--Carousel de productos similares-->
-                            <!--Next and Previous buttons-->
-                            <a class="prev">&#10094</a>
-                            <a class="next">&#10095</a>
-                        </div>
-                    </div>  <!--Row bottom-->
+                    
 
                 </div>  <!--Main container-->
 

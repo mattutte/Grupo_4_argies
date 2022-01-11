@@ -32,7 +32,7 @@ CREATE TABLE products (
    id INT NOT NULL AUTO_INCREMENT,
    category VARCHAR(200) NOT NULL,
    name_product VARCHAR(200) NOT NULL,
-   brand INT NOT NULL,
+   brand_id INT NOT NULL,
    description_product TEXT NOT NULL,
    year_created INT,
    features_style VARCHAR(200) NOT NULL,
@@ -52,7 +52,7 @@ CREATE TABLE products (
    image_front TEXT,
    image_back TEXT,
    PRIMARY KEY (id),
-   FOREIGN KEY (brand) REFERENCES brands (id)
+   FOREIGN KEY (brand_id) REFERENCES brands (id)
 ) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
@@ -93,3 +93,4 @@ CREATE TABLE shopping_cart_content (
 
 INSERT INTO users VALUES ("tomasheguy@gmail.com","$2a$10$P4Y.rnn8NQ9YXbz6DoxEN.SywATZpuSgf2XBx206Oo21SOSrYM8lu","Tomas","Heguy","Argentina","foto-1639325362742.jpeg",1,1), ("angeluisq96@gmail.com","$2a$10$P4Y.rnn8NQ9YXbz6DoxEN.SywATZpuSgf2XBx206Oo21SOSrYM8lu","Angel","Luis","Venezuela","foto-1639325362742.jpeg",1,1), ("ing.rainero@gmail.com","$2a$10$P4Y.rnn8NQ9YXbz6DoxEN.SywATZpuSgf2XBx206Oo21SOSrYM8lu","Matias","Rainero","Argentina","foto-1639325362742.jpeg",1,1), ("deniijang@gmail.com","$2a$10$P4Y.rnn8NQ9YXbz6DoxEN.SywATZpuSgf2XBx206Oo21SOSrYM8lu","Denis","Jang","Argentina","foto-1639325362742.jpeg",1,1),("hlbortoluzzi@gmail.com","$2a$10$P4Y.rnn8NQ9YXbz6DoxEN.SywATZpuSgf2XBx206Oo21SOSrYM8lu","Leandro","Bortoluzzi","Argentina","foto-1639325362742.jpeg",1,1);
 INSERT INTO brands VALUES (DEFAULT,"Adidas","Alemania"), (DEFAULT,"Puma","Alemania"), (DEFAULT,"Nike","Estados Unidos"), (DEFAULT,"Asics","Japon"),(DEFAULT,"Umbro","Reino Unido"),(DEFAULT,"Kappa","Italia"),(DEFAULT,"Hummel","Alemania"),(DEFAULT,"Under Armour","Estados Unidos");
+INSERT INTO products VALUES (DEFAULT,"Jersey","JUVENTUS 21/22 HOME JERSEY BY ADIDAS",44,"",2018,"Short-sleeve Jersey","Hombre","Entrenamiento","",8401,5461,NULL,NULL,1,0.850,"24hs","Rojo","L","camiseta1.jpeg","","");
