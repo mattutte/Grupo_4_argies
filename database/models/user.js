@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'users';
+    let alias = 'User';
     let cols = {
         // email VARCHAR(100) NOT NULL,
         // passwd TEXT NOT NULL,
@@ -57,9 +57,9 @@ module.exports = (sequelize, dataTypes) => {
     const user = sequelize.define(alias, cols, config);
 
     user.associate = function(models){
-        user.hasMany(models.product_rating, {
-           as: "product_ratings",
-           foreignKey: "email"
+        user.hasMany(models.Product_rating, {
+           as: "Product_rating",
+           foreignKey: "user_email_rating"
             })
         };
 

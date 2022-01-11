@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'shopping_cart';
+    let alias = 'Shopping_cart';
     let cols = {
         id: {
             type: dataTypes.INTEGER,
@@ -27,9 +27,9 @@ module.exports = (sequelize, dataTypes) => {
     const shopping_cart = sequelize.define(alias, cols, config);
 
     shopping_cart.associate = function(models){
-        shopping_cart.belongsToMany(models.product, {
-            as: "products",
-            through: "shopping_cart_content",
+        shopping_cart.belongsToMany(models.Product, {
+            as: "Product",
+            through: "Shopping_cart_content",
             foreignKey: "shopping_cart",
             otherKey: "id_product",
             timestamps: false

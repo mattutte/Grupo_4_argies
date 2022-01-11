@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'brands';
+    let alias = 'Brand';
     let cols = {
         id: {
             type: dataTypes.INTEGER,
@@ -25,8 +25,8 @@ module.exports = (sequelize, dataTypes) => {
 
     brand.associate = function(models){
         
-        brand.hasMany(models.product,{
-           as: "products",
+        brand.hasMany(models.Product,{
+           as: "Product",
            foreignKey: "brand_id"
         });
     };
