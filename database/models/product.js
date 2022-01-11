@@ -42,14 +42,14 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.TEXT
         },
         regular_price: {
-            type: dataTypes.FLOAT(2),
+            type: dataTypes.DECIMAL(2),
             notNull: true
         },
         special_price: {
-            type: dataTypes.FLOAT(2),
+            type: dataTypes.DECIMAL(2),
         },
         rating_value: {
-            type: dataTypes.FLOAT(2),
+            type: dataTypes.DECIMAL(2),
         },
         rating_num_comment: {
             type: dataTypes.INTEGER,
@@ -59,7 +59,7 @@ module.exports = (sequelize, dataTypes) => {
             notNull: true
         },
         weigh_package: {
-            type: dataTypes.FLOAT(2),
+            type: dataTypes.DECIMAL(2),
             notNull: true
         },
         delivery_time: {

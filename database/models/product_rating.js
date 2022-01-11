@@ -19,7 +19,6 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER,
             notNull: true
         }
-
     };
     let config = {
         tableName: 'product_ratings',

@@ -373,12 +373,12 @@ let mainController = {
              .then(function(){  
                 res.redirect('/product/' + req.params.id)
             })
-            .catch((error)=>{
+            .catch((error) => {
                 console.log(error);
                 res.send(500);
             });
 
-        
+
         // modificar con sequilize y nueva estructure SQL
 
         // const productIndex = products.findIndex((producto) => {
@@ -548,7 +548,7 @@ let mainController = {
         res.render('faq');
     },
     test: (req, res) => {
-        db.users.findAll().then((result) => {
+        db.shopping_cart_content.findAll().then((result) => {
             res.send(result)
         })
     }

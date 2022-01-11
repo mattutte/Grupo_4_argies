@@ -15,7 +15,7 @@ module.exports = (sequelize, dataTypes) => {
             notNull: true
         },
         total_price: {
-            type: dataTypes.FLOAT(2),
+            type: dataTypes.DECIMAL(2),
             notNull: true
         }
     };
