@@ -16,10 +16,11 @@ const db = require('../database/models')
 
 // Acá nos falta un objeto literal con las acciones para cada ruta
 let mainController = {
+    
     home: (req, res) => {
-        db.product.findAll({
-            order:[['rating','DESC']],
-            include:[{association:'brand'},{association:'product_ratings'}]
+        db.Product.findAll({
+            //order:[['rating','DESC']],
+            include:[{association:'Brand'},{association:'Product_rating'}]
         }).then((products)=>{
             res.render('home',{products})
         })
@@ -35,8 +36,8 @@ let mainController = {
 
     product: (req, res) => {
         const id = req.params.id;
-        db.product.findByPk(id)({
-            include:[{association:'brand'},{association:'product_ratings'}]
+        db.Product.findByPk(id)({
+            include:[{association:'Brand'},{association:'Product_rating'}]
         })
         .then((product)=>{
             res.render('product', product);
@@ -53,9 +54,9 @@ let mainController = {
 
     productSearch: (req, res) => {
 
-        db.product.findAll({
-            order:[['rating','DESC']],
-            include:[{association:'brand'},{association:'product_ratings'}]
+        db.Product.findAll({
+            //order:[['rating','DESC']],
+            include:[{association:'Brand'},{association:'Product_rating'}]
         }).then((products)=>{
             res.render("productSearch", { products, resultsPerPage: 12 })
         })
@@ -171,7 +172,7 @@ let mainController = {
     },
 
     addProduct: (req, res) => {
-        db.brand.findAll()
+        db.Brand.findAll()
         .then((brands)=>{
         
         res.render('product-add-form v3',{brands:brands})
@@ -188,12 +189,12 @@ let mainController = {
         console.log(req.body);
         console.log(req.files);
 
-        db.product.create(
+        db.Product.create(
             {
 
                 category: req.body.category,
                 name_product: req.body.name,
-                brand: req.body.brand,
+                brand_id: req.body.brand,
                 description_product: req.body.description,
                 year_created: Number(req.body.year),
                 features_style: req.body.features_style,
@@ -213,9 +214,9 @@ let mainController = {
              
             } 
          ).then(function(){
-             db.product.findAll({
-                include:[{association:'brand'},{association:'product_ratings'}],
-                order:[['rating','DESC']]
+             db.Product.findAll({
+                include:[{association:'Brand'},{association:'Product_rating'}],
+                //order:[['rating','DESC']]
          })})
          .then((products)=>{
              res.render('productSearch',products)
@@ -289,9 +290,9 @@ let mainController = {
     },
 
     admin: (req, res) => {
-        db.product.findAll({
-            order:[['rating','DESC']],
-            include:[{association:'brand'}]
+        db.Product.findAll({
+            //order:[['rating','DESC']],
+            include:[{association:'Brand'}]
         }).then((products)=>{
             res.render('admin',{products, resultsPerPage: 12 })
         })
@@ -305,8 +306,8 @@ let mainController = {
 
     pre_edit: (req, res) => {
         const id = req.params.id;
-        db.product.findByPk(id)({
-            include:[{association:'brand'},{association:'product_ratings'}]
+        db.Product.findByPk(id)({
+            include:[{association:'Brand'},{association:'Product_rating'}]
         })
         .then((productToEdit)=>{
             res.render('product-pre-edit v3', productToEdit);
@@ -323,14 +324,14 @@ let mainController = {
 
     editProduct: (req, res) => {
         const id = req.params.id;
-        let productToEdit = db.product.findByPk(id)({
-            include:[{association:'brand'}]
+        let productToEdit = db.Product.findByPk(id)({
+            include:[{association:'Brand'}]
         });
-        let genresAvailable = db.genre.findAll()
+        let brandsAvailable = db.Brand.findAll()
 
-        Promise.all([productToEdit,genresAvailable])
-        .then(function([productToEdit, genres]){
-            res.render('product-edit-form v3', {productToEdit:productToEdit,genres:genres});
+        Promise.all([productToEdit,brandsAvailable])
+        .then(function([productToEdit, brands]){
+            res.render('product-edit-form v3', {productToEdit:productToEdit,brands:brands});
         })
         .catch((error)=>{
             console.log(error);
@@ -344,11 +345,11 @@ let mainController = {
 
     update: (req, res) => {
     const id = req.params.id;
-            db.product.update(
+            db.Product.update(
                 {
                     category: req.body.category,
                     name_product: req.body.name,
-                    brand: req.body.brand,
+                    brand_id: req.body.brand,
                     description_product: req.body.description,
                     year_created: Number(req.body.year),
                     features_style: req.body.features_style,
@@ -475,7 +476,7 @@ let mainController = {
     // Delete - Delete one product from DB
     destroy: (req, res) => {
         const id = req.params.id;
-                db.product.destroy(
+                db.Product.destroy(
                 
                     {where:{id :id}}
                  )
@@ -548,7 +549,7 @@ let mainController = {
         res.render('faq');
     },
     test: (req, res) => {
-        db.shopping_cart_content.findAll().then((result) => {
+        db.Shopping_cart_content.findAll().then((result) => {
             res.send(result)
         })
     }
