@@ -16,7 +16,6 @@ const db = require('../database/models')
 
 // Acá nos falta un objeto literal con las acciones para cada ruta
 let mainController = {
-    //blabla
     home: (req, res) => {
         db.product.findAll({
             order:[['rating','DESC']],
