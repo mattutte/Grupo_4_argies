@@ -26,7 +26,7 @@ let mainController = {
         })
         .catch((error)=>{
             console.log(error);
-            res.send(500);
+            res.sendStatus(500);
         });
 
         // modificar con sequilize
@@ -73,10 +73,45 @@ let mainController = {
     },
 
     checksignin: (req, res) => {
+/*
         const usuarioCheckIn = usuarios.find((usuario) => usuario.email == req.body.email);
         console.log(usuarioCheckIn);
+        */
+
         const errorMessage = 'el email o el password no coinciden con nuestros registros';
 
+        db.User.findOne({
+            where: {
+                email: req.body.email,
+            }
+        }).then((foundUser) => {
+            if(!foundUser) {
+                res.render('signin', { errorMessage });
+            }else{
+                console.log("encontró usuario")
+                //let emailUsuario = usuarioCheckIn.email;
+                const passwordEncriptadaUsuario = foundUser.passwd;
+                console.log(passwordEncriptadaUsuario);
+                const bcrypt = require('bcryptjs');
+                const check = bcrypt.compareSync(req.body.psw, passwordEncriptadaUsuario);
+                //console.log(check);
+
+                if(check){
+                    req.session.usuario = foundUser.email;
+                    req.session.loggedin = true;
+                    req.session.save();
+                    if (req.body.remember != undefined) {
+                        res.cookie('usuarioRecordado', foundUser.id, { maxAge: 1800000 }); //Duracion de cookie: 30 minutos
+                    }
+                    return res.redirect('/');
+                } else {
+                    res.render('signin', { errorMessage });
+                }
+            }
+            req.session.save();
+        });
+
+        /*
         if (usuarioCheckIn) { //usuario existe (está registrado)
             //let emailUsuario = usuarioCheckIn.email;
             const passwordEncriptadaUsuario = usuarioCheckIn.password;
@@ -103,6 +138,8 @@ let mainController = {
             res.render('signin', { errorMessage });
         };
         req.session.save();
+        */
+
     },
 
     signup: (req, res) => {
