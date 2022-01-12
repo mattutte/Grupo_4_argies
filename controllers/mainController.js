@@ -22,6 +22,7 @@ let mainController = {
             //order:[['rating','DESC']],
             include:[{association:'Brand'}]
         }).then((products)=>{
+            console.log(req.session.loggedin)
             res.render('home',{products})
         })
         .catch((error)=>{
@@ -102,7 +103,8 @@ let mainController = {
                     req.session.loggedin = true;
                     req.session.save();
                     if (req.body.remember != undefined) {
-                        res.cookie('usuarioRecordado', foundUser.id, { maxAge: 1800000 }); //Duracion de cookie: 30 minutos
+                        console.group("se seleccionó opcion de mantener sesion");
+                        res.cookie('usuarioRecordado', foundUser.email, { maxAge: 1800000 }); //Duracion de cookie: 30 minutos
                     }
                     return res.redirect('/');
                 } else {
