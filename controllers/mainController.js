@@ -98,6 +98,7 @@ let mainController = {
 
                 if(check){
                     req.session.usuario = foundUser.email;
+                    req.session.admin = foundUser.admin_category;
                     req.session.loggedin = true;
                     req.session.save();
                     if (req.body.remember != undefined) {
@@ -180,7 +181,7 @@ let mainController = {
                 first_name: req.body.first_name,
                 last_name: req.body.last_name,
                 country: req.body.pais,
-                face_pic: req.file.fieldname,
+                face_pic: req.file.filename,
                 admin_category: req.body.admin == 'on'? 1 : 0,
                 adult: req.body.mayor == 'on'? 1 : 0,
                 
@@ -209,6 +210,22 @@ let mainController = {
 
     },
 
+    // editProfile: (req,res){
+    //     const id = req.params.id;
+    //     db.User.findByPk(id)
+    //     .then((user)=>{
+    //         res.render('profilev2', user);
+    //     })
+    //     .catch((error)=>{
+    //         console.log(error);
+    //         res.send(500);
+    //     });
+    // },
+
+    // updateProfile: (req, res){
+
+    // },
+
     shoppingcart: (req, res) => {
         res.render('shopping-cart')
     },
@@ -219,16 +236,20 @@ let mainController = {
 
     addProduct: (req, res) => {
         db.Brand.findAll()
-        .then((brands)=>{
         
-        res.render('product-add-form v3',{brands:brands})
+        
+        .then((brands)=>{
+            console.log(brands);
+            res.render('product-add-form v3',{brands:brands})
         })
         .catch((error)=>{
             console.log(error);
             res.send(500);
         });
+        
         // modificar form segun nuevo SQL
     },
+
 
     store: (req, res) => {
         // modificar con sequilize y nueva estructure SQL
@@ -255,9 +276,9 @@ let mainController = {
                 weight_package: Number(req.body.weight_package),
                 color_available: req.body.color_available,
                 size_available: req.body.size_available,
-                image_main: req.file["images-main"].filename,
-                image_front: req.file["images-front"] ? req.file["images-front"].filename : "",
-                image_back: req.file["images-back"] ? req.file["images-back"].filename : ""
+                image_main: req.file["image-main"].filename,
+                image_front: req.file["image-front"] ? req.file["image-front"].filename : "",
+                image_back: req.file["image-back"] ? req.file["image-back"].filename : ""
              
             } 
          ).then(function(){
@@ -376,6 +397,9 @@ let mainController = {
         });
         let brandsAvailable = db.Brand.findAll()
 
+        console.log(productToEdit);
+        console.log(brandsAvailable.name_brand)
+
         Promise.all([productToEdit,brandsAvailable])
         .then(function([productToEdit, brands]){
             res.render('product-edit-form v3', {productToEdit:productToEdit,brands:brands});
@@ -411,9 +435,9 @@ let mainController = {
                     weight_package: Number(req.body.weight_package),
                     color_available: req.body.color_available,
                     size_available: req.body.size_available,
-                    image_main: req.file["images-main"].filename,
-                    image_front: req.file["images-front"] ? req.file["images-front"].filename :"",
-                    image_back: req.file["images-back"] ? req.file["images-back"].filename : ""
+                    image_main: req.file["image-main"].filename,
+                    image_front: req.file["image-front"] ? req.file["image-front"].filename :"",
+                    image_back: req.file["image-back"] ? req.file["image-back"].filename : ""
                  
                 } ,
                 {where:{id :id}}
