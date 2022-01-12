@@ -43,12 +43,12 @@ module.exports = (sequelize, dataTypes) => {
     
     const user = sequelize.define(alias, cols, config);
 
-    user.associate = function(models){
-        user.hasMany(models.Product_rating, {
-           as: "Product_rating",
-           foreignKey: "user_email_rating"
-            })
-        };
+    // user.associate = function(models){
+    //     user.hasMany(models.Product_rating, {
+    //        as: "Product_rating",
+    //        foreignKey: "user_email_rating"
+    //         })
+    //     };
 
     return user;
 }

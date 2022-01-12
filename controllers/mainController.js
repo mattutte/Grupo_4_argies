@@ -20,7 +20,7 @@ let mainController = {
     home: (req, res) => {
         db.Product.findAll({
             //order:[['rating','DESC']],
-            include:[{association:'Brand'},{association:'Product_rating'}]
+            include:[{association:'Brand'}]
         }).then((products)=>{
             res.render('home',{products})
         })
@@ -37,7 +37,7 @@ let mainController = {
     product: (req, res) => {
         const id = req.params.id;
         db.Product.findByPk(id)({
-            include:[{association:'Brand'},{association:'Product_rating'}]
+            include:[{association:'Brand'}]
         })
         .then((product)=>{
             res.render('product', product);
@@ -56,7 +56,7 @@ let mainController = {
 
         db.Product.findAll({
             //order:[['rating','DESC']],
-            include:[{association:'Brand'},{association:'Product_rating'}]
+            include:[{association:'Brand'}]
         }).then((products)=>{
             res.render("productSearch", { products, resultsPerPage: 12 })
         })
@@ -216,7 +216,7 @@ let mainController = {
             } 
          ).then(function(){
              db.Product.findAll({
-                include:[{association:'Brand'},{association:'Product_rating'}],
+                include:[{association:'Brand'}],
                 //order:[['rating','DESC']]
          })})
          .then((products)=>{
@@ -308,7 +308,7 @@ let mainController = {
     pre_edit: (req, res) => {
         const id = req.params.id;
         db.Product.findByPk(id)({
-            include:[{association:'Brand'},{association:'Product_rating'}]
+            include:[{association:'Brand'}]
         })
         .then((productToEdit)=>{
             res.render('product-pre-edit v3', productToEdit);

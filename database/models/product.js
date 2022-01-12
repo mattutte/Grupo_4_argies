@@ -101,10 +101,10 @@ module.exports = (sequelize, dataTypes) => {
            foreignKey: "brand_id"
             });
     
-        product.hasMany(models.Product_rating, {
-           as: "Product_rating",
-           foreignKey: "product_id"
-            });
+        // product.hasMany(models.Product_rating, {
+        //    as: "Product_rating",
+        //    foreignKey: "product_id"
+        //     });
         
         product.belongsToMany(models.Shopping_cart, {
             as: "Shopping_cart",
