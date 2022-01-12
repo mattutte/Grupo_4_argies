@@ -98,6 +98,7 @@ let mainController = {
 
                 if(check){
                     req.session.usuario = foundUser.email;
+                    req.session.admin = foundUser.admin_category;
                     req.session.loggedin = true;
                     req.session.save();
                     if (req.body.remember != undefined) {
