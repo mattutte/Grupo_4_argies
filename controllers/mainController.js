@@ -36,7 +36,7 @@ let mainController = {
 
     product: (req, res) => {
         const id = req.params.id;
-        db.Product.findByPk(id)({
+        db.Product.findByPk(id,{
             include:[{association:'Brand'}]
         })
         .then((product)=>{
@@ -73,13 +73,13 @@ let mainController = {
     },
 
     checksignin: (req, res) => {
-        const usuarioCheckIn = usuarios.find((usuario) => usuario.email == req.body.email);
+        const usuarioCheckIn = db.User.findByPk(req.body.email);
         console.log(usuarioCheckIn);
         const errorMessage = 'el email o el password no coinciden con nuestros registros';
 
         if (usuarioCheckIn) { //usuario existe (está registrado)
             //let emailUsuario = usuarioCheckIn.email;
-            const passwordEncriptadaUsuario = usuarioCheckIn.password;
+            const passwordEncriptadaUsuario = usuarioCheckIn.passwd;
             //console.log(passwordEncriptadaUsuario);
             const bcrypt = require('bcryptjs');
             const check = bcrypt.compareSync(req.body.psw, passwordEncriptadaUsuario);
@@ -124,7 +124,8 @@ let mainController = {
 
         //agregar control de que el email del segundo campo sea igual al ingresado en el campo anterior;
 
-
+        console.log(req.body);
+        console.log(req.file);
 
 
         if (errores.isEmpty()) {
@@ -140,18 +141,18 @@ let mainController = {
                 email: req.body.email,
                 passwd: passEncriptada,
                 first_name: req.body.first_name,
-                first_name: req.body.last_name,
+                last_name: req.body.last_name,
                 country: req.body.pais,
-                face_pic: req.file.filename,
-                admin_category: req.body.admin,
-                adult: req.body.mayor
+                face_pic: req.file.fieldname,
+                admin_category: req.body.admin == 'on'? 1 : 0,
+                adult: req.body.mayor == 'on'? 1 : 0,
                 
                 
 
             };
 
             console.log(nuevoUsuario);
-            db.Pelicula.create(
+            db.User.create(
                 nuevoUsuario)
             .then(()=>{
                 res.redirect('signin')
@@ -212,7 +213,7 @@ let mainController = {
                 features_others: req.body.features_style,
                 regular_price: Number(req.body.regularPrice),
                 special_price: Number(req.body.specialPrice),
-                returnable: req.body.devolucion == 1? 1 : 0,
+                returnable: req.body.devolucion == 'on'? 1 : 0,
                 delivery_time: req.body.delivery_time,
                 weight_package: Number(req.body.weight_package),
                 color_available: req.body.color_available,
@@ -315,7 +316,7 @@ let mainController = {
 
     pre_edit: (req, res) => {
         const id = req.params.id;
-        db.Product.findByPk(id)({
+        db.Product.findByPk(id,{
             include:[{association:'Brand'}]
         })
         .then((productToEdit)=>{
@@ -333,7 +334,7 @@ let mainController = {
 
     editProduct: (req, res) => {
         const id = req.params.id;
-        let productToEdit = db.Product.findByPk(id)({
+        let productToEdit = db.Product.findByPk(id,{
             include:[{association:'Brand'}]
         });
         let brandsAvailable = db.Brand.findAll()
@@ -353,7 +354,7 @@ let mainController = {
     },
 
     update: (req, res) => {
-    const id = req.params.id;
+            const id = req.params.id;
             db.Product.update(
                 {
                     
@@ -368,7 +369,7 @@ let mainController = {
                     features_others: req.body.features_others,
                     regular_price: Number(req.body.regularPrice),
                     special_price: Number(req.body.specialPrice),
-                    returnable: req.body.devolucion == 1? 1 : 0,
+                    returnable: req.body.devolucion == 'on'? 1 : 0,
                     delivery_time: req.body.delivery_time,
                     weight_package: Number(req.body.weight_package),
                     color_available: req.body.color_available,
