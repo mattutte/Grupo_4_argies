@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS users;
 CREATE TABLE users (
    email VARCHAR(100) NOT NULL,
    passwd TEXT NOT NULL,
-   fist_name VARCHAR(200) NOT NULL,
+   first_name VARCHAR(200) NOT NULL,
    last_name VARCHAR(200) NOT NULL,
    country VARCHAR(200) NOT NULL,
    face_pic TEXT NOT NULL,

@@ -11,7 +11,7 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING,
             notNull: true
         },
-        fist_name: {
+        first_name: {
             type: dataTypes.STRING(200),
             notNull: true
         },
