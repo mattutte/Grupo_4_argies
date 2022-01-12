@@ -25,13 +25,25 @@ const upload = multer({ storage: storage }); // generar middleware upload
 
 const validations = [
     check('email').notEmpty().withMessage('Debe completar un email valido').bail()
-    .isEmail().withMessage('Debe completar un email valido').bail(),
+                    .isEmail().withMessage('Debe completar un email valido').bail()
+                    .custom(value => {
+                        const db = require('../database/models');
+                        return db.User.findByPk(value).then(user => {
+                          if (user) {
+                            return ('E-mail ya se encuentra en uso en nuestros registros');
+                          }
+                        });
+                      }),
 
     check('psw').notEmpty().withMessage('Debe completar una clave de al menos 5 cifras').bail()
-    .isLength(5).withMessage('Debe completar una clave de al menos 5 cifras').bail(),
-    //check('pswrepeat').equals('psw').withMessage('Las passwords deben coincidir').bail(),
+                .isLength(5).withMessage('Debe completar una clave de al menos 5 cifras').bail(),
+    //check('pswrepeat').custom((value, { req }) => {
+    //    if (value != req.body.psw) {return ('Las passwords deben coincidir')}}).bail(),
     check('pais').notEmpty().withMessage('Debe informar su pais').bail(),
-    //check('foto').notEmpty().withMessage('Debe subir su foto'),
+    //check('face_pic').notEmpty().withMessage('Debe subir su foto'),
+    check('first_name').notEmpty().withMessage('Debe informar su nombre').bail(),
+    check('last_name').notEmpty().withMessage('Debe informar su apellido').bail()
+    
 
 ]
 
@@ -77,7 +89,7 @@ router.get('/signin', mainController.signin);
 router.post('/signin', mainController.checksignin);
 
 router.get('/signup', redirect.account, mainController.signup);
-router.post('/signup', upload.single('foto'), validations, mainController.crearperfil);
+router.post('/signup', upload.single('face_pic'), validations, mainController.crearperfil);
 
 router.get('/check', mainController.check);
 

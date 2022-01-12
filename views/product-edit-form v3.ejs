@@ -107,7 +107,7 @@
                       <div class="listInlineSelect__selectBox-activeRegion">
                         <select id="brand" name="brand" class="form-input">
                           <% brands.forEach(brand){ %>
-                            <option value=<% brand.id %> <% brand.id == productToEdit.brand_id? "selected":"" %> ><% brand.name_brand %></option>
+                            <option value=<%= brand.id %> <% brand.id == productToEdit.brand_id? "selected":"" %> ><% brand.name_brand %></option>
                           <% } %>
                         </select> 
         
@@ -533,7 +533,7 @@
               <div class="grid_cell">
                 <div class="grid_cell_wrapper">
                   <div class="listInlineSelect inputField h_align">
-                    <% if(productToEdit.image_main) {%>
+                    <% if(productToEdit.image_main){ %>
                       <img src="/images/<%= productToEdit.images_main %>" alt="Imagen Principal" width="50" height="50">
                     <% } %>
                     <div class="listInlineSelect__selectBox">
@@ -557,7 +557,7 @@
               <div class="grid_cell">
                 <div class="grid_cell_wrapper">
                   <div class="listInlineSelect inputField h_align">
-                    <% if(productToEdit.image_back) {%>
+                    <% if(productToEdit.image_back){ %>
                       <img src="/images/<%= productToEdit.image_back %>" alt="Imagen de Frente" width="50" height="50">
                     <% } %>
                     <div class="listInlineSelect__selectBox">
@@ -583,7 +583,7 @@
               <div class="grid_cell">
                 <div class="grid_cell_wrapper">
                   <div class="listInlineSelect inputField h_align">
-                    <% if(productToEdit.image_front) {%>
+                    <% if(productToEdit.image_front){ %>
                       <img src="/images/<%= productToEdit.image_back %>" alt="Imagen de Espalda" width="50" height="50">
                     <% } %>
                     <div class="listInlineSelect__selectBox">
