@@ -39,7 +39,7 @@
                                     <div class="more-views">
                                         <% 
                                         
-                                        if(productDetail.images.front != ""){
+                                        if(productDetail.image_front != ""){
                                             image_front = productDetail.image_front;
                                         }else{
                                             image_front = productDetail.image_main;
@@ -49,11 +49,11 @@
 
                                         <img id="img-gal-ppal" class="gallery-thumb" src="/images/<%= image_front %>">
                                         <% if(productDetail.image_back != ""){ %>
-                                            <img id="img-gal-ppal" class="gallery-thumb" src="/images/<%= productDetail.images.back %>">
+                                            <img id="img-gal-ppal" class="gallery-thumb" src="/images/<%= productDetail.image_back %>">
                                         <% } %>
                                     </div>
                                     <div class="product-img">
-                                        <img id="img-ppal" class="mainimg-big" src="/images/<%= productDetail.images.main %>" width="100%">
+                                        <img id="img-ppal" class="mainimg-big" src="/images/<%= productDetail.image_main %>" width="100%">
                                     </div>
                                 </div>
 
@@ -94,7 +94,7 @@
 
                             <div class="product-detail">
                                 <!--<p class="inventario">Disponibilidad: <span><%= productDetail.inventario.disponibilidad %></span></p> -->
-                                <p class="brand">Marca: <span><%= productDetail.brand %></span></p>
+                                <p class="brand">Marca: <span><%= productDetail.Brand.name_brand %></span></p>
                                 <p class="weight">Peso paquete: <span><%= productDetail.weight_package %> kg</span></p>
                                 <p class="return-option">Acepta devolucion: <span><%= productDetail.returnable %></span></p>
                                 <p class="time-shipping">Tiempo de entrega: <span><%= productDetail.delivery_time %></span></p>
@@ -121,8 +121,8 @@
                                     minimumFractionDigits: 0,
                                 });
 
-                                let regular_price = parseFloat(productDetail.regularPrice.replace('$', ''))*1000;
-                                let special_price = parseFloat(productDetail.specialPrice.replace('$', ''))*1000;
+                                let regular_price = productDetail.regular_price;
+                                let special_price = productDetail.special_price;
                                 let discount = (1 - special_price/regular_price)*100;
                                 let price_discount = discount.toFixed(0);
                                 let price_difference = formatter.format(regular_price - special_price);

@@ -192,8 +192,9 @@ let mainController = {
         db.Product.create(
             {
 
-                category: req.body.category,
+                
                 name_product: req.body.name,
+                category: req.body.category,
                 brand_id: req.body.brand,
                 description_product: req.body.description,
                 year_created: Number(req.body.year),
@@ -298,7 +299,7 @@ let mainController = {
         })
         .catch((error)=>{
             console.log(error);
-            res.send(500);
+            res.sendStatus(500);
         });
 
         // res.render('admin', { products, resultsPerPage: 12 })
@@ -347,15 +348,16 @@ let mainController = {
     const id = req.params.id;
             db.Product.update(
                 {
-                    category: req.body.category,
+                    
                     name_product: req.body.name,
+                    category: req.body.category,
                     brand_id: req.body.brand,
                     description_product: req.body.description,
                     year_created: Number(req.body.year),
                     features_style: req.body.features_style,
-                    features_gender: req.body.features_style,
-                    features_use: req.body.features_style,
-                    features_others: req.body.features_style,
+                    features_gender: req.body.features_gender,
+                    features_use: req.body.features_use,
+                    features_others: req.body.features_others,
                     regular_price: Number(req.body.regularPrice),
                     special_price: Number(req.body.specialPrice),
                     returnable: req.body.devolucion == 1? 1 : 0,
