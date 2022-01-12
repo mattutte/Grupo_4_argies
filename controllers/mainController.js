@@ -172,6 +172,22 @@ let mainController = {
 
     },
 
+    // editProfile: (req,res){
+    //     const id = req.params.id;
+    //     db.User.findByPk(id)
+    //     .then((user)=>{
+    //         res.render('profilev2', user);
+    //     })
+    //     .catch((error)=>{
+    //         console.log(error);
+    //         res.send(500);
+    //     });
+    // },
+
+    // updateProfile: (req, res){
+
+    // },
+
     shoppingcart: (req, res) => {
         res.render('shopping-cart')
     },
