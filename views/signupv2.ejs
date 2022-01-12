@@ -50,36 +50,47 @@
       <h3>Agruegue datos adicionales:</h3>
          <br>
    
-         <label for="foto"><b>Foto </b></label>
-         <input type="file" placeholder="Subir foto" name="foto">
+         
+         <label for="first_name"><b>Nombre</b></label>
+         <input type="text" placeholder="su nombre..." name="first_name" value="<%= locals.old && old.first_name? old.first_name:''%>"> 
 
-         <p> </p>
+
+         <label for="last_name"><b>Apellido</b></label>
+         <input type="text" placeholder="su apellido..." name="last_name" value="<%= locals.old && old.last_name? old.last_name:''%>">
+         
+         <label for="pais"><b>Pais</b></label>
+        <input type="text" placeholder="Ingresar pais" name="pais" value="<%= locals.old && old.pais? old.pais:''%>">
+         
+         <label for="face_pic"><b>Foto de Cara</b></label>
+         <input type="file" placeholder="Subir foto de cara" name="face_pic>
+
         
-         <label for="direccion"><b>Direccion</b></label>
-          <input type="text" placeholder="Ingresar direccion" name="direccion" value="<%= locals.old && old.direccion? old.direccion:''%>">
-    
-          <label for="pais"><b>Pais</b></label>
+         <label for="pais"><b></b></label>
           <input type="text" placeholder="Ingresar pais" name="pais" value="<%= locals.old && old.pais? old.pais:''%>">
   
-          <label for="seleccion"><b>Selección favorita</b></label>
+          <!-- <label for="seleccion"><b>Selección favorita</b></label>
           <input type="text" placeholder="Ingresar equipo" name="seleccion" value="<%= locals.old && old.seleccion? old.seleccion:''%>">
     
           <label for="equipo"><b>Equipo local favorito</b></label>
           <input type="text" placeholder="Ingresar equipo" name="equipo" value="<%= locals.old && old.equipo? old.equipo:''%>">
     
           <label for="jugador"><b>Jugador favorito</b></label>
-          <input type="text" placeholder="Ingresar jugador favorito" name="jugador" value="<%= locals.old && old.jugador? old.jugador:''%>">
+          <input type="text" placeholder="Ingresar jugador favorito" name="jugador" value="<%= locals.old && old.jugador? old.jugador:''%>"> -->
     
+          <label>
+          <input type="checkbox" checked="<%= locals.admin && old.admin === 'checked'? 'checked':''%>" name="admin" style="margin-bottom:15px"> Soy usuario administrador
+          </label>
+        
         <label>
-        <input type="checkbox" checked="<%= locals.old && old.mayorde13 === 'checked'? 'checked':''%>" name="mayorde13" style="margin-bottom:15px"> Soy mayor de 13 años
+        <input type="checkbox" checked="<%= locals.old && old.mayor === 'checked'? 'checked':''%>" name="mayor" style="margin-bottom:15px"> Soy mayor de 13 años
         </label>
 
   
-      <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+      <p>Al crear la cuenta, adhiero a nuestros <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
   
       <div class="clearfix">
-        <button type="button" class="cancelbtn">Cancelar</button>
-        <button type="submit" class="signupbtn">Crear cuenta</button>
+        <button type="reset" class="signupbtn">Cancelar</button>
+        <button type="submit" class="cancelbtn">Crear cuenta</button>
       </div>
     </div>
   </form>

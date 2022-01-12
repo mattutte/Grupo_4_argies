@@ -11,6 +11,19 @@
 
 <main>
 
+
+      
+      
+  <% if(locals.errores && errores != undefined){ %>
+    <% errores.errors.forEach(error =>{ %>
+      <t3> <%= error.msg %> </t3>
+    <% }) %>
+    
+    
+  <% } %>
+
+  <br>
+
 <form action="/signup" enctype="multipart/form-data" method="POST">
     <div class="container">
       <h1>Crear usuario</h1>

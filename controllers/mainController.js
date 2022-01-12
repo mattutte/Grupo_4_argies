@@ -106,7 +106,7 @@ let mainController = {
     },
 
     signup: (req, res) => {
-        res.render('signupv3')
+        res.render('signupv2')
     },
 
     crearperfil: (req, res) => {
@@ -154,7 +154,7 @@ let mainController = {
             db.Pelicula.create(
                 nuevoUsuario)
             .then(()=>{
-                res.redirect('/signin')
+                res.redirect('signin')
             });
 
             //usuarios.push(nuevoUsuario);
@@ -165,7 +165,7 @@ let mainController = {
             
         } else {
             //console.log(errores);
-            res.render('signupv2', { errores: errores, old: req.body });
+            res.render('/users/signupv3', { errores: errores, old: req.body });
         }
 
 
