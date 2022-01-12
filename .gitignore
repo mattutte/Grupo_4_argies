@@ -2,3 +2,4 @@ node_modules
 Icon
 .DS_Store
 Icon\r
+config.js

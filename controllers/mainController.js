@@ -165,7 +165,7 @@ let mainController = {
             
         } else {
             //console.log(errores);
-            res.render('/users/signupv3', { errores: errores, old: req.body });
+            res.render('signupv2', { errores: errores, old: req.body });
         }
 
 

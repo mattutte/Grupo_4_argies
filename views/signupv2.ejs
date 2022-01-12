@@ -41,9 +41,7 @@
       <label for="pswrepeat"><b>Repita el Password</b></label>
       <input type="password" placeholder="Repita Password" name="pswrepeat">
   
-      <!-- <label>
-        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-      </label> -->
+      
       
       <br>
       
@@ -59,27 +57,16 @@
          <input type="text" placeholder="su apellido..." name="last_name" value="<%= locals.old && old.last_name? old.last_name:''%>">
          
          <label for="pais"><b>Pais</b></label>
-        <input type="text" placeholder="Ingresar pais" name="pais" value="<%= locals.old && old.pais? old.pais:''%>">
+         <input type="text" placeholder="Ingresar pais" name="pais" value="<%= locals.old && old.pais? old.pais:''%>">
          
          <label for="face_pic"><b>Foto de Cara</b></label>
-         <input type="file" placeholder="Subir foto de cara" name="face_pic>
+         <input type="file" placeholder="Subir foto de cara" name="face_pic">
 
         
-         <label for="pais"><b></b></label>
-          <input type="text" placeholder="Ingresar pais" name="pais" value="<%= locals.old && old.pais? old.pais:''%>">
-  
-          <!-- <label for="seleccion"><b>Selección favorita</b></label>
-          <input type="text" placeholder="Ingresar equipo" name="seleccion" value="<%= locals.old && old.seleccion? old.seleccion:''%>">
     
-          <label for="equipo"><b>Equipo local favorito</b></label>
-          <input type="text" placeholder="Ingresar equipo" name="equipo" value="<%= locals.old && old.equipo? old.equipo:''%>">
-    
-          <label for="jugador"><b>Jugador favorito</b></label>
-          <input type="text" placeholder="Ingresar jugador favorito" name="jugador" value="<%= locals.old && old.jugador? old.jugador:''%>"> -->
-    
-          <label>
-          <input type="checkbox" checked="<%= locals.admin && old.admin === 'checked'? 'checked':''%>" name="admin" style="margin-bottom:15px"> Soy usuario administrador
-          </label>
+        <label>
+        <input type="checkbox" checked="<%= locals.admin && old.admin === 'checked'? 'checked':''%>" name="admin" style="margin-bottom:15px"> Soy usuario administrador
+        </label>
         
         <label>
         <input type="checkbox" checked="<%= locals.old && old.mayor === 'checked'? 'checked':''%>" name="mayor" style="margin-bottom:15px"> Soy mayor de 13 años
