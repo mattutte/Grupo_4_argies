@@ -106,8 +106,8 @@
                       </div>
                       <div class="listInlineSelect__selectBox-activeRegion">
                         <select id="brand" name="brand" class="form-input">
-                          <% brands.forEach(brand){ %>
-                            <option value=<%= brand.id %> <% brand.id == productToEdit.brand_id? "selected":"" %> ><% brand.name_brand %></option>
+                          <% for (let i = 0; i < brands.length; i++){ %>
+                            <option value=<%= brands[i].id %> <% brands[i].id == productToEdit.brand_id? "selected":"" %> ><% brands[i].name_brand %></option>
                           <% } %>
                         </select> 
         
@@ -534,19 +534,19 @@
                 <div class="grid_cell_wrapper">
                   <div class="listInlineSelect inputField h_align">
                     <% if(productToEdit.image_main){ %>
-                      <img src="/images/<%= productToEdit.images_main %>" alt="Imagen Principal" width="50" height="50">
+                      <img src="/images/<%= productToEdit.image_main %>" alt="Imagen Principal" width="50" height="50">
                     <% } %>
                     <div class="listInlineSelect__selectBox">
                       <div class="listInlineSelect__selectBoxLabelWrapper">
                         <div class="inputField__label">
-                          <label for="images-main" class="form-label">
+                          <label for="image-main" class="form-label">
                             <span>Imagen principal</span>
                           </label>
                           
                         </div>
                       </div>
                       <div class="listInlineSelect__selectBox-activeRegion">
-                        <input type="file" id="images-main" name="images-main" placeholder="Imagen principal" class="form-input">
+                        <input type="file" id="image-main" name="image-main" placeholder="Imagen principal" class="form-input">
                         
                       </div>
                     </div>
@@ -563,7 +563,7 @@
                     <div class="listInlineSelect__selectBox">
                       <div class="listInlineSelect__selectBoxLabelWrapper">
                         <div class="inputField__label">
-                          <label for="images-front" class="form-label">
+                          <label for="image-front" class="form-label">
                             <span>Imagen de frente</span>
                           </label>
                           
@@ -571,7 +571,7 @@
                       </div>
                       <div class="listInlineSelect__selectBox-activeRegion">
                         
-                        <input type="file" id="images-front" name="images-front" placeholder="Imagen principal" class="form-input">
+                        <input type="file" id="image-front" name="image-front" placeholder="Imagen principal" class="form-input">
                         
                       </div>
                     </div>
@@ -589,7 +589,7 @@
                     <div class="listInlineSelect__selectBox">
                       <div class="listInlineSelect__selectBoxLabelWrapper">
                         <div class="inputField__label">
-                          <label for="images-back" class="form-label">
+                          <label for="image-back" class="form-label">
                             <span>Imagen de dorso</span>
                           </label>
                           
@@ -598,7 +598,7 @@
                       </div>
                       <div class="listInlineSelect__selectBox-activeRegion">
                         
-                        <input type="file" id="images-back" name="images-back" placeholder="Imagen principal" class="form-input">
+                        <input type="file" id="image-back" name="image-back" placeholder="Imagen principal" class="form-input">
                         
                         
 

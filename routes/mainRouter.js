@@ -101,6 +101,9 @@ router.get('/account', redirect.register, mainController.account)
 
 router.get('/faq', mainController.faq)
 
+// router.get('/editProfile/:id', redirect.account, mainController.editProfile);
+// router.post('/editProfile/:id', upload.single('face_pic'), validations, mainController.updateProfile);
+
 /*** SHOPPING CART ACCESS***/
 router.get('/shopping-cart', mainController.shoppingcart);
 
