@@ -106,7 +106,7 @@ let mainController = {
     },
 
     signup: (req, res) => {
-        res.render('signupv2')
+        res.render('signupv3')
     },
 
     crearperfil: (req, res) => {
@@ -136,25 +136,33 @@ let mainController = {
 
             const nuevoUsuario = {
 
-                id: usuarios[usuarios.length - 1].id + 1, // le crea un id 1 mas alto que el del ultimo
+                //id: usuarios[usuarios.length - 1].id + 1, // le crea un id 1 mas alto que el del ultimo
                 email: req.body.email,
-                password: passEncriptada,
-                direccion: req.body.description ? req.body.description : "",
-                pais: req.body.pais,
-                seleccionFavorita: req.body.detalle ? req.body.detalle : "",
-                equipoLocFav: req.body.detalle ? req.body.detalle : "",
-                mayor: req.body.detalle ? true : false,
-                images: req.file.filename,
+                passwd: passEncriptada,
+                first_name: req.body.first_name,
+                first_name: req.body.last_name,
+                country: req.body.pais,
+                face_pic: req.file.filename,
+                admin_category: req.body.admin,
+                adult: req.body.mayor
+                
+                
 
             };
 
             console.log(nuevoUsuario);
-            usuarios.push(nuevoUsuario);
+            db.Pelicula.create(
+                nuevoUsuario)
+            .then(()=>{
+                res.redirect('/signin')
+            });
 
-            fs.writeFileSync(usuariosFilePath, JSON.stringify(usuarios, null, ' '));
+            //usuarios.push(nuevoUsuario);
+
+            //fs.writeFileSync(usuariosFilePath, JSON.stringify(usuarios, null, ' '));
 
 
-            res.redirect('/');
+            
         } else {
             //console.log(errores);
             res.render('signupv2', { errores: errores, old: req.body });
