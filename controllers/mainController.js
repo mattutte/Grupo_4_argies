@@ -416,6 +416,8 @@ let mainController = {
 
     update: (req, res) => {
             const id = req.params.id;
+            console.log(req.body);
+            console.log(req.file);
             db.Product.update(
                 {
                     
@@ -435,9 +437,9 @@ let mainController = {
                     weight_package: Number(req.body.weight_package),
                     color_available: req.body.color_available,
                     size_available: req.body.size_available,
-                    image_main: req.file["image-main"].filename,
-                    image_front: req.file["image-front"] ? req.file["image-front"].filename :"",
-                    image_back: req.file["image-back"] ? req.file["image-back"].filename : ""
+                    image_main: req.file["image-main"].filename ? req.file["image-main"].filename : req.body.image_main,
+                    image_front: req.file["image-front"] ? req.file["image-front"].filename : req.body.image_front,
+                    image_back: req.file["image-back"] ? req.file["image-back"].filename : req.body.image_back,
                  
                 } ,
                 {where:{id :id}}
