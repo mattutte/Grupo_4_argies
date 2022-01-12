@@ -48,12 +48,12 @@ module.exports = (sequelize, dataTypes) => {
         special_price: {
             type: dataTypes.DECIMAL(2),
         },
-        rating_value: {
-            type: dataTypes.DECIMAL(2),
-        },
-        rating_num_comment: {
-            type: dataTypes.INTEGER,
-        },
+        // rating_value: {
+        //     type: dataTypes.DECIMAL(2),
+        // },
+        // rating_num_comments: {
+        //     type: dataTypes.INTEGER,
+        // },
         returnable: {
             type: dataTypes.BOOLEAN,
             notNull: true
