@@ -249,9 +249,11 @@
 
                                 <!--Carrusel de productos similares-->
                                 <ul class="products-slider">
-                                    <% products.forEach(product => { 
-                                    let regular_price = parseFloat(product.regularPrice.replace('$', ''));
-                                    let special_price = parseFloat(product.specialPrice.replace('$', ''));
+                                    <%
+                                    //let regular_price = parseFloat(product.regularPrice.replace('$', ''));
+                                    //let special_price = parseFloat(product.specialPrice.replace('$', ''));
+                                    let regular_price = product.regular_price;
+                                    let regular_price = product.special_price;
                                     let discount = (1 - special_price/regular_price)*100;
                                     let price_discount = discount.toFixed(0);
                                     if(Number.isNaN(regular_price)){
@@ -263,11 +265,11 @@
                                     price_discount = (price_discount>0)? price_discount : 0;
                                 %>
 
-                                        <!--Item <% product %> del carousel-->
+                                        <!--Item <% product.id %> del carousel-->
                                         <li id="item_0" class="slider-item">
                                             <div class="item_image">
                                                 <a href="/product/<%= product.id %>">
-                                            <img src="/images/<%= product.images_main %>">
+                                            <img src="/images/<%= product.image_main %>">
                                         </a>
                                             </div>
                                             <div class="item_description">
@@ -278,7 +280,7 @@
                                                 </h4>
                                                 <div class="price-discount">
                                                     <% if(regular_price >= 0){ %>
-                                                        <span class="price-list"><%= 'AR'+product.regularPrice %></span>
+                                                        <span class="price-list"><%= 'AR'+regular_price %></span>
                                                         <% } %>
                                                             <% if (price_discount > 0){ %>
                                                                 <span class="discount"><%= price_discount + '%' +' OFF'%></span>
@@ -287,9 +289,8 @@
                                                 <div class="price-box">
                                                     <% if(special_price > 0){ %>
                                                         <p>
-                                                            <%= 'AR'+product.specialPrice %>
+                                                            <%= 'AR'+special_price %>
                                                         </p>
-                                                        <% } %>
                                                 </div>
                                                 <div class="item_afip">
                                                     <p>Incluye impuesto PAIS y percepción AFIP</p>
