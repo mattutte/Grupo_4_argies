@@ -60,7 +60,8 @@ module.exports = (sequelize, dataTypes) => {
         },
         weigh_package: {
             type: dataTypes.DECIMAL(2),
-            notNull: true
+            notNull: true,
+            default: 1.45
         },
         delivery_time: {
             type: dataTypes.STRING(200),

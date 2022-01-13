@@ -257,6 +257,7 @@ let mainController = {
         // modificar con sequilize y nueva estructure SQL
         console.log(req.body);
         console.log(req.files);
+        console.log(Number(req.body.weight_package));
 
         db.Product.create(
             {
@@ -278,9 +279,9 @@ let mainController = {
                 weight_package: Number(req.body.weight_package),
                 color_available: req.body.color_available,
                 size_available: req.body.size_available,
-                image_main: req.file["image-main"].filename,
-                image_front: req.file["image-front"] ? req.file["image-front"].filename : "",
-                image_back: req.file["image-back"] ? req.file["image-back"].filename : ""
+                image_main: req.files.find(file=>file.fieldname == "image-main").filename,
+                image_front: req.files.find(file=>file.fieldname == "image-front") ? req.files.find(file=>file.fieldname == "image-front").filename : "",
+                image_back: req.files.find(file=>file.fieldname == "image-back") ? req.files.find(file=>file.fieldname == "image-back").filename : ""
              
             } 
          ).then(function(){
@@ -397,12 +398,12 @@ let mainController = {
         let productToEdit = db.Product.findByPk(id,{
             include:[{association:'Brand'}]
         });
-        let brandsAvailable = db.Brand.findAll()
+        let brands = db.Brand.findAll();
 
         console.log(productToEdit);
-        console.log(brandsAvailable.name_brand)
+        console.log(brands.name_brand);
 
-        Promise.all([productToEdit,brandsAvailable])
+        Promise.all([productToEdit,brands])
         .then(function([productToEdit, brands]){
             res.render('product-edit-form v3', {productToEdit:productToEdit,brands:brands});
         })
@@ -439,9 +440,9 @@ let mainController = {
                     weight_package: Number(req.body.weight_package),
                     color_available: req.body.color_available,
                     size_available: req.body.size_available,
-                    image_main: req.file["image-main"].filename ? req.file["image-main"].filename : req.body.image_main,
-                    image_front: req.file["image-front"] ? req.file["image-front"].filename : req.body.image_front,
-                    image_back: req.file["image-back"] ? req.file["image-back"].filename : req.body.image_back,
+                    image_main: req.files.find(file=>file.fieldname == "image-main").filename ? req.files.find(file=>file.fieldname == "image-main").filename : req.body.image_main,
+                    image_front: req.files.find(file=>file.fieldname == "image-front").filename ? req.files.find(file=>file.fieldname == "image-front").filename : req.body.image_front,
+                    image_back: req.files.find(file=>file.fieldname == "image-back").filename ? req.files.find(file=>file.fieldname == "image-back").filename : req.body.image_back,
                  
                 } ,
                 {where:{id :id}}
