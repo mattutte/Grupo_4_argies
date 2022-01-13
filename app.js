@@ -24,7 +24,6 @@ app.use(methodOverride('_method')); // Pasar poder pisar el method="POST" en el 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views')); // Define la ubicación de la carpeta de las Vistas
 
-
 // ************ Configurando Session ************
 const session = require('express-session');
 app.use(session({
@@ -41,6 +40,7 @@ app.use(function (req, res, next) {
     res.locals.session = req.session;
     next();
 });
+app.use(recordarUsuario);
 
 // ************ WRITE YOUR CODE FROM HERE ************
 // ************ Route System require and use() ************

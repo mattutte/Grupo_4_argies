@@ -470,8 +470,10 @@
 
                                                 });
 
-                                                let regular_price = product.regularPrice.replace('$', '')*1000;
-                                                let special_price = product.specialPrice.replace('$', '')*1000;
+                                                //let regular_price = product.regularPrice.replace('$', '')*1000;
+                                                //let special_price = product.specialPrice.replace('$', '')*1000;
+                                                let regular_price = products.regular_price;
+                                                let special_price = products.special_price;
                                                 let discount = (1 - special_price/regular_price)*100;
                                                 let price_discount = discount.toFixed(0);
                                                 let price_difference = formatter.format(regular_price - special_price);
@@ -484,7 +486,7 @@
                                                         <div class="image-container">
                                                             <a href="#">
                                                                 <div class="product-image-container">
-                                                                    <img class="tile-image" src="/images/<%= product.images.main %>">
+                                                                    <img class="tile-image" src="/images/<%= products[i].image_main %>">
                                                                 </div>
                                                             </a>
                                                             <a class="wishlistTile">
@@ -504,16 +506,16 @@
                                                         <div class="tile-body">
                                                             <div class="description">
                                                                 <a href="#">
-                                                                    <%= product.name%>
+                                                                    <%= products[i].name_product%>
                                                                 </a>
                                                             </div>
                                                             <div class="tile-op-1">
                                                                 <div class="price-box">
                                                                     <p class="old-price">
-                                                                        <span class="price-label value price"><%= product.regularPrice %></span>
+                                                                        <span class="price-label value price"><%= formatter.format(products[i].regular_price) %></span>
                                                                     </p>
                                                                     <p class="special-price">
-                                                                        <span class="price-label value price"><%= product.specialPrice %></span>
+                                                                        <span class="price-label value price"><%= formatter.format(products[i].special_price) %></span>
                                                                     </p>
                                                                 </div>
                                                                 <form class="form-box">
@@ -538,7 +540,7 @@
                                                                 <div class="price">
                                                                     <span class="sales">
                                                                         <span class="value">
-                                                                            <%= product.specialPrice %>
+                                                                            <%= formatter.format(products[i].special_price) %>
                                                                         </span>
                                                                     </span>
                                                                 </div>
