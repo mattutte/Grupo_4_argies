@@ -36,16 +36,25 @@ let mainController = {
     },
 
     product: (req, res) => {
+
         const id = req.params.id;
-        db.Product.findByPk(id,{
+
+        const products = db.Product.findAll({
+            //order:[['rating','DESC']],
             include:[{association:'Brand'}]
         })
-        .then((product)=>{
-            res.render('product', product);
+
+        const product = db.Product.findByPk(id,{
+            include:[{association:'Brand'}]
+        })
+
+        Promise.all([products, product])
+        .then(function([product, products]){
+            res.render('product', {products, product});
         })
         .catch((error)=>{
             console.log(error);
-            res.send(500);
+            res.sendStatus(500);
         });
         
         // modificar con sequilize
@@ -380,7 +389,7 @@ let mainController = {
             include:[{association:'Brand'}]
         })
         .then((productToEdit)=>{
-            res.render('product-pre-edit v3', productToEdit);
+            res.render('product-pre-edit v3', {productToEdit});
         })
         .catch((error)=>{
             console.log(error);
