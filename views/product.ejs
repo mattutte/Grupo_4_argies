@@ -37,21 +37,21 @@
                                     <!--Galeria: imágenes disponibles del producto en formato pequeño-->
                                     <div class="product-img-box">
                                         <div class="more-views">
-                                            <% if(productDetail.images_front != ""){
-                                            image_front = productDetail.images.front;
+                                            <% if(productDetail.image_front != ""){
+                                            image_front = productDetail.images_front;
                                         }else{
-                                            image_front = productDetail.images_main;
+                                            image_front = productDetail.image_main;
                                         }
                                         
                                         %>
 
-                                                <img id="img-gal-ppal" class="gallery-thumb" src="/images/<%= image_front %>">
-                                                <% if(productDetail.images_back != ""){ %>
-                                                    <img id="img-gal-ppal" class="gallery-thumb" src="/images/<%= productDetail.images.back %>">
+                                                <img id="img-gal-ppal" class="gallery-thumb" src="/images/<%= productDetail.image_front %>">
+                                                <% if(productDetail.image_back != ""){ %>
+                                                    <img id="img-gal-ppal" class="gallery-thumb" src="/images/<%= productDetail.image_back %>">
                                                     <% } %>
                                         </div>
                                         <div class="product-img">
-                                            <img id="img-ppal" class="mainimg-big" src="/images/<%= productDetail.images.main %>" width="100%">
+                                            <img id="img-ppal" class="mainimg-big" src="/images/<%= productDetail.image_main %>" width="100%">
                                         </div>
                                     </div>
 
@@ -68,14 +68,14 @@
                                         <%= productDetail.name_product %>
                                     </h1>
                                     <h3>
-                                        <%= productDetail.description %>
+                                        <%= productDetail.description_product %>
                                     </h3>
                                     <div class="rating-container">
                                         <div class="rating-box">
                                             <img src="/images/rating-stars.png" width="100px">
                                         </div>
                                         <div class="rating-text">
-                                            <!--<span><%= productDetail.rating.quantity %> Calificaciones</span> -->
+                                            <!--<span><%= productDetail.rating_value %> Calificaciones</span> -->
                                         </div>
                                     </div>
                                 </div>
@@ -86,11 +86,7 @@
                                 </dt>
                                     <dl class="size-option">
                                         <div class="input-box">
-                                            <select>
-                                            <% productDetail.size_available %>
-                                            <!--<option title="<%= talle %>" class="size-options"><%= talle %></option>
-                                            <% }) %>-->
-                                        </select>
+                                           <%= productDetail.size_available %>
                                         </div>
                                     </dl>
                                 </dl>
@@ -133,8 +129,10 @@
                                     minimumFractionDigits: 0,
                                 });
 
-                                let regular_price = parseFloat(productDetail.regularPrice.replace('$', ''))*1000;
-                                let special_price = parseFloat(productDetail.specialPrice.replace('$', ''))*1000;
+                                //let regular_price = parseFloat(productDetail.regularPrice.replace('$', ''))*1000;
+                                //let special_price = parseFloat(productDetail.specialPrice.replace('$', ''))*1000;
+                                let regular_price = product.regular_price;
+                                let special_price = product.special_price;
                                 let discount = (1 - special_price/regular_price)*100;
                                 let price_discount = discount.toFixed(0);
                                 let price_difference = formatter.format(regular_price - special_price);
@@ -180,9 +178,7 @@
                                         <div class="payment-icon">
                                             <i class="far fa-credit-card"></i>
                                         </div>
-                                        <% if (productDetail.cuotas != ""){ %>
-                                        <span class="installments">Hasta <%= productDetail.cuotas.cantidad %> cuotas sin interés pagando con <strong><%= productDetail.cuotas.banco %></strong></span>
-                                        <% } %>
+                                        <span class="installments">Hasta 3 cuotas sin interés pagando con <strong>Santander</strong></span>
                                     </div>
                                     <div class="cuotas12">
                                         <div class="payment-icon">
@@ -249,15 +245,15 @@
 
                                 <!--Carrusel de productos similares-->
                                 <ul class="products-slider">
-                                    <%
+                                    <% for(let i=0; i<products.length; i++){
                                     //let regular_price = parseFloat(product.regularPrice.replace('$', ''));
                                     //let special_price = parseFloat(product.specialPrice.replace('$', ''));
-                                    let regular_price = product.regular_price;
-                                    let regular_price = product.special_price;
+                                    let regular_price = products[i].regular_price;
+                                    let special_price = products[i].special_price;
                                     let discount = (1 - special_price/regular_price)*100;
                                     let price_discount = discount.toFixed(0);
                                     if(Number.isNaN(regular_price)){
-                                        regulat_price = 0;
+                                        regular_price = 0;
                                     }
                                     if(Number.isNaN(special_price)){
                                         special_price = 0;
@@ -265,22 +261,22 @@
                                     price_discount = (price_discount>0)? price_discount : 0;
                                 %>
 
-                                        <!--Item <% product.id %> del carousel-->
+                                        <!--Item <% i %> del carousel-->
                                         <li id="item_0" class="slider-item">
                                             <div class="item_image">
-                                                <a href="/product/<%= product.id %>">
-                                            <img src="/images/<%= product.image_main %>">
+                                                <a href="/product/<%= products[i].id %>">
+                                            <img src="/images/<%= products[i].image_main %>">
                                         </a>
                                             </div>
                                             <div class="item_description">
                                                 <h4>
-                                                    <a href="/product/<%= product.id %>">
-                                                        <%= product.name_product %>
+                                                    <a href="/product/<%= products[i].id %>">
+                                                        <%= products[i].name_product %>
                                                     </a>
                                                 </h4>
                                                 <div class="price-discount">
                                                     <% if(regular_price >= 0){ %>
-                                                        <span class="price-list"><%= 'AR'+regular_price %></span>
+                                                        <span class="price-list"><%= formatter.format(regular_price) %></span>
                                                         <% } %>
                                                             <% if (price_discount > 0){ %>
                                                                 <span class="discount"><%= price_discount + '%' +' OFF'%></span>
@@ -289,7 +285,7 @@
                                                 <div class="price-box">
                                                     <% if(special_price > 0){ %>
                                                         <p>
-                                                            <%= 'AR'+special_price %>
+                                                            <%= formatter.format(special_price) %>
                                                         </p>
                                                 </div>
                                                 <div class="item_afip">
@@ -304,7 +300,7 @@
                                                 </div>
                                             </div>
                                         </li>
-                                        <% }) %>
+                                        <% } %>
                                 </ul>
                                 <!--Carousel de productos similares-->
                                 <!--Next and Previous buttons-->

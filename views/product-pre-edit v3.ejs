@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
         <!-- Head -->
-        <%- include('./partials/head.ejs',{titulo:"Editando: " +  productToEdit.name,stylesFile:"product.css"}) %>
+        <%- include('./partials/head.ejs',{titulo:"Editando: " +  productToEdit.name_product,stylesFile:"product.css"}) %>
     <body>
         
 
@@ -72,28 +72,28 @@
                                         <!--<img src="/images/rating-stars.png" width="100px"> -->
                                     </div>
                                     <div class="rating-text">
-                                        <!-- <span><%= productDetail.rating.quantity %> Calificaciones</span> -->
+                                        <!-- <span><%= productDetail.rating_value %> Calificaciones</span> -->
                                     </div>
                                 </div>
                             </div>
 
                             <dl class="product-options">
-                                <dt class="size-name">
-                                    <label>Talle</label>
+                                <dt class="size-name">  
+                                    <label>Talle - <%= productDetail.size_available %></label>
                                 </dt>
                                 <dl class="size-option">
                                     <div class="input-box">
                                         <select>
-                                            <% productDetail.size_available %>
-                                            <!-- <option title="<%= talle %>" class="size-options"><%= talle %></option>
-                                            <% }) %> -->
+                                            <option title="Small" class="size-options">
+                                                <%= productDetail.size_available %>
+                                            </option>
                                         </select>
                                     </div>
                                 </dl>
                             </dl>
 
                             <div class="product-detail">
-                                <!--<p class="inventario">Disponibilidad: <span><%= productDetail.inventario.disponibilidad %></span></p> -->
+                                <p class="inventario">Disponibilidad: <span>100</span></p>
                                 <p class="brand">Marca: <span><%= productDetail.Brand.name_brand %></span></p>
                                 <p class="weight">Peso paquete: <span><%= productDetail.weight_package %> kg</span></p>
                                 <p class="return-option">Acepta devolucion: <span><%= productDetail.returnable %></span></p>
@@ -166,14 +166,12 @@
                             </div>
 
                             <div class="payment-detail">
-                                <!--<div class="cuotas-contenedor">
+                                <div class="cuotas-contenedor">
                                     <div class="cuotas-promo">
                                         <div class="payment-icon">
                                             <i class="far fa-credit-card"></i>
                                         </div>
-                                        <% if (productDetail.cuotas != ""){ %>
-                                        <span class="installments">Hasta <%= productDetail.cuotas.cantidad %> cuotas sin interés pagando con <strong><%= productDetail.cuotas.banco %></strong></span>
-                                        <% } %>
+                                        <span class="installments">Hasta 12 cuotas sin interés pagando con <strong>Banco Santander</strong></span>
                                     </div>
                                     <div class="cuotas12">
                                         <div class="payment-icon">
@@ -181,7 +179,7 @@
                                         </div>
                                         <span class="installments">Hasta 12 cuotas fijas con todas las tarjetas</span>
                                     </div>
-                                </div> -->
+                                </div>
                             </div>
 
                             <div class="add-to-cart">
