@@ -39,17 +39,17 @@ let mainController = {
 
         const id = req.params.id;
 
-        const products = db.Product.findAll({
+        var products = db.Product.findAll({
             //order:[['rating','DESC']],
             include:[{association:'Brand'}]
         })
 
-        const product = db.Product.findByPk(id,{
+        var product = db.Product.findByPk(id,{
             include:[{association:'Brand'}]
         })
 
         Promise.all([products, product])
-        .then(function([product, products]){
+        .then(function([products, product]){
             res.render('product', {products, product});
         })
         .catch((error)=>{
@@ -72,7 +72,6 @@ let mainController = {
         })
         .catch((error)=>{
             console.log(error);
-            res.send(500);
         });
         //modificar con sequilize 
         //res.render('productSearch', { products, resultsPerPage: 12 })
@@ -627,7 +626,17 @@ let mainController = {
     },
 
     account: (req, res) => {
-        res.render('account');
+        db.User.findOne({
+            where: {
+                email: req.session.usuario,
+            }
+        }).then((foundUser) => {
+            res.render('account', {user: foundUser});
+        })
+        .catch((error)=>{
+            console.log(error);
+            res.sendStatus(500);
+        });
     },
 
     faq: (req, res) => {

@@ -191,6 +191,43 @@ img {
     height: auto;
 }
 
+.no_data {
+    color: rgb(241, 175, 52) !important;
+    font-style: italic !important;
+}
+
+.icon {
+    width: 15px;
+}
+
+.edit_button {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.button {
+    line-height: 18px;
+    border-radius: 6px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    font-family: Bryant,Helvetica,sans-serif;
+    padding: 12px 40px;
+    font-weight: 500;
+    background: rgb(58, 60, 78);
+    border-color: rgb(58, 60, 78);
+    color: #ffffff;
+    transition: .14s;
+    outline: 0;
+    cursor: pointer;
+    text-align: center;
+}
+
+.button:not(:disabled):focus, .button:not(:disabled):hover {
+    background-color: #999;
+    border-color: #999;
+    color: #fff;
+}
 
 .inner-box-container:first-child:not(.t97Ap) .inner-box-wrapper {
     padding-top: 16px;

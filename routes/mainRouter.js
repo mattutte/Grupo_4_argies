@@ -88,7 +88,7 @@ router.delete('/product/:id', mainController.destroy);
 router.get('/signin', mainController.signin);
 router.post('/signin', mainController.checksignin);
 
-router.get('/signup', redirect.account, mainController.signup);
+router.get('/signup', redirect.register, mainController.signup);
 router.post('/signup', upload.single('face_pic'), validations, mainController.crearperfil);
 
 router.get('/check', mainController.check);
@@ -97,7 +97,7 @@ router.post('/logout', mainController.logout);
 
 router.get('/aboutUs', mainController.aboutUs);
 
-router.get('/account', redirect.register, mainController.account)
+router.get('/account', redirect.account, mainController.account)
 
 router.get('/faq', mainController.faq)
 

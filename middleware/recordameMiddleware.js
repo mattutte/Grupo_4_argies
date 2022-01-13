@@ -1,5 +1,5 @@
 function recordameMiddleware(req, res, next){
-    next()
+    next();
     console.log("recordar usuario es: "+req.cookies.usuarioRecordado)
     if (req.cookies.usuarioRecordado != undefined && req.session.usuario == undefined){
         req.session.userId = req.cookies.usuarioRecordado;

@@ -8,16 +8,16 @@ let redirect = {
     },
     account: (req, res, next) => {
         if(!req.session.loggedin){
-            next();
+            res.redirect('/signin');
         } else {
-            res.redirect('/account');
+            next();
         }
     },
     register: (req, res, next) => {
         if(!req.session.loggedin){
-            res.redirect('/signup');;
-        } else {
             next();
+        } else {
+            res.redirect('/account');
         }
     },
 }
