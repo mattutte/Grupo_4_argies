@@ -44,7 +44,7 @@ CREATE TABLE products (
    rating_value NUMERIC,
    rating_num_comments INT,
    returnable TINYINT(1),
-   weigh_package NUMERIC NOT NULL,
+   weigh_package NUMERIC,
    delivery_time VARCHAR(200),
    color_available VARCHAR(200),
    size_available TEXT,

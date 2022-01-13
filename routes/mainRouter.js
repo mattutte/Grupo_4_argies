@@ -72,12 +72,12 @@ router.get('/product/:id', mainController.product);
 router.get('/admin', checkAccess, mainController.admin);
 
 router.get('/addProduct', checkAccess, mainController.addProduct);
-router.post('/productSearch', upload.fields([{ name: 'images-main' }, { name: 'images-front' }, { name: 'images-back' }]), mainController.store);
+router.post('/addProduct', upload.any(), mainController.store);
 router.get('/cart', redirect.register, mainController.checkCart);
 
 router.get('/product/pre_edit/:id', checkAccess, mainController.pre_edit);
 router.get('/product/edit/:id', checkAccess, mainController.editProduct);
-router.put('/product/:id', upload.fields([{ name: 'image-main' }, { name: 'image-front' }, { name: 'image-back' }]), mainController.update); // los datos del formulario vienen por body
+router.put('/product/:id', upload.any(), mainController.update); // los datos del formulario vienen por body
 
 
 /*** DELETE ONE PRODUCT***/

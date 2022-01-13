@@ -265,6 +265,7 @@ let mainController = {
         // modificar con sequilize y nueva estructure SQL
         console.log(req.body);
         console.log(req.files);
+        console.log(Number(req.body.weight_package));
 
         db.Product.create(
             {
@@ -286,9 +287,9 @@ let mainController = {
                 weight_package: Number(req.body.weight_package),
                 color_available: req.body.color_available,
                 size_available: req.body.size_available,
-                image_main: req.file["image-main"].filename,
-                image_front: req.file["image-front"] ? req.file["image-front"].filename : "",
-                image_back: req.file["image-back"] ? req.file["image-back"].filename : ""
+                image_main: req.files.find(file=>file.fieldname == "image-main").filename,
+                image_front: req.files.find(file=>file.fieldname == "image-front") ? req.files.find(file=>file.fieldname == "image-front").filename : "",
+                image_back: req.files.find(file=>file.fieldname == "image-back") ? req.files.find(file=>file.fieldname == "image-back").filename : ""
              
             } 
          ).then(function(){
@@ -296,75 +297,11 @@ let mainController = {
                 include:[{association:'Brand'}],
                 //order:[['rating','DESC']]
          })})
-         .then((products)=>{
-             res.render('productSearch',products)
+         .then(()=>{
+             res.render('/')
          })
 
-        //Procesando características -----------------------------------
-        // let caracteristicas_req = [req.body.caract_1, req.body.caract_2, req.body.caract_3, req.body.caract_4];
-        // let caracteristicas_def = []
-
-        // caracteristicas_req.forEach(caracteristica => {
-        //     if (typeof(caracteristica) != "undefined") {
-        //         caracteristicas_def.push(caracteristica);
-        //     }
-        // });
-
-        //Procesando talles --------------------------------------------
-        // let talles_req = [
-        //     typeof(req.body.small) != "undefined" ? "Small" : "",
-        //     typeof(req.body.medium) != "undefined" ? "Medium" : "",
-        //     typeof(req.body.large) != "undefined" ? "Large" : "",
-        //     typeof(req.body.extralarge) != "undefined" ? "Extra-Large" : ""
-        // ];
-        // let talles_def = [];
-        // talles_req.forEach(talle => {
-        //     if (talle !== '') {
-        //         talles_def.push(talle);
-        //     }
-        // })
-
-        // const nuevoProducto = {
-        //     // modificar con sequilize y nueva estructure SQL
-        //     id: products[products.length - 1].id + 1, // le crea un id 1 mas alto que el del ultimo
-        //     name: req.body.name ? req.body.name : "",
-        //     brand: req.body.brand ? req.body.brand : "",
-        //     description: req.body.description ? req.body.description : "",
-        //     caracteristicas: caracteristicas_def,
-        //     detalle: req.body.detalle ? req.body.detalle : "",
-        //     talles: talles_def,
-        //     regularPrice: Number(req.body.regularPrice) ? "$ " + req.body.regularPrice : "",
-        //     specialPrice: Number(req.body.specialPrice) ? "$ " + req.body.specialPrice : "",
-        //     cuotas: {
-        //         banco: req.body.cuotasbanco ? req.body.cuotasbanco : "",
-        //         cantidad: req.body.cuotas ? req.body.cuotas : 0
-        //     },
-        //     caption: req.body.caption ? req.body.caption : "",
-        //     inventario: {
-        //         disponibilidad: req.body.disponibilidad ? req.body.disponibilidad : 0,
-        //         peso_paq: req.body.peso_paq ? req.body.peso_paq : 0,
-        //         devolucion: req.body.devolucion ? req.body.devolucion : "",
-        //         tiempoEntrega: req.body.tiempoEntrega ? req.body.tiempoEntrega : ""
-        //     },
-        //     rating: {
-        //         value: req.body.rating ? Number(req.body.rating) : 0,
-        //         quantity: req.body.quantity ? req.body.quantity : 0
-        //     }, // le agrega todo lo del formulario excepto el file
-        //     images: {
-        //         main: req.files["images-main"] ? req.files["images-main"][0].filename : null,
-        //         front: req.files["images-front"] ? req.files["images-front"][0].filename : null,
-        //         back: req.files["images-back"] ? req.files["images-back"][0].filename : null
-        //     } //le agrega los files que uploade, si lo hice, sino mantengo el anterior
-        // };
-        // console.log(nuevoProducto);
-        // products.push(nuevoProducto);
-
-        // fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
-
-
-        // res.redirect('/');
-
-        //res.send('se creo producto');
+        
     },
 
     admin: (req, res) => {
@@ -405,12 +342,12 @@ let mainController = {
         let productToEdit = db.Product.findByPk(id,{
             include:[{association:'Brand'}]
         });
-        let brandsAvailable = db.Brand.findAll()
+        let brands = db.Brand.findAll();
 
         console.log(productToEdit);
-        console.log(brandsAvailable.name_brand)
+        console.log(brands.name_brand);
 
-        Promise.all([productToEdit,brandsAvailable])
+        Promise.all([productToEdit,brands])
         .then(function([productToEdit, brands]){
             res.render('product-edit-form v3', {productToEdit:productToEdit,brands:brands});
         })
@@ -419,9 +356,7 @@ let mainController = {
             res.send(500);
         });
         
-        // modificar form con nueva estructure SQL
-        //const productToEdit = products.find((prod) => prod.id == req.params.id);
-        //res.render('product-edit-form v2', { productToEdit })
+        
     },
 
     update: (req, res) => {
@@ -447,9 +382,9 @@ let mainController = {
                     weight_package: Number(req.body.weight_package),
                     color_available: req.body.color_available,
                     size_available: req.body.size_available,
-                    image_main: req.file["image-main"].filename ? req.file["image-main"].filename : req.body.image_main,
-                    image_front: req.file["image-front"] ? req.file["image-front"].filename : req.body.image_front,
-                    image_back: req.file["image-back"] ? req.file["image-back"].filename : req.body.image_back,
+                    image_main: req.files.find(file=>file.fieldname == "image-main").filename ? req.files.find(file=>file.fieldname == "image-main").filename : req.body.image_main,
+                    image_front: req.files.find(file=>file.fieldname == "image-front").filename ? req.files.find(file=>file.fieldname == "image-front").filename : req.body.image_front,
+                    image_back: req.files.find(file=>file.fieldname == "image-back").filename ? req.files.find(file=>file.fieldname == "image-back").filename : req.body.image_back,
                  
                 } ,
                 {where:{id :id}}
@@ -462,98 +397,6 @@ let mainController = {
                 console.log(error);
                 res.send(500);
             });
-
-
-        // modificar con sequilize y nueva estructure SQL
-
-        // const productIndex = products.findIndex((producto) => {
-        //     return (producto.id == req.params.id)
-
-        // });
-
-        //console.log(req.files);
-        //console.log(req.body);
-        // const productToEdit = products.find((prod) => prod.id == req.params.id);
-
-        //Procesando características -----------------------------------
-        // if (productToEdit.caracteristicas == "") {
-        //     productToEdit.caracteristicas = ["", "", "", ""];
-        // }
-
-        // let caracteristicas_original = [req.body.caract_1 ? req.body.caract_1 : productToEdit.caracteristicas[0], req.body.caract_2 ? req.body.caract_2 : productToEdit.caracteristicas[1], req.body.caract_3 ? req.body.caract_3 : productToEdit.caracteristicas[2], req.body.caract_4 ? req.body.caract_4 : productToEdit.caracteristicas[3]];
-        // let caracteristicas_def = []
-        //     //console.log(caracteristicas_original);
-        // let i = 0;
-        // for (let carac in caracteristicas_original) {
-        //     if (caracteristicas_original[carac] != "") {
-        //         caracteristicas_def.push(caracteristicas_original[carac]);
-        //         i++;
-        //     }
-        // }
-        // console.log(caracteristicas_def);
-        // if (i = 0) {
-        //     caracteristicas_def = "";
-        // }
-
-        //Procesando talles --------------------------------------------
-        // let talles_req = [
-        //     typeof(req.body.small) != "undefined" ? "Small" : "",
-        //     typeof(req.body.medium) != "undefined" ? "Medium" : "",
-        //     typeof(req.body.large) != "undefined" ? "Large" : "",
-        //     typeof(req.body.extralarge) != "undefined" ? "Extra-Large" : ""
-        // ];
-        // let talles_def = [];
-        // talles_req.forEach(talle => {
-        //     if (talle !== '') {
-        //         talles_def.push(talle);
-        //     }
-        // })
-
-        // const productoEditado = {
-        //     id: products[productIndex].id,
-        //     category: req.body.category ? req.body.category : productToEdit.category,
-        //     name_product: req.body.name ? req.body.name : productToEdit.name_product,
-        //     brand: req.body.brand ? req.body.brand : productToEdit.brand,
-        //     description_product: req.body.description ? req.body.description : productToEdit.description_product,
-        //     year_created: req.body.year ? req.body.year : productToEdit.year_created,
-        //     caracteristicas: caracteristicas_def,
-        //     detalle: req.body.detalle ? req.body.detalle : productToEdit.detalle,
-        //     talles: talles_def,
-        //     regularPrice: Number(req.body.regularPrice) ? "$ " + req.body.regularPrice : productToEdit.regularPrice,
-        //     specialPrice: Number(req.body.specialPrice) ? "$ " + req.body.specialPrice : productToEdit.specialPrice,
-        //     cuotas: {
-        //         banco: req.body.cuotasbanco ? req.body.cuotasbanco : productToEdit.cuotas.banco,
-        //         cantidad: req.body.cuotas ? req.body.cuotas : productToEdit.cuotas.cantidad
-        //     },
-        //     caption: req.body.caption ? req.body.caption : productToEdit.caption,
-        //     inventario: {
-        //         disponibilidad: req.body.disponibilidad ? req.body.disponibilidad : productToEdit.inventario.disponibilidad,
-        //         peso_paq: req.body.peso_paq ? req.body.peso_paq : productToEdit.inventario.peso_paq,
-        //         devolucion: req.body.devolucion ? req.body.devolucion : productToEdit.inventario.devolucion,
-        //         tiempoEntrega: req.body.tiempoEntrega ? req.body.tiempoEntrega : productToEdit.inventario.tiempoEntrega
-        //     },
-        //     rating: {
-        //         value: req.body.rating ? Number(req.body.rating) : productToEdit.rating.value,
-        //         quantity: req.body.quantity ? req.body.quantity : productToEdit.rating.quantity
-        //     }, // le agrega todo lo del formulario excepto el file
-        //     images: {
-        //         main: req.files["images-main"] ? req.files["images-main"][0].filename : productToEdit.images.main,
-        //         front: req.files["images-front"] ? req.files["images-front"][0].filename : productToEdit.images.front,
-        //         back: req.files["images-back"] ? req.files["images-back"][0].filename : productToEdit.images.back
-        //     } //le agrega los files que uploade, si lo hice, sino mantengo el anterior
-        // };
-
-        //console.log(productoEditado);
-
-        // products[productIndex] = productoEditado;
-
-        // fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
-
-
-        // res.redirect('/');
-
-
-
 
     },
 
