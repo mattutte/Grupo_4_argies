@@ -97,9 +97,13 @@ router.post('/logout', mainController.logout);
 
 router.get('/aboutUs', mainController.aboutUs);
 
-router.get('/account', redirect.account, mainController.account)
+router.get('/account', redirect.account, mainController.account);
 
-router.get('/faq', mainController.faq)
+router.get('/editAccount', redirect.account, mainController.editAccount);
+
+router.put('/editAccount', mainController.updateAccount);
+
+router.get('/faq', mainController.faq);
 
 // router.get('/editProfile/:id', redirect.account, mainController.editProfile);
 // router.post('/editProfile/:id', upload.single('face_pic'), validations, mainController.updateProfile);

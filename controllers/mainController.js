@@ -220,21 +220,21 @@ let mainController = {
 
     },
 
-    // editProfile: (req,res){
-    //     const id = req.params.id;
-    //     db.User.findByPk(id)
-    //     .then((user)=>{
-    //         res.render('profilev2', user);
-    //     })
-    //     .catch((error)=>{
-    //         console.log(error);
-    //         res.send(500);
-    //     });
-    // },
+/*     editProfile: (req,res){
+        const id = req.params.id;
+        db.User.findByPk(id)
+        .then((user)=>{
+            res.render('profilev2', user);
+        })
+        .catch((error)=>{
+            console.log(error);
+            res.send(500);
+        });
+    },
 
-    // updateProfile: (req, res){
+    updateProfile: (req, res){
 
-    // },
+    }, */
 
     shoppingcart: (req, res) => {
         res.render('shopping-cart')
@@ -489,7 +489,49 @@ let mainController = {
         db.Shopping_cart_content.findAll().then((result) => {
             res.send(result)
         })
-    }
+    },
+
+    editAccount: (req, res) => {
+        db.User.findOne({
+            where: {
+                email: req.session.usuario,
+            }
+        }).then((foundUser) => {
+            res.render('edit_account', {user: foundUser});
+        })
+        .catch((error)=>{
+            console.log(error);
+            res.sendStatus(500);
+        });
+    },
+
+    updateAccount: (req, res) => {
+        const user_id = req.session.usuario;
+        console.log(req.body);
+        console.log(req.file);
+        db.User.update(
+            {
+                
+                email: req.body.email,
+                passwd: req.body.psw,
+                first_name: req.body.first_name,
+                last_name: req.body.last_name,
+                country: req.body.face_pic,
+                admin_category: req.body.admin,
+                adult: req.body.mayor,
+                image_main: req.files.find(file=>file.fieldname == "image-main").filename ? req.files.find(file=>file.fieldname == "image-main").filename : req.body.image_main,
+             
+            } ,
+            {where:{email: user_id}}
+         )
+         .then(function(){  
+            res.redirect('/account')
+        })
+        .catch((error) => {
+            console.log(error);
+            res.send(500);
+        });
+    },
 
 };
 
