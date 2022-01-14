@@ -69,6 +69,14 @@ body {
     margin-left: -6px;
 }
 
+.row2 {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    margin-right: -6px;
+    margin-left: -6px;
+}
+
 .col {
     flex-basis: 0;
     flex-grow: 1;
@@ -165,10 +173,38 @@ body {
     border: unset;
 }
 
+.inline {
+    display:inline-block;
+}
+
+.hflex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.hflex-center {
+    justify-content: center;
+}
+
+.vflex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.no_margin {
+    margin: 0!important;
+}
+
 /* ENCABEZADO DE BUSQUEDA -----------------------------------------------------------------------*/
 
 .row-upper {
     padding-top: 30px;
+}
+
+.row-upper.admin {
+    padding-top: 0px;
 }
 
 
@@ -180,6 +216,11 @@ body {
 
 .row-content>.active {
     display: block;
+}
+
+#titulo-admin {
+    color: #9B2335;
+    text-decoration: underline;
 }
 
 /* ENCABEZADO DE BUSQUEDA ------------------------------------------------------------*/
@@ -215,6 +256,24 @@ img {
 
 .breadcrumb-item+.breadcrumb-item {
     padding-left: .5rem;
+}
+
+.row .col .btn-admin {
+    align-self: center;
+}
+
+.row .col .btn-admin button, .row .row-content .btn-admin button {
+    padding: 5px 10px;
+    border: none;
+    background: #F5DF4D;
+    font-size: 0.8rem;
+    font-weight: 600 !important;
+    line-height: 1.5rem;
+    border-radius: 4px;
+}
+
+.row .col .btn-admin a, .row .row-content .btn-admin a {
+    color:#000;
 }
 
 .container {
@@ -846,6 +905,10 @@ i.far.fa-heart.fa-stack {
     align-items: center;
 }
 
+.tile-body .btn-cart.admin {
+    background: #BC243C;
+}
+
 .tile-body .btn-cart-sm {
     display: flex;
     border: none;
@@ -865,6 +928,10 @@ i.far.fa-heart.fa-stack {
 
 .tile-body .tile-op-1 .button:hover {
     color:rgb(100, 100, 100);   
+}
+
+.tile-body .tile-op-1 .button.admin:hover span {
+    color:rgb(175, 118, 118);   
 }
 
 .tile-body .tile-op-1 .button:hover .fa-shopping-cart {
@@ -1217,6 +1284,10 @@ i.far.fa-heart.fa-stack {
 
     .main-container .filter-results {
         background-color: #121212;
+    }
+
+    .ss {
+        display: none;
     }
 
 }

@@ -14,16 +14,16 @@
                 <div class="main-container container">
 
                     <!--First row: encabezado del cuerpo principal-->
-                    <div class="button-div">
-                        <button type="button" class="button btn-cart">
-                            <a href="/addProduct">
-                                <span>Agregar un Producto Nuevo</span>
-                            </a>
-                        </button>
+
+                    <!-- Titulo: Modo edicion de productos -->
+                    <div>
+                        <h2 id='titulo-admin' class='row hflex hflex-center'>
+                            Modo edicion de productos
+                        </h2>
                     </div>
 
 
-                    <div class="row-upper">
+                    <div class="row-upper admin">
                         <div class="row">
                             <div class="col">
                                 <ol class="breadcrumb">
@@ -459,9 +459,7 @@
                                         <div class="row product-grid">
 
                                             <% for (let i = 0; i < Math.min(
-                                                products.length, resultsPerPage); i++) {
-
-                                                product = products[i];
+                                                products.length, resultsPerPage); i++) {          
 
                                                 var formatter = new Intl.NumberFormat('es-AR', {
                                                 style: 'currency',
@@ -472,14 +470,14 @@
 
                                                 //let regular_price = product.regularPrice.replace('$', '')*1000;
                                                 //let special_price = product.specialPrice.replace('$', '')*1000;
-                                                let regular_price = products.regular_price;
-                                                let special_price = products.special_price;
+                                                let regular_price = products[i].regular_price;
+                                                let special_price = products[i].special_price;
                                                 let discount = (1 - special_price/regular_price)*100;
                                                 let price_discount = discount.toFixed(0);
                                                 let price_difference = formatter.format(regular_price - special_price);
                                             %>
 
-                                            <!--Product <% product %>-->
+                                            <!--Product <% i %>-->
                                             <div class="col-6 col-sm-4">
                                                 <div class="product">
                                                     <div class="product-tile">
@@ -519,10 +517,9 @@
                                                                     </p>
                                                                 </div>
                                                                 <form class="form-box">
-                                                                    
                                                                     <div class="button-div">
-                                                                        <button type="button" class="button btn-cart">
-                                                                            <a href="product/pre_edit/<%= product.id %>">
+                                                                        <button type="button" class="button btn-cart bs admin   ">
+                                                                            <a href="product/pre_edit/<%= products[i].id %>">
                                                                                 <span>Editar</span>
                                                                             </a>
                                                                         </button>
@@ -558,8 +555,8 @@
                                                                 </div>
                                                                 <div class="add-to-cart">
                                                                     <button type="button" class="button btn-cart-sm">
-                                                                        <a href="product/pre_edit/<%= product.id %>">
-                                                                        <span>Editar</span>
+                                                                        <a href="product/pre_edit/<%= products[i].id %>">
+                                                                            <span>Editar</span>
                                                                         </a>
                                                                     </button>
                                                                 </div>
@@ -567,7 +564,7 @@
                                                         </div>
                                                     </div>
                                                 </div> 
-                                            </div> <!--Product <%= product %> -->
+                                            </div> <!--Product <%= i %> -->
 
                                             <% } %>
 

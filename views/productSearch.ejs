@@ -16,7 +16,7 @@
                     <!--First row: encabezado del cuerpo principal-->
                     <div class="row-upper">
                         <div class="row">
-                            <div class="col">
+                            <div class="col hflex">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item">
                                         <a href="/"> Home</a>
@@ -25,6 +25,16 @@
                                         <a href="#" class="last-visited" aria-current="page"> Resultados de búsqueda </a>
                                     </li>
                                 </ol>
+                                <% if(locals.session.loggedin){
+                                    if(locals.session.admin==1){ %>
+                                    <div class='btn-admin vflex'>
+                                        <button type="button" class="button">
+                                            <a href='/admin'>
+                                                <span>Editar productos</span> 
+                                            </a>
+                                        </button>
+                                    </div>
+                                <% }} %>
                             </div>
                         </div>
 
@@ -58,6 +68,16 @@
                                     </div>
 
                                 </div>
+                                <% if(locals.session.loggedin){
+                                    if(locals.session.admin==1){ %>
+                                        <div class='btn-admin vflex ss'>
+                                            <button type="button" class="button">
+                                                <a href='/admin'>
+                                                    <span>Editar productos</span> 
+                                                </a>
+                                            </button>
+                                        </div>
+                                <% }} %>
                                 <div class="row">
                                     <div class="refinement-bar col-md-3">
                                         <div class="filter-header">
@@ -462,17 +482,19 @@
 
                                                 //let regular_price = product.regularPrice.replace('$', '')*1000;
                                                 //let special_price = product.specialPrice.replace('$', '')*1000;
-                                                let regular_price = products.regular_price;
-                                                let special_price = products.sepcial_price
+                                                let regular_price = products[i].regular_price;
+                                                let special_price = products[i].special_price
                                                 let discount = (1 - special_price/regular_price)*100;
                                                 let price_discount = discount.toFixed(0);
                                                 let price_difference = formatter.format(regular_price - special_price);
+                                                //console.log('regular price is: '+regular_price);
                                             %>
 
                                             <!--Product <%=i+1%>-->
                                             <div class="col-6 col-sm-4">
                                                 <div class="product">
                                                     <div class="product-tile">
+                                                        <!-- Imagen -->
                                                         <div class="image-container">
                                                             <a href="product/<%= products[i].id %>">
                                                                 <div class="product-image-container">
@@ -493,12 +515,15 @@
                                                             </a>
 
                                                         </div>
+                                                        <!-- Cuerpo -->
                                                         <div class="tile-body">
+                                                            <!-- Descripcion -->
                                                             <div class="description">
                                                                 <a href="product/<%= products[i].id %>">
                                                                     <%= products[i].name_product%>
                                                                 </a>
                                                             </div>
+                                                            <!-- Precio wide screens-->
                                                             <div class="tile-op-1">
                                                                 <div class="price-box">
                                                                     <p class="old-price">
@@ -532,6 +557,7 @@
                                                                     </div>
                                                                 </form>
                                                             </div>
+                                                            <!-- Precio small screens-->
                                                             <div class="tile-op-2">
                                                                 <div class="bfg-price-badge">
                                                                     <span class="bfg-price-text">

@@ -578,7 +578,7 @@ header {
 }
 
 .nav-group >a {
-    display: flex;
+    /* display: flex; */
     font: 700 1.1rem Oswald;
     letter-spacing: .02rem;
     text-transform: uppercase;
@@ -1188,6 +1188,10 @@ footer li a {
     margin:auto;
 }
 
+button.bs a {
+    color: #fff
+}
+
 
 /* FOOTER - BOTTOM BAR ---------------------------------------------------*/
 
@@ -1323,7 +1327,7 @@ footer li a {
 @media (min-width: 480px){
 
     .nav-groups {
-        justify-content: space-around;
+        justify-content: center;
         align-items: center;
     }
 
@@ -1384,6 +1388,10 @@ footer li a {
         display: flex;
     }
 
+    .nav-group {
+        width: 150px;
+    }
+
 
 }
 
@@ -1395,6 +1403,10 @@ footer li a {
 
     .Menu-Footer-resumidos {
         display: none;
+    }
+
+    .nav-group {
+        width: 200px;
     }
 
     .nav-groups {
