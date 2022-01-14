@@ -1,4 +1,4 @@
-Retrospectiva Sprint 3:
+Retrospectiva Sprint 4:
 
 1- Qué hicimos bien (lo que hay que mantener):
 
