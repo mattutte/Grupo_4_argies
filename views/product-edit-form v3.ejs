@@ -107,8 +107,8 @@
                       <div class="listInlineSelect__selectBox-activeRegion">
                         <select id="brand" name="brand" class="form-input">
                           <% for (let i = 0; i < brands.length; i++){ %>
+                            <option value=<%= brands[i].id %> <% brands[i].id == productToEdit.brand_id? "selected":"" %> ><%= brands[i].name_brand %></option>
                             
-                            <option value=<%= brands[i].id %> <% brands[i].id == productToEdit.brand_id? "selected":"" %> > <% brands[i].name_brand %> </option>
                           <% } %>
                         </select> 
         

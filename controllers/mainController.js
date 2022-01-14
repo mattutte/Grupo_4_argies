@@ -292,14 +292,14 @@ let mainController = {
                 image_back: req.files.find(file=>file.fieldname == "image-back") ? req.files.find(file=>file.fieldname == "image-back").filename : ""
              
             } 
-         ).then(function(){
-             db.Product.findAll({
-                include:[{association:'Brand'}],
-                //order:[['rating','DESC']]
-         })})
-         .then((products)=>{
-             res.render('/',products)
-         })
+         )
+         .then(function(){  
+            res.redirect('/')
+        })
+        .catch((error) => {
+            console.log(error);
+            res.send(500);
+        });
 
         
     },
