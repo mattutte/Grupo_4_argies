@@ -3,7 +3,7 @@
         
     <%- include('./partials/head.ejs',{titulo:"Busqueda Producto",stylesFile:"productSearch.css"}) %>
 
-        <body>
+        <body class='admin'>
             <!-- Header -->
             <%- include('./partials/header v2.ejs') %>
             <!--MAIN BODY-->
@@ -25,7 +25,7 @@
 
                     <div class="row-upper admin">
                         <div class="row">
-                            <div class="col">
+                            <div class="col hflex">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item">
                                         <a href="/"> Home</a>
@@ -34,6 +34,16 @@
                                         <a href="#" class="last-visited" aria-current="page"> Resultados de búsqueda </a>
                                     </li>
                                 </ol>
+                                <% if(locals.session.loggedin){
+                                    if(locals.session.admin==1){ %>
+                                    <div class='btn-admin vflex'>
+                                        <button type="button" class="button cancel">
+                                            <a href='/productSearch'>
+                                                <span>Cancelar</span> 
+                                            </a>
+                                        </button>
+                                    </div>
+                                <% }} %>
                             </div>
                         </div>
 

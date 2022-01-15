@@ -524,6 +524,10 @@ body {
         cursor: pointer;
     }
 
+    .slider-item .item_description a:link, .slider-item .item_description a:visited  {
+        color: inherit;
+    }
+
 /* RESPONSIVE SECTION */
 
 

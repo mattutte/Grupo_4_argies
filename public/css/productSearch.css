@@ -49,7 +49,11 @@ body {
     line-height: 1.5;
     color: #212529;
     text-align: left;
-    background-color: #f8f8f8 !important;
+    background-color: #f8f8f8;
+}
+
+body.admin {
+    background-color: #fdeaea;
 }
 
 .main-container {
@@ -272,8 +276,16 @@ img {
     border-radius: 4px;
 }
 
+.row .col .btn-admin button.cancel, .row .row-content .btn-admin button.cancel {
+    background: #D65076;
+}
+
 .row .col .btn-admin a, .row .row-content .btn-admin a {
     color:#000;
+}
+
+.row .col .btn-admin .cancel a, .row .row-content .btn-admin .cancel a {
+    color:#fff;
 }
 
 .container {
