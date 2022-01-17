@@ -50,7 +50,8 @@ article {
 }
 
 .main-banner {
-    padding: 0 6px;
+    padding: 0 0px;
+    margin-bottom: 30px;
     position: relative;
     align-items: center;
     width: 100%;
@@ -112,7 +113,7 @@ article {
 .row-banners {
     display: flex;
     flex-direction: row;
-    padding: 0px 30px;
+    padding: 0px 20px;
 }
 
 .row-banners * {
@@ -300,7 +301,7 @@ article:hover {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 
