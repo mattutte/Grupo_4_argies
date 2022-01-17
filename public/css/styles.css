@@ -13,6 +13,11 @@ body ul {
     height: 30px;
 }
 
+.hflex {
+    display: flex;
+    flex-direction: row;
+}
+
 /*main {
     text-align: center;
 }*/
@@ -20,6 +25,11 @@ body ul {
 .banners {
     display: block;
 }
+
+.banner {
+    margin-bottom: 30px;
+}
+
 .filauno {
     display: flex;
     margin: 20px;
@@ -38,6 +48,217 @@ article {
     width: 250px;
 
 }
+
+.main-banner {
+    padding: 0 6px;
+    position: relative;
+    align-items: center;
+    width: 100%;
+    transition: transform .6s ease;
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+.main-banner .main-headlinebanner-container {
+    position: absolute;
+    bottom: 21.5%;
+    width: 100%;
+}
+
+.main-banner .main-btn-buy {
+    transition: color .5s ease-out;
+    z-index: 1;
+    margin-left: 0;
+    margin-right: 6px;
+    margin-top: 6px;
+    width: 15%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    padding: 0.7% 0.5%;
+
+    border-radius: 20px;
+    background: #fff;
+    color: #111;
+
+    position: relative;
+
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 500;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 50%;
+    line-height: 1.5;
+    cursor: pointer;
+
+    transition: color .15s ease-in-out, 
+                background-color .15s ease-in-out,border-color .15s ease-in-out,
+                box-shadow .15s ease-in-out;
+}
+
+.main-banner .main-btn-buy {
+    left: 65%;
+}
+
+.main-banner .main-btn-buy:hover {
+    color: #ffff;
+    background-color: #3ab;
+    border-color: #3ab;
+}
+
+.row-banners {
+    display: flex;
+    flex-direction: row;
+    padding: 0px 30px;
+}
+
+.row-banners * {
+    box-sizing: border-box;
+}
+
+.banner-item {
+    padding: 0 20px;
+    float: left;
+    position: relative;
+    width: 100%;
+}
+
+.banner-item {
+    padding-right: 0.9375rem;
+    padding-left: 0.9375rem;
+    padding-bottom: 0.9375rem;
+    margin-right: 0;
+    align-items: center;
+}
+
+.banner-item * {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.row-banners .banner-item {
+    padding: 0 6px;
+    position: relative;
+    align-items: center;
+    width: 100%;
+    transition: transform .6s ease;
+    backface-visibility: hidden;
+    perspective: 1000px;
+    display: none;
+}
+
+.row-banners .banner-item a {
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.row-banners a, .row-banners a:active, .row-banners a:focus, .row-banners a:hover {
+    outline: 0;
+}
+
+.component-figure {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.row-banners .banner-item img {
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    vertical-align: middle;
+    border-style: none;
+}
+
+.component-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: var(--focal-point-x) var(--focal-point-y);
+}
+
+.headlinebanner-container {
+    position: absolute;
+    bottom: 27.5%;
+    width: 100%;
+}
+
+.headlinebanner-text {
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.headlinebanner-text_heading {
+    font-size: 4vw;
+}
+
+.row-banners .banner-item .btn-buy {
+    transition: color .5s ease-out;
+    z-index: 1;
+    margin-left: 0;
+    margin-right: 6px;
+    margin-top: 6px;
+    width: 25%;
+    height: 25%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    padding: 0.5% 0.5%;
+
+    border-radius: 20px;
+    background: #fff;
+    color: #111;
+
+    position: relative;
+
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 500;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 90%;
+    line-height: 1.5;
+    cursor: pointer;
+
+    transition: color .15s ease-in-out, 
+                background-color .15s ease-in-out,border-color .15s ease-in-out,
+                box-shadow .15s ease-in-out;
+}
+
+.row-banners .banner-item .btn-buy {
+    left: 60%;
+}
+
+.row-banners .banner-item[ban-row=first][side=left] .btn-buy:hover {
+    color: #fff;
+    background-color: rgb(69, 45, 94);
+    border-color: rgb(69, 45, 94);
+}
+
+.row-banners .banner-item[ban-row=first][side=right] .btn-buy:hover {
+    color: #fff;
+    background-color: #26b;
+    border-color: #26b;
+}
+
+.row-banners .banner-item[ban-row=second][side=left] .btn-buy:hover {
+    color: #fff;
+    background-color: rgb(206, 88, 111);
+    border-color: rgb(206, 88, 111);
+}
+
+.row-banners .banner-item[ban-row=second][side=right] .btn-buy:hover {
+    background-color: rgb(171, 124, 218);
+    border-color: rgb(171, 124, 218);
+}
+
 
 article:hover {
     box-shadow: 0px 0px 10px rgb(100, 100, 100);
@@ -69,6 +290,19 @@ article:hover {
     margin-left: 8%;
     margin-right: 8%;
 }
+
+/* Banner de imagenes */
+
+.row-banners {
+    font-size: 0;
+    font: inherit;
+    vertical-align: baseline;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
 
 /* Banner de sugerencias */
 
@@ -608,19 +842,89 @@ article:hover {
     }
 }
 
+@media (min-width: 320px) {
 
-@media (min-width: 510px){
+    .main-banner .main-headlinebanner-container {
+        position: absolute;
+        bottom: 22.5%;
+        width: 100%;
+    }
 
-    
+    .main-banner .main-btn-buy {
+        left: 65%;
+        font-size: 55%;
+        padding: 0.7% 0.25%;
+    }
 
-    
+}
 
+
+@media (min-width: 425px) {
+
+    .main-banner .main-headlinebanner-container {
+        position: absolute;
+        bottom: 22.5%;
+        width: 100%;
+    }
+
+    .main-banner .main-btn-buy {
+        left: 65.5%;
+        font-size: 70%;
+        padding: 0.7% 0.25%;
+    }
+
+}
+
+
+@media (min-width: 544px){
+    .row-banners .banner-item {
+        display: block;
+    }
+
+    .banner-item .headlinebanner-container {
+        position: absolute;
+        bottom: 27.8%;
+        width: 100%;
+    }
+
+    .row-banners .banner-item .btn-buy {
+        left: 58%;
+        font-size: 60%;
+        padding: 0.6% 0.25%;
+    }
+
+    .main-banner .main-headlinebanner-container {
+        position: absolute;
+        bottom: 22.5%;
+        width: 100%;
+    }
+
+    .main-banner .main-btn-buy {
+        left: 66%;
+        font-size: 80%;
+        padding: 0.8% 0.2%;
+    }
     
 }
 
-@media (min-width: 650px){
+@media (min-width: 760px){
 
-    
+    .banner-item .headlinebanner-container {
+        position: absolute;
+        bottom: 27.7%;
+        width: 100%;
+    }
+
+    .row-banners .banner-item .btn-buy {
+        left: 60%;
+        font-size: 65%;
+        padding: 0.7% 0.25%;
+    }
+
+}
+
+@media (min-width: 640px){
+
 
 }
 
@@ -632,10 +936,107 @@ article:hover {
         margin-top: 8px;
     }
 
+    .headlinebanner-text_heading {
+        font-size: 2.5vw;
+    }
+
+    .main-banner .main-headlinebanner-container {
+        position: absolute;
+        bottom: 22.5%;
+        width: 100%;
+    }
+
+    .main-banner .main-btn-buy {
+        left: 66.5%;
+        font-size: 90%;
+        padding: 1% 0.25%;
+    }
+
 }
 
+@media (min-width: 860px){
 
+    .banner-item .headlinebanner-container.left {
+        position: absolute;
+        bottom: 28%;
+        width: 100%;
+    }
 
+    .row-banners .banner-item .btn-buy {
+        left: 60%;
+        font-size: 70%;
+        padding: 1% 0.25%;
+    }
+
+}
+
+@media (min-width: 1024px){
+
+    .banner-item .headlinebanner-container {
+        position: absolute;
+        bottom: 27.5%;
+        width: 100%;
+    }
+
+    .row-banners .banner-item .btn-buy {
+        left: 60%;
+        font-size: 80%;
+        padding: 1.1% 0.25%;
+    }
+
+    .main-headlinebanner-container {
+        position: absolute;
+        bottom: 22%;
+        width: 100%;
+    }
+
+    .main-banner .main-btn-buy {
+        left: 67%;
+        font-size: 90%;
+        padding: 1.15% 0.25%;
+    }
+
+    .main-banner .main-headlinebanner-container {
+        position: absolute;
+        bottom: 22.5%;
+        width: 100%;
+    }
+
+    .main-banner .main-btn-buy {
+        left: 67%;
+        font-size: 90%;
+        padding: 1.15% 0.25%;
+    }
+
+}
+
+@media (min-width: 1200px){
+
+    .banner-item .headlinebanner-container {
+        position: absolute;
+        bottom: 27.75%;
+        width: 100%;
+    }
+
+    .row-banners .banner-item .btn-buy {
+        left: 60%;
+        font-size: 90%;
+        padding: 1.15% 0.25%;
+    }
+
+    .main-banner .main-headlinebanner-container {
+        position: absolute;
+        bottom: 22.3%;
+        width: 100%;
+    }
+
+    .main-banner .main-btn-buy {
+        left: 67%;
+        font-size: 100%;
+        padding: 1.25% 0.25%;
+    }
+
+}
 
 
 @media (max-width: 480px){

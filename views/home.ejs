@@ -34,10 +34,28 @@
 <main>
     
 
-    <div class="banner">
+<!--     <div class="banner">
         <img width=100% src="images/chelseabanner.JPG">
+    </div> -->
+
+    <div class='main-banner'>
+        <a>
+            <figure class='component-figure'>
+                <picture class='main-component-figure'>
+                    <img class='main-ban-img' width=100% src="images/chelseabanner.JPG">
+                </picture>
+                <figcaption class='main-headlinebanner-container'>
+                    <div class='main-headlinebanner-text'>
+                        <a class='main-btn-buy'>
+                            Comprar
+                        </a>
+                    </div>
+                </figcaption>
+            </figure>
+        </a>
     </div>
-    <div class="banners">
+
+<!--     <div class="banners">
         <div class="filauno">
             <img class="novedades" src="images/spurs.JPG">
             <img class="novedades" src="images/unitedbaner.JPG">
@@ -46,8 +64,111 @@
             <img class="novedades" src="images/mexicobanner.JPG">
             <img class="novedades" src="images/estadosunidosbanner.JPG">
         </div>
+    </div> -->
+
+    <!-- Banners Fila1 -->
+    <div class='row-banners hflex'>
+        <div class='banner-item' ban-row='first' side='left'>
+            <div>
+                <a>
+                    <figure class='image-card pos-rel component-figure'>
+                        <picture>
+                            <img class="ban-img component-image" src="images/spurs.JPG">
+                        </picture>
+                        <figcaption class='headlinebanner-container'>
+                            <div class='headlinebanner-text headlinebanner-heading'>
+                                <span class='headlinebanner-wrap'>
+                                </span>
+                                <a class='btn-buy'>
+                                    Comprar
+                                </a>
+                            </div>
+                        </figcaption>
+                        <a class='banner-ref'>
+                            
+                        </a>
+                    </figure>
+                </a>
+            </div>
+        </div>
+        <div class='banner-item' ban-row='first' side='right'>
+            <div>
+                <a>
+                    <figure class='image-card pos-rel component-figure'>
+                        <picture>
+                            <img class="ban-img component-image" src="images/unitedbaner.JPG">
+                        </picture>
+                        <figcaption class='headlinebanner-container'>
+                            <div class='headlinebanner-text headlinebanner-heading'>
+                                <span class='headlinebanner-wrap'>
+                                </span>
+                                <a class='btn-buy'>
+                                    Comprar
+                                </a>
+                            </div>
+                        </figcaption>
+                        <a class='banner-ref'>
+                            
+                        </a>
+                    </figure>
+                </a>
+            </div>
+        </div>
     </div>
 
+    <!-- Banners Fila2 -->
+    <div class='row-banners hflex'>
+        <div class='banner-item' ban-row='second' side='left'>
+            <div>
+                <a>
+                    <figure class='image-card pos-rel component-figure'>
+                        <picture>
+                            <img class="ban-img component-image" src="images/mexicobanner.JPG">
+                        </picture>
+                        <figcaption class='headlinebanner-container'>
+                            <div class='headlinebanner-text headlinebanner-heading'>
+                                <span class='headlinebanner-wrap'>
+                                </span>
+                                <a class='btn-buy'>
+                                    Comprar
+                                </a>
+                            </div>
+                        </figcaption>
+                        <a class='banner-ref'>
+                            
+                        </a>
+                    </figure>
+                </a>
+            </div>
+        </div>
+        <div class='banner-item' ban-row='second' side='right'>
+            <div>
+                <a>
+                    <figure class='image-card pos-rel component-figure'>
+                        <picture>
+                            <img class="ban-img component-image" src="images/estadosunidosbanner.JPG">
+                        </picture>
+                        <figcaption class='headlinebanner-container'>
+                            <div class='headlinebanner-text headlinebanner-heading'>
+                                <span class='headlinebanner-wrap'>
+                                </span>
+                                <a class='btn-buy'>
+                                    Comprar
+                                </a>
+                            </div>
+                        </figcaption>
+                        <a class='banner-ref'>
+                            
+                        </a>
+                    </figure>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Banner de sugerencias --------------->
+    
+    <!-- Picked for you -->
     <section class="pickedForYou">
         <div class='titulo-articulos row'>
             <div class='width-style pad-style'>
@@ -178,6 +299,7 @@
 
     <div class='clearfix30'></div>
 
+    <!-- Most Sold -->
     <section class="mostSold">
         <div class='titulo-articulos row'>
             <div class='width-style pad-style'>
@@ -306,12 +428,15 @@
         </div>
     </section>
 
+    <!-- Banner de productos similares ------->
     <div class="row-bottom">
 
+        <!-- Titulo -->
         <div class="title">
             <h2>Productos similares</h2>
         </div>
 
+        <!-- Carusel -->
         <div class="carousel">
 
             <!--
@@ -398,7 +523,8 @@
             <a class="prev">&#10094</a>
             <a class="next">&#10095</a>
         </div>
-    </div>  <!--Row bottom-->
+
+    </div>
 </main>
 
 <!-- Footer -->

@@ -264,6 +264,7 @@ img {
 
 .row .col .btn-admin {
     align-self: center;
+    margin: 5px;
 }
 
 .row .col .btn-admin button, .row .row-content .btn-admin button {
