@@ -56,6 +56,7 @@ const validations = [
 
 // ************ Controller Require ************
 const mainController = require('../controllers/mainController');
+const usersController = require('../controllers/usersController');
 
 /*** GET HOME ***/
 router.get('/', mainController.home);
@@ -73,7 +74,7 @@ router.get('/admin', checkAccess, mainController.admin);
 
 router.get('/addProduct', checkAccess, mainController.addProduct);
 router.post('/addProduct', upload.any(), mainController.store);
-router.get('/cart', redirect.register, mainController.checkCart);
+router.get('/cart', redirect.login, mainController.checkCart);
 
 router.get('/product/pre_edit/:id', checkAccess, mainController.pre_edit);
 router.get('/product/edit/:id', checkAccess, mainController.editProduct);
@@ -113,5 +114,6 @@ router.get('/shopping-cart', mainController.shoppingcart);
 
 router.get('/test', mainController.test)
 
+router.get('/users/:email', usersController.userInfo)
 
 module.exports = router;

@@ -149,7 +149,7 @@
                     <div class="nav-right-item"><a href="/aboutUs">Sobre nosotros</a></div>
                     <% if (!locals.session.loggedin){ console.log('no tiene logged in')%>
                         <div class="nav-right-item"><a href="/signup">Registrate</a></div>
-                        <div class="nav-right-item"><a href="/signin">Sign in</a></div>
+                        <div id='signin' class="nav-right-item"><a href="/signin">Sign in</a></div>
                         <% } else{ %>
                             <div class="nav-right-item"><a href="/account">Cuenta</a></div>
                             <form action='/logout' method='POST' class='nav-right-item'>

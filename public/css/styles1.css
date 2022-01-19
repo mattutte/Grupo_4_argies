@@ -14,6 +14,10 @@
   main form {
     border: 3px solid #f1f1f1;
   }
+
+  .pad-style {
+    padding: 0px 15%!important;
+  }
   
   /* Full-width inputs */
   .container input[type=text], .container input[type=password] {
@@ -33,7 +37,7 @@
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: 30%;
   }
   
   /* Add a hover effect for buttons */

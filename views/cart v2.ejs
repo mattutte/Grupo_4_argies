@@ -57,6 +57,7 @@
             <path d="M45.4,0C20,0.3-0.3,21.2,0,46.6C0.3,72,21.2,92.3,46.6,92C72,91.7,92.3,70.8,92,45.4C91.7,20,70.8-0.3,45.4,0z M45.3,74L45,74c-3.9-0.1-6.7-3-6.6-6.9c0.1-3.8,2.9-6.5,6.7-6.5l0.2,0c4,0.1,6.7,3,6.6,6.9C51.9,71.3,49.1,74,45.3,74z M61.7,41.3c-0.9,1.3-2.9,2.9-5.5,4.9l-2.8,1.9c-1.5,1.2-2.5,2.3-2.8,3.4c-0.3,0.9-0.4,1.1-0.4,2.9l0,0.5H39.4l0-0.9c0.1-3.7,0.2-5.9,1.8-7.7c2.4-2.8,7.8-6.3,8-6.4c0.8-0.6,1.4-1.2,1.9-1.9c1.1-1.6,1.6-2.8,1.6-4c0-1.7-0.5-3.2-1.5-4.6c-0.9-1.3-2.7-2-5.3-2c-2.6,0-4.3,0.8-5.4,2.5c-1.1,1.7-1.6,3.5-1.6,5.3v0.5H27.9l0-0.5c0.3-6.8,2.7-11.6,7.2-14.5c2.8-1.8,6.3-2.7,10.4-2.7c5.3,0,9.9,1.3,13.4,3.9c3.6,2.6,5.4,6.5,5.4,11.6C64.4,36.3,63.5,38.9,61.7,41.3z"></path>
         </symbol>
     </svg>
+
     <div class='main-content'>
         <div class='new-page-width'>
             <div>
@@ -121,16 +122,16 @@
 
                         %>
                         
-                        <%  productos.forEach(prod => {
+                        <%  for(let i =0; i<cart_basket.length; i++) {
 
                                 let nombre;
                                 let marca;
                                 let descripcion;
                                 let imagen;
-                                let regular_price = prod.regular_price;
-                                let special_price = prod.special_price;
-                                let cantidad = prod.qty;
-                                let cantidad_disponible = prod.available;
+                                let regular_price = cart_basket[i].regular_price;
+                                let special_price = cart_basket[i].special_price;
+                                let cantidad = cart_basket[i].qty;
+                                let cantidad_disponible = cart_basket[i].available;
                                 let regular_amount = formatter.format(regular_price * cantidad);
                                 let special_amount = formatter.format(special_price * cantidad);
                                 let saving = (regular_price - special_price)*cantidad;
@@ -141,14 +142,14 @@
                                 total = total + special_price * cantidad;
                                 taxes = 0.1 * special_price * cantidad;
 
-                                products.forEach(element => {
-                                    if (element.id == prod.id){
-                                        nombre = element.name;
-                                        marca = element.brand;
-                                        descripcion = element.description;
-                                        imagen = element.images.main;
+                                for(let j=0; j<products.length; i++) {
+                                    if (products[j].id == cart_basket[i].id){
+                                        nombre = products[j].name_product;
+                                        marca = products[j].name_brand;
+                                        descripcion = products[j].description_product;
+                                        imagen = products[j].images_main;
                                     }
-                                });  
+                                };  
 
                                 if (cantidad > cantidad_disponible){
                                     displayNot = 'displayNone';
@@ -180,7 +181,7 @@
                                                         <span class='cName'><%= marca %></span>
                                                         <%= nombre %>
                                                     </a>
-                                                    <p class='productNumbers c9 fs12'>
+                                                    <p class='  ctNumbers c9 fs12'>
                                                         <span><%= descripcion %></span>
                                                     </p>
                                                     <p class='shipping-data'>
@@ -302,7 +303,7 @@
                                 </div>
                             </div>
                         </div>
-                        <% }) %>
+                        <% } %>
                         <section id='saveForLaterBox'>
                             <div>
                                 <div class='header-container'>
