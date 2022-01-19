@@ -10,8 +10,13 @@
     
     <!-- Header -->
     <%- include('./partials/header v2.ejs') %>
+    <script>
+        const errorType = "<%= locals.errorType %>";
+    </script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/loginValidations.js"></script>
 
-    <svg width='0' height='0' style='position:absolute'>
+    <svg width='0' height='0' style='position:absolute; display: none'>
         <symbol viewbox='0 0 30 20' id='sale' xmlns='http://www.w3.org/2000/svg'>
             <g transform="translate(6 2)" fill="#FFF" fill-rule="evenodd">
                 <path d="M10.336.03L.049 10.317l7.66 7.66L17.997 7.692 18 .027 10.336.03zm6.814 7.31l-9.44 9.44-6.464-6.463 9.44-9.44 6.467-.003-.003 6.466z"></path>
@@ -20,7 +25,7 @@
             </g>
         </symbol>
     </svg>
-    <svg width='13px' height='13px' xlmns='http://www.w3.org/2000/svg'>
+    <svg width='13px' height='13px' xlmns='http://www.w3.org/2000/svg' style='display: none'>
         <symbol viewbox='0 0 25 25' id='star' xlmns='http://www.w3.org/2000/svg'>
             <path d="M24.8676481,9.0008973 C24.7082329,8.54565507 24.2825324,8.23189792 23.7931772,8.20897226 L16.1009423,8.20897226 L13.658963,0.793674161 C13.4850788,0.296529881 12.9965414,-0.0267985214 12.4623931,0.00174912135 L12.4623931,0.00174912135 C11.9394964,-0.00194214302 11.4747239,0.328465149 11.3146628,0.81767189 L8.87268352,8.23296999 L1.20486846,8.23296999 C0.689809989,8.22949161 0.230279943,8.55030885 0.0640800798,9.0294023 C-0.102119784,9.50849575 0.0623083246,10.0383495 0.472274662,10.3447701 L6.69932193,14.9763317 L4.25734261,22.4396253 C4.08483744,22.9295881 4.25922828,23.4727606 4.68662933,23.7767181 C5.11403038,24.0806756 5.69357086,24.0736812 6.11324689,23.7595003 L12.6333317,18.9599546 L19.1778362,23.7595003 C19.381674,23.9119158 19.6299003,23.9960316 19.8860103,23.9994776 C20.2758842,24.0048539 20.6439728,23.8232161 20.8724402,23.5127115 C21.1009077,23.202207 21.1610972,22.8017824 21.0337405,22.4396253 L18.5917612,14.9763317 L24.6967095,10.3207724 C25.0258477,9.95783882 25.0937839,9.43328063 24.8676481,9.0008973 Z" fill="#ddd"></path>
             <polygon points="" fill="#8C8264"></polygon>
@@ -31,12 +36,90 @@
         </symbol>
     </svg>
 
+    <!-- Cuadro de Login-->
+    <div id='login_box' class='pre-modal-window' aria-hidden='true'>   <!-- Se activa con la clase "is-active"-->
+        <div class='pre-modal'>
+            <button id='closingButton' class='pre-modal-btn-close bg-transparent' style='display: none'>   <!-- Por defecto display none-->
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                    <g id="ico-close">
+                        <path id="x" d="M18.717 6.697l-1.414-1.414-5.303 5.303-5.303-5.303-1.414 1.414 5.303 5.303-5.303 5.303 1.414 1.414 5.303-5.303 5.303 5.303 1.414-1.414-5.303-5.303z"/>
+                    </g>
+                </svg>
+            </button>
+            <div id='loginView' class='pre-modal-view' style='display: none'>  <!-- Por defecto display none -->
+                <div id='login-container' class='login-container'>
+                    <div id='login-box-view' class='login-box login-box'>
+                        <div class='login-header'>
+                            <div class='login-box-logo'></div>
+                            <div class='view-header'>
+                                TU CUENTA PARA ACCEDER A TODO LO RELACIONADO CON CAZAKA
+                            </div>
+                        </div>
+                        <form action="/signin" method="post">
+                            <input type='hidden' name='registrationTitle' value='0'>
+                            <div class='cazaca-login-error-message login-box-component empty'>
+                                <ul>
+                                </ul>
+                            </div>
+                            <!-- Campo de email -->
+                            <div class='login-box-text-input emailAddress login-box-component empty'>
+                                <div class='error'>
+                                </div>
+                                <input type='email' placeholder='Dirección de correo electrónico' name='email'>
+                                <div class='tip'></div>
+                            </div>
+                            <!-- Campo de contraseña -->
+                            <div class='login-box-text-input-password passwordField login-box-component empty'>
+                                <input type='password' placeholder='Contraseña' name='psw'>
+                                <div class='error'>
+                                </div>
+                                <div class='tip'>Ingresa una contraseña</div>
+                            </div>
+                            <!-- Fila opciones -->
+                            <div class='keepMeLoggedIn login-box-checkbox login-box-component'>
+                                <input type='checkbox' name='keepMeLoggedIn' checked='checked'>
+                                <label class='checkbox'>
+                                    Mantené la sesión iniciada
+                                </label>
+                            </div>
+                            <div class='login-box-login-options'>
+                                <div class='login-box-component action-link forgot-password'>
+                                    <a href='#'>
+                                        Olvidaste la contraseña?
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- Cindiciones -->
+                            <p class='conditions'>
+                                "Al iniciar sesión aceptas la "
+                                <a> Política de Privacidad</a>
+                                 y los 
+                                 <a>Términos y condiciones de uso</a>
+                                  de Cazaka.
+                            </p>
+                            <!-- Boton de submit -->
+                            <div class='login-box-submit-button login-box-component'>
+                                <input type='button' value='INICIAR SESION'>
+                            </div>
+                            <div class='login-box-component action-link loginJoin'>
+                                No eres miembro? 
+                                <a href='/signup'>
+                                    Regístrate
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
 <main>
     
 
-<!--     <div class="banner">
-        <img width=100% src="images/chelseabanner.JPG">
-    </div> -->
+    <!--     <div class="banner">
+            <img width=100% src="images/chelseabanner.JPG">
+        </div> -->
 
     <div class='main-banner'>
         <a>
@@ -55,16 +138,16 @@
         </a>
     </div>
 
-<!--     <div class="banners">
-        <div class="filauno">
-            <img class="novedades" src="images/spurs.JPG">
-            <img class="novedades" src="images/unitedbaner.JPG">
-        </div>
-        <div class="filauno">
-            <img class="novedades" src="images/mexicobanner.JPG">
-            <img class="novedades" src="images/estadosunidosbanner.JPG">
-        </div>
-    </div> -->
+    <!--     <div class="banners">
+            <div class="filauno">
+                <img class="novedades" src="images/spurs.JPG">
+                <img class="novedades" src="images/unitedbaner.JPG">
+            </div>
+            <div class="filauno">
+                <img class="novedades" src="images/mexicobanner.JPG">
+                <img class="novedades" src="images/estadosunidosbanner.JPG">
+            </div>
+        </div> -->
 
     <!-- Banners Fila1 -->
     <div class='row-banners hflex'>
