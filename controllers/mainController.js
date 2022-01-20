@@ -94,8 +94,22 @@ let mainController = {
                 email: req.body.email,
             }
         }).then((foundUser) => {
+
+            // Averiguo si la peticion vino desde el modal o desde la pagina de signin
+            let login_ext = false;
+            if(req.body.registrationTitle != undefined){
+                login_ext = true;
+            } else {
+                login_ext = false;
+            };
+
+            //Validacion de usuario y password
             if(!foundUser) {
-                res.render('signin', { errorMessage });
+                if(login_ext){
+                    res.redirect('/?error=1');
+                } else {
+                    res.render('signin', { errorMessage});
+                }
             }else{
                 console.log("encontró usuario")
                 //let emailUsuario = usuarioCheckIn.email;
@@ -110,13 +124,19 @@ let mainController = {
                     req.session.admin = foundUser.admin_category;
                     req.session.loggedin = true;
                     req.session.save();
-                    if (req.body.remember != undefined) {
+                    console.log('req.body.remember: '+req.body.keepMeLoggedIn);
+                    if (req.body.keepMeLoggedIn != undefined) {
                         console.group("se seleccionó opcion de mantener sesion");
                         res.cookie('usuarioRecordado', foundUser.email, { maxAge: 1800000 }); //Duracion de cookie: 30 minutos
                     }
                     return res.redirect('/');
                 } else {
-                    res.render('signin', { errorMessage });
+
+                    if(login_ext){
+                        res.redirect('/?error=2');
+                    } else {
+                        res.render('signin', { errorMessage});
+                    }
                 }
             }
             req.session.save();
@@ -445,6 +465,33 @@ let mainController = {
 
     checkCart: (req, res) => {
         res.render('cart v2', { cart_basket, products, user: 2 });
+
+        var products = db.Product.findAll({
+            //order:[['rating','DESC']],
+            include:[{association:'Brand'}]
+        })
+
+        var user = db.User.findOne({
+            where: {
+                email: req.session.usuario,
+            }
+        })
+
+        Promise.all([products, user])
+        .then(function([products, user]){
+            console.log('cart basket is: ')
+            console.log(cart_basket)
+            res.render('cart v2', {cart_basket, products, user });
+        })
+        .catch((error)=>{
+            console.log(error);
+            res.sendStatus(500);
+        });
+        
+
+
+
+
     },
 
     check: (req, res) => {
