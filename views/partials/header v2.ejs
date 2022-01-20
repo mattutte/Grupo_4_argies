@@ -1,5 +1,12 @@
 <!-- HEADER -------------------------------------------------------------------------------------------------------------->
 <header class="Header">
+
+    <script>
+        const errorType = "<%= locals.errorType %>";
+    </script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/loginValidations.js"></script>
+
     <!-- MAIN HEADER ** TOP BAR --------------------------------------------------------------> 
     <div class="main-header-top-bar">
 
@@ -159,6 +166,85 @@
                 </div>   
             </nav> 
         </div>
+
+        <!-- Cuadro de Login-->
+        <div id='login_box' class='pre-modal-window' aria-hidden='true'>   <!-- Se activa con la clase "is-active"-->
+            <div class='pre-modal'>
+                <button id='closingButton' class='pre-modal-btn-close bg-transparent' style='display: none'>   <!-- Por defecto display none-->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                        <g id="ico-close">
+                            <path id="x" d="M18.717 6.697l-1.414-1.414-5.303 5.303-5.303-5.303-1.414 1.414 5.303 5.303-5.303 5.303 1.414 1.414 5.303-5.303 5.303 5.303 1.414-1.414-5.303-5.303z"/>
+                        </g>
+                    </svg>
+                </button>
+                <div id='loginView' class='pre-modal-view' style='display: none'>  <!-- Por defecto display none -->
+                    <div id='login-container' class='login-container'>
+                        <div id='login-box-view' class='login-box login-box'>
+                            <div class='login-header'>
+                                <div class='login-box-logo'></div>
+                                <div class='view-header'>
+                                    TU CUENTA PARA ACCEDER A TODO LO RELACIONADO CON CAZAKA
+                                </div>
+                            </div>
+                            <form action="/signin" method="post">
+                                <input type='hidden' name='registrationTitle' value='0'>
+                                <div class='cazaca-login-error-message login-box-component empty'>
+                                    <ul>
+                                    </ul>
+                                </div>
+                                <!-- Campo de email -->
+                                <div class='login-box-text-input emailAddress login-box-component empty'>
+                                    <div class='error'>
+                                    </div>
+                                    <input type='email' placeholder='Dirección de correo electrónico' name='email'>
+                                    <div class='tip'></div>
+                                </div>
+                                <!-- Campo de contraseña -->
+                                <div class='login-box-text-input-password passwordField login-box-component empty'>
+                                    <input type='password' placeholder='Contraseña' name='psw'>
+                                    <div class='error'>
+                                    </div>
+                                    <div class='tip'>Ingresa una contraseña</div>
+                                </div>
+                                <!-- Fila opciones -->
+                                <div class='keepMeLoggedIn login-box-checkbox login-box-component'>
+                                    <input type='checkbox' name='keepMeLoggedIn' checked='checked'>
+                                    <label class='checkbox'>
+                                        Mantené la sesión iniciada
+                                    </label>
+                                </div>
+                                <div class='login-box-login-options'>
+                                    <div class='login-box-component action-link forgot-password'>
+                                        <a href='#'>
+                                            Olvidaste la contraseña?
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Cindiciones -->
+                                <p class='conditions'>
+                                    "Al iniciar sesión aceptas la "
+                                    <a> Política de Privacidad</a>
+                                    y los 
+                                    <a>Términos y condiciones de uso</a>
+                                    de Cazaka.
+                                </p>
+                                <!-- Boton de submit -->
+                                <div class='login-box-submit-button login-box-component'>
+                                    <input type='button' value='INICIAR SESION'>
+                                </div>
+                                <div class='login-box-component action-link loginJoin'>
+                                    No eres miembro? 
+                                    <a href='/signup'>
+                                        Regístrate
+                                    </a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <!-- MAIN HEADER ** BOTTOM BAR -----------------------------------------------------------> 

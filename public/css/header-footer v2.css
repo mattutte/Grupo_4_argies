@@ -515,6 +515,303 @@ header {
     background-position: -75px -2px;
 }
 
+
+/* UPPER BAR- LOGIN MODAL ------------------------------------------- */
+
+/* Ventana de Login */
+
+.pre-modal-window {
+    overflow: auto;
+    display: flex;
+    z-index: 1002;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0;
+    visibility: hidden;
+    background: rgba(0,0,0,.6);
+    transition: opacity .2s,visibility 0s linear .2s;
+}
+
+.pre-modal-window.is-active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity .2s,visibility 0s;
+}
+
+.pre-modal {
+    position: relative;
+    width: 100%;
+    max-width: 436px;
+    display: block;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: transform .4s ease,opacity .2s;
+    transition-delay: .1s;
+    border-radius: 3px;
+    background: #fff;
+    margin: auto;
+}
+
+.pre-modal-window.is-active .pre-modal {
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform .4s ease .3s,opacity swing .2s .3s;
+}
+
+.pre-modal-btn-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    outline: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.pre-modal-btn-close svg {
+    width: 21px;
+    height: 21px;
+}
+
+.pre-modal-view {
+    transition: height swing .5s;
+    min-height: 300px;
+}
+
+.login-box {
+    background-color: #fff;
+    color: #8d8d8d;
+    font-family: Helvetica;
+    font-size: 14px;
+    margin: auto;
+    max-width: 380px;
+    padding: 28px;
+    text-align: left;
+}
+
+.login-box * {
+    font-family: Helvetica!important;
+    font-size: 14px;
+    line-height: normal;
+    outline: 0;
+    margin: 0;
+}
+
+.login-box a {
+    color: #8d8d8d;
+    text-decoration: underline;
+}
+
+.login-box .login-box-logo {
+    background-position-x: center;
+    background-size: 62px;
+    height: 25px;
+    margin: 0 auto;
+    max-width: 573px;
+    background-image: url('/images/Logo-horizontal-f-blanco.png');
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 100px;
+}
+
+.blocker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    content: ' ';
+    background: rgba(0,0,0,.5);
+}
+
+.login-box#login-box.view .view-login-header {
+    padding: 32px 0 27px;
+}
+
+.login-box .view-header {
+    color: #111;
+    font-family: Helvetica!important;
+    font-size: 26px;
+    line-height: 26px;
+    margin: 0 auto;
+    max-width: 25ch;
+    padding: 32px 0 26px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.login-box#login-box-login-view .view-header {
+    padding: 32px 0 27px;
+}
+
+.cazacalogin .cazaca-login-error-message {
+    color: #fe0000;
+}
+
+.cazacalogin .cazaca-login-error-message.empty {
+    display: block;
+}
+
+.login-box .login-box-component {
+    display: inline-block;
+    margin: 5px 0;
+    position: relative;
+    width: 100%;
+}
+
+.login-box .login-box-component.login-box-error-message ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: left;
+}
+
+.login-box .login-box-component.login-box-text-input {
+    padding-top: 40px;
+}
+
+.login-box .login-box-component .error, .login-box .login-box-component .tip {
+    display: none;
+}
+
+.login-box .login-box-component.login-box-text-input input {
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+
+.login-box .login-box-component input {
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    box-sizing: border-box;
+    color: #8d8d8d;
+    font: 14px Helvetica;
+    height: 40px;
+    line-height: 17px;
+    padding: 0 16px;
+    width: 100%;
+    appearance: none;
+}
+
+.login-box .login-box-component.invalid input {
+    border-color: #fe0000;
+}
+
+.login-box .login-box-component.invalid .error {
+    color: #fe0000;
+    display: block;
+    font-size: 12px;
+    padding: 12px 0 8px;
+}
+
+.login-box .login-box-component.login-box-checkbox.keepMeLoggedIn {
+    line-height: 20px;
+    margin: 15px 0 21px;
+    width: 50%;
+}
+
+.login-box .login-box-component.login-box-checkbox input {
+    border: 0;
+    cursor: pointer;
+    height: 1px;
+    margin: 0;
+    opacity: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.login-box .login-box-component.login-box-checkbox label {
+    display: inline-block;
+    font-size: 12px;
+    line-height: 14px;
+    margin-left: 34px;
+    vertical-align: middle;
+}
+
+.login-box .login-box-component.login-box-checkbox input:checked+label:before {
+    background-image: url(/images/checkmark.svg);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 11px 8px;
+}
+
+.login-box .login-box-component.login-box-checkbox label:before {
+    border: 1px solid #bcbcbc;
+    border-radius: 3px;
+    content: "";
+    display: block;
+    height: 20px;
+    left: 0;
+    margin-top: -10px;
+    position: absolute;
+    top: 50%;
+    width: 20px;
+}
+
+.login-box#login-box-view .login-box-login-options {
+    width: 50%;
+}
+
+.login-box .login-box-login-options {
+    float: right;
+    line-height: 20px;
+    margin: 15px 0 20px;
+    text-align: right;
+}
+
+.login-box .login-box-login-options .action-link a {
+    color: #bcbcbc;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.login-box p {
+    text-align: center;
+}
+
+.login-box p.conditions {
+    clear: both;
+    font-size: 12px;
+    line-height: 16px;
+    padding: 3px 0 24px;
+}
+
+.login-box p.conditions a {
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.login-box .login-box-component.login-box-action-button input, .login-box .login-box-component.login-box-submit-button input {
+    background-color: #000;
+    border: 1px solid #000;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-family: TradeGothicforNike365-BdCn,Helvetica!important;
+    font-size: 15px;
+    margin: auto;
+}
+
+.login-box .login-box-component.action-link.loginJoin {
+    font-size: 12px;
+    line-height: 14px;
+    padding: 10px 0 0;
+    text-align: center;
+}
+
+.login-box .login-box-component.action-link.loginJoin a {
+    font-size: 12px;
+    color: #111;
+}
+
+/* Fin Ventana Login */
+
+
+
 /* HEADER-BOTTOM BAR -------------------------------------------------------------------------- */
 /*----------------------------------------------------------------------------------------------*/
 

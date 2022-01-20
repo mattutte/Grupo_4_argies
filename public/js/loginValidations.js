@@ -53,6 +53,14 @@ window.addEventListener("load", function() {
         }
     })
 
+    email.addEventListener('keyup', function(event){
+        // El número 13 es el "Enter" en el teclado
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            submitButton.click();
+        }
+    })
+
     //Validaciones para password
     password.addEventListener('blur', function(){
         if(password.value == ''){
@@ -68,6 +76,15 @@ window.addEventListener("load", function() {
             passwordError.innerHTML = "Ingresa una contraseña";
         }
     })
+
+    password.addEventListener('keyup', function(event){
+        // El número 13 es el "Enter" en el teclado
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            submitButton.click();
+        }
+    })
+
 
     //Validacion del boton Submit
     submitButton.addEventListener('click', function(e){
