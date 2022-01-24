@@ -127,6 +127,8 @@ let mainController = {
                 const passwordEncriptadaUsuario = foundUser.passwd;
                 console.log(passwordEncriptadaUsuario);
                 const bcrypt = require('bcryptjs');
+                console.log(req.body.psw)
+                console.log(passwordEncriptadaUsuario)
                 const check = bcrypt.compareSync(req.body.psw, passwordEncriptadaUsuario);
                 //console.log(check);
 
