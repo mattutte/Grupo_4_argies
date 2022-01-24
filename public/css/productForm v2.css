@@ -287,3 +287,10 @@ button[data-type="PRIMARY"]:hover, button[data-type="PRIMARY"]:focus {
 button[data-type="DEFAULT"]:hover, button[data-type="DEFAULT"]:focus {
     border-color: #999;
 }
+
+.invalid {
+    color: #fe0000;
+    display: block;
+    font-size: 12px;
+    padding: 12px 0 8px;
+}
