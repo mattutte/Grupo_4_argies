@@ -76,7 +76,54 @@ button:hover {
   display: table;
 }
 
+/* Style for errors */
+.email-invalido {
+  background-color: gainsboro;
+  border-color: red;
+}
+#comentario-email {
+  color: blue;
+}
 
+.psw-invalido {
+  background-color: gainsboro;
+  border-color: red;
+}
+#comentario-psw {
+  color: blue;
+}
+
+.pswrepeat-invalido {
+  background-color: gainsboro;
+  border-color: red;
+}
+#comentario-pswrepeat {
+  color: blue;
+}
+
+.first_name-invalido {
+  background-color: gainsboro;
+  border-color: red;
+}
+#comentario-first_name {
+  color: blue;
+}
+
+.last_name-invalido {
+  background-color: gainsboro;
+  border-color: red;
+}
+#comentario-last_name {
+  color: blue;
+}
+
+.country-invalido {
+  background-color: gainsboro;
+  border-color: red;
+}
+#comentario-pais {
+  color: blue;
+}
 
 
 

@@ -185,17 +185,7 @@ let mainController = {
         let response = req.body;
         let errores = validationResult(req);
         console.log(errores);
-        //console.log(errores.keys.length);
-        //console.log(errores.msg)
-
-        //agregar control de que el email no sea repetido;
-
-        //agregar control de que el email del segundo campo sea igual al ingresado en el campo anterior;
-
-        console.log(req.body);
-        console.log(req.file);
-
-
+        
         if (errores.isEmpty()) {
 
 

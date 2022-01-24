@@ -22,6 +22,7 @@
       <% if(locals.errores && errores != undefined){ %>
         <% errores.errors.forEach(error =>{ %>
           <t3> <%= error.msg %> </t3>
+          <br>
         <% }) %>
         
         
@@ -34,12 +35,15 @@
   
       <label for="email"><b>Email</b></label>
       <input type="text" placeholder="Ingresar Email" name="email" value="<%= locals.old && old.email? old.email:'' %>">
+      <p id="comentario-email"></p>
   
       <label for="psw"><b>Password</b></label>
       <input type="password" placeholder="Ingrese Password" name="psw">
+      <p id="comentario-psw"></p>
   
       <label for="pswrepeat"><b>Repita el Password</b></label>
       <input type="password" placeholder="Repita Password" name="pswrepeat">
+      <p id="comentario-pswrepeat"></p>
   
       
       
@@ -50,34 +54,38 @@
    
          
          <label for="first_name"><b>Nombre</b></label>
-         <input type="text" placeholder="su nombre..." name="first_name" value="<%= locals.old && old.first_name? old.first_name:''%>"> 
+         <input type="text" placeholder="su nombre..." name="first_name" value="<%= locals.old && old.first_name? old.first_name:''%>">
+         <p id="comentario-first_name"></p> 
 
 
          <label for="last_name"><b>Apellido</b></label>
          <input type="text" placeholder="su apellido..." name="last_name" value="<%= locals.old && old.last_name? old.last_name:''%>">
+         <p id="comentario-last_name"></p>
          
          <label for="pais"><b>Pais</b></label>
          <input type="text" placeholder="Ingresar pais" name="pais" value="<%= locals.old && old.pais? old.pais:''%>">
-         
+         <p id="comentario-pais"></p>
+
          <label for="face_pic"><b>Foto de Cara</b></label>
-         <input type="file" placeholder="Subir foto de cara" name="face_pic">
+         <input  type="file" id="facepic" placeholder="Subir foto de cara" name="face_pic">
+         <p id="comentario-face_pic"></p>
 
         
     
         <label>
-        <input type="checkbox" checked="<%= locals.admin && old.admin === 'checked'? 'checked':''%>" name="admin" style="margin-bottom:15px"> Soy usuario administrador
+        <input type="checkbox" checked="<%= locals.admin && old.admin === 'on'? 'on':''%>" name="admin" style="margin-bottom:15px"> Soy usuario administrador
         </label>
         
         <label>
-        <input type="checkbox" checked="<%= locals.old && old.mayor === 'checked'? 'checked':''%>" name="mayor" style="margin-bottom:15px"> Soy mayor de 13 años
+        <input type="checkbox" checked="<%= locals.old && old.mayor === 'on'? 'on':''%>" name="mayor" style="margin-bottom:15px"> Soy mayor de 13 años
         </label>
 
   
       <p>Al crear la cuenta, adhiero a nuestros <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
   
       <div class="clearfix">
-        <button type="reset" class="signupbtn">Cancelar</button>
-        <button type="submit" class="cancelbtn">Crear cuenta</button>
+        <button type="reset" class="cancelbtn">Cancelar</button>
+        <button type="submit" class="signupbtn">Crear cuenta</button>
       </div>
     </div>
   </form>
@@ -87,6 +95,7 @@
 
     <!-- Footer -->
     <%- include('./partials/footer v2.ejs') %>
+    <script src="js/signupvalidations.js" type="text/javascript"></script>
 
 </body>
 
