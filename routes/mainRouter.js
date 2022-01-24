@@ -63,7 +63,7 @@ router.get('/signin', mainController.signin);
 router.post('/signin', mainController.checksignin);
 
 router.get('/signup', redirect.register, mainController.signup);
-router.post('/signup', upload.single('face_pic'), validations, validations2, mainController.crearperfil);
+router.post('/signup', upload.single('face_pic'), validations, mainController.crearperfil);
 
 router.get('/check', mainController.check);
 

@@ -195,7 +195,7 @@ let mainController = {
 
     crearperfil: (req, res) => {
         //console.log(validations);
-        //console.log(req.body);
+        //console.log(req.body
         //console.log(req.file);
 
         let errores = validationResult(req);

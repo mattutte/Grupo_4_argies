@@ -4,15 +4,20 @@ const res = require('express/lib/response');
 const validations = [
     check('email').notEmpty().withMessage('Debe completar un email valido. ').bail()
                     .isEmail().withMessage('Debe completar un email valido. ').bail()
-                    .custom(value => {
-                      const db = require('../database/models');
-                      return db.User.findByPk(value)
-                      .then(user => {
-                        if (user) {
-                          return ({message: 'Email debe ser unico', errorCode:'email-4'});
-                        }
-                      });
-                    })
+                    
+                    // .custom((value) => {
+                    //     const db = require('../database/models');
+                    //     return db.User.findByPk(value)
+                    //    .then(user => {
+                    //      console.log(user);
+                    //      if (user == null) {
+                    //       return true;
+                    //      }else{
+                    //        return false;
+                    //      }
+                    //    });
+                    //  })
+                    //  .withMessage('Debe completar con un email unico. ').bail()
                     ,
 
     check('psw').notEmpty().withMessage('Debe completar una clave de al menos 8 cifras. ').bail()
@@ -41,6 +46,6 @@ const validations = [
                                 return false; // return "falsy" value to indicate invalid data
                             }
                             })
-                          .withMessage('Debe subir un archivo, con formato gif, jpg, jpeg o png. '), // custom error message that will be send back if the file in not a the right format. 
+                          .withMessage('Debe subir un archivo, con formato gif, jpg, jpeg o png. ').bail() 
                         ];
 module.exports = validations;
