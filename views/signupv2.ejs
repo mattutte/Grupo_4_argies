@@ -20,10 +20,9 @@
       
       
       <% if(locals.errores && errores != undefined){ %>
-        <% errores.errors.forEach(error =>{ %>
-          <t3> <%= error.msg %> </t3>
-          <br>
-        <% }) %>
+        <% errores.errors.forEach(error =>{ if(typeof error.msg != 'object'){ %>
+            <t3> <%= error.msg %> </t3>
+        <% }}) %>
         
         
       <% } %>

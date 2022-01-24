@@ -39,6 +39,7 @@
     float: left;
     margin-left: .6944444444%;
     margin-right: .6944444444%;
+    margin-bottom: 2%;
 }
 
 .push6 {
@@ -60,7 +61,7 @@
 
 /* TAGS --------------------------------------- */
 
-p {
+#whoWeAre p {
     font-family: "Open Sans", "Helvetica", sans-serif;
     font-size: 14px;
     line-height: 28px;
@@ -108,9 +109,10 @@ section {
 body {
     font-family: "Open Sans",Helvetica,sans-serif;
     font-weight: 300;
-    font-size: 23px;
+    /* font-size: 23px; */
     color: #333132;
-    line-height: 36px;
+    /* line-height: 36px; */
+    line-height: 30px;
     padding: 0;
     margin: 0;
 }
@@ -344,6 +346,8 @@ ol.init li:before {
     color: #585956;
     line-height: 18px;
 }
+
+
 
 /* HOVER -------------------------------------- */
 

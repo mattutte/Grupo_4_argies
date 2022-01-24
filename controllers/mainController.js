@@ -10,7 +10,8 @@ const productsFilePath = path.join(__dirname, '../data/products.json');
 const basketFilePath = path.join(__dirname, '../data/shopping-cart.json');
 const cart_basket = JSON.parse(fs.readFileSync(basketFilePath, 'utf-8'));
 
-const db = require('../database/models')
+const db = require('../database/models');
+const { clearCookie } = require('express/lib/response');
 
 //const products = require('../Data/products.json');
 
@@ -78,7 +79,7 @@ let mainController = {
     },
 
     signin: (req, res) => {
-        res.render('signin')
+        res.render('signin v2')
     },
 
     checksignin: (req, res) => {
@@ -94,21 +95,31 @@ let mainController = {
                 email: req.body.email,
             }
         }).then((foundUser) => {
-
-            // Averiguo si la peticion vino desde el modal o desde la pagina de signin
-            let login_ext = false;
+            console.log("url from:")
+            console.log(req.cookies.urlFrom);
+            let urlTo = req.cookies.urlFrom;
+            urlTo = urlTo.replace("http://localhost:3000","")
+            res.clearCookie("urlFrom");
+            res.cookie('urlTo', urlTo, { maxAge: 0.07 }); 
+/*             console.log("ruta de la que vino:");
+            console.log(req.cookies.urlFrom);
+            console.log("ruta a la que tiene que ir:");
+            console.log(urlTo); */
+/*             let login_ext = false;
             if(req.body.registrationTitle != undefined){
                 login_ext = true;
             } else {
                 login_ext = false;
-            };
+            }; */
 
             //Validacion de usuario y password
             if(!foundUser) {
-                if(login_ext){
-                    res.redirect('/?error=1');
-                } else {
-                    res.render('signin', { errorMessage});
+                console.log('no encontró el usuario')
+                res.cookie('loginErrorType', 1, {maxAge: 60000});
+                if(urlTo == "/signin"){
+                    res.render('signin v2', { errorMessage, errorType: 1});
+                }else{
+                    res.redirect(urlTo);
                 }
             }else{
                 console.log("encontró usuario")
@@ -116,6 +127,8 @@ let mainController = {
                 const passwordEncriptadaUsuario = foundUser.passwd;
                 console.log(passwordEncriptadaUsuario);
                 const bcrypt = require('bcryptjs');
+                console.log(req.body.psw)
+                console.log(passwordEncriptadaUsuario)
                 const check = bcrypt.compareSync(req.body.psw, passwordEncriptadaUsuario);
                 //console.log(check);
 
@@ -125,17 +138,20 @@ let mainController = {
                     req.session.loggedin = true;
                     req.session.save();
                     console.log('req.body.remember: '+req.body.keepMeLoggedIn);
-                    if (req.body.keepMeLoggedIn != undefined) {
+                    if (req.body.keepMeLoggedIn != undefined || req.cookies.keepMeLoggedIn) {
                         console.group("se seleccionó opcion de mantener sesion");
                         res.cookie('usuarioRecordado', foundUser.email, { maxAge: 1800000 }); //Duracion de cookie: 30 minutos
+                        res.clearCookie("keepMeLoggedIn");
                     }
                     return res.redirect('/');
                 } else {
-
-                    if(login_ext){
-                        res.redirect('/?error=2');
-                    } else {
-                        res.render('signin', { errorMessage});
+                    res.cookie('loginErrorType', 2, {maxAge: 60000});
+                    console.log("ya seteé la cookie de error");
+                    console.log(req.cookies.loginErrorType);
+                    if(urlTo == "/signin"){
+                        res.render('signin v2', { errorMessage, errorType: 2});
+                    }else{
+                        res.redirect(urlTo);
                     }
                 }
             }
@@ -179,13 +195,32 @@ let mainController = {
 
     crearperfil: (req, res) => {
         //console.log(validations);
-        console.log(req.body);
-        console.log(req.file);
+        //console.log(req.body);
+        //console.log(req.file);
 
-        let response = req.body;
         let errores = validationResult(req);
-        console.log(errores);
-        
+
+        //creo array de errores
+        let errores2 = [];
+        errores.errors.forEach(error => {
+            if(typeof error.msg == 'object'){
+                errores2.push(error.msg);
+            }
+        });
+
+        //console.log(errores2);
+        //console.log(errores);
+        //console.log(errores.keys.length);
+        //console.log(errores.msg)
+
+        //agregar control de que el email no sea repetido;
+
+        //agregar control de que el email del segundo campo sea igual al ingresado en el campo anterior;
+
+        //console.log(req.body);
+        //console.log(req.file);
+
+
         if (errores.isEmpty()) {
 
 
@@ -225,6 +260,8 @@ let mainController = {
         } else {
             //console.log(errores);
             res.render('signupv2', { errores: errores, old: req.body });
+            //res.render('signup v3', {errores: errores2})
+            //res.send(errores);
         }
 
 
