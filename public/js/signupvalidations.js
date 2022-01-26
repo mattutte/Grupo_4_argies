@@ -1,15 +1,11 @@
 window.addEventListener("load", function() {
 
-    let email = document.querySelector('[name="email"]');
-    console.log(email);
-    let psw = document.querySelector('[name="psw"]');
-    console.log(psw);
-    let pswrepeat = document.querySelector('[name="pswrepeat"]');
-    console.log(pswrepeat);
     let first_name = document.querySelector('[name="first_name"]');
     let last_name = document.querySelector('[name="last_name"]');
     let country = document.querySelector('[name="pais"]');
     let face_pic = document.getElementById('facepic');
+    let erroresformulario = []
+    
     
     
     let form = document.querySelector("form");
@@ -39,8 +35,11 @@ window.addEventListener("load", function() {
     //     }
     // })
 
+
+    let email = document.querySelector('[name="email"]');
     email.addEventListener('blur', function(){
         console.log(email.value);
+    
         if(email.value == '' || !emailIsValid(email.value)){
             console.log('hay problemas con el emaiil');
             this.style.border = " 2px solid red";
@@ -56,8 +55,10 @@ window.addEventListener("load", function() {
 
 
     //Validaciones para password
-    psw.addEventListener('blur', function(){
+    let psw = document.querySelector('[name="psw"]');
         console.log(psw.value);
+    psw.addEventListener('blur', function(){
+        
         if(psw.value == '' || psw.value.length < 8){
                 //password.classList.add('psw-invalido');
                 this.style.border = " 2px solid red";
@@ -72,8 +73,10 @@ window.addEventListener("load", function() {
 
 
     //Validaciones para Repeat Password
-    pswrepeat.addEventListener('blur', function(){
+    let pswrepeat = document.querySelector('[name="pswrepeat"]');
         console.log(pswrepeat.value);
+    pswrepeat.addEventListener('blur', function(){
+        
         if(pswrepeat.value === '' || pswrepeat.value != psw.value){
             //passwordRepeat.classList.add('pswrepeat-invalido');
             this.style.border = " 2px solid red";
@@ -133,12 +136,14 @@ window.addEventListener("load", function() {
         } 
     })
 
-    face_pic.addEventListener('blurr', function(){
+    face_pic.addEventListener('change', function(){
   
         
         console.log(face_pic);
-        console.log(face_pic.type);
-        if(face_pic.name == '' || !(face_pic.type == "jpg" || face_pic.type == "jpeg" || face_pic.type == "gif" || face_pic.type == "png" ) ){
+        var fname = face_pic.value;
+        var re = /(\.jpg|\.jpeg|\.gif|\.png)$/i;
+
+        if(face_pic.name == '' || !re.exec(fname)){
             //last_name.classList.add('face_pic-invalido');
             this.style.border = " 2px solid red";
             document.querySelector('#comentario-pais').innerText = "Debe completar con una foto con formato jpg, jpeg, png o tif ";
@@ -154,35 +159,35 @@ window.addEventListener("load", function() {
 
 
     //Validacion del boton Submit
-    submitButton.addEventListener('click', function(e){
+    // submitButton.addEventListener('click', function(e){
 
         
-             console.group('entrando al fetch');
-             console.log(email.value);
+    //          console.group('entrando al fetch');
+    //          console.log(email.value);
             
-             fetch("http://localhost:3000/users/" + email.value)
-                 .then(function(respuesta){
-                     console.log('entro al primer then');
-                     return respuesta.json();
+    //          fetch("http://localhost:3000/users/" + email.value)
+    //              .then(function(respuesta){
+    //                  console.log('entro al primer then');
+    //                  return respuesta.json();
                                         
-                 })
-                 .then(function(informacion){
-                     if(informacion!=null){
+    //              })
+    //              .then(function(informacion){
+    //                  if(informacion!=null){
                          
-                         console.log('el email no estaba registrado con anterioridad');
-                     } else {
-                         e.preventDefault();    
-                         alert('El email no puede estar repetido');
+    //                      console.log('el email no estaba registrado con anterioridad');
+    //                  } else {
+    //                      e.preventDefault();    
+    //                      alert('El email no puede estar repetido');
                         
-                     }
-                 });
+    //                  }
+    //              });
 
 
             
-         }
+    //      }
 
 
-     )
+    // )
 
 
 });
