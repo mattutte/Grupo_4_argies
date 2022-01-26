@@ -5,20 +5,18 @@ const validations = [
     check('email').notEmpty().withMessage('Debe completar un email valido. ').bail()
                     .isEmail().withMessage('Debe completar un email valido. ').bail()
                     
-                    // .custom((value) => {
-                    //     const db = require('../database/models');
-                    //     return db.User.findByPk(value)
-                    //    .then(user => {
-                    //      console.log(user);
-                    //      if (user == null) {
-                    //       return true;
-                    //      }else{
-                    //        return false;
-                    //      }
-                    //    });
-                    //  })
-                    //  .withMessage('Debe completar con un email unico. ').bail()
-                    ,
+                    .custom((value) => {
+                         const db = require('../database/models');
+                         let existingUser = db.User.findByPk(value);
+                         //console.log(existingUser)
+                         return existingUser
+                        .then(user => {
+                          console.log(user);
+                          if (user != null) {
+                            return Promise.reject("El email ya esta en uso");
+                          }
+                        });
+                      }),
 
     check('psw').notEmpty().withMessage('Debe completar una clave de al menos 8 cifras. ').bail()
                 .isLength(8).withMessage('Debe completar una clave de al menos 8 cifras. ').bail(),
@@ -39,7 +37,7 @@ const validations = [
                               console.log('no hay archivo subido');
                               return false;
                             }
-                            if(req.file.mimetype === 'image/jpg' || req.file.mimetype === 'image/jpeg' || req.file.mimetype === 'image/png' || req.file.mimetype === 'image/gif'  ){
+                            else if(req.file.mimetype === 'image/jpg' || req.file.mimetype === 'image/jpeg' || req.file.mimetype === 'image/png' || req.file.mimetype === 'image/gif'  ){
                                 return true; // return "non-falsy" value to indicate valid data"
                             }else{
                                 console.log('el formato del archivo no es el indicado');

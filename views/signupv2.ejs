@@ -3,9 +3,10 @@
 <!-- Head -->
 <%- include('./partials/head.ejs',{titulo:"Signup",stylesFile:"styles2.css"}) %>
 <body>
+  <script type="text/javascript" src="js/signupvalidations.js"></script>
     <!-- Header -->
-    <%- include('./partials/header v2.ejs') %>
-    <!-- <script src="js/signupvalidations.js" type="text/javascript"></script> -->
+    <!-- <%- include('./partials/header v2.ejs') %> -->
+    
     
     <!-- Signin -->
 
@@ -22,6 +23,7 @@
       <% if(locals.errores && errores != undefined){ %>
         <% errores.errors.forEach(error =>{ if(typeof error.msg != 'object'){ %>
             <t3> <%= error.msg %> </t3>
+            <br>
         <% }}) %>
         
         
@@ -94,6 +96,7 @@
 
     <!-- Footer -->
     <%- include('./partials/footer v2.ejs') %>
+    
     
 
 </body>
