@@ -14,7 +14,7 @@
 
 
 
-<form action="/signup" enctype="multipart/form-data" style="border:1px solid #ccc" method="POST">
+<form id="form" action="/signup" enctype="multipart/form-data" style="border:1px solid #ccc" method="POST">
     <div class="container">
       <h1>Crear usuario</h1>
 
@@ -35,11 +35,11 @@
       <hr>
   
       <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Ingresar Email" name="email" value="<%= locals.old && old.email? old.email:'' %>">
+      <input type="text" placeholder="Ingresar Email" name="email" id="email-input" value="<%= locals.old && old.email? old.email:'' %>">
       <p id="comentario-email"></p>
   
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Ingrese Password" name="psw">
+      <input type="password" id="password-input" placeholder="Ingrese Password" name="psw">
       <p id="comentario-psw"></p>
   
       <label for="pswrepeat"><b>Repita el Password</b></label>
@@ -85,8 +85,8 @@
       <p>Al crear la cuenta, adhiero a nuestros <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
   
       <div class="clearfix">
-        <button type="reset" class="cancelbtn">Cancelar</button>
-        <button type="submit" class="signupbtn">Crear cuenta</button>
+        <button type="reset" id="cancel-button" class="cancelbtn">Cancelar</button>
+        <button type="submit" id="signup-button" class="signupbtn">Crear cuenta</button>
       </div>
     </div>
   </form>

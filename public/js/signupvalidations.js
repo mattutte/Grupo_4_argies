@@ -4,12 +4,13 @@ window.addEventListener("load", function() {
     let last_name = document.querySelector('[name="last_name"]');
     let country = document.querySelector('[name="pais"]');
     let face_pic = document.getElementById('facepic');
+    let cancelButton = document.getElementById("cancel-button");
     let erroresformulario = []
     
     
     
-    let form = document.querySelector("form");
-    let submitButton = document.querySelector(".signupbtn");
+    let form = document.querySelector("#form");
+    let submitButton = document.querySelector("#signup-button");
 
     
 
@@ -36,7 +37,7 @@ window.addEventListener("load", function() {
     // })
 
 
-    let email = document.querySelector('[name="email"]');
+    let email = document.querySelector("#email-input");
     email.addEventListener('blur', function(){
         console.log(email.value);
     
@@ -46,7 +47,7 @@ window.addEventListener("load", function() {
             document.querySelector('#comentario-email').innerText = "Email invalido o vacio. ";
         }else{
             console.log('no hay problemas con el emaiil');
-            this.style.border = " 2px solid blue";
+            this.style.border = " 2px solid green";
             document.querySelector('#comentario-email').innerText = "";
         } 
     })
@@ -55,7 +56,7 @@ window.addEventListener("load", function() {
 
 
     //Validaciones para password
-    let psw = document.querySelector('[name="psw"]');
+    let psw = document.querySelector("#password-input");
         console.log(psw.value);
     psw.addEventListener('blur', function(){
         
@@ -65,9 +66,15 @@ window.addEventListener("load", function() {
                 document.querySelector('#comentario-psw').innerText = "Debe completar una password de al menos 8 caracteres. ";
             }else{
                 //email.classList.remove('psw-invalido');
-                this.style.border = " 2px solid blue";
+                this.style.border = " 2px solid green";
                 document.querySelector('#comentario-psw').innerText = "";
             }        
+    })
+
+    psw.addEventListener('focus', function(){
+        
+        this.style.border = " 2px solid blue";
+        document.querySelector('#comentario-psw').innerText = ""; 
     })
 
 
@@ -77,15 +84,25 @@ window.addEventListener("load", function() {
         console.log(pswrepeat.value);
     pswrepeat.addEventListener('blur', function(){
         
-        if(pswrepeat.value === '' || pswrepeat.value != psw.value){
+        if((pswrepeat.value === '' && psw.value != '') || (pswrepeat.value != psw.value && psw.value != '')){
             //passwordRepeat.classList.add('pswrepeat-invalido');
             this.style.border = " 2px solid red";
             document.querySelector('#comentario-pswrepeat').innerText = "Debe repetir la clave y que coincidan. ";
         }else{
             //email.classList.remove('pswrepeat-invalido');
-            this.style.border = " 2px solid blue";
+            if(psw.value === ''){
+                this.style.border = "";
+            }else{
+                this.style.border = " 2px solid green";
+            }
             document.querySelector('#comentario-pswrepeat').innerText = "";
         } 
+    })
+
+    pswrepeat.addEventListener('focus', function(){
+        
+        this.style.border = " 2px solid blue";
+        document.querySelector('#comentario-psw').innerText = ""; 
     })
     
 
@@ -99,9 +116,15 @@ window.addEventListener("load", function() {
             document.querySelector('#comentario-first_name').innerText = "Debe completar con un nombre de al menos dos caracteres. ";
         }else{
             //email.classList.remove('first_name-invalido');
-            this.style.border = " 2px solid blue";
+            this.style.border = " 2px solid green";
             document.querySelector('#comentario-first_name').innerText = "";
         } 
+    })
+
+    first_name.addEventListener('focus', function(){
+        
+        this.style.border = " 2px solid blue";
+        document.querySelector('#comentario-psw').innerText = ""; 
     })
     
 
@@ -115,11 +138,16 @@ window.addEventListener("load", function() {
             document.querySelector('#comentario-last_name').innerText = "Debe completar con un apellido de al menos dos caracteres. ";
         }else{
             //email.classList.remove('last_name-invalido');
-            this.style.border = " 2px solid blue";
+            this.style.border = " 2px solid green";
             document.querySelector('#comentario-last_name').innerText = "";
         } 
     })
     
+    last_name.addEventListener('focus', function(){
+        
+        this.style.border = " 2px solid blue";
+        document.querySelector('#comentario-psw').innerText = ""; 
+    })
 
 
     //Validaciones para Pais
@@ -131,9 +159,15 @@ window.addEventListener("load", function() {
             document.querySelector('#comentario-pais').innerText = "Debe completar con un pais valido. ";
         }else{
             //email.classList.remove('country-invalido');
-            this.style.border = " 2px solid blue";
+            this.style.border = " 2px solid green";
             document.querySelector('#comentario-pais').innerText = "";
         } 
+    })
+
+    country.addEventListener('focus', function(){
+        
+        this.style.border = " 2px solid blue";
+        document.querySelector('#comentario-psw').innerText = ""; 
     })
 
     face_pic.addEventListener('change', function(){
@@ -154,6 +188,22 @@ window.addEventListener("load", function() {
         } 
     })
     
+        //Validaciones para cancel
+        cancelButton.addEventListener('click', function(){
+            email.style.border = "";
+            psw.style.border = "";
+            pswrepeat.style.border = "";
+            first_name.style.border = "";
+            last_name.style.border = "";
+            country.style.border = "";
+
+            document.querySelector('#comentario-email').innerHTML = "";
+            psw.innerHTML = "";
+            pswrepeat.innerHTML = "";
+            first_name.innerHTML = "";
+            last_name.innerHTML = "";
+            country.innerHTML = "";
+        })
 
    
 
@@ -188,6 +238,32 @@ window.addEventListener("load", function() {
 
 
     // )
+
+    /* function submitForm(e) {
+        e.preventDefault();
+        const files = document.getElementById("facepic");
+        const formData = new FormData();
+        formData.append("first_name", first_name.value);
+        formData.append("last_name", last_name.value);
+        formData.append("email", email.value);
+        formData.append("psw", psw.value);
+        formData.append("pswrepeat", pswrepeat.value);
+        formData.append("pais", pais.value);
+            for(let i =0; i < files.files.length; i++) {
+                formData.append("files", files.files[i]);
+        }
+        console.log('req body antes de hacer post')
+        console.log(formData)
+        console.log(formData.first_name)
+        fetch("http://localhost:3000/signup", {
+            method: 'post',
+            body: formData
+        })
+            .then((res) => console.log(res))
+            .catch((err) => ("Error occured", err));
+    }
+
+    form.addEventListener("submit", submitForm); */
 
 
 });
