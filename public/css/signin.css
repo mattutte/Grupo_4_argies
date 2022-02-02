@@ -104,8 +104,25 @@ main, .bg-gray {
     color: #34568B;
 }
 
+.panel .signin-header {
+    display: flex;
+    align-items: center;
+}
+
 .panel .signin-instruction {
     padding: 10px 0;
+}
+
+.panel .signin-errors {
+    display: none;
+    margin-left: 5px;
+    font-size: 11px;
+    padding-top: 5px;
+}
+
+.panel .signin-errors.invalid {
+    display: block;
+    color: red;
 }
 
 .form-container .form-field {

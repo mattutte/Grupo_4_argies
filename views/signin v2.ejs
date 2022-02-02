@@ -35,7 +35,10 @@
                         <!-- Cabecera -->
                         <p>Se está conectando a:</p>
                         <h5 class='company-name'>Tienda CAZAKA</h5>
-                        <p class='signin-instruction'>Ingrese sus credenciales</p>
+                        <div class='signin-header'>
+                            <p class='signin-instruction'>Ingrese sus credenciales</p>
+                            <span class='signin-errors <%= locals.errorMessage? 'invalid' : '' %>'><%= locals.errorMessage %></span>
+                        </div>
                         <!-- Formulario -->
                         <form class='form-container' action="/signin" method="post">
                             <!-- Email -->

@@ -2,6 +2,7 @@
 <html lang="en">
         
     <%- include('./partials/head.ejs',{titulo:"Busqueda Producto",stylesFile:"productSearch.css"}) %>
+    <script type="text/javascript" src="js/productSearch.js"></script>
 
         <body>
             <!-- Header -->
@@ -466,7 +467,7 @@
 
                                             </div>
                                         </div>
-                                        <div class="row product-grid">
+                                        <div id='product-section' class="row product-grid">
                                             
                                             <% for (let i = 0; i < Math.min(
                                                 products.length, resultsPerPage); i++) {
@@ -608,7 +609,7 @@
                                                         <button class="btn pagination-page"> 2</button>
                                                         <span class="ellipsis btn-padding">...</span>
                                                         <button class="btn pagination-page"> 24</button>
-                                                        <button class="btn btn-padding"> ></button>
+                                                        <button id='nextPageBtn' class="btn btn-padding"> > </button>
                                                     </div>
                                                 </div>
                                                 <div class="end-page-container pagination-sm">
@@ -619,7 +620,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                 </div>

@@ -25,11 +25,13 @@ const upload = multer({ storage: storage }); // generar middleware upload
                         
 const validations = require('../middleware/signupValidationMiddleware');
 const validations2 = require('../middleware/signupValidationMiddleware2');
+const validations_signin = require('../middleware/signinValidations');
 
 
 // ************ Controller Require ************
 const mainController = require('../controllers/mainController');
 const usersController = require('../controllers/usersController');
+const productsController = require('../controllers/productsController');
 
 /*** GET HOME ***/
 router.get('/', mainController.home);
@@ -60,7 +62,7 @@ router.delete('/product/:id', mainController.destroy);
 /*** USER ACCESS AND INFO***/
 
 router.get('/signin', mainController.signin);
-router.post('/signin', mainController.checksignin);
+router.post('/signin', validations_signin, mainController.checksignin);
 
 router.get('/signup', redirect.register, mainController.signup);
 router.post('/signup', upload.single('face_pic'), validations, mainController.crearperfil);
@@ -87,6 +89,10 @@ router.get('/shopping-cart', mainController.shoppingcart);
 
 router.get('/test', mainController.test)
 
-router.get('/users/:email', usersController.userInfo)
+
+//APIs
+router.get('/users/:email', usersController.userInfo);
+router.get('/files/products', productsController.productsList);
+
 
 module.exports = router;
