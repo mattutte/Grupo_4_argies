@@ -128,7 +128,6 @@ function setCookie(cname, cvalue, exdays) {
 };
 
 function insertAfter(newNode, existingNode) {
-    console.log(existingNode);
     existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
 }
 
@@ -359,11 +358,12 @@ function showProducts(products){
             <div class="end-page-container pagination-lg">
                 <div class="text-center">
                     <span class="page">Páginas:</span>
+                    <button id="previousPageBtn" onclick="loadPreviousPage()" class="btn btn-padding"> < </button>
                     <button class="btn pagination-page btn-active"> 1</button>
                     <button class="btn pagination-page"> 2</button>
                     <span class="ellipsis btn-padding">...</span>
                     <button class="btn pagination-page"> 24</button>
-                    <button class="btn btn-padding"> ></button>
+                    <button id="nextPageBtn" onclick="loadNextPage()" class="btn btn-padding"> > </button>
                 </div>
             </div>
             <div class="end-page-container pagination-sm">
@@ -453,11 +453,21 @@ function resultsCount(count){
     countResult.innerHTML = count+' Resultados';
 }
 
-function loadNextPage(){
-    ev.preventDefault();
-    let productsToShow = pagination(localStorage.getItem('PRODUCTS'), state.page, state.rows);
-    showProducts(productsToShow);
-    state.page = state.page +1;
+function loadNextPage(page=state.page+1){
+    state.page = page;
+    getProducts(showProducts, errorMessage)
+}
+
+function loadPreviousPage(page=state.page-1){
+    state.page = Math.max(page,1);
+    getProducts(showProducts, errorMessage)
+}
+
+function loadSpecificPage(event){
+    console.log(event.currentTarget.innerHTML)
+    page = event.currentTarget.innerHTML;
+    state.page = page;
+    getProducts(showProducts, errorMessage)
 }
 
 async function storeProducts(object) {
@@ -481,8 +491,12 @@ function pageNumber(total, max, current){
 
 }
 
+function test(){
+    alert('testeando')
+}
 
-let PRODUCTS = []
+
+var PRODUCTS = []
 
 var state = {
     'results': 0,
@@ -491,10 +505,6 @@ var state = {
 }
 
 window.addEventListener("load", function() {
-
-    // Cargo variables
-    let next_page = document.getElementById("nextPageBtn");
-    next_page.addEventListener("click", loadNextPage);
 
     //Inicializo
     getProducts(showProducts, errorMessage);
