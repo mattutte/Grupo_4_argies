@@ -46,9 +46,12 @@ app.use(recordarUsuario);
 // ************ WRITE YOUR CODE FROM HERE ************
 // ************ Route System require and use() ************
 
+const productAPIRouter = require('./routes/api/productAPIrouter');
+app.use('/api/products/',productAPIRouter); 
 
 const mainRouter = require('./routes/mainRouter');
 app.use('/',mainRouter); 
+
 
 
 app.use((req, res, next) => {
