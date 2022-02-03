@@ -87,7 +87,7 @@ let mainController = {
         const usuarioCheckIn = usuarios.find((usuario) => usuario.email == req.body.email);
         console.log(usuarioCheckIn);
         */
-
+        console.log('entré al controlador de signin')
         const errorMessage = 'el email o el password no coinciden con nuestros registros';
 
         db.User.findOne({
@@ -97,10 +97,13 @@ let mainController = {
         }).then((foundUser) => {
             console.log("url from:")
             console.log(req.cookies.urlFrom);
-            let urlTo = req.cookies.urlFrom;
-            urlTo = urlTo.replace("http://localhost:3000","")
-            res.clearCookie("urlFrom");
-            res.cookie('urlTo', urlTo, { maxAge: 0.07 }); 
+            let urlTo=req.originalUrl;
+            if(req.cookies.urlFrom){
+                urlTo = urlTo.replace("http://localhost:3000","")
+                res.clearCookie("urlFrom");
+                res.cookie('urlTo', urlTo, { maxAge: 0.07 });
+                urlTo = req.cookies.urlFrom;
+            }
 /*             console.log("ruta de la que vino:");
             console.log(req.cookies.urlFrom);
             console.log("ruta a la que tiene que ir:");
@@ -119,7 +122,7 @@ let mainController = {
                 if(urlTo == "/signin"){
                     res.render('signin v2', { errorMessage, errorType: 1});
                 }else{
-                    res.redirect(urlTo);
+                    res.redirect(urlTo, {errorMessage, errorType: 1});
                 }
             }else{
                 console.log("encontró usuario")
@@ -151,7 +154,7 @@ let mainController = {
                     if(urlTo == "/signin"){
                         res.render('signin v2', { errorMessage, errorType: 2});
                     }else{
-                        res.redirect(urlTo);
+                        res.redirect(urlTo, {errorMessage, errorType: 2});
                     }
                 }
             }
@@ -198,7 +201,16 @@ let mainController = {
         //console.log(req.body
         //console.log(req.file);
 
-        let errores = validationResult(req);
+        // console.log('entro al controlador de crearperfil')
+        const errores = validationResult(req);
+        // console.log('los errores que trae el validator son:')
+        // console.log(errores)
+        // console.log('el file es:')
+        // console.log(req.filename)
+        // console.log('todo el body es:')
+        // console.log(req.body)
+        // console.log('todo el files es:')
+        // console.log(res.files)
 
         //creo array de errores
         let errores2 = [];
@@ -207,8 +219,7 @@ let mainController = {
                 errores2.push(error.msg);
             }
         });
-
-        //console.log(errores2);
+        
         //console.log(errores);
         //console.log(errores.keys.length);
         //console.log(errores.msg)
@@ -219,8 +230,10 @@ let mainController = {
 
         //console.log(req.body);
         //console.log(req.file);
-
-
+        // console.log('es errores empty?')
+        // console.log(errores.isEmpty())
+        // console.log('esto es loq ue hay en req:')
+        // console.log(req)
         if (errores.isEmpty()) {
 
 
@@ -236,19 +249,21 @@ let mainController = {
                 first_name: req.body.first_name,
                 last_name: req.body.last_name,
                 country: req.body.pais,
-                face_pic: req.file.filename,
+                face_pic: req.body.face_pic,
                 admin_category: req.body.admin == 'on'? 1 : 0,
                 adult: req.body.mayor == 'on'? 1 : 0,
                 
                 
 
             };
-
+            console.log('datos de usuario:')
             console.log(nuevoUsuario);
-            db.User.create(
-                nuevoUsuario)
+            db.User.create(nuevoUsuario)
             .then(()=>{
                 res.redirect('signin')
+            }).catch(function(err) {
+                // print the error details
+                console.log(err, req.body.email);
             });
 
             //usuarios.push(nuevoUsuario);
@@ -260,6 +275,7 @@ let mainController = {
         } else {
             //console.log(errores);
             res.render('signupv2', { errores: errores, old: req.body });
+            //console.log('hay errores, renderiza la página')
             //res.render('signup v3', {errores: errores2})
             //res.send(errores);
         }
@@ -491,7 +507,6 @@ let mainController = {
     },
 
     checkCart: (req, res) => {
-        res.render('cart v2', { cart_basket, products, user: 2 });
 
         var products = db.Product.findAll({
             //order:[['rating','DESC']],

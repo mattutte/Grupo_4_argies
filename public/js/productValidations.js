@@ -24,7 +24,7 @@ window.addEventListener("load", function() {
     let formAddProduct = document.getElementById('formAddProduct')
 
     var errors = {
-        name: 'Falta completar el campo del nombre',
+/*         name: 'Falta completar el campo del nombre',
         category: 'Falta completar el campo de la categoria',
         brand: 'Falta completar el campo de la marca',
         description: 'Falta completar el campo de la descripcion',
@@ -38,7 +38,7 @@ window.addEventListener("load", function() {
         weight_package: 'Falta completar el campo del peso del paquete',
         color_available: 'Falta completar el campo del color disponible',
         size_available: 'Falta completar el campo de la talla disponible',
-        imageMain: 'Falta completar la imagen principal'
+        imageMain: 'Falta completar la imagen principal' */
     }
 
     // ####   Validate Name   ####

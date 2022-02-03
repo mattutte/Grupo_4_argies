@@ -2,6 +2,8 @@ window.addEventListener("load", function() {
 
     // Cargo variables
 
+    let errorsController = document.querySelector(".signin-errors");
+
     let email = document.querySelector("#username");
     let emailInput = document.querySelector(".input-label.email");
     let emailError = document.querySelector(".form-container .error.email");
@@ -73,6 +75,7 @@ window.addEventListener("load", function() {
     //Validaciones para Email
     email.addEventListener('focus', function(){
         console.log(email.value);
+        errorsController.classList.remove('invalid');
         email.removeAttribute('value');
         emailInput.classList.add('clicked');
         emailInput.classList.remove('invalid');
@@ -100,6 +103,7 @@ window.addEventListener("load", function() {
 
     //Validaciones para Password
     password.addEventListener('focus', function(){
+        errorsController.classList.remove('invalid');
         password.removeAttribute('value');
         passwordInput.classList.add('clicked');
         passwordInput.classList.remove('invalid')

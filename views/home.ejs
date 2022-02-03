@@ -179,7 +179,7 @@
         </div>
         <div class="articulos">
             <% for(let i=0; i<4; i++){ %>
-                <% 
+                <%  
                     rating_value = products[i].rating_value? products[i].rating_value : 0;
                     rating_stars = Math.round(rating_value);
                     rating_value = rating_value.toFixed(1);
@@ -309,8 +309,8 @@
             </div>
         </div>
         <div class="articulos">
-            <% for(let i=4; i<8; i++){ %>
-                <% 
+            <% for(let i=4; i < Math.min(products.length, 8); i++){ %>
+                <%  
                     rating_value = products[i].rating_value? products[i].rating_value : 0;
                     rating_stars = Math.round(rating_value);
                     rating_value = rating_value.toFixed(1);

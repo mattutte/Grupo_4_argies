@@ -18,8 +18,4 @@ module.exports = {
             res.send(500);
         });
     }
-
-
-
-    
 }

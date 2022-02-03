@@ -1124,7 +1124,7 @@ header.for-all-views {
     color: #f9f9f9;
 }
 
-.main-menu-right a {
+.main-menu-right a:not(.btn-remove) {
     display: flex;
     padding: 1rem;
     justify-content: center;
@@ -1132,7 +1132,7 @@ header.for-all-views {
     margin: 4px 0px;
 }
 
-.main-menu-right a:hover  {
+.main-menu-right a:not(.btn-remove):hover  {
     border: 1px solid white;
 
 /*.main-menu-right a:hover .fa-heart {*/
@@ -1226,6 +1226,10 @@ header.for-all-views {
         overflow: hidden;
         margin-left: 13px;
         cursor: pointer;
+    }
+
+    .cart-content .cart-item .btn-remove:hover {
+        border-color: red;
     }
 
     .main-menu-right .mini-products-list .cart-product-image {

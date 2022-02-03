@@ -613,17 +613,16 @@
             
             <div class="main-menu-right">
                 <a href="#" alt="Favorites"><i class="fas fa-heart"></i></a>
-                <div class='cart'>
+                <div id='cart' class='cart'>
                     <a href="#" alt="Shopping Cart" class='cart-header'><i class="fas fa-shopping-cart" id="shopping-cart-top-menu"></i></a>
                     <!-- SHOPPING CART (Menu desplegable) -->
-                    <% if (locals.session.loggedin){ %>
                         <div class='cart-content'>
                             <div class='cart-indent'>
                                 <ol id='cart-sidebar' class='mini-products-list'>
 
                                     <li class='cart-item'>
                                         <div class='product-control-buttons'>
-                                            <a title='quitar' class='btn-remove'></a>
+                                            <a title='quitar' class='btn-remove' data-product-id='1'></a>
                                         </div>
                                         <span class='cart-product-image'>
                                             <div class='center'>
@@ -691,7 +690,6 @@
                                 </div>
                             </div>
                         </div>
-                    <% } %>
                 </div>
             </div>
 
