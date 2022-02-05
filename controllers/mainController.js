@@ -30,10 +30,6 @@ let mainController = {
             console.log(error);
             res.sendStatus(500);
         });
-
-        // modificar con sequilize
-        //console.log('entré al home');
-        //res.render('home', { products })
     },
 
     product: (req, res) => {
@@ -57,10 +53,22 @@ let mainController = {
             console.log(error);
             res.sendStatus(500);
         });
+    },
+
+    productDetails: (req, res) => {
+
+        const id = req.params.id;
         
-        // modificar con sequilize
-        //const product = products.find((prod) => prod.id == req.params.id);
-        //res.render('product', { products, product })
+        db.Product.findByPk(id,{
+            include:[{association:'Brand'}]
+        })
+        .then(function( product){
+            res.render('product-detail', {product});
+        })
+        .catch((error)=>{
+            console.log(error);
+            res.sendStatus(500);
+        });
     },
 
     productSearch: (req, res) => {

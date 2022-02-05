@@ -43,6 +43,7 @@ router.get('/productsearch', mainController.productSearch);
 
 /*** GET A PARTICULAR PRODUCT ***/
 router.get('/product/:id', mainController.product);
+router.get('/product/detail/:id', mainController.productDetails);
 
 /*** ADD AND EDIT PRODUCT ***/
 router.get('/admin', checkAccess, mainController.admin);

@@ -49,6 +49,9 @@ app.use(recordarUsuario);
 const productAPIRouter = require('./routes/api/productAPIrouter');
 app.use('/api/products/',productAPIRouter); 
 
+const brandAPIRouter = require('./routes/api/brandAPIrouter');
+app.use('/api/brands/',brandAPIRouter);
+
 const mainRouter = require('./routes/mainRouter');
 app.use('/',mainRouter); 
 
@@ -58,7 +61,7 @@ app.use((req, res, next) => {
     res.status(404).render('not-found');
 })
 
-app.listen(3000, () => {
+app.listen(3001, () => {
     console.log("Servidor corriendo");
 });
 

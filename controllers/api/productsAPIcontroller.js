@@ -3,30 +3,26 @@ const path = require("path");
 const db = require("../../database/models");
 const sequelize = db.sequelize;
 const { Op } = require("sequelize");
-const moment = require("moment");
-const { pbkdf2 } = require("crypto");
-
-//Aqui tienen otra forma de llamar a cada uno de los modelos
-const Products = db.product;
-const Brands = db.brand;
-const Users = db.user;
 
 const productsAPIController = {
   product: (req, res) => {
     const id = req.params.id;
 
-    var product = db.product.findByPk(id, {
-      include: [{ association: "brand" }],
+    var product = db.Product.findByPk(id, { //se busca tabla x el alias del modelo
+      include: [{ association: "Brand" }],
     })
+    
 
       .then((product) => {
+        console.log(product);
         let respuesta = {
           meta: {
             status: 200,
             total: product.length,
-            url: "/api/product/:id",
+            url: "/api/products/id", // no :id porque en el url va solo el id
           },
-          data: product,
+          data: {product,profile: "http://localhost:3001/productDetail/"+product.id},
+          
         };
         res.json(respuesta);
       })
@@ -34,60 +30,33 @@ const productsAPIController = {
         console.log(error);
         res.sendStatus(500);
       });
-
-    // modificar con sequilize
-    //const product = products.find((prod) => prod.id == req.params.id);
-    //res.render('product', { products, product })
   },
 
   productList: (req, res) => {
-    db.product.findAll({
+    db.Product.findAll({
       //order:[['rating','DESC']],
-      include: [{ association: "brand" }],
+      include: [{ association: "Brand" }],
     })
       .then((products) => {
+        console.log(products);
         let respuesta = {
           meta: {
             status: 200,
             total: products.length,
-            url: "/api/products",
+            url: "/api/products/",
           },
           data: products,
         };
         res.json(respuesta);
       })
-      //res.render("productSearch", { products, resultsPerPage: 12 })
-      //})
       .catch((error) => {
         console.log(error);
         res.sendStatus(500);
       });
-    //modificar con sequilize
-    //res.render('productSearch', { products, resultsPerPage: 12 })
   },
 
-  brandList: (req, res) => {
-    db.brand.findAll({})
-      .then((brands) => {
-        let respuesta = {
-          meta: {
-            status: 200,
-            total: brands.length,
-            url: "/api/brands",
-          },
-          data: brands,
-        };
-        res.json(respuesta);
-      })
-      .catch((error) => {
-        console.log(error);
-        res.sendStatus(500);
-      });
-    //modificar con sequilize
-    //res.render('productSearch', { products, resultsPerPage: 12 })
-  },
   create: (req,res) => {
-    db.product.create(
+    db.Product.create(
         {
           name_product: req.body.name,
           category: req.body.category,
@@ -117,7 +86,7 @@ const productsAPIController = {
                 meta: {
                     status: 200,
                     total: confirm.length,
-                    url: 'api/products/create'
+                    url: 'api/products/create/'
                 },
                 data:confirm
             }
@@ -126,7 +95,7 @@ const productsAPIController = {
                 meta: {
                     status: 200,
                     total: confirm.length,
-                    url: 'api/products/create'
+                    url: 'api/products/create/'
                 },
                 data:confirm
             }
@@ -135,9 +104,10 @@ const productsAPIController = {
     })    
     .catch(error => res.send(error))
 },
+
 update: (req,res) => {
     let productId = req.params.id;
-    db.product.update(
+    db.Product.update(
         {
           name_product: req.body.name,
           category: req.body.category,
@@ -169,7 +139,7 @@ update: (req,res) => {
                 meta: {
                     status: 200,
                     total: confirm.length,
-                    url: 'api/products/update/:id'
+                    url: 'api/products/update/id'
                 },
                 data:confirm
             }
@@ -178,7 +148,7 @@ update: (req,res) => {
                 meta: {
                     status: 204,
                     total: confirm.length,
-                    url: 'api/products/update/:id'
+                    url: 'api/products/update/id'
                 },
                 data:confirm
             }
@@ -189,7 +159,7 @@ update: (req,res) => {
 },
 destroy: (req,res) => {
     let productId = req.params.id;
-    db.product.destroy({where: {id: productId}, force: true}) // force: true es para asegurar que se ejecute la acción
+    db.Product.destroy({where: {id: productId}, force: true}) // force: true es para asegurar que se ejecute la acción
     .then(confirm => {
         let respuesta;
         if(confirm){
@@ -197,7 +167,7 @@ destroy: (req,res) => {
                 meta: {
                     status: 200,
                     total: confirm.length,
-                    url: 'api/products/destroy/:id'
+                    url: 'api/products/destroy/id'
                 },
                 data:confirm
             }
@@ -206,7 +176,7 @@ destroy: (req,res) => {
                 meta: {
                     status: 204,
                     total: confirm.length,
-                    url: 'api/products/destroy/:id'
+                    url: 'api/products/destroy/id'
                 },
                 data:confirm
             }
