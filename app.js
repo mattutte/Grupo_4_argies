@@ -62,7 +62,7 @@ app.use((req, res, next) => {
 })
 
 app.listen(3001, () => {
-    console.log("Servidor corriendo");
+    console.log("Servidor corriendo en el 3001");
 });
 
 
