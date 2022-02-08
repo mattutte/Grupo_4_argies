@@ -41,6 +41,7 @@ const usersAPIController = {
     'image': (req, res) => {
         db.User.findByPk(req.params.id)
             .then(usuario => {
+                console.log("el id es:",req.params.id)
                 //res.sendFile('http://localhost:3000/images/'+usuario.face_pic);
                 res.sendFile(path.join(__dirname, '../../public/images', usuario.face_pic));
             });
