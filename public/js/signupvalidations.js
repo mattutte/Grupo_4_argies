@@ -207,7 +207,7 @@ window.addEventListener("load", function () {
     } else {
       console.group("entrando al fetch");
       console.log(email.value);
-      fetch("http://localhost:3000/users/" + email.value)
+      fetch("/users" + email.value)
         .then(function (respuesta) {
           console.log("entro al primer then");
           return respuesta.json();
