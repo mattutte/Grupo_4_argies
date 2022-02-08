@@ -11,7 +11,6 @@ const productsAPIController = {
     var product = db.Product.findByPk(id, { //se busca tabla x el alias del modelo
       include: [{ association: "Brand" }],
     })
-    
 
       .then((product) => {
         console.log(product);
@@ -21,7 +20,13 @@ const productsAPIController = {
             total: product.length,
             url: "/api/products/id", // no :id porque en el url va solo el id
           },
-          data: {product,profile: "http://localhost:3001/productDetail/"+product.id},
+          data: {product,
+            
+          },
+          links:{
+            profile: "http://localhost:3001/product/detail/"+product.id,
+            picture:"file:///Users/tomasheguy/Google%20Drive/TH%20para%20google%20Drive/DigitalHouse/grupo4argies/public/images/"+product.image_main,
+          }
           
         };
         res.json(respuesta);
@@ -33,19 +38,28 @@ const productsAPIController = {
   },
 
   productList: (req, res) => {
-    db.Product.findAll({
+    const products = db.Product.findAll({
       //order:[['rating','DESC']],
       include: [{ association: "Brand" }],
     })
-      .then((products) => {
+    const productsPerBrand = db.Product.findAll({
+      attributes: ["brand_id"],
+      //  [sequelize.fn("COUNT", sequelize.col("id"))],],
+      group: "brand_id",
+    })
+    Promise.all([products, productsPerBrand])
+      .then((products, productsPerBrand) => {
         console.log(products);
         let respuesta = {
           meta: {
             status: 200,
             total: products.length,
             url: "/api/products/",
+            perBrand: productsPerBrand,
           },
-          data: products,
+          data: {products,
+            //details: "https://localhost:3001.com/productDetails/" + products.id
+          },
         };
         res.json(respuesta);
       })
