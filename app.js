@@ -46,6 +46,11 @@ app.use(recordarUsuario);
 // ************ WRITE YOUR CODE FROM HERE ************
 // ************ Route System require and use() ************
 
+const productAPIRouter = require('./routes/api/productAPIrouter');
+app.use('/api/products/',productAPIRouter); 
+
+const brandAPIRouter = require('./routes/api/brandAPIrouter');
+app.use('/api/brands/',brandAPIRouter);
 
 const mainRouter = require('./routes/mainRouter');
 const usersAPIRouter = require('./routes/API/users');
@@ -53,12 +58,13 @@ app.use('/',mainRouter);
 app.use('/api/usuarios',usersAPIRouter);
 
 
+
 app.use((req, res, next) => {
     res.status(404).render('not-found');
 })
 
-app.listen(3000, () => {
-    console.log("Servidor corriendo");
+app.listen(3001, () => {
+    console.log("Servidor corriendo en el 3001");
 });
 
 
