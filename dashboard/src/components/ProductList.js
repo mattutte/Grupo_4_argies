@@ -7,7 +7,7 @@ function ProductList(props){
 				<td>{props.id}</td>
 				<td>{props.name_product}</td>
 				<td>{props.category}</td>
-                <td>{props.Brand.name_brand}</td>
+                <td>{props.Brand?.name_brand}</td>
 				<td>{props.regular_price}</td>
 			</tr>
         </React.Fragment>
