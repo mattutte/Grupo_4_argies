@@ -245,11 +245,14 @@ window.addEventListener("load", function() {
         }
     })
     formAddProduct.addEventListener('submit', function(e) {
+        e.preventDefault();
+        console.log('Empieza validacion final en products')
         let alertErrors = []
         for (property in errors) {
             if (`${errors[property]}` != '') {
-                e.preventDefault();
                 alertErrors.push('\n' + `${errors[property]}`)
+            } else {
+                form.submit();
             }
         }
         alert(alertErrors) 
