@@ -251,11 +251,11 @@ window.addEventListener("load", function() {
         for (property in errors) {
             if (`${errors[property]}` != '') {
                 alertErrors.push('\n' + `${errors[property]}`)
+                alert(alertErrors)
             } else {
                 form.submit();
             }
         }
-        alert(alertErrors) 
     })
 })
 
