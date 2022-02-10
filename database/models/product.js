@@ -85,7 +85,24 @@ module.exports = (sequelize, dataTypes) => {
         image_back: {
             type: dataTypes.TEXT,
         },
-        }
+        detailUrl: {
+            type: dataTypes.VIRTUAL,
+            notNull: false,
+            get(){
+                const url = '/api/products/'+this.getDataValue('id');
+                return url;
+            }
+        },
+        imageUrl: {
+            type: dataTypes.VIRTUAL,
+            notNull: false,
+            get(){
+                const url = '/api/products/'+this.getDataValue('id')+'/img';
+                return url;
+            }
+        },
+    
+    };
 
     
     let config = {

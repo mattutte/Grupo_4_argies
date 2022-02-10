@@ -5,8 +5,10 @@ const productsAPIController = require('../../controllers/api/productsAPIControll
 //Rutas
 //Listado de productos
 router.get('/', productsAPIController.productList);
-//Detalle de una película
+//Detalle de un producto
 router.get('/:id', productsAPIController.product);
+//Detalle de imagen de un producto
+router.get('/:id/img', productsAPIController.image);
 //Agregar un producto
 router.post('/create', productsAPIController.create);
 //Modificar un producto

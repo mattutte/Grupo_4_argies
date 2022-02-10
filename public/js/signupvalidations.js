@@ -205,11 +205,11 @@ window.addEventListener("load", function () {
     
       alert("Todavia quedan errores en el formulario");
     } else {
-      console.group("entrando al fetch");
+      console.log("entrando al fetch");
       console.log(email.value);
-      fetch("/users" + email.value)
+      fetch("/users/" + email.value)
         .then(function (respuesta) {
-          console.log("entro al primer then");
+          console.log('email value es:', email.value);
           return respuesta.json();
         })
         .then(function (informacion) {
@@ -217,6 +217,7 @@ window.addEventListener("load", function () {
             console.log("el email estaba registrado con anterioridad");
             alert("El email no puede estar repetido");
           } else {
+            console.log('ahora hago el submit')
             form.submit();
             
           }

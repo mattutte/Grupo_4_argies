@@ -1,3 +1,5 @@
+const { VIRTUAL } = require("sequelize");
+
 module.exports = (sequelize, dataTypes) => {
     let alias = 'User';
     let cols = {
@@ -33,8 +35,23 @@ module.exports = (sequelize, dataTypes) => {
         },
         adult: {
             type: dataTypes.TINYINT(1)
+        },
+        detailUrl: {
+            type: dataTypes.VIRTUAL,
+            notNull: false,
+            get(){
+                const url = '/api/usuarios/'+this.getDataValue('email');
+                return url;
+            }
+        },
+        imageUrl: {
+            type: dataTypes.VIRTUAL,
+            notNull: false,
+            get(){
+                const url = '/api/usuarios/'+this.getDataValue('email')+'/img';
+                return url;
+            }
         }
-
     };
     let config = {
         tableName: 'users',

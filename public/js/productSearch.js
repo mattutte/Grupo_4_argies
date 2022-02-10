@@ -158,6 +158,7 @@ function pagination(querySet, page, rows){
 }
 
 function showProducts(products){
+    state.results = products.length;
     productsToShow = pagination(products, state.page, state.rows).querySet;
     let productSection = document.getElementById('product-section');
     productSection.innerHTML = "";
@@ -454,7 +455,7 @@ function resultsCount(count){
 }
 
 function loadNextPage(page=state.page+1){
-    state.page = page;
+    state.page = Math.min(page, Math.ceil(state.results/state.rows));
     getProducts(showProducts, errorMessage)
 }
 

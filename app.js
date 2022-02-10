@@ -53,7 +53,9 @@ const brandAPIRouter = require('./routes/api/brandAPIrouter');
 app.use('/api/brands/',brandAPIRouter);
 
 const mainRouter = require('./routes/mainRouter');
-app.use('/',mainRouter); 
+const usersAPIRouter = require('./routes/API/users');
+app.use('/',mainRouter);
+app.use('/api/usuarios',usersAPIRouter);
 
 
 
