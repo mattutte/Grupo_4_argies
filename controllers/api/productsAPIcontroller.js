@@ -34,12 +34,14 @@ const productsAPIController = {
 
   productList: (req, res) => {
     const products = db.Product.findAll({
+      include: [{ association: "Brand",
+      attributes: {exclude: ['Brand.id','Brand.country_origin']}}],
       //order:[['rating','DESC']],
       attributes: {exclude: [ 'year_created', 'features_style', 'features_gender',
-                            'features_use','features_others','regular_price', 'special_price', 'returnable', 
+                            'features_use','features_others', 'special_price', 'returnable', 
                             'weigh_package', 'delivery_time', 'color_available', 'size_available','image_front', 
                             'image_back', 'Brand.id','Brand.country_origin']},
-      include: [{ association: "Brand" }],
+      
     })
     const productsPerBrand = db.Product.count(
       {
@@ -55,17 +57,16 @@ const productsAPIController = {
 
     Promise.all([products, productsPerBrand])
 
-      .then((products,productsPerBrand) => {
-        console.log(productsPerBrand);
+      .then(result => {
+        const productsPerBrand = result[1]
+        const products = result[0]
+        //console.log(productsPerBrand);
         let respuesta = {
           meta: {
             status: 200,
             total: products.length,
             url: "/api/products/",
-            perBrand : products.reduce(function(sums,entry){
-              sums[entry.brand_id] = (sums[entry.brand_id] || 0) + 1;
-              return sums;
-           },{}),
+            perBrand : productsPerBrand,
           },
           data: products,
         };
