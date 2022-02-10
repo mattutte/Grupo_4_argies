@@ -220,7 +220,7 @@ window.addEventListener("load", function() {
             console.group('entrando al fetch');
             //const password_given = bcrypt.hashSync(password.value, 10);
             password_given = password.value
-            fetch("http://localhost:3000/users/" + email.value)
+            fetch("http://localhost:3001/users/" + email.value)
                 .then(function(respuesta){
                     console.log('entro al primer then');
                     return respuesta.json();                    

@@ -22,6 +22,7 @@ window.addEventListener("load", function() {
     let size_available = this.document.getElementById('size_available')
     let imageMain = this.document.getElementById('image-main')
     let formAddProduct = document.getElementById('formAddProduct')
+    let form = document.getElementById("formAddProduct")
 
     var errors = {
 /*         name: 'Falta completar el campo del nombre',
@@ -245,14 +246,17 @@ window.addEventListener("load", function() {
         }
     })
     formAddProduct.addEventListener('submit', function(e) {
+        e.preventDefault();
+        console.log('Empieza validacion final en products')
         let alertErrors = []
         for (property in errors) {
             if (`${errors[property]}` != '') {
-                e.preventDefault();
-                alertErrors.push('\n' + `${errors[property]}`)
+                alertErrors.push('\n' + `${errors[property]}`);
+                alert(alertErrors);
+            } else {
+                form.submit();
             }
         }
-        alert(alertErrors) 
     })
 })
 

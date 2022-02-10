@@ -201,7 +201,7 @@ let mainController = {
     },
 
     signup: (req, res) => {
-        res.render('signupv2')
+        res.render('signup v3')
     },
 
     crearperfil: (req, res) => {
@@ -282,7 +282,7 @@ let mainController = {
             
         } else {
             //console.log(errores);
-            res.render('signupv2', { errores: errores, old: req.body });
+            res.render('signup v3', { errores: errores, old: req.body });
             //console.log('hay errores, renderiza la página')
             //res.render('signup v3', {errores: errores2})
             //res.send(errores);
