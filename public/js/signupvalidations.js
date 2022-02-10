@@ -205,7 +205,7 @@ window.addEventListener("load", function () {
     
       alert("Todavia quedan errores en el formulario");
     } else {
-      console.group("entrando al fetch");
+      console.log("entrando al fetch");
       console.log(email.value);
       fetch("/users/" + email.value)
         .then(function (respuesta) {

@@ -23,7 +23,7 @@ const brandsAPIController = {
         let respuesta = {
           meta: {
             status: 200,
-            url: "/api/brands/id", // no :id porque en el url va solo el id
+            url: "/api/brands/"+brand.id, // no :id porque en el url va solo el id
           },
           data: brand,
         };
@@ -38,7 +38,14 @@ const brandsAPIController = {
 
   brandList: (req, res) => {
     db.Brand.findAll({
-
+      include: [{ association: "Product" }, 
+      //{attributes: {Product:id}}
+      ],
+      //attributes: [
+      //   "name_brand",
+      //   [sequelize.fn("COUNT", sequelize.col("Brand.Product.id")), "count_products"],
+      // ],
+      // group: "name_brand",
       
     })
       .then((brands) => {

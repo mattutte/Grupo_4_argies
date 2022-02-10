@@ -19,9 +19,9 @@ const productsAPIController = {
           meta: {
             status: 200,
             total: product.length,
-            url: "/api/products/id", // no :id porque en el url va solo el id
+            
           },
-          data: {product,profile: "http://localhost:3001/productDetail/"+product.id},
+          data: {product,profile: "http://localhost:3001/product/detail/"+product.id},
           
         };
         res.json(respuesta);
@@ -33,17 +33,39 @@ const productsAPIController = {
   },
 
   productList: (req, res) => {
-    db.Product.findAll({
+    const products = db.Product.findAll({
       //order:[['rating','DESC']],
+      attributes: {exclude: [ 'year_created', 'features_style', 'features_gender',
+                            'features_use','features_others','regular_price', 'special_price', 'returnable', 
+                            'weigh_package', 'delivery_time', 'color_available', 'size_available','image_front', 
+                            'image_back', 'Brand.id','Brand.country_origin']},
       include: [{ association: "Brand" }],
     })
-      .then((products) => {
-        console.log(products);
+    const productsPerBrand = db.Product.count(
+      {
+        attributes: ['brand_id'], 
+        group: 'brand_id',
+
+
+        // attributes: ['brand_id', 
+        //   sequelize.fn('count', sequelize.col('id'))], 
+        // group: ["Product.id_brand"]
+      })
+   
+
+    Promise.all([products, productsPerBrand])
+
+      .then((products,productsPerBrand) => {
+        console.log(productsPerBrand);
         let respuesta = {
           meta: {
             status: 200,
             total: products.length,
             url: "/api/products/",
+            perBrand : products.reduce(function(sums,entry){
+              sums[entry.brand_id] = (sums[entry.brand_id] || 0) + 1;
+              return sums;
+           },{}),
           },
           data: products,
         };
@@ -54,6 +76,15 @@ const productsAPIController = {
         res.sendStatus(500);
       });
   },
+
+  image: (req, res) => {
+    db.Product.findByPk(req.params.id)
+        .then(product => {
+            console.log("el id es:",req.params.id," y su imagen principal es: ", product.image_main)
+            //res.sendFile('http://localhost:3000/images/'+usuario.face_pic);
+            res.sendFile(path.join(__dirname, '../../public/images', product.image_main));
+        });
+      },
 
   create: (req,res) => {
     db.Product.create(
