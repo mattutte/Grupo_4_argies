@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import image from '../assets/images/lastProduct.png';
+// import image from '../assets/images/lastProduct.png';
 
 class LastMovieInDB extends Component {
     constructor(props) {
         super(props);
         this.state = {
             name: '',
-            image: '../assets/images/logo-DH.png',
+            image: '',
             description: ''
         }
     }
@@ -28,7 +28,7 @@ class LastMovieInDB extends Component {
         this.setState(
             {
                 name: lastProduct.name_product,
-                image: lastProduct.image_main,
+                image: lastProduct.imageUrl,
                 description: lastProduct.description_product
             }
         )
@@ -48,7 +48,7 @@ class LastMovieInDB extends Component {
                         </div>
                         <div className="card-body">
                             <div className="text-center">
-                                <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{ width: 20 + 'rem' }} src={image} alt={this.state.name} />
+                                <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{ width: 20 + 'rem' }} src={this.state.image} alt={this.state.name} />
                             </div>
                             <p> {this.state.description} </p>
                             <a className="btn btn-danger" target="_blank" rel="nofollow" href="/">View movie detail</a>

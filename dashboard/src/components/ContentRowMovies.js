@@ -22,7 +22,7 @@ class ContentRowTop extends Component {
         console.log('montando API')
         this.apiCall('/api/products', this.showProducts)
         this.apiCall('/api/brands', this.showBrands)
-        // this.apiCall('/api/users', this.showUsers)  ###### No tenemos API de users aun
+        this.apiCall('/api/usuarios', this.showUsers) 
     }
     showProducts = (data) => {
         this.setState(
@@ -38,38 +38,38 @@ class ContentRowTop extends Component {
             }
         )
     }
-    // showUsers = (data) => {
-    //     console.log(data.meta)
-    //     this.setState(
-    //         {
-    //             users: data.meta.total
-    //         }
-    //     )
-    // }
+    showUsers = (data) => {
+        console.log(data.meta)
+        this.setState(
+            {
+                users: data.meta.count
+            }
+        )
+    }
 
     componentDidUpdate() {
-        console.log('Actualizamos API')
+        // console.log('Actualizamos API')
     }
 
     render() {
 
         let productInDataBase = {
-            color: "primary",
-            titulo: "Movies in Data Base",
+            color: "secondary",
+            titulo: "Productos",
             valor: this.state.products,
             icono: "fas fa-film",
         }
 
         let amount = {
-            color: "success",
-            titulo: "Total awards",
+            color: "secondary",
+            titulo: "Marcas",
             valor: this.state.brands,
             icono: "fas fa-award",
         }
 
         let user = {
-            color: "warning",
-            titulo: "Actors quantity",
+            color: "secondary",
+            titulo: "Usuarios",
             valor: this.state.users,
             icono: "fas fa-user",
         }
