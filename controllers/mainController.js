@@ -257,7 +257,7 @@ let mainController = {
                 first_name: req.body.first_name,
                 last_name: req.body.last_name,
                 country: req.body.pais,
-                face_pic: req.body.face_pic,
+                face_pic: req.file.filename,
                 admin_category: req.body.admin == 'on'? 1 : 0,
                 adult: req.body.mayor == 'on'? 1 : 0,
                 
