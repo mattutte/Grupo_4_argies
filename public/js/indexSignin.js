@@ -165,7 +165,7 @@ window.addEventListener("load", function() {
             console.log('todo bien');
             console.group('entrando al fetch');
             password_given = password.value
-            fetch("http://localhost:3000/users/" + email.value)
+            fetch("/users/" + email.value)
                 .then(function(respuesta){
                     console.log('entro al primer then');
                     return respuesta.json();                    

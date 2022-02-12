@@ -351,7 +351,7 @@ let mainController = {
                     special_price: Number(req.body.specialPrice),
                     returnable: req.body.devolucion == 'on' ? 1 : 0,
                     delivery_time: req.body.delivery_time,
-                    weight_package: Number(req.body.weight_package),
+                    weigh_package: Number(req.body.weight_package),
                     color_available: req.body.color_available,
                     size_available: req.body.size_available,
                     image_main: req.files.find(file => file.fieldname == "image-main").filename,
@@ -408,10 +408,6 @@ let mainController = {
             include: [{ association: 'Brand' }]
         });
         let brands = db.Brand.findAll();
-
-        console.log(productToEdit);
-        console.log(brands.name_brand);
-
         Promise.all([productToEdit, brands])
             .then(function ([productToEdit, brands]) {
                 res.render('product-edit-form v3', { productToEdit: productToEdit, brands: brands });
@@ -420,49 +416,51 @@ let mainController = {
                 console.log(error);
                 res.send(500);
             });
-
-
     },
 
     update: (req, res) => {
         const id = req.params.id;
-        console.log(req.body);
-        console.log(req.file);
-        db.Product.update(
-            {
+        let productValidation = validationResult(req);
+        let productToEdit = db.Product.findByPk(id, {
+            include: [{ association: 'Brand' }]
+        });
+        let brands = db.Brand.findAll();
 
-                name_product: req.body.name,
-                category: req.body.category,
-                brand_id: req.body.brand,
-                description_product: req.body.description,
-                year_created: Number(req.body.year),
-                features_style: req.body.features_style,
-                features_gender: req.body.features_gender,
-                features_use: req.body.features_use,
-                features_others: req.body.features_others,
-                regular_price: Number(req.body.regularPrice),
-                special_price: Number(req.body.specialPrice),
-                returnable: req.body.devolucion == 'on' ? 1 : 0,
-                delivery_time: req.body.delivery_time,
-                weight_package: Number(req.body.weight_package),
-                color_available: req.body.color_available,
-                size_available: req.body.size_available,
-                image_main: req.files.find(file => file.fieldname == "image-main") ? req.files.find(file => file.fieldname == "image-main").filename : req.body.image_main,
-                image_front: req.files.find(file => file.fieldname == "image-front") ? req.files.find(file => file.fieldname == "image-front").filename : req.body.image_front,
-                image_back: req.files.find(file => file.fieldname == "image-back") ? req.files.find(file => file.fieldname == "image-back").filename : req.body.image_back,
-
-            },
-            { where: { id: id } }
-        )
-
-            .then(function () {
-                res.redirect('/')
-            })
-            .catch((error) => {
-                console.log(error);
-                res.send(500);
-            });
-
+        if (productValidation.errors.length > 0) {
+            res.redirect('/product/edit/' + id)
+        } else {
+            db.Product.update(
+                {
+                    name_product: req.body.name,
+                    category: req.body.category,
+                    brand_id: req.body.brand,
+                    description_product: req.body.description,
+                    year_created: Number(req.body.year),
+                    features_style: req.body.features_style,
+                    features_gender: req.body.features_gender,
+                    features_use: req.body.features_use,
+                    features_others: req.body.features_others,
+                    regular_price: Number(req.body.regularPrice),
+                    special_price: Number(req.body.specialPrice),
+                    returnable: req.body.devolucion == 'on' ? 1 : 0,
+                    delivery_time: req.body.delivery_time,
+                    weight_package: Number(req.body.weight_package),
+                    color_available: req.body.color_available,
+                    size_available: req.body.size_available,
+                    image_main: req.files.find(file => file.fieldname == "image-main") ? req.files.find(file => file.fieldname == "image-main").filename : req.body.image_main,
+                    image_front: req.files.find(file => file.fieldname == "image-front") ? req.files.find(file => file.fieldname == "image-front").filename : req.body.image_front,
+                    image_back: req.files.find(file => file.fieldname == "image-back") ? req.files.find(file => file.fieldname == "image-back").filename : req.body.image_back,
+                },
+                { where: { id: id } }
+            )
+                .then(function () {
+                    res.redirect('/')
+                })
+                .catch((error) => {
+                    console.log(error);
+                    res.send(500);
+                });
+        }
     },
 
     // Delete - Delete one product from DB

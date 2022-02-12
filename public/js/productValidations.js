@@ -21,25 +21,24 @@ window.addEventListener("load", function () {
     let color_available = this.document.getElementById('color_available')
     let size_available = this.document.getElementById('size_available')
     let imageMain = this.document.getElementById('image-main')
-    let formAddProduct = document.getElementById('formAddProduct')
-    let form = document.getElementById("formAddProduct")
-    
+    let form = document.getElementById('form')
+
     var errors = {
-        name: 'Falta completar el campo del nombre',
-        category: 'Falta completar el campo de la categoria',
-        brand: 'Falta completar el campo de la marca',
-        description: 'Falta completar el campo de la descripcion',
-        year: 'Falta completar el campo del año',
-        features_style: 'Falta completar el campo del estilo',
-        features_genre: 'Falta completar el campo del genero',
-        features_use: 'Falta completar el campo del uso',
-        regularPrice: 'Falta completar el campo del precio',
+        name: '',
+        category: '',
+        brand: '',
+        description: '',
+        year: '',
+        features_style: '',
+        features_genre: '',
+        features_use: '',
+        regularPrice: '',
         specialPrice: '',
-        deliveryTime: 'Falta completar el campo del tiempo de entrega',
-        weight_package: 'Falta completar el campo del peso del paquete',
-        color_available: 'Falta completar el campo del color disponible',
-        size_available: 'Falta completar el campo de la talla disponible',
-        imageMain: 'Falta completar la imagen principal'
+        deliveryTime: '',
+        weight_package: '',
+        color_available: '',
+        size_available: '',
+        imageMain: ''
     }
 
     // ####   Validate Name   ####
@@ -275,7 +274,7 @@ window.addEventListener("load", function () {
             document.querySelector("#errorImageLabel").innerHTML = "";
         }
     });
-    formAddProduct.addEventListener('submit', function(e) {
+    form.addEventListener('submit', function(e) {
         e.preventDefault();
         let alertErrors = []
         for (property in errors) {

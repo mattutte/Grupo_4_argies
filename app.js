@@ -9,12 +9,14 @@ const methodOverride =  require('method-override'); // Pasar poder usar los mét
 // ************ express() - (don't touch) ************
 const app = express();
 
+app.use(express.static('public'));
+app.use(express.static(__dirname + "/public"));
+
 const recordarUsuario = require('./middleware/recordameMiddleware')	
 
 // ************ Middlewares - (don't touch) ************
 //app.use(express.static(path.join(__dirname, '../public')));  // Necesario para los archivos estáticos en el folder /public
-app.use(express.static('public'));
-app.use(express.static(__dirname + "/public"));
+
 app.use(express.urlencoded({ extended: false }));
 //app.use(logger('dev'));
 app.use(express.json());

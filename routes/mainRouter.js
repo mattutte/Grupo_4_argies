@@ -49,14 +49,13 @@ router.get('/product/detail/:id', mainController.productDetails);
 /*** ADD AND EDIT PRODUCT ***/
 router.get('/admin', checkAccess, mainController.admin);
 
-// router.get('/addProduct', mainController.addProduct);
 router.get('/addProduct', checkAccess, mainController.addProduct);
 router.post('/addProduct', upload.any(), productValidation, mainController.store);
 router.get('/cart', redirect.login, mainController.checkCart);
 
 router.get('/product/pre_edit/:id', checkAccess, mainController.pre_edit);
-router.get('/product/edit/:id', checkAccess, mainController.editProduct);
-router.put('/product/:id', upload.any(), mainController.update); // los datos del formulario vienen por body
+router.get('/product/edit/:id', mainController.editProduct);
+router.put('/product/:id', upload.any(), productValidation, mainController.update); // los datos del formulario vienen por body
 
 
 /*** DELETE ONE PRODUCT***/
