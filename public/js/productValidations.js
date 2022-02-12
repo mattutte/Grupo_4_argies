@@ -23,6 +23,7 @@ window.addEventListener("load", function () {
     let imageMain = this.document.getElementById('image-main')
     let formAddProduct = document.getElementById('formAddProduct')
     let form = document.getElementById("formAddProduct")
+    
     var errors = {
         name: 'Falta completar el campo del nombre',
         category: 'Falta completar el campo de la categoria',

@@ -5,6 +5,7 @@ var validator = require('express-validator');
 const { check } = require('express-validator');
 
 const checkAccess = require('../middleware/authMiddleware');
+const productValidation = require('../middleware/productValidation');
 const redirect = require('../middleware/redirect');
 
 // ************ Multer configuration ************
@@ -48,8 +49,9 @@ router.get('/product/detail/:id', mainController.productDetails);
 /*** ADD AND EDIT PRODUCT ***/
 router.get('/admin', checkAccess, mainController.admin);
 
+// router.get('/addProduct', mainController.addProduct);
 router.get('/addProduct', checkAccess, mainController.addProduct);
-router.post('/addProduct', upload.any(), mainController.store);
+router.post('/addProduct', upload.any(), productValidation, mainController.store);
 router.get('/cart', redirect.login, mainController.checkCart);
 
 router.get('/product/pre_edit/:id', checkAccess, mainController.pre_edit);

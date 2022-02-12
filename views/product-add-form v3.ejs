@@ -6,7 +6,7 @@
   <body>
     <!-- Header -->
     <%- include('./partials/header v2.ejs') %>
-      <script type="text/javascript" src="js/productValidations.js"></script>
+      <!-- <script type="text/javascript" src="js/productValidations.js"></script> -->
 
       <!-- Main section -->
       <main>
@@ -46,7 +46,11 @@
                             <input type="text" name="name" id="name" placeholder="Ej: Remera Juventus"
                               class="form-input">
                           </div>
-                          <p class="errorLabel" id="errorNameLabel"> </p>
+                          <% if (locals.errors && errors.name) { %>
+                            <p class="errorLabel" id="errorNameLabel"> <%= errors.name.msg %>  </p>
+                          <% } else { %>  
+                            <p class="errorLabel" id="errorNameLabel"> </p>
+                          <% } %> 
                         </div>
                       </div>
                     </div>
@@ -72,7 +76,11 @@
                               <option value="Ball">Balon</Option>
                               <option value="Others">Otros</Option>
                             </select>
-                            <p class="errorLabel" id="errorCategoryLabel"> </p>
+                            <% if (locals.errors && errors.category) { %>
+                              <p class="errorLabel" id="errorCategoryLabel"> <%= errors.category.msg %>  </p>
+                            <% } else { %>  
+                              <p class="errorLabel" id="errorCategoryLabel"> </p>
+                            <% } %> 
                           </div>
                         </div>
                       </div>
@@ -101,7 +109,11 @@
                                 </option>
                                 <% } %>
                             </select>
-                            <p class="errorLabel" id="errorBrandLabel"> </p>
+                            <% if (locals.errors && errors.brand) { %>
+                              <p class="errorLabel" id="errorBrandLabel"> <%= errors.brand.msg %>  </p>
+                            <% } else { %>  
+                              <p class="errorLabel" id="errorBrandLabel"> </p>
+                            <% } %> 
                           </div>
                         </div>
                       </div>
@@ -123,7 +135,11 @@
                           <div class="listInlineSelect__selectBox-activeRegion">
                             <textarea type="text" id="description" name="description" class="form-input"></textarea>
                           </div>
-                          <p class="errorLabel" id="errordescriptionLabel"> </p>
+                          <% if (locals.errors && errors.description) { %>
+                            <p class="errorLabel" id="errordescriptionLabel">  <%= errors.description.msg %>  </p>
+                          <% } else { %>  
+                            <p class="errorLabel" id="errordescriptionLabel"> </p>
+                          <% } %> 
                         </div>
                       </div>
                     </div>
@@ -144,7 +160,11 @@
                           <div class="listInlineSelect__selectBox-activeRegion">
                             <input type="number" id="year" name="year" class="form-input"></input>
                           </div>
-                          <p class="errorLabel" id="errorYearLabel"> </p>
+                          <% if (locals.errors && errors.year) { %>
+                            <p class="errorLabel" id="errorYearLabel">  <%= errors.year.msg %>  </p>
+                          <% } else { %>  
+                            <p class="errorLabel" id="errorYearLabel"> </p>
+                          <% } %> 
                         </div>
                       </div>
                     </div>
@@ -184,7 +204,11 @@
                                           <option value="Short-sleeved">Mangas Cortas</Option>
                                           <option value="Other">Otros</Option>
                                         </select>
-                                        <p class="errorLabel" id="errorStyleLabel"> </p>
+                                        <% if (locals.errors && errors.features_style) { %>
+                                          <p class="errorLabel" id="errorStyleLabel"> <%= errors.features_style.msg %> </p>
+                                        <% } else { %>  
+                                          <p class="errorLabel" id="errorStyleLabel"> </p>
+                                        <% } %> 
                                       </div>
                                     </div>
                                   </div>
@@ -212,7 +236,11 @@
                                           <option value="Kids">Infantiles</Option>
                                           <option value="Alternative">Alternativo</Option>
                                         </select>
-                                        <p class="errorLabel" id="errorGenreLabel"> </p>
+                                        <% if (locals.errors && errors.features_gender) { %>
+                                          <p class="errorLabel" id="errorGenreLabel"> <%= errors.features_gender.msg %> </p>
+                                        <% } else { %>  
+                                          <p class="errorLabel" id="errorGenreLabel"> </p>
+                                        <% } %> 
                                       </div>
                                     </div>
                                   </div>
@@ -241,7 +269,11 @@
                                           <option value="Training">Entrenamiento</Option>
                                           <option value="Others">Otros</Option>
                                         </select>
-                                        <p class="errorLabel" id="errorUseLabel"> </p>
+                                        <% if (locals.errors && errors.features_use) { %>
+                                          <p class="errorLabel" id="errorUseLabel"> <%= errors.features_use.msg %> </p>
+                                        <% } else { %>  
+                                          <p class="errorLabel" id="errorUseLabel"> </p>
+                                        <% } %> 
                                       </div>
                                     </div>
                                   </div>
@@ -293,7 +325,11 @@
                             <span>$ </span><input id="regularPrice" name="regularPrice" placeholder="Ej: 5678"
                               class="form-input">
                           </div>
-                          <p class="errorLabel" id="errorPriceLabel"></p>
+                          <% if (locals.errors && errors.regularPrice) { %>
+                            <p class="errorLabel" id="errorPriceLabel"> <%= errors.regularPrice.msg %> </p>
+                          <% } else { %>  
+                            <p class="errorLabel" id="errorPriceLabel"></p>
+                          <% } %> 
                         </div>
                       </div>
                     </div>
@@ -315,7 +351,11 @@
                             <span>$ </span><input type="text" id="specialPrice" name="specialPrice"
                               placeholder="Ej: 5678" class="form-input">
                           </div>
-                          <p class="errorLabel" id="errorSpecialPriceLabel"> </p>
+                          <% if (locals.errors && errors.specialPrice) { %>
+                            <p class="errorLabel" id="errorSpecialPriceLabel"> <%= errors.specialPrice.msg %> </p>
+                          <% } else { %>  
+                            <p class="errorLabel" id="errorSpecialPriceLabel"> </p>
+                          <% } %> 
                         </div>
                       </div>
                     </div>
@@ -365,7 +405,11 @@
                               <option value="1Semana">En una semana</option>
                               <option value="2Semanas">En dos semanas</option>
                             </select>
-                            <p class="errorLabel" id="errorDeliveryTimeLabel"> </p>
+                            <% if (locals.errors && errors.delivery_time) { %>
+                              <p class="errorLabel" id="errorDeliveryTimeLabel"> <%= errors.delivery_time.msg %> </p>
+                            <% } else { %>
+                              <p class="errorLabel" id="errorDeliveryTimeLabel"> </p>
+                            <% } %> 
                           </div>
                         </div>
                       </div>
@@ -400,7 +444,11 @@
                             <input type="text" id="weight_package" name="weight_package" placeholder="Ej: 1.25"
                               class="form-input">
                           </div>
-                          <p class="errorLabel" id="errorWeigthLabel"> </p>
+                          <% if (locals.errors && errors.weight_package) { %>
+                            <p class="errorLabel" id="errorWeigthLabel"> <%= errors.weight_package.msg %> </p>
+                          <% } else { %>
+                            <p class="errorLabel" id="errorWeigthLabel"> </p>
+                          <% } %> 
                         </div>
                       </div>
                     </div>
@@ -422,7 +470,11 @@
                             <input type="text" id="color_available" name="color_available" placeholder="Rojo"
                               class="form-input">
                           </div>
-                          <p class="errorLabel" id="errorColorLabel"> </p>
+                          <% if (locals.errors && errors.color_available) { %>
+                            <p class="errorLabel" id="errorColorLabel"> <%= errors.color_available.msg %> </p>
+                          <% } else { %>
+                            <p class="errorLabel" id="errorColorLabel"> </p>
+                          <% } %> 
                         </div>
                       </div>
                     </div>
@@ -449,7 +501,11 @@
                               <option value="Extra-Large">Extra-Large</Option>
                             </select>
                           </div>
-                          <p class="errorLabel" id="errorSizeLabel"> </p>
+                          <% if (locals.errors && errors.size_available) { %>
+                            <p class="errorLabel" id="errorSizeLabel"> <%= errors.size_available.msg %> </p>
+                          <% } else { %>
+                            <p class="errorLabel" id="errorSizeLabel"> </p>
+                          <% } %>
                         </div>
                       </div>
                     </div>
