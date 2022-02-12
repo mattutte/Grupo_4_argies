@@ -1,4 +1,4 @@
-window.addEventListener("load", function() {
+window.addEventListener("load", function () {
 
     let validations = {
         name: /^[a-zA-Z0-9\s]{1,40}$/,
@@ -23,9 +23,8 @@ window.addEventListener("load", function() {
     let imageMain = this.document.getElementById('image-main')
     let formAddProduct = document.getElementById('formAddProduct')
     let form = document.getElementById("formAddProduct")
-
     var errors = {
-/*         name: 'Falta completar el campo del nombre',
+        name: 'Falta completar el campo del nombre',
         category: 'Falta completar el campo de la categoria',
         brand: 'Falta completar el campo de la marca',
         description: 'Falta completar el campo de la descripcion',
@@ -39,32 +38,32 @@ window.addEventListener("load", function() {
         weight_package: 'Falta completar el campo del peso del paquete',
         color_available: 'Falta completar el campo del color disponible',
         size_available: 'Falta completar el campo de la talla disponible',
-        imageMain: 'Falta completar la imagen principal' */
+        imageMain: 'Falta completar la imagen principal'
     }
 
     // ####   Validate Name   ####
-    name.addEventListener('blur', function(){
+    name.addEventListener('blur', function () {
         if (name.value == '') {
-            errors.name =  "El nombre no puede estar vacio"
+            errors.name = "El nombre no puede estar vacio"
             console.log(errors.name)
             this.style.border = " 2px solid red";
             document.getElementById('errorNameLabel').innerHTML = errors.name;
         }
     })
-    
-    name.addEventListener('change', function(){
+
+    name.addEventListener('change', function () {
         if (name.value == '') {
-            errors.name =  "El nombre no puede estar vacio"
+            errors.name = "El nombre no puede estar vacio"
             console.log(errors.name)
             this.style.border = " 2px solid red";
             document.getElementById('errorNameLabel').innerHTML = "El nombre no puede estar vacio";
         } else if (name.value.match(validations.name)) {
-            errors.name =  ""
+            errors.name = ""
             console.log(errors.name)
             this.style.border = " 2px solid green";
             document.getElementById('errorNameLabel').innerHTML = errors.name;
         } else {
-            errors.name =  "Solo se permiten Numeros, Letras y Espacios"
+            errors.name = "Solo se permiten Numeros, Letras y Espacios"
             console.log(errors.name)
             this.style.border = " 2px solid red";
             document.getElementById('errorNameLabel').innerHTML = "Solo se permiten Numeros, Letras y Espacios";
@@ -72,77 +71,84 @@ window.addEventListener("load", function() {
     })
 
     // ####   Validate Category   ####
-    category.addEventListener('change', function(){
+    category.addEventListener('change', function () {
         if (category.value == '') {
             this.style.border = " 2px solid red";
             document.getElementById('errorCategoryLabel').innerHTML = "Selecciona una categoria";
         } else {
+            errors.category = ''
             this.style.border = "2px solid green";
             document.getElementById('errorCategoryLabel').innerHTML = "";
         }
     })
 
     // ####   Validate Brand   ####
-    brand.addEventListener('change', function(){
+    brand.addEventListener('change', function () {
         if (brand.value == '') {
             this.style.border = "2px solid red";
             document.getElementById('errorBrandLabel').innerHTML = "Selecciona una marca";
         } else {
+            errors.brand = ''
             this.style.border = "2px solid green";
             document.getElementById('errorBrandLabel').innerHTML = "";
         }
     })
 
     // ####   Validate Year   ####
-    year.addEventListener('change', function(){
+    year.addEventListener('change', function () {
         if (year.value < 1900 || year.value > 2021) {
             this.style.border = "2px solid red";
             document.getElementById('errorYearLabel').innerHTML = "El año no corresponde";
         } else {
+            errors.year = ''
             this.style.border = "2px solid green";
             document.getElementById('errorYearLabel').innerHTML = "";
         }
     })
-        
+
     // ####   Validate Description   ####
-    description.addEventListener('change', function(){
-        if (description.value  == '') {
+    description.addEventListener('change', function () {
+        if (description.value == '') {
             this.style.border = "2px solid red";
             document.getElementById('errordescriptionLabel').innerHTML = "Debes añadir una descripción";
         } else {
+            errors.description = ''
             this.style.border = "2px solid green";
             document.getElementById('errordescriptionLabel').innerHTML = "";
         }
     })
 
-    // ####   Validate Brand   ####
-    features_style.addEventListener('change', function(){
+    // ####   Validate Features Style  ####
+    features_style.addEventListener('change', function () {
         if (features_style.value == '') {
             this.style.border = "2px solid red";
             document.getElementById('errorStyleLabel').innerHTML = "Selecciona un Estilo";
         } else {
+            errors.features_style = ''
             this.style.border = "2px solid green";
             document.getElementById('errorStyleLabel').innerHTML = "";
         }
     })
-    
+
     // ####   Validate Genre   ####
-    features_genre.addEventListener('change', function(){
+    features_genre.addEventListener('change', function () {
         if (features_genre.value == '') {
             this.style.border = "2px solid red";
             document.getElementById('errorGenreLabel').innerHTML = "Selecciona un Genero";
         } else {
+            errors.features_genre = ''
             this.style.border = "2px solid green";
             document.getElementById('errorGenreLabel').innerHTML = "";
         }
     })
 
     // ####   Validate Usa   ####
-    features_use.addEventListener('change', function(){
+    features_use.addEventListener('change', function () {
         if (features_use.value == '') {
             this.style.border = "2px solid red";
             document.getElementById('errorUseLabel').innerHTML = "Selecciona un USo";
         } else {
+            errors.features_use = ''
             this.style.border = "2px solid green";
             document.getElementById('errorUseLabel').innerHTML = "";
         }
@@ -150,113 +156,138 @@ window.addEventListener("load", function() {
 
     // ####   Validate Precio   ####
 
-    regularPrice.addEventListener('change', function(){
+    regularPrice.addEventListener('change', function () {
         if (regularPrice.value == '') {
             this.style.border = "2px solid red";
             document.getElementById('errorUseLabel').innerHTML = "Inserta un Precio";
         } else {
+            errors.regularPrice = ''
             this.style.border = "2px solid green";
             document.getElementById('errorUseLabel').innerHTML = "";
         }
     })
-    regularPrice.addEventListener('change', function(){
+    regularPrice.addEventListener('change', function () {
         if (regularPrice.value.match(validations.number)) {
+            errors.regularPrice = ''
             this.style.border = " 2px solid green";
             document.getElementById('errorPriceLabel').innerHTML = "";
         } else {
+            errors.regularPrice = 'Debes insertar el precio sin punto ni coma'
             this.style.border = " 2px solid red";
             document.getElementById('errorPriceLabel').innerHTML = "Debes insertar el precio sin punto ni coma"
         }
     })
 
     // ####   Validate Descuento   ####
-    specialPrice.addEventListener('change', function(){
+    specialPrice.addEventListener('change', function () {
         if (specialPrice.value.match(validations.number)) {
             this.style.border = " 2px solid green";
             document.getElementById('errorSpecialPriceLabel').innerHTML = "";
         } else {
+            errors.specialPrice = ''
             this.style.border = " 2px solid red";
             document.getElementById('errorSpecialPriceLabel').innerHTML = "Debes insertar el precio sin punto ni coma"
         }
     })
 
     // ####   Validate Delivery Time   ####
-    deliveryTime.addEventListener('change', function(){
+    deliveryTime.addEventListener('change', function () {
         if (deliveryTime.value == '') {
             this.style.border = "2px solid red";
             document.getElementById('errorDeliveryTimeLabel').innerHTML = "Selecciona un tiempo de entrega";
         } else {
+            errors.deliveryTime = ''
             this.style.border = "2px solid green";
             document.getElementById('errorDeliveryTimeLabel').innerHTML = "";
         }
     })
 
     // ####   Validate Peso   ####
-    weight_package.addEventListener('change', function(){
+    weight_package.addEventListener('change', function () {
         if (weight_package.value == '') {
             this.style.border = "2px solid red";
             document.getElementById('errorWeigthLabel').innerHTML = "Inserta un Peso";
         } else {
+            errors.weight_package = ''
             this.style.border = "2px solid green";
             document.getElementById('errorWeigthLabel').innerHTML = "";
         }
         if (weight_package.value.match(validations.number)) {
+            errors.weight_package = ''
             this.style.border = " 2px solid green";
             document.getElementById('errorWeigthLabel').innerHTML = "";
         } else {
+            errors.weight_package = 'Debes insertar el peso en gramos sin punto ni coma'
             this.style.border = " 2px solid red";
             document.getElementById('errorWeigthLabel').innerHTML = "Debes insertar el peso en gramos sin punto ni coma"
         }
     })
 
     // ####   Validate Color   ####
-    color_available.addEventListener('change', function(){
+    color_available.addEventListener('change', function () {
         if (color_available.value == '') {
             this.style.border = "2px solid red";
             document.getElementById('errorColorLabel').innerHTML = "Ingresa el color del producto";
         } else {
+            errors.color_available = ''
             this.style.border = "2px solid green";
             document.getElementById('errorColorLabel').innerHTML = "";
         }
         if (color_available.value.match(validations.letters)) {
+            errors.color_available = ''
             this.style.border = " 2px solid green";
             document.getElementById('errorColorLabel').innerHTML = "";
         } else {
+            errors.color_available = 'El color solo permite letras'
             this.style.border = " 2px solid red";
             document.getElementById('errorColorLabel').innerHTML = "El color solo permite letras"
         }
     })
 
     // ####   Validate Size  ####
-    size_available.addEventListener('change', function(){
+    size_available.addEventListener('change', function () {
         if (size_available.value == '') {
             this.style.border = "2px solid red";
             document.getElementById('errorSizeLabel').innerHTML = "Selecciona un talle para el producto";
         } else {
+            errors.size_available = ''
             this.style.border = "2px solid green";
             document.getElementById('errorSizeLabel').innerHTML = "";
         }
     })
 
     // ####   Validate Imagen  ####
-    imageMain.addEventListener('blur', function(){
-        if (imageMain.value == '') {
+    imageMain.addEventListener('change', function () {
+        console.log(imageMain.value);
+        let fname = imageMain.value;
+        let re = /(\.jpg|\.jpeg|\.gif|\.png)$/i;
+
+        if (imageMain.name == "" || !re.exec(fname)) {
+            errors.imageMain = 'Debe completar con una foto con formato jpg, jpeg, png o gif'
+            //last_name.classList.add('face_pic-invalido');
             this.style.border = " 2px solid red";
-            document.getElementById('errorImageLabel').innerHTML = "Debes cargar una imagen";
+            document.querySelector("#errorImageLabel").innerHTML =
+                "Debe completar con una foto con formato jpg, jpeg, png o gif ";
+        } else {
+            errors.imageMain = ''
+            this.style.border = " 2px solid green";
+            document.querySelector("#errorImageLabel").innerHTML = "";
         }
-    })
+    });
     formAddProduct.addEventListener('submit', function(e) {
         e.preventDefault();
-        console.log('Empieza validacion final en products')
         let alertErrors = []
         for (property in errors) {
             if (`${errors[property]}` != '') {
-                alertErrors.push('\n' + `${errors[property]}`);
-                alert(alertErrors);
-            } else {
-                form.submit();
+                alertErrors.push('\n' + `${errors[property]}`)
             }
         }
+        if (alertErrors == '') {
+            form.submit();
+        } else {
+            alert(alertErrors);
+        }
+        
     })
 })
 

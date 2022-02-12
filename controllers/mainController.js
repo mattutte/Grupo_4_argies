@@ -334,14 +334,9 @@ let mainController = {
 
     store: (req, res) => {
         // modificar con sequilize y nueva estructure SQL
-        console.log(req.body);
-        console.log(req.files);
-        console.log(Number(req.body.weight_package));
-
+        console.log('AQUUUIIIIIIII', req.body.weight_package)
         db.Product.create(
             {
-
-                
                 name_product: req.body.name,
                 category: req.body.category,
                 brand_id: req.body.brand,
@@ -355,13 +350,13 @@ let mainController = {
                 special_price: Number(req.body.specialPrice),
                 returnable: req.body.devolucion == 'on'? 1 : 0,
                 delivery_time: req.body.delivery_time,
-                weight_package: Number(req.body.weight_package),
+                weigh_package: 1.0,
+                // weight_package: Number(req.body.weight_package),
                 color_available: req.body.color_available,
                 size_available: req.body.size_available,
                 image_main: req.files.find(file=>file.fieldname == "image-main").filename,
                 image_front: req.files.find(file=>file.fieldname == "image-front") ? req.files.find(file=>file.fieldname == "image-front").filename : "",
                 image_back: req.files.find(file=>file.fieldname == "image-back") ? req.files.find(file=>file.fieldname == "image-back").filename : ""
-             
             } 
          )
          .then(function(){  
@@ -369,7 +364,7 @@ let mainController = {
         })
         .catch((error) => {
             console.log(error);
-            res.send(500);
+            res.redirect('/')
         });
 
         
