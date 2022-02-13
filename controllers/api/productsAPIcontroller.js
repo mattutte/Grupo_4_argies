@@ -106,7 +106,7 @@ const productsAPIController = {
           weight_package: Number(req.body.weight_package),
           color_available: req.body.color_available,
           size_available: req.body.size_available,
-          image_main: req.files.find(file=>file.fieldname == "image-main").filename,
+          image_main: req.files.find(file=>file.fieldname == "image_main").filename,
           image_front: req.files.find(file=>file.fieldname == "image-front") ? req.files.find(file=>file.fieldname == "image-front").filename : "",
           image_back: req.files.find(file=>file.fieldname == "image-back") ? req.files.find(file=>file.fieldname == "image-back").filename : ""
         }
@@ -157,7 +157,7 @@ update: (req,res) => {
           weight_package: Number(req.body.weight_package),
           color_available: req.body.color_available,
           size_available: req.body.size_available,
-          image_main: req.files.find(file=>file.fieldname == "image-main") ? req.files.find(file=>file.fieldname == "image-main").filename : req.body.image_main,
+          image_main: req.files.find(file=>file.fieldname == "image_main") ? req.files.find(file=>file.fieldname == "image_main").filename : req.body.image_main,
           image_front: req.files.find(file=>file.fieldname == "image-front") ? req.files.find(file=>file.fieldname == "image-front").filename : req.body.image_front,
           image_back: req.files.find(file=>file.fieldname == "image-back") ? req.files.find(file=>file.fieldname == "image-back").filename : req.body.image_back
         },

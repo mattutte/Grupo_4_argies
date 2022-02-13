@@ -20,7 +20,9 @@ window.addEventListener("load", function () {
     let weight_package = this.document.getElementById('weight_package')
     let color_available = this.document.getElementById('color_available')
     let size_available = this.document.getElementById('size_available')
-    let imageMain = this.document.getElementById('image-main')
+    let imageMain = this.document.getElementById('image_main')
+    let imageFront = this.document.getElementById('image-front')
+    let imageBack = this.document.getElementById('image-back')
     let form = document.getElementById('form')
 
     var errors = {
@@ -51,7 +53,7 @@ window.addEventListener("load", function () {
         }
     })
 
-    name.addEventListener('change', function () {
+    name.addEventListener('blur', function () {
         if (name.value == '') {
             errors.name = "El nombre no puede estar vacio"
             console.log(errors.name)
@@ -71,7 +73,7 @@ window.addEventListener("load", function () {
     })
 
     // ####   Validate Category   ####
-    category.addEventListener('change', function () {
+    category.addEventListener('blur', function () {
         if (category.value == '') {
             this.style.border = " 2px solid red";
             document.getElementById('errorCategoryLabel').innerHTML = "Selecciona una categoria";
@@ -83,7 +85,7 @@ window.addEventListener("load", function () {
     })
 
     // ####   Validate Brand   ####
-    brand.addEventListener('change', function () {
+    brand.addEventListener('blur', function () {
         if (brand.value == '') {
             this.style.border = "2px solid red";
             document.getElementById('errorBrandLabel').innerHTML = "Selecciona una marca";
@@ -95,7 +97,7 @@ window.addEventListener("load", function () {
     })
 
     // ####   Validate Year   ####
-    year.addEventListener('change', function () {
+    year.addEventListener('blur', function () {
         if (year.value < 1900 || year.value > 2021) {
             this.style.border = "2px solid red";
             document.getElementById('errorYearLabel').innerHTML = "El año no corresponde";
@@ -107,7 +109,7 @@ window.addEventListener("load", function () {
     })
 
     // ####   Validate Description   ####
-    description.addEventListener('change', function () {
+    description.addEventListener('blur', function () {
         if (description.value == '') {
             this.style.border = "2px solid red";
             document.getElementById('errordescriptionLabel').innerHTML = "Debes añadir una descripción";
@@ -119,7 +121,7 @@ window.addEventListener("load", function () {
     })
 
     // ####   Validate Features Style  ####
-    features_style.addEventListener('change', function () {
+    features_style.addEventListener('blur', function () {
         if (features_style.value == '') {
             this.style.border = "2px solid red";
             document.getElementById('errorStyleLabel').innerHTML = "Selecciona un Estilo";
@@ -131,7 +133,7 @@ window.addEventListener("load", function () {
     })
 
     // ####   Validate Genre   ####
-    features_genre.addEventListener('change', function () {
+    features_genre.addEventListener('blur', function () {
         if (features_genre.value == '') {
             this.style.border = "2px solid red";
             document.getElementById('errorGenreLabel').innerHTML = "Selecciona un Genero";
@@ -143,7 +145,7 @@ window.addEventListener("load", function () {
     })
 
     // ####   Validate Usa   ####
-    features_use.addEventListener('change', function () {
+    features_use.addEventListener('blur', function () {
         if (features_use.value == '') {
             this.style.border = "2px solid red";
             document.getElementById('errorUseLabel').innerHTML = "Selecciona un USo";
@@ -156,7 +158,7 @@ window.addEventListener("load", function () {
 
     // ####   Validate Precio   ####
 
-    regularPrice.addEventListener('change', function () {
+    regularPrice.addEventListener('blur', function () {
         if (regularPrice.value == '') {
             this.style.border = "2px solid red";
             document.getElementById('errorUseLabel').innerHTML = "Inserta un Precio";
@@ -166,7 +168,7 @@ window.addEventListener("load", function () {
             document.getElementById('errorUseLabel').innerHTML = "";
         }
     })
-    regularPrice.addEventListener('change', function () {
+    regularPrice.addEventListener('blur', function () {
         if (regularPrice.value.match(validations.number)) {
             errors.regularPrice = ''
             this.style.border = " 2px solid green";
@@ -179,7 +181,7 @@ window.addEventListener("load", function () {
     })
 
     // ####   Validate Descuento   ####
-    specialPrice.addEventListener('change', function () {
+    specialPrice.addEventListener('blur', function () {
         if (specialPrice.value.match(validations.number)) {
             this.style.border = " 2px solid green";
             document.getElementById('errorSpecialPriceLabel').innerHTML = "";
@@ -191,7 +193,7 @@ window.addEventListener("load", function () {
     })
 
     // ####   Validate Delivery Time   ####
-    deliveryTime.addEventListener('change', function () {
+    deliveryTime.addEventListener('blur', function () {
         if (deliveryTime.value == '') {
             this.style.border = "2px solid red";
             document.getElementById('errorDeliveryTimeLabel').innerHTML = "Selecciona un tiempo de entrega";
@@ -203,7 +205,7 @@ window.addEventListener("load", function () {
     })
 
     // ####   Validate Peso   ####
-    weight_package.addEventListener('change', function () {
+    weight_package.addEventListener('blur', function () {
         if (weight_package.value == '') {
             this.style.border = "2px solid red";
             document.getElementById('errorWeigthLabel').innerHTML = "Inserta un Peso";
@@ -224,7 +226,7 @@ window.addEventListener("load", function () {
     })
 
     // ####   Validate Color   ####
-    color_available.addEventListener('change', function () {
+    color_available.addEventListener('blur', function () {
         if (color_available.value == '') {
             this.style.border = "2px solid red";
             document.getElementById('errorColorLabel').innerHTML = "Ingresa el color del producto";
@@ -245,7 +247,7 @@ window.addEventListener("load", function () {
     })
 
     // ####   Validate Size  ####
-    size_available.addEventListener('change', function () {
+    size_available.addEventListener('blur', function () {
         if (size_available.value == '') {
             this.style.border = "2px solid red";
             document.getElementById('errorSizeLabel').innerHTML = "Selecciona un talle para el producto";
@@ -263,6 +265,41 @@ window.addEventListener("load", function () {
         let re = /(\.jpg|\.jpeg|\.gif|\.png)$/i;
 
         if (imageMain.name == "" || !re.exec(fname)) {
+            errors.imageMain = 'Debe completar con una foto con formato jpg, jpeg, png o gif'
+            //last_name.classList.add('face_pic-invalido');
+            this.style.border = " 2px solid red";
+            document.querySelector("#errorImageLabel").innerHTML =
+                "Debe completar con una foto con formato jpg, jpeg, png o gif ";
+        } else {
+            errors.imageMain = ''
+            this.style.border = " 2px solid green";
+            document.querySelector("#errorImageLabel").innerHTML = "";
+        }
+    });
+    
+    imageFront.addEventListener('change', function () {
+        console.log(imageMain.value);
+        let fname = imageMain.value;
+        let re = /(\.jpg|\.jpeg|\.gif|\.png)$/i;
+        if (!re.exec(fname)) {
+            errors.imageMain = 'Debe completar con una foto con formato jpg, jpeg, png o gif'
+            //last_name.classList.add('face_pic-invalido');
+            this.style.border = " 2px solid red";
+            document.querySelector("#errorImageLabel").innerHTML =
+                "Debe completar con una foto con formato jpg, jpeg, png o gif ";
+        } else {
+            errors.imageMain = ''
+            this.style.border = " 2px solid green";
+            document.querySelector("#errorImageLabel").innerHTML = "";
+        }
+    });
+
+    imageBack.addEventListener('change', function () {
+        console.log(imageMain.value);
+        let fname = imageMain.value;
+        let re = /(\.jpg|\.jpeg|\.gif|\.png)$/i;
+
+        if (!re.exec(fname)) {
             errors.imageMain = 'Debe completar con una foto con formato jpg, jpeg, png o gif'
             //last_name.classList.add('face_pic-invalido');
             this.style.border = " 2px solid red";

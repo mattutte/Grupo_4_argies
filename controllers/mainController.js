@@ -330,10 +330,11 @@ let mainController = {
     store: (req, res) => {
         // modificar con sequilize y nueva estructure SQL
         let productValidation = validationResult(req);
+        console.log(productValidation.mapped())
         if (productValidation.errors.length > 0) {
             db.Brand.findAll()
                 .then((brands) => {
-                    res.render('product-add-form v3', { brands: brands, errors: productValidation.mapped() })
+                    res.render('product-add-form v3', { brands: brands, errors: productValidation.mapped(), oldData: req.body })
                 })
         } else {
             db.Product.create(
@@ -354,7 +355,7 @@ let mainController = {
                     weigh_package: Number(req.body.weight_package),
                     color_available: req.body.color_available,
                     size_available: req.body.size_available,
-                    image_main: req.files.find(file => file.fieldname == "image-main").filename,
+                    image_main: req.files.find(file => file.fieldname == "image_main").filename,
                     image_front: req.files.find(file => file.fieldname == "image-front") ? req.files.find(file => file.fieldname == "image-front").filename : "",
                     image_back: req.files.find(file => file.fieldname == "image-back") ? req.files.find(file => file.fieldname == "image-back").filename : ""
                 }
@@ -425,9 +426,9 @@ let mainController = {
             include: [{ association: 'Brand' }]
         });
         let brands = db.Brand.findAll();
-
+        let errors = productValidation.mapped()
         if (productValidation.errors.length > 0) {
-            res.redirect('/product/edit/' + id)
+            res.render('product-edit-form v3', {errors:productValidation})
         } else {
             db.Product.update(
                 {
@@ -447,7 +448,7 @@ let mainController = {
                     weight_package: Number(req.body.weight_package),
                     color_available: req.body.color_available,
                     size_available: req.body.size_available,
-                    image_main: req.files.find(file => file.fieldname == "image-main") ? req.files.find(file => file.fieldname == "image-main").filename : req.body.image_main,
+                    image_main: req.files.find(file => file.fieldname == "image_main") ? req.files.find(file => file.fieldname == "image_main").filename : req.body.image_main,
                     image_front: req.files.find(file => file.fieldname == "image-front") ? req.files.find(file => file.fieldname == "image-front").filename : req.body.image_front,
                     image_back: req.files.find(file => file.fieldname == "image-back") ? req.files.find(file => file.fieldname == "image-back").filename : req.body.image_back,
                 },
@@ -608,7 +609,7 @@ let mainController = {
                 country: req.body.face_pic,
                 admin_category: req.body.admin,
                 adult: req.body.mayor,
-                image_main: req.files.find(file => file.fieldname == "image-main").filename ? req.files.find(file => file.fieldname == "image-main").filename : req.body.image_main,
+                image_main: req.files.find(file => file.fieldname == "image_main").filename ? req.files.find(file => file.fieldname == "image_main").filename : req.body.image_main,
 
             },
             { where: { email: user_id } }

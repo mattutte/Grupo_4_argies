@@ -44,7 +44,7 @@
                           </div>
                           <div class="listInlineSelect__selectBox-activeRegion">
                             <input type="text" name="name" id="name" placeholder="Ej: Remera Juventus"
-                              class="form-input">
+                              class="form-input" value="<%= locals.oldData ? oldData.name : '' %>">
                           </div>
                           <% if (locals.errors && errors.name) { %>
                             <p class="errorLabel" id="errorNameLabel"> <%= errors.name.msg %>  </p>
@@ -133,7 +133,7 @@
                             </div>
                           </div>
                           <div class="listInlineSelect__selectBox-activeRegion">
-                            <textarea type="text" id="description" name="description" class="form-input"></textarea>
+                            <textarea type="text" id="description" name="description" class="form-input" value="hola"></textarea>
                           </div>
                           <% if (locals.errors && errors.description) { %>
                             <p class="errorLabel" id="errordescriptionLabel">  <%= errors.description.msg %>  </p>
@@ -158,7 +158,7 @@
                             </div>
                           </div>
                           <div class="listInlineSelect__selectBox-activeRegion">
-                            <input type="number" id="year" name="year" class="form-input"></input>
+                            <input type="number" id="year" name="year" class="form-input" value="<%= locals.oldData ? parseInt(oldData.year) : '' %>"></input>
                           </div>
                           <% if (locals.errors && errors.year) { %>
                             <p class="errorLabel" id="errorYearLabel">  <%= errors.year.msg %>  </p>
@@ -284,7 +284,7 @@
                             <!-- Característica 4 ---------------->
                             <div class="caract-input">
                               <label>Otras</label>
-                              <textarea type="text" id="features_others" name="features_others"
+                              <textarea type="text" id="features_others" name="features_others" 
                                 class="form-input-caract" placeholder="Otras caracteristicas del producto..."
                                 %>"></textarea>
                             </div>
@@ -322,7 +322,7 @@
                             </div>
                           </div>
                           <div class="listInlineSelect__selectBox-activeRegion">
-                            <span>$ </span><input id="regularPrice" name="regularPrice" placeholder="Ej: 5678"
+                            <span>$ </span><input id="regularPrice" name="regularPrice" placeholder="Ej: 5678" value="<%= locals.oldData ? oldData.regularPrice : '' %>"
                               class="form-input">
                           </div>
                           <% if (locals.errors && errors.regularPrice) { %>
@@ -348,7 +348,7 @@
                             </div>
                           </div>
                           <div class="listInlineSelect__selectBox-activeRegion">
-                            <span>$ </span><input type="text" id="specialPrice" name="specialPrice"
+                            <span>$ </span><input type="text" id="specialPrice" name="specialPrice" value="<%= locals.oldData ? oldData.specialPrice : '' %>"
                               placeholder="Ej: 5678" class="form-input">
                           </div>
                           <% if (locals.errors && errors.specialPrice) { %>
@@ -441,7 +441,7 @@
                             </div>
                           </div>
                           <div class="listInlineSelect__selectBox-activeRegion">
-                            <input type="text" id="weight_package" name="weight_package" placeholder="Ej: 1.25"
+                            <input type="text" id="weight_package" name="weight_package" value="<%= locals.oldData ? oldData.weight_package : '' %>"
                               class="form-input">
                           </div>
                           <% if (locals.errors && errors.weight_package) { %>
@@ -467,7 +467,7 @@
                             </div>
                           </div>
                           <div class="listInlineSelect__selectBox-activeRegion">
-                            <input type="text" id="color_available" name="color_available" placeholder="Rojo"
+                            <input type="text" id="color_available" name="color_available" placeholder="Rojo" value="<%= locals.oldData ? oldData.color_available : '' %>"
                               class="form-input">
                           </div>
                           <% if (locals.errors && errors.color_available) { %>
@@ -542,10 +542,14 @@
                             </div>
                           </div>
                           <div class="listInlineSelect__selectBox-activeRegion">
-                            <input type="file" id="image-main" name="image-main" placeholder="Imagen principal"
+                            <input type="file" id="image_main" name="image_main" placeholder="Imagen principal"
                               class="form-input">
                           </div>
-                          <p class="errorLabel" id="errorImageLabel"></p>
+                          <% if (locals.errors && errors.image_main) { %>
+                            <p class="errorLabel" id="errorSizeLabel"> <%= errors.image_main.msg %> </p>
+                          <% } else { %>
+                            <p class="errorLabel" id="errorSizeLabel"> </p>
+                          <% } %>
                         </div>
                       </div>
                     </div>

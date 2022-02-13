@@ -26,14 +26,29 @@ const productValidation =[
 
   body('specialPrice').isNumeric().withMessage('Debes insertar el precio sin punto ni coma'),
 
-  body('delivery_time').notEmpty(),
+  body('delivery_time').notEmpty().withMessage('Debes seleccionar el tiempo de entrega'),
 
   body('weight_package').notEmpty().withMessage('Falta completar el campo del peso del paquete'),
   body('weight_package').isNumeric().withMessage('Debes insertar el Peso sin punto ni coma'),
 
-  body('color_available').notEmpty(),
+  body('color_available').notEmpty().withMessage('Debes insertar un color'),
 
-  body('size_available').notEmpty()
+  body('size_available').notEmpty().withMessage('Debes seleccionar una talla'), 
+
+  // body('image_main').custom((value, {req}) => {
+  //   let file = req.image_main
+  //   console.log(req)
+  //   // let acceptedExtensions = ['.jpg', '.png', '.jpeg', 'gif']
+  //   if (!file) {
+  //     throw new Error ('Te falta subir una imagen')
+  //   // } else {
+  //   //   let extension = (path.extname(filename)).toLowerCase();
+  //   //   if (!acceptedExtensions.includes(extension)) {
+  //   //     throw new Error ('Solo se permiten archivos tipo Imagen')
+  //   //   }
+  //   }
+  //   return true
+  // })
 ]
 
 module.exports = productValidation;
